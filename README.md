@@ -25,7 +25,7 @@ Here are collected some programs and scripts designed to configure support for t
 
 ### MikTeX and TeX Live
 
-Added common patterns of Russian-English hyphenation, a style file for checking "forward links" in tech files, modified style files for Russian bibliography in the GOST style, etc.
+Added common patterns of Russian-English hyphenation, a style file for checking "forward links" in tex-files, modified style files for Russian bibliography in the GOST style, etc.
 
 Sources to build installers: [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) and [TeX Live](https://github.com/kozyakin/KVicTools/tree/main/TeXLive)
 
