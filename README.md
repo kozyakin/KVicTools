@@ -5,13 +5,13 @@
 
 Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилефые файлы для русской библиографии в стиле ГОСТ и др. 
 
-Исходные файлы для построения инсталляторов [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/TeXLive)
+Исходные файлы для построения инсталляторов [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/tree/main/TeXLive)
 
 ### WinEdt
 
 Добавлен перевод всех элементов интерфейса WinEdt На русский язык, а также существенно дополнен набор сервисных макросов для выполнения повседневных нужд - поиск и чистка мусора, перекодировка документов, поиск неиспользуемых или многократно используемых ссылко и меток и др.
 
-Исходные файлы для построения инсталлятора [WinEdt](https://github.com/kozyakin/KVicTools/WinEdt)
+Исходные файлы для построения инсталлятора [WinEdt](https://github.com/kozyakin/KVicTools/tree/main/WinEdt)
 
 ### Другое
 
@@ -27,13 +27,13 @@ Here are collected some programs and scripts designed to configure support for t
 
 Added common patterns of Russian-English hyphenation, a style file for checking "forward links" in tech files, modified style files for Russian bibliography in the GOST style, etc.
 
-Sources to build installers [MiKTeX](https://github.com/kozyakin/KVicTools/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicToolsTeXLive)
+Sources to build installers [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/tree/main/TeXLive)
 
 ### WinEdt
 
 The translation of all elements of the *WinEdt* interface into Russian has been added, as well as the set of service macros for fulfilling everyday needs has been significantly expanded - searching and cleaning garbage, recoding documents, finding unused or reused links, labels and tags, etc.
 
-Sources to build installer [WinEdt](https://github.com/kozyakin/KVicToolsWinEdt)
+Sources to build installer [WinEdt](https://github.com/kozyakin/KVicTools/tree/main/WinEdt)
 
 ### Other
 
