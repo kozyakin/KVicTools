@@ -85,4 +85,4 @@ It is recommended to use *noto*  font optimized for web presentations in slides 
 ```
 The *pxcyr* and *txcyr* packages can also be replaced with the tempora, paratype, and others.
 
-Questions regarding **TeX Live KVicTools** will be answered by [Victor Kozyakin] (mailto: kozyakin@iitp.ru)
+Questions regarding **TeX Live KVicTools** will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru)
