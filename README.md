@@ -5,7 +5,7 @@
 
 Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилефые файлы для русской библиографии в стиле ГОСТ и др. 
 
-Исходные файлы для построения инсталляторов [MiKTeX](https://github.com/kozyakin/KVicTools/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/TeXLive)
+Исходные файлы для построения инсталляторов [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/TeXLive)
 
 ### WinEdt
 
