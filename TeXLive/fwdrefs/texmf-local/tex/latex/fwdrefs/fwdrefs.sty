@@ -1,0 +1,68 @@
+%% This style preforms checking of forward referencing in LaTeX documents
+%% based on a code provided by TH on 
+%% https://tex.stackexchange.com/questions/4206/is-there-a-way-to-have-latex-detect-forward-references
+%% which was modified to cope with hyperref package
+%%
+%%
+%% Victor Kozyakin <kozyakin@iitp.ru>
+%%
+%% Reference tracing is logged in the file <jobname>.refs for manual
+%% inspection
+%%
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{fwdrefs}%
+[2012/09/26 by V.Kozyakin]
+
+\newwrite\refs
+\openout\refs=\jobname.refs
+
+\@ifpackageloaded{upref}
+{\def\@refs@fmt#1#2{\protect\textup{\expandafter#2#1\hbox{}}}}%
+{\def\@refs@fmt#1#2{\expandafter#2#1\hbox{}}}%
+
+
+\AtBeginDocument{%
+ \@ifpackageloaded{hyperref}{%
+     \def\@setref#1#2#3{%
+       \ifx#1\relax%
+         \write\refs{Reference '#3' on page \thepage\space undefined}%
+           \expandafter\protect
+           \G@refundefinedtrue
+           \nfss@text{\reset@font\bfseries ??}%
+           \@latex@warning{Reference `#3' on page \thepage\space undefined}%
+       \else
+         \begingroup
+         \count@\expandafter\@secondoffive#1\relax
+         \ifnum\c@page<\count@
+           \write\refs{Label '#3' on page \expandafter\@secondoffive#1\space
+           referenced from page \thepage}%
+         \fi
+         \endgroup
+         \expandafter\Hy@setref@link#1\@empty\@empty\@nil{#2}%
+       \fi
+     }%
+     }{%
+     \def\@setref#1#2#3{%
+       \ifx#1\relax%
+         \write\refs{Reference '#3' on page \thepage\space undefined}%
+           \expandafter\protect
+           \G@refundefinedtrue
+           \nfss@text{\reset@font\bfseries ??}%
+           \@latex@warning{Reference `#3' on page \thepage\space undefined}%
+       \else
+         \begingroup
+         \count@\expandafter\@secondoftwo#1\relax
+         \ifnum\c@page<\count@
+           \write\refs{Label '#3' on page \expandafter\@secondoftwo#1\space
+           referenced from page \thepage}%
+         \fi
+         \endgroup
+         \@refs@fmt#1#2%
+       \fi
+     }%
+    }%
+}%
+%%
+%% End of file `fwdrefs.sty'.

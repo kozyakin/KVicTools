@@ -1,0 +1,732 @@
+// !Mode:: "ASCII:EDT"
+// Sort.edt
+// sort a bibliography file
+// part of the bibMacros package
+// (schlicht 20010718)
+// $Revision: 1.11 $
+// ----------------------------------
+
+PushTagsandRegisters;
+
+// Read the global configuration file, if it exists:
+IfFileExists("%b\Macros\LaTeX\bibMacros\bibMacros.cfg",>
+  !"Exe('%b\Macros\LaTeX\bibMacros\bibMacros.cfg');",>
+  !"IfFileExists('%B\Macros\LaTeX\bibMacros\bibMacros.cfg',>
+      'Exe(''%B\Macros\LaTeX\bibMacros\bibMacros.cfg'');',>
+     !'Assign(''bib_beginLine'',''<'');>
+       Assign(''bib_sortFirst'',''author|editor'');>
+       Assign(''bib_sortSecond'',''year'');>
+       Assign(''bib_sortCrossrefs'',''yes'');>
+       Assign(''bib_sortNrAuthors'',''3'');>
+       Assign(''Borb'',>
+         !*IfFileExists(''%b\%$(|BorbFile|);'',>
+            !''Assign(""%$(|BorbName|);"",""%b\%$(|BorbFile|);"");'',>
+            !''IfFileExists(""%B\%$(|BorbFile|);"",>
+                !""Assign(''''%$(|BorbName|);'''',''''%B\%$(|BorbFile|);'''');"",>
+                !""Assign(''''%$(|BorbName|);'''',''''???'''');"");'');>
+           Release(''BorbName'');>
+           Release(''BorbFile'');>
+       *);'>
+    );">
+);
+
+//Assign("BM_debug","well, yes");
+IfStr("%$('bib_sortFirst');","","=","Assign('bib_sortFirst','author|editor');");
+IfStr("%$('bib_sortSecond');","","=","Assign('bib_sortSecond','year');");
+IfStr("%$('bib_sortFirst');","OK","=","Assign('bib_sortFirst','author|editor');");
+IfStr("%$('bib_sortSecond');","OK","=","Assign('bib_sortSecond','year');");
+IfStr("%$('bib_sortCrossrefs');","","=","Assign('bib_sortCrossrefs','yes');");
+
+// You will be asked for the sort criteria, except you don't want to.
+IfStr("%$('bib_sortPrompt');","no","=","JMP('MUI_done');");
+
+IfStr("%$('bib_bibStyle');","","=","",!">
+   Assign('BorbName','BM_Fields_%$(|bib_bibStyle|);.cfg');>
+   Assign('BorbFile','Macros\LaTeX\bibMacros\Fields_%$(|bib_bibStyle|);.cfg');>
+   IfStr('%[|%$(:Borb:);|];%$(|BM_Fields_%$(*bib_bibStyle*);.cfg|);','???','<>',>
+     !'Exe(''%$(|BM_Fields_%$(*bib_bibStyle*);.cfg|);'');');">
+);
+
+Assign("BorbName","BM_Fields.cfg");
+Assign("BorbFile","Macros\LaTeX\bibMacros\Fields.cfg");
+IfStr("%['%$(|Borb|);'];%$('BM_Fields.cfg');","???","=",>
+  !"Assign('bib_FIELDS',!'{author=}{editor=}{title=}{booktitle=}{year=}{journal=}{howpublished=}>
+      {type=}{chapter=}{pages=}{volume=}{series=}{number=}{crossref=}{key=}{address=}{publisher=}>
+      {organization=}{school=}{institution=}{edition=}{month=}{note=}{url=}{keywords=}{abstract=}>
+      {source=}{annote=}');",>
+  !"Exe('%$(|BM_Fields.cfg|);');");
+
+IfStr("%$('bib_FIELDS%$(|bib_bibStyle|);');","","=","Release('bib_bibStyle');");
+LetReg(9,"First");
+
+MUIReset('Sort Bibliography');
+MUISet('','width','380');
+MUISet('','height','290');
+MUISet('','position','1');
+Assign('mui_margin','8');
+Assign('mui_tmargin','20');
+Assign('mui_button_w','75');
+Assign('mui_button_h','25');
+MUIGet('','client width',9);
+LetRegNum(9,"%!9-2*%$('mui_margin');");
+Assign('mui_width','%!9');
+MUIGet('','client height',9);
+Assign('mui_height','%!9');
+LetRegNum(9,"%$('mui_button_h');+2*%$('mui_margin');");
+Assign('mui_btmpnl_height', "%!9");
+
+// Sort & Cancel
+MUIAdd(0,0,0,"%$('mui_btmpnl_height');","pnl_bottom","TPanel");
+   MUISet('pnl_bottom','aligned', 'alBottom');
+   MUIAdd(0,0,"2*%$('mui_button_w');+2*%$('mui_margin');",0,'pnl_modal','TPanel','pnl_bottom');
+      MUISet('pnl_modal','aligned', 'alRight');
+      MUIAdd(0,"%$('mui_margin');",0,0, 'btn_ok','TButton','pnl_modal','&Sort');
+         MUISet('btn_ok','default', '1');
+         MUISet('btn_ok','width', '%$("mui_button_w");');
+         MUISet('btn_ok','height', '%$("mui_button_h");');
+         MUISet('btn_ok','on click', !'MUIHide(1);');
+      MUIAdd("%$('mui_button_w');+%$('mui_margin');","%$('mui_margin');",0,0, 'btn_cancel','TButton','pnl_modal','Cancel');
+         MUISet('btn_cancel','cancel', '1'); // ESCAPE
+         MUISet('btn_cancel','on click', !'MUIHide(2);');
+
+Assign("mui_height_s","65"); // height of "Sort Criterion" groups
+MUIAdd("%$('mui_margin');","%$('mui_margin');",0,0, 'gr_First','TGroupBox','','First sort criterion');
+LetRegNum(9,"2*%$('mui_margin');+%$('mui_height_s');");
+MUIAdd("%$('mui_margin');","%!9",0,0, 'gr_Second','TGroupBox','','Second sort criterion');
+LetReg(0,"First");
+Repeat(2,!`>
+   MUISet('gr_%!0','width','%$("mui_width");');>
+   MUISet('gr_%!0','height','%$("mui_height_s");');>
+   // sort criterion
+   MUIAdd("%$('mui_margin');","%$('mui_margin');+%$('mui_tmargin');",0,0, '%!0_cr','TComboBox','gr_%!0','');>
+   MUISet('%!0_cr','width','210');>
+   MUISet('%!0_cr','index','0');>
+   IfStr('%!0','First','=',>
+    !'LetRegNum(3,3);>
+      LetReg(4,''KEY|TYPE|author OR editor'');',>
+    !'LetRegNum(3,4);>
+      LetReg(4,''<NONE>|KEY|TYPE|author OR editor'');>
+      IfStr(''%$(|bib_sortSecond|);'','''',''='',>
+        ''Assign(|bib_sortSecond|,|OK|); LetRegNum(3,1);'');');>
+   IfStr('%$(|bib_sort%!0|);','KEY','=',!'Assign(''bib_sort%!0'',''OK''); LetRegNum(3,%!3-3);');>
+   IfStr('%$(|bib_sort%!0|);','TYPE','=',!'Assign(''bib_sort%!0'',''OK''); LetRegNum(3,%!3-2);');>
+   IfStr('%$(|bib_sort%!0|);','author|editor','=',!'Assign(''bib_sort%!0'',''OK''); LetRegNum(3,%!3-1);');>
+   LetRegNum(2,0);>
+   Loop(!'>
+      SetOK(1);>
+      FindInString(''%$(|bib_FIELDS%$(*bib_bibStyle*);|);'',''\{\(*\)='',1,2,1001,%!2);>
+      IfOK(!''GetTag(0,1);>
+         FindInString(|%!1|,|author||editor|,5,6,1);>
+         IfOK(||,!|LetReg(4,"%!4||%!1");>
+            IfStr("%$(*bib_sort%!0*);","OK","=","",!">
+                IfStr(||%$(*bib_sort%!0*);||,||%!1||,||=||,>
+                  ||Assign(*bib_sort%!0*,*OK*);||,>
+                  ||LetRegNum(3,%!3+1);||);");|);'',>
+       ''Stop;'');>
+   ');>
+   LetReg(4,'%!4|OTHER');>
+   MUISet('%!0_cr','save mode','-1');>
+   MUISet('%!0_cr','on change','>
+      MUIGet(''%!0_cr'',''text'',''6'');// expand now! <>
+      IfStr(''%%!6'',''OTHER'',''='',!''>
+         LetReg(8,"");>
+         MUISet("%!0_cr","index","-1");>
+         EnterReg(8,"Enter field for %!0 sort criterion","%!0 Sort Criterion");>
+         MUIAddItem("%!0_cr","%%!8");>
+         MUIGet("%!0_cr","count","8");>
+         LetRegNum(8,%%!8-1);>
+         MUISet("%!0_cr","index","%%!8");>
+      '');>
+      MUIGet(''First_cr'',''text'',''5'');>
+      MUIGet(''Second_cr'',''text'',''6'');>
+      SetOK(1);>
+      FindInString(''%%!5,%%!6'',''author|editor'',1,2,1);>
+      IfOK(!''>
+         MUISet(|l_NrAuthors1|,|enabled|,|1|);>
+         MUISet(|l_NrAuthors2|,|enabled|,|1|);>
+         MUISet(|e_NrAuthors|, |enabled|,|1|);>
+      '',!''>
+         MUISet(|l_NrAuthors1|,|enabled|,|0|);>
+         MUISet(|l_NrAuthors2|,|enabled|,|0|);>
+         MUISet(|e_NrAuthors|, |enabled|,|0|);>
+      '');>
+   ');>
+   MUISet('%!0_cr','items','%!4');>
+   MUISet('%!0_cr','index','%!3');>
+   // sort order
+   MUIGet('','text width','7','Descending');>
+   LetRegNum(8,"%$('mui_width');-%!7-30-%$('mui_margin');");>
+   MUIAdd(%!8,"%$('mui_tmargin');","%!7+30",0,'%!0_order_A','TRadioButton','gr_%!0','Ascending');>
+   MUIAdd(%!8,"2*%$('mui_tmargin');","%!7+30",0,'%!0_order_D','TRadioButton','gr_%!0','Descending');>
+   MUISet('%!0_order_A','checked','1');>
+   LetReg(0,'Second');>
+`);
+
+// Crossrefs to the end?
+LetRegNum(9,"%!9+%$('mui_height_s');+2*%$('mui_margin');");
+MUIGet('','text width','7','Move all cross-referenced entries to the end')
+MUIAdd("2*%$('mui_margin');",%!9,"%!7+2*%$('mui_tmargin');",0, 'x_Crossrefs','TCheckBox','','&Move all cross-referenced entries to the end');
+IfStr("%$('bib_sortCrossrefs');","yes","=","LetRegNum(3,1);","LetRegNum(3,0);");
+MUISet('x_Crossrefs','checked','%!3');
+
+// Number of authors relevant for sorting
+LetRegNum(9,"%!9+%$('mui_tmargin');+%$('mui_margin');+4");
+IfStr("%$('bib_sortNrAuthors');","","=","LetReg(3,'3');","LetReg(3,'%$(|bib_sortNrAuthors|);');");>
+MUIAdd("2*%$('mui_margin');",%!9,50,0, 'l_NrAuthors1','TLabel','','First ');
+MUIGet('l_NrAuthors1','width','7');
+MUIAdd("2*%$('mui_margin');+%!7",%!9-4,30,0, 'e_NrAuthors','TEdit','','%!3');
+MUIGet('e_NrAuthors','width','8');
+LetRegNum(7,%!7+%!8);
+MUIAdd("2*%$('mui_margin');+%!7",%!9,0,0, 'l_NrAuthors2','TLabel','',' authors/editors are relevant for sorting.');
+MUIGet('First_cr','text',1);
+MUIGet('Second_cr','text',2);
+FindInString("%!1,%!2","author|editor",1,2,1);
+IfOK(!">
+   MUISet('l_NrAuthors1','enabled','1');>
+   MUISet('l_NrAuthors2','enabled','1');>
+   MUISet('e_NrAuthors', 'enabled','1');>
+",!">
+   MUISet('l_NrAuthors1','enabled','0');>
+   MUISet('l_NrAuthors2','enabled','0');>
+   MUISet('e_NrAuthors', 'enabled','0');>
+");>
+
+// Selected entries only
+IfSel(1,"=",!`>
+   IfStr('%$(|bib_sortSelected|);','yes','=','LetRegNum(3,1);','LetRegNum(3,0);');>
+   LetRegNum(9,'%!9+%$(|mui_tmargin|);+%$(|mui_margin|);');>
+   MUIGet('','text width','7','Sort selected entries only');>
+   MUIAdd("2*%$('mui_margin');",%!9,"%!7+2*%$('mui_tmargin');",0,'x_Selected','TCheckBox','','Sort selected &entries only');>
+   MUIGet('','height','9');>
+   LetRegNum(9,%!9+20);>
+   MUISet('','height','%!9');>
+`);
+
+// show MUI
+MUILoad("%b\MUI\bibMacros\bibSort-mui.edt");
+MUIShow;
+IfOK("","PopTagsandRegisters;Exit;");
+IfFileExists("%b\MUI\bibMacros\","","CreateFolders('%b\MUI\bibMacros',1);");
+MUISave("%b\MUI\bibMacros\bibSort-mui.edt");
+
+// process input
+MUIGet("First_cr",'text','0');
+IfStr('%!0','author OR editor','=',>
+  !'Assign("bib_sortFirst","author|editor");',>
+  !'Assign("bib_sortFirst","%!0");');
+// FIXME: OTHER
+IfStr("%$('bib_sortFirst');","KEY","=",>
+  !'Release("bib_sortSecond");',>
+  !'MUIGet("Second_cr","text","0");>
+    IfStr("%!0","author OR editor","=",>
+      !"Assign(''bib_sortSecond'',''author|editor'');",>
+      !"IfStr(''%!0'',''<NONE>'',''='',>
+         !''Release(|bib_sortSecond|);'',>
+         !''Assign(|bib_sortSecond|,|%!0|);'');");');
+MUIGet('First_order_A','checked','0');
+Assign('bib_sortOrderFirst','%!0');
+MUIGet('Second_order_A','checked','0');
+Assign('bib_sortOrderSecond','%!0');
+MUIGet('x_Crossrefs','checked','0');
+IfStr("%!0","1","=",>
+  !"Assign('bib_sortCrossrefs','yes');",>
+  !"Assign('bib_sortCrossrefs','no');");
+MUIGet('e_NrAuthors','text','0');
+IfStr("%!0","","=","LetReg(0,'3');");
+FindInString("%!0","^[0-9]",1,2,1);
+IfOK(!"Assign('bib_sortNrAuthors','3');",!"Assign('bib_sortNrAuthors','%!0');");
+IfNum("%$('bib_sortNrAuthors');",0,"=","Assign('bib_sortNrAuthors','1');");
+IfSel(1,"=",!">
+   MUIGet('x_Selected','checked','0');>
+   IfStr('%!0','1','=',>
+      !'Assign(|bib_sortSelected|,|yes|);',>
+      !'Assign(|bib_sortSelected|,|no|);');>
+");
+
+:MUI_done::
+
+Release("BM_sortOrder");
+IfStr("%$('bib_sortOrderFirst');%$('bib_sortOrderSecond');","00","=",>
+   "Assign('BM_sortOrder','0');Assign('BM_sortOrder1','1');Assign('BM_sortOrder2','1');");
+IfStr("%$('bib_sortOrderFirst');%$('bib_sortOrderSecond');","11","=", >
+   "Assign('BM_sortOrder','1');Assign('BM_sortOrder1','1');Assign('BM_sortOrder2','1');");
+IfStr("%$('BM_sortOrder');","","=",!`// mixed <>
+   IfStr("%$('bib_sortOrderFirst');","0","=",!">
+      FindInString('/%$(|bib_sortSecond|);/','/year/|/%_/',8,9,1);>
+      IfOK(!'Assign(|BM_sortOrder1|,|1|);Assign(|BM_sortOrder2|,|0|);Assign(|BM_sortOrder|,|0|);',>
+           !'Assign(|BM_sortOrder1|,|0|);Assign(|BM_sortOrder2|,|1|);Assign(|BM_sortOrder|,|1|);');>
+   ",!"// bib_sortOrderSecond == 0 <>
+      SetOK(1);>
+      FindInString('%$(|bib_sortFirst|);','year',8,9,0);>
+      IfOK(!'Assign(|BM_sortOrder1|,|0|);Assign(|BM_sortOrder2|,|1|);Assign(|BM_sortOrder|,|0|);',>
+           !'Assign(|BM_sortOrder1|,|1|);Assign(|BM_sortOrder2|,|0|);Assign(|BM_sortOrder|,|1|);');>
+   ");>
+`);
+
+IfStr("%$('bib_sortFirst');","KEY","=",>
+  !"Assign('BM_sort1','\(9\@\)+$Alpha${\{|(}\(0*\),');",//)<>
+  !"IfStr('%$(|bib_sortFirst|);','TYPE','=',>
+     !'Assign(''BM_sort1'',''\(9\@\)\(0+$Alpha$\){\{|(}'');',>
+     !'Assign(''BM_sort1'',''<@{ }%$(|bib_sortFirst|);@{ }=@{ }{\(9""\)\(0@{>|\\""|^""}\)""@{,}>}|{\(9\{\)\(0@{>|{\{@{>|{\{*\}}|^{\}}}*\}}|^{\}}}@{@{ }\{@{>|{\{@{>|{\{*\}}|^{\}}}*\}}|^{\}}}*\}}\)\}@{,}>}|{\(9\)\(0*\)@{,}>}'');'//)<>
+   );">
+);
+IfStr("%$('bib_sortSecond');","","=",>
+  !"Assign('BM_sort2','');",>
+  !"IfStr('%$(|bib_sortSecond|);','KEY','=',>
+     !'Assign(''BM_sort2'',''\(9\@\)+$Alpha${\{|(}\(0*\),'');',//)<>
+     !'IfStr(''%$(|bib_sortSecond|);'',''TYPE'',''='',>
+        !''Assign(`BM_sort2`,`\(9\@\)\(0*\){\{|(}`)'',>
+        !''Assign(`BM_sort2`,`<@{ }%$(|bib_sortSecond|);@{ }=@{ }{\(9""\)\(0@{>|\\""|^""}\)""@{,}>}|{\(9\{\)\(0@{>|{\{@{>|{\{*\}}|^{\}}}*\}}|^{\}}}@{@{ }\{@{>|{\{@{>|{\{*\}}|^{\}}}*\}}|^{\}}}*\}}\)\}@{,}>}|{\(9\)\(0*\)@{,}>}`);''//)<>
+      );'>
+   );">
+);
+IfStr("%$('bib_sortSelected');","yes","<>","SetSel(0);");
+
+// Release old registers, if forgotten
+LetRegNum(9,-1);
+Loop(!`>
+   SetOK(1);>
+   FindInString("%$('BM_sortEntries');","<{~>}*>",8,9,1011,%!9);>
+   IfOK(!">
+      ExtractByIndex(8,'%$(|BM_sortEntries|);',%!8,%!9-2);>
+      Release('%!8');",>
+     "Stop;");>
+`);
+Release("BM_sortEntries");
+
+IfSel(1,"=",!">
+   Assign('BM_lastLine','%l');>
+   CMD('Caret <-> Select');>
+   IfNum(%l,'%$(|BM_lastLine|);','>','Assign(''BM_lastLine'',''%l'');CMD(''Caret <-> Select'');');>
+  ",!">
+   CMD('Go To Beginning Of File');>
+   Assign('BM_lastLine','999999999');">
+);
+
+
+// *** Build the List ***
+
+JMP("end_sort_key");
+:sort_key::
+IfStr("%$('bib_sortSecond');","","=","LetRegNum(5,1);LetReg(2,'');","LetRegNum(5,2);");
+Assign("BM_i","1");
+Repeat(%!5,!`>
+  SetOK(1);>
+  FindInString("%$('BM_entry');","%$('BM_sort%$(|BM_i|);');",4,5,0001);>
+  IfOK(!">
+     ReplaceInString('sortkey','\0',0,100,1,'%$(|BM_i|);');>
+     GetTag(9,5);",>
+  !"LetReg('%$(|BM_i|);','zzzzzzzz');>
+     LetReg(5,'no');");>
+  // expand before sorting?
+  // suggested by Chris Sims <sims@Princeton.EDU>
+  IfStr("%!5","","=",">
+     SetOK(1);>
+     FindInString('%%!%$(|BM_i|);','+{^$Numeric$}',3,4,1);>
+     IfOK('','LetReg(5,|numerical|);');>
+   ",">
+     SetOK(1);>
+     FindInString('%%!%$(|BM_i|);','#',3,4,0);>
+     IfOK('LetReg(5,||);');">
+  );>
+  IfStr("%!5","","=",!">
+     Assign('BorbName','BM_GetField.edt');>
+     Assign('BorbFile','Macros\LaTeX\bibMacros\Get Field.edt');>
+     IfStr('%[|%$(*Borb*);|];%$(|BM_GetField.edt|);','???','<>',!'>
+        Assign(|BMGetField|,|expandonly|);>
+        SetSel(0);>
+        GetSel(1,5);>
+        PushTagsandRegisters;>
+           Do(|Assign(||BM_fieldValue||,||%%!%$(""BM_i"");||);|);>
+           Exe(|%$(*BM_GetField.edt*);|);>
+        PopTagsandRegisters;>
+        IfStr(|%$(""BM_fieldValue"");|,|Error|,|=|,||,!|LetReg(||%$(""BM_i"");||,||%$(""BM_fieldValue"");||);|);'>
+     );">
+  );>
+  // munch special characters:
+  // thanks to J\"urgen Dix <dix@cs.man.ac.uk>
+  Do(">
+     SubstituteInString('%%!%$(|BM_i|);','\\{\(2l|i|j|o\)}{ |{\(3\\|\{|\}\)}}','\{\2\}\3',1,'%$(|BM_i|);');>
+     // Remove all other characters, commands, spaces and braces>
+     SubstituteInString('%%!%$(|BM_i|);','\ ',' ',0,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','{\\*^$Alpha$}|\{|\}|$[#0..#31]$','',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','~',' ',0,'%$(|BM_i|);');>
+  ");>
+  // parse names:
+  SetOK(1);>
+  FindInString("%$('BM_sort%$(|BM_i|);');","author|editor",4,5,1);>
+  IfOK(!">
+     LetRegNum(3,0);>
+     LetRegNum(5,0);>
+     // only consider bib_sortNrAuthors authors (suggested by Sebastien Nguyen <Sebastien.Nguyen@limsi.fr>)
+     LetRegNum(0,'%$(|bib_sortNrAuthors|);');>
+     Loop('>
+        IfNum(|%%!0|,|0|,|>|,!''>
+           SetOK(1);>
+           FindInString(|%%!%$(""BM_i"");|,|+{<|| }AND+{ ||>}|,4,5,1001,%%!5);>
+           IfOK(!|>
+               ReplaceInString(||%%!%$(""BM_i"");||,|| ||,%%!4,%%!5,0,||%$(""BM_i"");||);>
+               LetRegNum(5,||%%!5-(%%!5-%%!4)||);|,>
+             !|GetLength(5,||%%!%$(""BM_i"");||);Stop;|>
+           );>
+           // the name probably already is in the correct order, if it contains a comma
+           SetOK(1);>
+           FindInString(|%%!%$(""BM_i"");|,|$Alpha$+{^{ ||,}},|,8,9,1011,%%!3-2);>
+           IfNum(%%!9,%%!5-2,|<|,!||,>
+             !|// else we move the last word to the beginning <>
+               SetOK(1);>
+               FindInString(||%%!%$(""BM_i"");||,||+{ }\(1$Alpha$+{^{ ||||\.}}\)~{\.}||,8,9,1111,%%!5-2);>
+               IfOK(!||>
+                   GetTag(1,4);>
+                   ReplaceInString(``%%!%$(""BM_i"");``,````,%%!8,%%!9,1,``%$(""BM_i"");``);>
+                   InsertByIndex(``%$(""BM_i"");``,``%%!%$(""BM_i"");``,``%%!4, ``,%%!3);||>
+               );|>
+           );>
+           LetRegNum(3,%%!5+2);>
+           LetRegNum(0,%%!0-1);>
+        '',!''>
+           ExtractByIndex(|%$(""BM_i"");|,|%%!%$(""BM_i"");|,0,%%!5);>
+           Stop;'');'>
+     );">
+  );>
+  Do("FormatString('%%!%$(|BM_i|);','%$(|BM_i|);','lowercase whitespace trimboth');");>
+  // different order for the sort criteria?
+  // in that case we invert numbers resp. letters (suggested by Sebastien Nguyen <Sebastien.Nguyen@limsi.fr>)
+  IfNum("%$('BM_sortOrder%$(|BM_i|);');","0","=",:>
+     // first the numbers
+     FindInString('%%!%$(|BM_i|);','\(+[0-9]\)',3,5,11);>
+     IfOK(!'>
+        GetLength(3,''%%#0'');>
+        LetRegNum(4,1);>
+        Repeat(%%!3,!''LetRegNum(4,|%%!40|);'');>
+        LetRegNum(4,%%!4-%%#0,0,%%!3);>
+        ReplaceInString(|%%!%$(|BM_i|);|,|%%!4|,|%%!5-%%!3+1|,%%!5,0,|%$("BM_i");|);>
+     ');>
+     GetLength(3,'%%!%$(|BM_i|);');>
+     Loop(!'>
+        ExtractByIndex(4,''%%!%$(|BM_i|);'',%%!3,%%!3);>
+        IfNum(%%!3,0,''='',''Stop;'');>
+        FindInString(''%%!4'',''[a-z]'',5,5,11);>
+        IfOK(!''// this is slow... <>
+           IfStr(|%%!4|,|z|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"a");|);>
+           IfStr(|%%!4|,|y|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"b");|);>
+           IfStr(|%%!4|,|x|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"c");|);>
+           IfStr(|%%!4|,|w|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"d");|);>
+           IfStr(|%%!4|,|v|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"e");|);>
+           IfStr(|%%!4|,|u|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"f");|);>
+           IfStr(|%%!4|,|t|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"g");|);>
+           IfStr(|%%!4|,|s|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"h");|);>
+           IfStr(|%%!4|,|r|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"i");|);>
+           IfStr(|%%!4|,|q|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"j");|);>
+           IfStr(|%%!4|,|p|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"k");|);>
+           IfStr(|%%!4|,|o|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"l");|);>
+           IfStr(|%%!4|,|n|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"m");|);>
+           IfStr(|%%!4|,|m|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"n");|);>
+           IfStr(|%%!4|,|l|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"o");|);>
+           IfStr(|%%!4|,|k|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"p");|);>
+           IfStr(|%%!4|,|j|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"q");|);>
+           IfStr(|%%!4|,|i|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"r");|);>
+           IfStr(|%%!4|,|h|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"s");|);>
+           IfStr(|%%!4|,|g|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"t");|);>
+           IfStr(|%%!4|,|f|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"u");|);>
+           IfStr(|%%!4|,|e|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"v");|);>
+           IfStr(|%%!4|,|d|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"w");|);>
+           IfStr(|%%!4|,|c|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"x");|);>
+           IfStr(|%%!4|,|b|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"y");|);>
+           IfStr(|%%!4|,|a|,|=|,!|LetRegNum(4,%%!3);LetReg(3,"z");|);>
+           ReplaceInString(|%%!%$(|BM_i|);|,|%%!3|,%%!4,%%!4,0,|%$("BM_i");|);>
+           LetRegNum(3,%%!4);>
+        '');>
+        LetRegNum(3,%%!3-1);>
+     ');>
+  :);>
+  LetRegNum(3,'%$(|BM_i|);+1');>
+  Assign('BM_i','%!3');>
+`);
+Return;
+:end_sort_key::
+
+SaveFind;
+SetRegEx(1);
+SetSearchForward(1);
+SetSearchCaseSensitive(0);
+SetFindTextSelect(1);
+SetSearchCurrentDoc;
+SetSearchCyclic(0);
+SetSearchEntire(0);
+SetNotFoundNotify(0);
+SetFindStr("%$('bib_beginLine');\@{~{STRING|PREAMBLE|COMMENT}+$Alpha$}@{ }{\{|(}");
+SearchReset;
+ResetGroup;
+BeginGroup;
+SetTracking(0);
+LetRegNum(0,0,5,4);
+Assign("BM_j","%!0");
+Release("BM_sortCrossrefs");
+
+LetRegNum(6,0);
+Release("BM_sortError");
+Loop(!`>
+   StartWorking("parsing entries (%$('BM_j');) ...");>
+   BeginGroup;>
+   SetOK(1);>
+   IfFound(!">
+      IfNum(%!6+%l,'%$(|BM_lastLine|);','>=','Stop;',!'>
+         IfNum(''%$(|BM_j|);'',0,''='',''Mark(1);'');>
+         LetRegNum(0,''%$(|BM_j|);+1'',5,4);>
+         Assign(''BM_j'',''%!0'');>
+         // extract the item:
+         LetRegNum(7,%l);>
+         CMD(''Caret <-> Select'');>
+         Mark(0);>
+         GetSel(0,1);>
+// The next 3 lines are added by V. Kozyakin to override faulty
+// strict matching in MatchDelimiter
+         SaveFind;>
+         Exe(''%b\Macros\LaTeX\bibMacros\StrictMatchDelimiter.edt'');>
+         RestoreFind;>
+// instead of the following one
+//         MatchDelimiter(1,0,1,1);>
+         IfOK(!''>
+             LetRegNum(7,%l-%!7+1);>
+             GetSel(0,2);>
+             CMD(|Delete|);>
+             CMD(|Select From Mark|);>
+             CMD(|Delete|);>
+             ReplaceInString(|%!2|,|%!1|,0,0,0,3);>
+             Assign(|BM_entry|,|%!3|);>
+             SetOK(1);>
+             FindInString(|%$(""BM_entry"");|,|\{||(|,3,3,1);>
+             FindInString(|%$(""BM_entry"");|,|,||>|,4,4,1);>
+             ExtractByIndex(3,|%$(""BM_entry"");|,%!3+1,%!4-1);>
+             FormatString(""%!3"",3,""trimboth"");>
+             Assign(|BM_key|,|%!3|);>
+             IfStr(|%$(""bib_sortCrossrefs"");|,|yes|,|=|,!|>
+                // put cross-referenced entries to the end (suggested by Jürgen Dix)
+                SetOK(1);>
+                FindInString(||%$(""BM_entry"");||,||<@{ }crossref@{ }=@{ }{{\{\(3+^\}\)\}}||||{""\(3+^""\)""}}||,3,4,1);>
+                IfOK(!||GetTag(3,3);FormatString(""%!3"",3,""trimboth"");>
+                        Assign(""BM_sortCrossrefs"",""%$(''''BM_sortCrossrefs'''');{%!3}%\"");||);|>
+             );>
+          '',!''>
+             LetRegNum(4,|%$(*BM_sortError*);+1|);>
+             Assign(|BM_sortError|,|%!4|);>
+         '');>
+         Call(''sort_key'');>
+//         Prompt(''%!1 %!2%\%\%$(|BM_entry|);'');>
+         IfStr(''%$(|BM_debug|);'',''well, yes'',''='',!:>
+            Assign(''BM %!1 %!2%$(|BM_j|); {%$(|BM_key|);}'',''%!1 %!2%$(|BM_j|);%\%$(|BM_entry|);'');>
+         :,!:>
+            Assign(''BM %!1 %!2%$(|BM_j|); {%$(|BM_key|);}'',''%$(|BM_entry|);'');>
+         :);>
+         Assign(''BM_sortEntries'',''%$(|BM_sortEntries|);BM %!1 %!2%$(|BM_j|); {%$(|BM_key|);}%\'');>
+         LetRegNum(6,%!6+%!7);'>
+      );",>
+     "Stop;");>
+   IfStr("%$('BM %!1 %!2%$(|BM_j|); {%$(|BM_key|);}');","","=","Stop;");>
+   EndGroup;>
+`);
+Release("BM_debug");
+
+// WinEdt provides only 1,000 (5.2) resp. 10,000 (5.3) local string registers.
+// If there's no register left we'd lose items.
+// Therefore we check whether the last variable could be assigned.
+IfStr("%$('BM %!1 %!2%$(|BM_j|); {%$(|BM_key|);}');","","=",>
+  !"LetRegNum(0,'%$(|BM_j|);',0,0);>
+    Release('BM_conf');>
+    Release('BM_sortError');>
+    Release('BM_sortPreamble');>
+    SetTracking(1);>
+    Refresh;>
+    EndGroup;>
+    CMD('Undo');>
+    LetRegNum(2,-1);>
+    Loop(!`>
+       SetOK(1);>
+       FindInString('%$(|BM_sortEntries|);','<{~>}*>',1,2,1011,%!2);>
+       IfOK(!'>
+          ExtractByIndex(1,''%$(|BM_sortEntries|);'',%!1,%!2-2);>
+          Release(''%!1'');',>
+         'Stop;');>
+    `);>
+    Release('BM_sortEntries');>
+    IfNum(%!0,0,'=',>
+        !'Prompt(|I didn''t find any bibliography entries to sort!|,3,1);',>
+        !'Prompt(|There are more than %!0 items in the%\bibliography database.%\That is too much for me!%\Sorry...%\%!1|,3,1);');>
+    RestoreFind;>
+    PopTagsandRegisters;>
+    Exit;>
+");
+StopWorking;
+LetRegNum(0,"%$('BM_j');",0,0);
+
+
+// remove old separator string
+CMD("Go To Beginning Of File");
+Assign("BM_separator","%% ========= cross-referenced entries =========");
+SetFindStr("<%$('BM_separator');>");
+SearchReset;
+IfFound("CMD('Delete');");
+
+
+// *** Sort the items: ***
+StartWorking("sorting entries...");
+SortLines("%$('BM_sortEntries');","010%$('BM_sortOrder');",0,1);
+Assign("BM_sortEntries","%!1");
+SortLines("%$('BM_sortCrossrefs');",1101,0,1);
+Assign("BM_sortCrossrefs","%!1");
+
+
+// preamble
+GetDate(1,"dd.mm.yy 'at' hh:nn:ss");
+LetReg(2,">
+-*- BibTeX -*-%\>
+=====================================%\>
+This file has been sorted by%\Sort.edt on %!1.%\%\>
+It includes %!0 items, sorted by");
+IfStr("%$('bib_sortFirst');","KEY","=",!">
+    LetReg(2,'%!2 KEY (%[`IfStr(|%$(*bib_sortOrderFirst*);|,|1|,|=|,|LetReg(3,*<*);|,|LetReg(3,*>*);|);`];%!3).');",>
+  !"IfStr('%$(|bib_sortSecond|);','','=',!'>
+        LetReg(2,''%!2 ""%$(|bib_sortFirst|);"" (%[`IfStr(|%$(*bib_sortOrderFirst*);|,|1|,|=|,|LetReg(3,*<*);|,|LetReg(3,*>*);|);`];%!3).'');',>
+      !'LetReg(2,''%!2%\""%$(|bib_sortFirst|);"" (%[`IfStr(|%$(*bib_sortOrderFirst*);|,|1|,|=|,|LetReg(3,*<*);|,|LetReg(3,*>*);|);`];%!3),>
+ then by ""%$(|bib_sortSecond|);"" (%[`IfStr(|%$(*bib_sortOrderSecond*);|,|1|,|=|,|LetReg(3,*<*);|,|LetReg(3,*>*);|);`];%!3).'');'>
+    );">
+);
+IfStr("%$('BM_sortCrossrefs');","","=",>
+ !"IfStr('%$(|bib_sortCrossrefs|);','yes','=',!'LetReg(2,''%!2%\(No cross-referenced entries.)'');');",>
+ !"IfStr('%$(|bib_sortCrossrefs|);','yes','=',!'LetReg(2,''%!2%\(Cross-referenced entries last.)'');');");
+Assign("BM_sortPreamble","%!2%\=====================================%\");
+
+
+// get items from sorted list
+LetReg(0,"");
+LetRegNum(2,-1);
+LetReg(8,"BM_separator%\");
+Loop(!`>
+  SetOK(1);>
+  FindInString("%$('BM_sortEntries');","<{~>}*>",1,2,1011,%!2);>
+  IfOK(!">
+     ExtractByIndex(9,'%$(|BM_sortEntries|);',%!1,%!2-2);>
+     IfStr('%$(|bib_sortCrossrefs|);','yes','=',!'>
+        // sort cross-referenced entries last
+        GetLength(4,''%!9'');>
+        SetOK(1);>
+        FindInString(''%!9'',''{'',3,3,100,%!4);>
+        ExtractByIndex(5,''%!9'',%!3+1,%!4-2);>
+        SetOK(1);>
+        FindInString(''%$(|BM_sortCrossrefs|);'',''{%!5}'',6,7,0);>
+        IfOK(!''>
+            ReplaceInString(|%$(""BM_sortCrossrefs"");|,||,%!6,%!7+2,0,3);>
+            Assign(|BM_sortCrossrefs|,|%!3|);>
+            ReplaceInString(|%$(""BM_sortEntries"");|,||,%!1,%!2,0,3);>
+            Assign(|BM_sortEntries|,|%!3%!8%!9%\|);>
+            LetReg(2,|%!2-(%!2-%!1)|);>
+            LetReg(8,||);'',>
+         !''LetReg(0,|%!0%$(""%!9"");%\%\|);>
+            Release(|%!9|);''>
+        );',>
+      !'LetReg(0,''%!0%$(|%!9|);%\%\'');>
+        Release(''%!9'');'>
+     );",>
+    "Stop;");>
+`);
+
+// write the new file
+IfNum("%$('BM_lastLine');",999999999,"=",!`>
+   CMD("Go To Beginning Of File");>
+   SetFindStr("<-\*- BibTeX -\*->%_>
+<=====================================>%_>
+\(1<This file has been created by><*Extract\.edt on *\.>\)**>
+<=====================================>+{<>}");>
+   SearchReset;>
+   IfFound(!"CMD('Delete');>
+      GetTag(1,1);>
+      InsertByIndex(1,'%$(|BM_sortPreamble|);','%!1%\',55);>
+      Assign('BM_sortPreamble','%!1');>
+      CMD('Go To Beginning Of File');");>
+   SetFindStr("@{<-\*- BibTeX -\*->%_>
+<=====================================>}>
+<This file has been sorted by>*Sort\.edt on **>
+=====================================>+{<>}");>
+   SearchReset;>
+   Find;>
+   InsText("%$('BM_sortPreamble');%\");>
+   Mark(0);>
+   Goto(1);>
+   IfNum(%l,10,">","","Goto(0);");>
+   InsText("%!0");>
+//   SetFindStr("+{<>}");>
+//   SearchReset;>
+//   IfFound("CMD('Delete');");>
+   SetFindStr("<>+{<>}");>
+   SearchReset;>
+   Loop(!"IfFound('InsText(|%\|);','Stop;');");>
+   CMD("Go To Beginning Of File");>
+  `,!`>
+   Goto(1);>
+   InsText("%!0");>
+   SetSel(1);>
+   Goto(1);`>
+);
+
+StopWorking;
+RestoreFind;
+SetTracking(1);
+Refresh;
+EndGroup;
+Release("temp0");
+Release("temp1");
+Release("temp2");
+Release("temp6");
+Release("BM_eat");
+Release("BM_eatregular");
+Release("BM_spit");
+Release("BM_spitregular");
+Release("BM_sort1");
+Release("BM_sort2");
+Release("BM_sortOrder1");
+Release("BM_sortOrder2");
+Release("BM_sortPreamble");
+Release("BM_sortEntries");
+Release("BM_sortCrossrefs");
+Release("BM_conf");
+
+IfStr("%$('BM_sortError');","","<>",">
+   Prompt('%$(|BM_sortError|); entries could not be sorted. (Matching Delimiter not found.)%\You''ll find them at the end of the file.',2,1);");
+
+PopTagsandRegisters;
+End;
+
+
+
+//=============================================================================
+ This macro sorts a bibliography database.
+
+ You will be asked for the two sort criteria.
+ Besides the obvious "year", "crossref", etc., you can also put something like
+ "author|editor" in there, which means "author OR editor" (using WinEdt's
+ Regular Expressions). Furthermore, there are two special keys:
+  * "KEY" is the cite key (i.e. the key you \cite, not the "key" field).
+  * "TYPE" means the type of entry (e.g. "BOOK", "ARTICLE", etc.).
+ These two keys are case-sensitive, the rest is not.
+ You can leave the second sort criterion empty, which will make sorting faster.
+ For each criterion, you can choose the sorting order. Also, you can specify
+ the number of authors resp. editors relevant for sorting. Finally, all cross-
+ referenced entries may be moved to the end of the bibliography.
+
+ If a field is empty it will be sorted after the other entries.
+ If entries have the same key (for this macro), they will be sorted according
+ to their original order.
+
+ Everything that is not inside a bibliography item will be put at the end of
+ the file, except for stuff that appears before the first item which will stay
+ where it is.
+
+ @STRINGs and @PREAMBLEs are excluded from sorting.
+
+ If you are not using this macro as a part of the bibMacros package (see
+ <http://www.winedt.org/Config/menus/BibTeX.php>), you'll at least miss the
+ feature of strings being expanded before sorting.
+
+ Robert <w.m.l@gmx.net>
+//=============================================================================

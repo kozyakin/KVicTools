@@ -1,0 +1,58 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,eucal,bm}
+
+\setlength{\textwidth}{17cm} \setlength{\textheight}{24.6cm}
+\setlength{\oddsidemargin}{0.5cm} \setlength{\evensidemargin}{0.5cm}
+\setlength{\topmargin}{-1cm}
+
+
+
+% The next definitions \newtheorem... are designed for
+% SEQUENTIAL enumeration of Theorems, Lemmas, etc. within a Capter
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\proof}{\noindent\textsc{Proof.\ }}
+\newcommand{\qed}{\ \hfill\hspace*{\fill}
+$\vbox{\hrule\hbox{\vrule height1.3ex\hskip1.3ex\vrule}\hrule}$
+\hss\vskip\topsep\relax}
+
+%
+% The next lines reset enumeration of equations at the beginning
+% of each Section, not Chapter
+%
+%\catcode`@=11
+%\@addtoreset{equation}{section}
+%\catcode`@=12
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\begin{document}
+
+\title{}
+
+\author{}
+
+\date{}
+\maketitle
+
+\section{}
+
+
+\begin{thebibliography}{99}
+
+\bibitem{}
+
+\bibitem{}
+
+\end{thebibliography}
+
+\end{document}

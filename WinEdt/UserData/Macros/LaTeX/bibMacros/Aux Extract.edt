@@ -1,0 +1,341 @@
+// !Mode:: "ASCII:EDT"
+// Aux Extract.edt
+// extract all \cite'd bibliography entries
+// part of the bibMacros package
+// (schlicht 20010824)
+// $Revision: 1.8 $
+/////////////////////////
+
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Requires(20020323);//   (WinEdt 5.3)                        %%
+// The bibMacros package has been written for WinEdt 5.3.   %%
+// If you are using a previous version, you can try the     %%
+// macros by removing the above line.                       %%
+// Better: -- get the latest version of WinEdt from         %%
+// <www.winedt.com>.                                        %%
+// There won't be any support for this package if you       %%
+// are using a previous version of WinEdt.                  %%
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+PushTagsandRegisters;
+
+// Read the global configuration file, if it exists
+IfFileExists("%b\Macros\LaTeX\bibMacros\bibMacros.cfg",>
+   "Exe('%b\Macros\LaTeX\bibMacros\bibMacros.cfg');",>
+   "IfFileExists('%B\Macros\LaTeX\bibMacros\bibMacros.cfg',>
+      'Exe(''%B\Macros\LaTeX\bibMacros\bibMacros.cfg'');',>
+      'Assign(''bib_beginLine'',''<'');'>
+    );">
+);
+
+Assign("BM_file","%O\%N");
+Release("bibAuxErrors");
+
+// using biblatex?
+IfFileExists("%$('BM_file');.bcf",>
+  !"ReadFile('%$(|BM_file|);.bcf',0);>
+    Assign('is_bcf','1');>
+    Assign('all_citation','<bcf:citekey order=""0"">*</bcf:citekey>');>
+    Assign('single_citation','\<bcf:citekey*\>\(0*\)\</bcf:citekey\>');>
+    JMP('get_database');",>
+  !"Assign('is_bcf','0');>
+    Assign('all_citation','\citation{*}');>
+    Assign('single_citation','\\citation\{\(0*\)\}');>
+    ");
+
+// Main .aux file
+IfFileExists("%$('BM_file');.aux",>
+   !"ReadFile('%$(|BM_file|);.aux',0);",>
+   !"Prompt('I need the file%\   ""%$(|BM_file|);.aux"".%\%\Run LaTeX on your main file, and then we can try again.',2,1);PopTagsandRegisters;Exit;");
+// More .aux files?
+LetRegNum(2,0);
+Loop(!`>
+   FindInString("%!0","\\\@input\{*\.aux\}",1,2,1011,%!2);>
+   IfOK(!">
+      ExtractByIndex(1,'%!0',%!1+8,%!2-5);>
+      IfFileExists('%O\%!1.aux',>
+        !'ReadFile(''%O\%!1.aux'',1);',>
+        !'Prompt(''I cannot find the file%\   ""%O\%!1.aux""!%\%\Can you help me, please?'',2,3,>
+           !''Browse(6,:Looking for ""%!1.aux""|*.aux:,|%O|);>
+              ReadFile(|%!6|,1);'',>
+            ''PopTagsandRegisters;Exit;''>
+          );'>
+      );>
+      LetReg(0,'%!0%\%!1');>
+   ","Stop;");>
+`);
+JMP("get_database");
+
+:get_file::
+   IfFileExists("%b\Macros\LaTeX\bibMacros\Get File.edt",">
+      Exe('%b\Macros\LaTeX\bibMacros\Get File.edt');",">
+         IfFileExists('%B\Macros\LaTeX\bibMacros\Get File.edt',>
+            'Exe(''%B\Macros\LaTeX\bibMacros\Get File.edt'');',>
+            'Assign(''BM_getFile'',''noBM'');');");
+   IfStr("%$('BM_getFile');","cancel","=","PopTagsandRegisters;Exit;");
+   IfStr("%$('BM_getFile');","noBM","=",>
+   !"IfStr('%$(|BM_%$(*BM_file*);_%!6|);','','=',!'Assign(''BM_%$(|BM_file|);_%!6'',''%P'');');>
+      IfFileExists('%$(|BM_%$(*BM_file*);_%!6|);\%!6.bib',>
+      !'ReadFile(''%$(|BM_%$(*BM_file*);_%!6|);\%!6.bib'',4);',>
+      !'Prompt(''I don''''t know where the file%\   ""%!6.bib"" is!%\%\Can you help me, please?%\>
+(If you were using the complete bibMacros package%\I would probably be able to find the file.)'',2,3,>
+         !''Browse(4,|Looking for ""%!6.bib""||*.bib|,|%P|);>
+            GetFilePath(|%!4|,2);>
+            Assign(|BM_%$(*BM_file*);_%!6|,|%!2|);>
+            ReadFile(|%!4|,4);'',>
+         ''PopTagsandRegisters;Exit;''>
+         );'>
+      );">
+   );
+   LetReg(9,'%!9%!4%\');
+   FindInString('%!4','/%_/ bibEndStrings',2,6,10);
+   IfOK(!'ExtractByIndex(4,''%!4'',0,%!2);');
+   LetReg(7,'%!7%!4%\');
+  Return;
+
+:get_database::
+// Get bibliography database(s):
+LetReg(7,""); // string database
+LetReg(9,""); // citation database
+LetRegNum(3,-1);
+LetRegNum(8,1); // number of bibliographies
+IfNum("%$('is_bcf');",0,"=",!`>
+   FindInString("%!0","\\bibdata\{*\}",1,2,11);>
+   IfOK(!"ExtractByIndex(1,'%!0',%!1+9,%!2-1);",>
+      "Prompt('You didn''t specify a \bibliography in your TeX file!%\I cannot continue.',3,1); PopTagsandRegisters; Exit;");>
+   LetRegNum(4,-1);>
+   Assign("BM_stop","0");>
+   Loop(!``>
+      SetOK(1);>
+      FindInString("%!1","{~,}*,",2,3,1011,%!3+1);>
+      IfOK(>
+        !"ExtractByIndex(6,'%!1',%!2,%!3-1);>
+          LetRegNum(8,%!8+1);",>
+        !"ExtractByIndex(6,'%!1',%!4+1,%!3+1);>
+          Stop;// doesn't work (bug in W7) <>
+          Assign('BM_stop','1');>
+          ">
+      );>
+      IfStr("%!6","%N-blx","<>",!"Call('get_file');");>
+      LetRegNum(4,%!3);>
+      IfNum("%$('BM_stop');",1,"=","Stop");>
+   ``);`,>
+ !`Loop(!``>
+     SetOK(1);>
+     FindInString("%!0","\<bcf:datasource *\>\(0*\)\</bcf:datasource\>",2,3,1011,%!3+1);>
+     IfOK(!"GetTag(0,6);GetFileName('%!6',6);Call('get_file');LetRegNum(8,%!8+1);","Stop;");>
+   ``);`);
+
+FindInString("%!0","%$('all_citation');",1,2,10);
+IfOK(!">
+   Prompt('You have a ""\nocite{*}"" command in your TeX file.%\I don''t see any sense in continuing.%\Do you agree?',2,3,'',>
+      !'IfNum(%!8,1,''>'',>
+          !''Prompt(|OK, so you wan''''t me to merge the files for you, is that right?|,1,3,>
+             !|OpenOutput(||%$(*BM_file*);-minimal.bib||); WrL(||%!9||); CloseOutput; Prompt(||Done.      ||,0,1); Open(||%$(*BM_file*);-minimal.bib||);|);'',>
+          !''Prompt(|In principle I wouldn''''t mind if you contradict me ...%\%\It''''s just that you want me to boil down your bibliography to the %\minimum. If you cite ALL entries, you might as well COPY the file.%\%\Maybe we can conciliate if I copy it for you.%\Would you like that?|,1,3,>
+             !|CopyFile(||%!6.bib||,||%$(*BM_file*);-minimal.bib||,1,0);Open(||%$(*BM_file*);-minimal.bib||);Prompt(||There you go.%\It''''s been a privilege to be your servant.||,0,1);|,>
+             !|Prompt(||Good.      ||,0,1);|);''>
+        );'>
+   );>
+   PopTagsandRegisters;>
+   Exit;>
+");
+
+// Append new entries, if the file already exists?
+IfFileExists("%$('BM_file');-minimal.bib",>
+  !"Prompt('You''ve already bothered me once, since the file%\     ""%N-minimal.bib""  already exists.%\%\>
+Do you want me to append new entries to this file?%\>
+(This will be faster for huge databases, but since I will not delete%\>
+any old entries, the file might not be really minimal.)',0,4,!'>
+       ReadFile(''%$(|BM_file|);-minimal.bib'',1);>
+       Assign(''BM_auxRedo'',''%!1'');',>
+      'Release(''BM_auxRedo'');',>
+      'PopTagsandRegisters;Exit;'>
+    );",>
+   "Release('BM_auxRedo');">
+);
+
+StartWorking("Extracting from aux...");
+GetDate(3,"dd.mm.yy 'at' hh:nn");
+IfStr("%$('BM_auxRedo');","","=",!">
+   LetReg(1,'>
+-*- BibTeX -*-%\>
+=====================================%\>
+This file has been created by %\>
+Aux Extract.edt on %!3.%\>
+=====================================%\%\');",!">
+   LetReg(1,'%$(|BM_auxRedo|);%\%\>
+=====================================%\>
+ additional citations extracted%\ on %!3:%\>
+=====================================%\');");
+
+// Find @STRING's and @PREAMBLE's:
+LetRegNum(3,0);
+GetLength(8,"%!7");
+Loop(!`>
+   Release("working");>
+   Repeat("75-((%!3*15)/%!8)",!"Assign('working','%$(|working|);|');");>
+   StartWorking("%$('working'); (copying @STRINGs)");>
+   SetOK(1);//((((<>
+   FindInString("%!7","\@{STRING|PREAMBLE}@{ }{\{@{>|{\{@{>|{\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|{(@{>|{(@{>|{(@{>|{(@{>|{(*)}|^{)}})}|^{)}})}|^{)}})}|^{)}})}",2,3,1001,%!3);>
+   IfOK(!">
+      ExtractByIndex(4,'%!7',%!2,%!3);>
+      SetOK(1);>
+      FindInString('%$(|BM_auxRedo|);','%!4',2,2,0);>
+      IfOK('',!'>
+         LetReg(1,''%!1   %!4%\'');'>
+      );",>
+     "Stop;");>
+`);
+
+// Append new citations to an existing %N-minimal.bib file?
+Assign(`BM_redoIt`,!`>
+   IfStr("%$('BM_auxRedo');","","=",>
+    !"LetReg(2,'new');",>
+    !"LetRegNum(4,-2);>
+      Loop(!'>
+         SetOK(1);>
+         FindInString(""%!6"",""\(0\*|\?|\.|\+|\\|\$|\[|\]|\<|\>|\@|\|\~|\^\)"",2,4,1011,%!4+2);>
+         IfOK(!""ReplaceInString(''%!6'',''\\\0'',%!2,%!4,1,6);"",""Stop;"");>
+      ');>
+      SetOK(1);>
+      FindInString('%$(|BM_auxRedo|);','%$(|bib_beginLine|);\@+$Alpha$@{ }{\{|(}@{ }%!6@{ },',2,4,'%$(|bib_keyCS|);1');//)<>
+      IfOK('LetReg(2,|gotIt|);','LetReg(2,|NEW|);');">
+   );`>
+);
+
+// Get the \cite'd items:
+LetRegNum(3,0);
+LetReg(7,"");
+Loop(!`>
+   Release("working");>
+   GetLength(8,"%!0");>
+   Repeat("60-((%!3*45)/%!8)",!"Assign('working','%$(|working|);|');");>
+   StartWorking("%$('working'); (extracting citations)");>
+   SetOK(1);>
+   FindInString("%!0","%$('single_citation');",2,3,1011,%!3);>
+   IfOK(!">
+      GetTag(0,5);>
+      LetRegNum(4,-1);>
+      LetRegNum(8,-1);>
+      Loop(!'>
+         // Some packages, like `harvard' and `chicago', put multiple \cite{}'ations in one \citation{} command.
+         // Therefore we have to split them first.
+         SetOK(1);>
+         FindInString(''%!5'',''{~,}*,'',2,8,1011,%!8+1);>
+         IfOK(>
+           !''ExtractByIndex(6,|%!5|,%!2,%!8-1);'',>
+           !''ExtractByIndex(6,|%!5|,%!4+1,%!8+1);>
+              LetReg(8,|Stop;|);''>
+         );>
+         // Already in database?
+         Assign(''BM_citation'',''%!6'');>
+         SetOK(1);>
+         FindInString(''%!7'',''{%$(|BM_citation|);,'',2,4,''%$(|bib_keyCS|);0'');>
+         IfOK(''LetReg(2,|gotIt|);'',!''>
+            LetReg(7,|%!7{%$(*BM_citation*);,%\|);>
+            // Append new citations to an existing %N-minimal.bib file?
+            Do(|%$(*BM_redoIt*);|);''>
+         );>
+         IfIStr(''%!2'',''new'',''='',!''>
+            IfStr(|%!2|,|new|,|=|,!|>
+               LetRegNum(4,-2);>
+               // Escape special characters if not done already:
+               Loop(!''''>
+                  SetOK(1);>
+                  FindInString(""%!6"",""\(0\*||\?||\.||\+||\\||\$||\[||\]||\<||\>||\@||\||||\~||\^\)"",2,4,1011,%!4+2);>
+                  IfOK(!""ReplaceInString(||%!6||,||\\\0||,%!2,%!4,1,6);"",""Stop;"");>
+               '''');|>
+            );>
+            // Get it:
+            SetOK(1);//((((<>
+            FindInString(''''%!9'''',''''%$(*bib_beginLine*);\@+$Alpha$@{ }{\{@{ }%!6@{ },@{>|{\{@{>|{\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|{(@{ }%!6@{ },@{>|{(@{>|{(@{>|{(@{>|{(*)}|^{)}})}|^{)}})}|^{)}})}|^{)}})}'''',2,4,''''%$(*bib_keyCS*);1'''');>
+            IfOK(!|>
+               ExtractByIndex(4,||%!9||,%!2,%!4);>
+               LetReg(1,||%!1%\%!4%\||);|,>
+             !|Assign(||bibAuxErrors||,||%$(*bibAuxErrors*);* %$(*BM_citation*);%\||);|);>
+         '');>
+         IfStr(''%!8'',''Stop;'',''='',''Stop;'',''LetRegNum(4,%!8);'');>
+      ');>
+  ","Stop;");>
+`);
+
+// Get those items that are crossreferenced only once:
+LetRegNum(3,0);
+GetLength(8,"%!1");
+LetReg(0,"%\%% ========= cross-referenced entries =========%\");
+Loop(!`>
+   Release("working");>
+   Repeat("15-((%!3*15)/%!8)",!"Assign('working','%$(|working|);|');");>
+   StartWorking("%$('working'); (getting crossrefs)");>
+   SetOK(1);>
+   FindInString("%!1","crossref@{ }=@{ }*@{ }{,|>}",2,3,"10%$('bib_keyCS');1",%!3);>
+   IfOK(!">
+      ExtractByIndex(6,'%!1',%!2+9,%!3-1);>
+      FindInString('%!6','{\{|""}*{""|\}|,}',2,4,'%$(|bib_keyCS|);1');>
+      ExtractByIndex(6,'%!6',%!2+1,%!4-1);>
+      FindInString('%!7','{%!6,',2,4,'%$(|bib_keyCS|);0');>
+      IfOK('LetReg(2,''gotIt'');',!'>
+         LetReg(7,''%!7{%!6,%\'');>
+         Do(''%$(|BM_redoIt|);'');'>
+      );>
+      IfIStr('%!2','new','=',!'>
+         IfStr(|%!2|,|new|,|=|,!|>
+            LetRegNum(4,-2);>
+            Loop(!''>
+               SetOK(1);>
+               FindInString(""%!6"",""\(0\*||\?||\.||\+||\\||\$||\[||\]||\<||\>||\@||\||||\~||\^\)"",2,4,1011,%!4+2);>
+               IfOK(!""ReplaceInString(||%!6||,||\\\0||,%!2,%!4,1,6);"",""Stop;"");>
+            '');|>
+         );>
+         FormatString(''%!6'',6,''trimboth'');>
+         SetOK(1);//((((<>
+         FindInString(''%!9'',''%$(*bib_beginLine*);\@+$Alpha$@{ }{\{@{ }%!6@{ },@{>|{\{@{>|{\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|{(@{ }%!6@{ },@{>|{(@{>|{(@{>|{(@{>|{(*)}|^{)}})}|^{)}})}|^{)}})}|^{)}})}'',2,4,''%$(*bib_keyCS*);1'');>
+         IfOK(!|>
+            ExtractByIndex(4,||%!9||,%!2,%!4);>
+            LetReg(1,||%!1%!0%\%!4%\||);>
+            LetReg(0,||||);|,>
+          !|Assign(||bibAuxErrors||,||%$(*bibAuxErrors*);* %!6 (crossreference)%\||);|);>
+      ');>
+  ","Stop;");>
+`);
+
+OpenOutput("%$('BM_file');-minimal.bib");
+WrL("%!1");
+IfStr("%$('bibAuxErrors');","","=","",!"WrL('bibAuxExtract: I couldn''t find the following entries:%\%$(|bibAuxErrors|);');");
+CloseOutput;
+StopWorking;
+Open("%$('BM_file');-minimal.bib",0,0);
+IfStr("%$('bibAuxErrors');","","=","",!"Prompt('I couldn''t find the following entries:%\%$(|bibAuxErrors|);',2,1);");
+
+PopTagsandRegisters;
+End;
+
+//=============================================================================
+ This macro extracts all \cite'd (or \nocite'd) bibliography entries and writes
+ them into a new file called "<file>-minimal.bib".
+ You can use this for example if you want to distribute your files but don't
+ want to include your complete bibliography database.
+
+ The macro looks into the .aux file to determine which entries you've cited
+ (this explains its name). Therefore, you have to run LaTeX on the main file
+ before you can use this macro. The .bbl file is only needed if you \cite
+ from within a bibliography item (e.g., in a "note" field).
+
+ It can also manage multiple bibliography databases and subdocuments.
+
+ If your bibliography database is HUGE, you should add the following line:
+// bibEndStrings
+ after all @STRING definitions (even if there aren't any!) to speed up the
+ extraction.
+
+ The macro is part of the bibMacros package (see www.winedt.org), but you don't
+ need that to use it.
+
+ Thanks to Jürgen Dix <dix@cs.man.ac.uk> and Jan Odegard <odegard@rice.edu> for
+ extensively testing this macro.
+
+ Robert <w.m.l@gmx.net>
+//=============================================================================

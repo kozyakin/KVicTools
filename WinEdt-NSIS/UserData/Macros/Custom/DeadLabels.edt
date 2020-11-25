@@ -1,0 +1,35 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// (kozyakin 20190613)
+//Prompt("Создание списка меток \label{...}, на которые в документе отсутствуют ссылки.",0,1);
+PushTagsandRegisters;
+SetFindStr("");
+SaveFind;
+Mark(0);
+Goto(0,0);
+SetTracking(0);
+SelectAll;GetSel(1,1);
+SetFindStr("\\label{\{\(*\)\}}\x{\""|GetTag(0,2);FindInString(""%%!1"",""ref{%%!2}"",3,4);|}");
+SetSearchCaseSensitive(0);
+SetSearchRelaxed(1);
+SetSearchWholeWords(0);
+SetSearchInline(0);
+SetRegEx(1);
+SetFindInFilesSelected(-1);
+SetFindinFilesCurrent(1);
+SetFindinFilesOpened(-1);
+SetFindinFilesProject(-1);
+SetFindinFilesFolders(-1);
+SetFindinFilesSubfolders(-1);
+SetFindFilesOnly(-1);
+SetFindinFilesModeFilter("");
+SetFindinFilesTypeFilter("");
+SetFindRoot("");
+SearchReset;
+ShowCollectForm(1);
+FindInFiles;
+SetTracking(1);
+Goto(0,0);
+RestoreFind;
+PopTagsandRegisters;
+// FindDialog(0);

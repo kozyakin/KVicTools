@@ -1,0 +1,30 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// bibTidyStrings.edt
+// (kozyakin 20101125)
+// Remove spaces after \left and \right
+/////////////////////////
+
+
+BeginGroup;
+Mark(0);
+SaveFind;
+SearchReset;
+SetSearchCurrentDoc;
+SetSearchEntire(0);
+SetSearchInline(0);
+SetNotFoundNotify(1);
+SetReplacePrompt(1);
+SetSearchForward(1);
+SetSearchCaseSensitive(1);
+SetRegEx(1);
+SetFindStr( "\(1\\left|\\right\){{@[ ]>@[ ]}|{+[ ]}}" );
+SetReplaceStr( "\1" );
+
+ReplaceDialog;
+
+RestoreFind;
+Goto(0);
+Refresh(1,0);
+EndGroup;
+Exit;

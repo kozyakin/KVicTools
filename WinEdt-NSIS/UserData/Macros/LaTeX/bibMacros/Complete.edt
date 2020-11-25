@@ -1,0 +1,104 @@
+// !Mode:: "ASCII:EDT"
+// Complete.edt
+// complete fields from existing bibliography entries
+// part of the bibMacros package
+// (schlicht 20010818)
+// $Revision: 1.7 $
+/////////////////////////
+
+Mark(0);
+LetRegNum(5,"%l");
+BeginGroup;
+SetTracking(0);
+SetSel(0);
+CMD("Select To Beginning Of Line");
+GetSel(0,1);
+SetSel(0);
+
+SaveFind;
+SetFindTextSelect(1);
+SetNotFoundNotify(0);
+SetSearchSelected;
+SetSearchCurrentDoc;
+SetSearchCyclic(1);
+SetSearchEntire(0);
+SetSearchCaseSensitive(0);
+SetSearchForward(0);
+SetRegEx(1);
+
+FindInString("%!1"," +$Alpha$ ",3,4,0011,0);
+IfOK(!`ExtractByIndex(2,'%!1',%!3+1,%!4-1);`);
+SetOK(1);
+FindInString("%!1","[""\{]*",3,4,0011,0);
+IfStr('%!9%!7','%!1','=',>
+// another try:
+  !'Goto(0);>
+    Repeat(%!6,''CMD(|Backspace|);'');',>
+// first try:
+  !'Mark(1);>
+    ExtractByIndex(0,''%!1'',%!3+1,%!4);>
+    LetReg(9,''%!1'');>
+    IfStr(''%!0'','''',''='',>
+     !''Goto(0);>
+        CMD(|Backspace|);>
+        LetReg(0,||);>
+        GetLength(6,|%!9|);>
+        ReplaceInString(|%!9|,||,%!6-1,%!6-1,0,9);''>
+    );'>
+);
+
+GetLength(6,"%!0");
+LetRegNum(6,%!6+1);
+IfIStr("%!2","author","=","LetReg(2,'{author}|{editor}');");
+IfIStr("%!2","editor","=","LetReg(2,'{author}|{editor}');");
+IfIStr("%!2","title","=","LetReg(2,'@{book}title');");
+IfIStr("%!2","booktitle","=","LetReg(2,'@{book}title');");
+IfIStr("%!2","crossref","=",>
+   `SetFindStr('<\@+$Alpha${\{|(}%!0?*,');//)<>
+    SetSearchForward(1);>
+    LetReg(4,'{\{|(}%!0*');`,//)<>
+    // Don't get confused with nested braces (max. two levels):
+   `SetFindStr('<@{ }%!2@{ }=@{ }{{"%!0?*"}|{\{%!0@{>|{\{@{>|{\{*\}}|^{\}}}*\}}|^{\}}}*\}}}');>
+    LetReg(4,'{"%!0?*"}|{\{%!0@{>|{\{@{>|{\{*\}}|^{\}}}*\}}|^{\}}}*\}}');`>
+);
+
+Goto(1);>
+IfFound(!`>
+   IfNum(%!5,%l,"=",>
+      "Exe('%b\Macros\LaTeX\bibMacros\Complete.edt');");>
+   GetSel(0,3);>
+   Mark(1);>
+   SetOK(1);>
+   FindInString('%!3','%!4',4,5,0011,0);>
+   ExtractByIndex(7,'%!3',%!4+%!6,%!5-1);>
+   Goto(0);>
+   InsText('%!7');>
+   GetLength(6,'%!7');>
+  `,`>
+   CMD('Undo');>
+   Goto(0);>
+   Mark(1);>
+   LetRegNum(6,0);>
+   SearchReset;>
+   Beep(0);`>
+);>
+
+SetTracking(1);
+Refresh;
+RestoreFind;
+EndGroup;
+End;
+
+//===============================================================================
+ This macro completes the contents of a field in a bibliography item.
+
+ It searches for possible completions from the same field in the existing
+ bibliography items. So if you invoke this macro when you want to fill an
+ "author" field, you'll get all authors in turn that you already have in your
+ bibliography database (going backwards).
+ If you type the beginning characters of the name, you can limit the
+ possibilities.
+ If you are in a "crossref" field, the macro suggests keys.
+
+ Robert <w.m.l@gmx.net>
+//===============================================================================

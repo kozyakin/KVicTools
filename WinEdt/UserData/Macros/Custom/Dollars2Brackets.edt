@@ -1,0 +1,49 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// bibTidyStrings.edt
+// (kozyakin 20090920)
+// Global replace of $$...$$ to \[...\]
+/////////////////////////
+
+
+BeginGroup;
+Mark(0);
+SaveFind;
+SearchReset;
+SetSearchCurrentDoc;
+SetSearchEntire(0);
+SetSearchInline(0);
+SetNotFoundNotify(0);
+SetReplacePrompt(0);
+SetSearchForward(1);
+SetRegEx(0);
+SetFindStr( "$$" );
+SetTracking(0);
+
+GotoLin(1);
+
+:begin::
+Find;
+IfOK(!'JMP("cycle");','JMP("exit");')
+
+:cycle::
+GetSwitchIndex(0,"$$?$$");
+IfGetNum("%!0",1,9999,!'JMP("run");','JMP("begin");');
+
+:run::
+
+SetSearchForward(0);
+SetReplaceStr( "\[" );
+Replace;
+SetSearchForward(1);
+SetReplaceStr( "\]" );
+Replace;
+JMP("begin");
+
+:exit::
+RestoreFind;
+Goto(0);
+SetTracking(1);
+Refresh(1,0);
+EndGroup;
+Exit;

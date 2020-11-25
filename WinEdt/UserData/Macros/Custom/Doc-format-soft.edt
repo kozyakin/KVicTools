@@ -1,0 +1,13 @@
+PushTagsandRegisters;
+BeginGroup;
+GoToBeginningOfFile;
+StartWorking( "Formatting...", 0 );
+SetTracking(0);
+SetWrap(-1,0 );
+Loop(!'SelectParagraph;WrapSelectedText(-1,9999);CharRight;IfNum("%!l", "%!L", ">=", "Stop;");');
+RestoreWrap;
+SetTracking(1);
+StopWorking;
+EndGroup;
+Refresh;
+PopTagsandRegisters;

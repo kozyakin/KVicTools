@@ -1,2 +1,33 @@
 # KVicTools
-Here are collected some programs and scripts designed to configure support for the Russian language in MikTeХ, TeX Live systems and the WinEdt editor
+Здесь собраны некоторые программы и скрипты, предназначенные для настройки поддержки русского языка в системах *MikTeX*, *TeX Live* и редакторе *WinEdt*.
+
+### MikTeX и TeX Live
+
+Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилефые файлы для русской библиографии в стиле ГОСТ и др.
+
+### WinEdt
+
+Добавлен перевод всех элементов интерфейса WinEdt На русский язык, а также существенно дополнен набор сервисных макросов для выполнения повседневных нужд - поиск и чистка мусора, перекодировка документов, поиск неиспользуемых или многократно используемых ссылко и меток и др.
+
+### Другое
+
+Набор сервисных bat-файлов для массовой перекодировки pdf-документов в eps, обновления менеждера пакетов *tlmgr* и др.
+
+---
+
+
+
+Here are collected some programs and scripts designed to configure support for the Russian language in *MikTeX*, *TeX Live* systems and the *WinEdt* editor.
+
+### MikTeX and TeX Live
+
+Added common patterns of Russian-English hyphenation, a style file for checking "forward links" in tech files, modified style files for Russian bibliography in the GOST style, etc.
+
+### WinEdt
+
+The translation of all elements of the *WinEdt* interface into Russian has been added, as well as the set of service macros for fulfilling everyday needs has been significantly expanded - searching and cleaning garbage, recoding documents, finding unused or reused links, labels and tags, etc.
+
+### Other
+
+A set of service bat files for mass conversion of pdf documents to eps, updating the *tlmgr* package manager, etc.
+

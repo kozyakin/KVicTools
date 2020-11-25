@@ -1,0 +1,79 @@
+% -*- BibTeX -*-
+% BMStrings.bib
+% default @STRING definitions
+% part of the bibMacros package
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+   @STRING{jan = "January"}
+   @STRING{feb = "February"}
+   @STRING{mar = "March"}
+   @STRING{apr = "April"}
+   @STRING{may = "May"}
+   @STRING{jun = "June"}
+   @STRING{jul = "July"}
+   @STRING{aug = "August"}
+   @STRING{sep = "September"}
+   @STRING{oct = "October"}
+   @STRING{nov = "November"}
+   @STRING{dec = "December"}
+   @STRING{acmcs = "ACM Computing Surveys"}
+   @STRING{acta = "Acta Informatica"}
+   @STRING{cacm = "Communications of the ACM"}
+   @STRING{ibmjrd = "IBM Journal of Research and Development"}
+   @STRING{ibmsj = "IBM Systems Journal"}
+   @STRING{ieeese = "IEEE Transactions on Software Engineering"}
+   @STRING{ieeetc = "IEEE Transactions on Computers"}
+   @STRING{ieeetcad = "IEEE Transactions on Computer-Aided Design of Integrated Circuits"}
+   @STRING{ipl = "Information Processing Letters"}
+   @STRING{jacm = "Journal of the ACM"}
+   @STRING{jcss = "Journal of Computer and System Sciences"}
+   @STRING{scp = "Science of Computer Programming"}
+   @STRING{sicomp = "SIAM Journal on Computing"}
+   @STRING{tocs = "ACM Transactions on Computer Systems"}
+   @STRING{tods = "ACM Transactions on Database Systems"}
+   @STRING{tog = "ACM Transactions on Graphics"}
+   @STRING{toms = "ACM Transactions on Mathematical Software"}
+   @STRING{toois = "ACM Transactions on Office Information Systems"}
+   @STRING{toplas = "ACM Transactions on Programming Languages and Systems"}
+   @STRING{tcs = "Theoretical Computer Science"}
+
+
+This tells the bibMacros to stop searching
+for STRINGs in this file:
+********************************************
+// bibEndStrings
+********************************************
+
+
+@MANUAL{WinEdt.org:BibTeX-Macro-package(9),
+  organization = {WinEdt.org},
+  author       = {Schlicht, R.},
+  title        = {The BibTeX Macro package (a.k.a. bibMacros)},
+  url          = {http://www.winedt.org/Config/menus/00bibMacros.pdf},
+  edition      = {9},
+  year         = {2002},
+  month        = oct
+}
+
+
+
+This is an example setup for key generation
+(used to create the above key -- not fit for real life):
+********************************************************
+// bibMacros::
+key = [MANUAL={organization}:{title}({edition})] [{author|editor}:{year}]
+{organization}_letters        = +{$Alpha$|\.}
+{organization}_extractletters = 10
+{edition}_firstletter         = $Numeric$
+{edition}_letters             = @{$Numeric$}
+{edition}_minletters          = 1
+{title}_firstletter           = $Alpha$
+{title}_minletters            = 5
+{title}_extractletters        = 15
+{title}_delim                 = -
+{title}_skip                  = (
+lastComma                     = no
+emptyLines = leave
+wrap = 80
+// bibMacros-end
+... if you want to add more text here ...

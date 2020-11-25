@@ -1,0 +1,30 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// bibTidyStrings.edt
+// (kozyakin 20091112)
+// Replace of \ref{...} to \eqref{...}
+/////////////////////////
+
+
+BeginGroup;
+Mark(0);
+SaveFind;
+SearchReset;
+SetSearchCurrentDoc;
+SetSearchEntire(0);
+SetSearchInline(1);
+SetNotFoundNotify(1);
+SetReplacePrompt(1);
+SetSearchForward(1);
+SetSearchCaseSensitive(1);
+SetRegEx(1);
+SetFindStr( "(@[ \&9;]\\ref@[ \&9;]\{\(0*\)\}@[ \&9;])" );
+SetReplaceStr( "\\eqref\{\0\}" );
+
+Replace;
+
+RestoreFind;
+Goto(0);
+Refresh(1,0);
+EndGroup;
+Exit;

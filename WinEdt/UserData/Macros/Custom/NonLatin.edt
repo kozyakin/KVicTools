@@ -1,0 +1,14 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// bibTidyStrings.edt
+// (kozyakin 20090920)
+// Search of non-Latin symbols
+/////////////////////////
+
+SearchReset;
+SetSearchForward(1);
+SetSearchSelected;
+SetRegEx(1);
+SetFindStr( "$~[#32..#126]-[#9]$|\u" );
+SetTracking(1);
+FindDialog;

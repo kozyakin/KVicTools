@@ -1,0 +1,465 @@
+// !Mode:: "ASCII:EDT"
+// Auto Key.edt
+// generate a key for a bibliography entry
+// part of the bibMacros package
+// (schlicht 20011203)
+// $Revision: 1.11 $
+/////////////////////////
+
+
+PushTagsandRegisters;
+
+// Read the global configuration file
+IfStr("%$('BM_conf');","","=",!"Exe('%b\Macros\LaTeX\bibMacros\bibMacros.cfg');");
+
+Mark(0);
+SetReplaceRespectCaps(0);
+
+Assign("BM_eatChars",!`>
+   Loop(!"SetOK(1);>
+      FindInString('%!1','%$(|BM_eat|);',2,3,'%$(|BM_eatregular|);');>
+      IfOK(!'ReplaceInString(''%!1'',''%$(|BM_spit|);'',%!2,%!3,''10%$(|BM_spitregular|);'',1);','Stop;');");>
+`);
+
+
+// Generate a key (as defined in %b\Macros\LaTeX\bibMacros\bibMacros.cfg)
+Assign("BM_makekey",!`>
+   // Apply defaults, in case you didn't:
+   IfStr("%$('bib_{%$(|BM_keyfield|);}_nrwords');","","=",       "Assign('bib_{%$(|BM_keyfield|);}_nrwords','3');");>
+   IfStr("%$('bib_{%$(|BM_keyfield|);}_firstletter');","","=",   "Assign('bib_{%$(|BM_keyfield|);}_firstletter','$Alpha+Numeric$');");>
+   IfStr("%$('bib_{%$(|BM_keyfield|);}_letters');","","=",       "Assign('bib_{%$(|BM_keyfield|);}_letters','+$Alpha+Numeric$');");>
+   IfStr("%$('bib_{%$(|BM_keyfield|);}_minletters');","","=",    "Assign('bib_{%$(|BM_keyfield|);}_minletters','3');");>
+   IfStr("%$('bib_{%$(|BM_keyfield|);}_extractletters');","","=","Assign('bib_{%$(|BM_keyfield|);}_extractletters','15');");>
+   // First we have to get the field value:
+   SetOK(1);>
+   FindInString("%$('BM_entry');%\%$('BM_crossrefEntry');","<@{ }%$('BM_keyfield');@{ }=@{ }{\(9""\)@{>|\\""|^""}""@{,}>}|{\(9\{\)@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}@{@{ }\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}\}@{,}>}|{\(9\)@{ }*@{,}>}",2,4,1);>
+   IfOK(!">
+      SetOK(1);>
+      FindInString('%$(|BM_entry|);%\%$(|BM_crossrefEntry|);','=',3,2,1010,%!2);>
+      ExtractByIndex(1,'%$(|BM_entry|);%\%$(|BM_crossrefEntry|);',%!3+1,%!4);>
+      GetLength(3,'%!1');>
+      ExtractByIndex(2,'%!1',%!3-2,%!3);>
+      FindInString('%!2','>',2,4,11);>
+      IfOK(!'ReplaceInString(''%!1'','''',%!3-2,%!3,0,1);');>
+      FormatString('%!1',1,'trimboth');>
+      // expand it ?
+      GetTag(9,5);>
+      IfStr('%!5','','=',!'>
+         SetOK(1);>
+         FindInString(|%!1|,|+{^{$Numeric$||,}}|,3,4,1);>
+         IfOK(||,!|LetReg(5,||numerical||);|);>
+      ',!'>
+         SetOK(1);>
+         FindInString(|%!1|,|#|,3,4,0);>
+         IfOK(!|LetReg(5,||||);|);');>
+      IfStr('%!5','','=',!'>
+         Assign(|BMGetField|,|expandonly|);>
+         Mark(0);>
+         CMD(|Caret <-> Select|);>
+         SetSel(0);>
+         GetSel(1,5);>
+         CMD(|Select From Mark|);>
+         Assign(|temp1|,|%!1|);>
+         Assign(|BM_fieldValue|,|%!1|);>
+         Exe(|%b\Macros\LaTeX\bibMacros\Get Field.edt|);>
+         IfStr(|%$(""BM_fieldValue"");|,|Error|,|=|,>
+           !|LetReg(1,||%$(:temp1:);||);|,>
+           !|LetReg(1,||%$(:BM_fieldValue:);||);|>
+         );'>
+      );>
+      // Skip part of the field? (e.g. subtitles):
+      IfStr('%$(|bib_{%$(*BM_keyfield*);}_skip|);','','=','',>
+        !'SetOK(1);>
+          FindInString(''%!1'',''%$(|bib_{%$(*BM_keyfield*);}_skip|);'',2,2,0001,0);>
+          IfOK(!''ExtractByIndex(1,|%!1|,0,%!2);'');');>
+      // Remove characters which are not allowed in 7-bit BibTeX keys:
+      Assign('BM_eatregular','1');>
+      Assign('BM_spitregular','1');>
+      Assign('BM_eat','\\{\(2l|i|j|o\)}{ |\{|\}}');Assign('BM_spit','\2');Do('%$(|BM_eatChars|);');>
+      Assign('BM_spitregular','0');>
+      Assign('BM_eat','{\\aa{ |\{|\}}}|[àáâãå]'); Assign('BM_spit','a'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','[èéêë]');                  Assign('BM_spit','e'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','[ìíîï]');                  Assign('BM_spit','i'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','[òóôõ]');                  Assign('BM_spit','o'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','[ùúû]');                   Assign('BM_spit','u'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','{\\""{a|\{a\}}}|{\\ae{ |\{|\}}}|[äæ]'); Assign('BM_spit','ae'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','{\\""{o|\{o\}}}|{\\oe{ |\{|\}}}|[öøœ]');Assign('BM_spit','oe'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','{\\""{u|\{u\}}}|ü');                    Assign('BM_spit','ue'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','{\\""{s|\{s\}}}|{\\ss{ |\{|\}}}|ß');    Assign('BM_spit','ss'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eatregular','0');>
+      Assign('BM_eat','ç'); Assign('BM_spit','c'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','ñ'); Assign('BM_spit','n'); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','š'); Assign('BM_spit','sh');Do('%$(|BM_eatChars|);');>
+      Assign('BM_eat','ž'); Assign('BM_spit','zh');Do('%$(|BM_eatChars|);');>
+      // Remove all other characters, commands, spaces and braces
+      Assign('BM_eat','\ ');Assign('BM_spit',' '); Do('%$(|BM_eatChars|);');>
+      Assign('BM_eatregular','1');>
+      Assign('BM_eat','{\\*^$Alpha$}|[\{\}""''``´]|$[#0..#31]$|$[#128..#255]$');Assign('BM_spit','');Do('%$(|BM_eatChars|);');>
+      Assign('BM_eatregular','0');>
+      Assign('BM_eat','~'); Assign('BM_spit',' '); Do('%$(|BM_eatChars|);');>
+      // Now we can actually start generating the key:
+      LetRegNum(3,0);>
+      LetRegNum(5,0);>
+      LetRegNum(8,0);>
+      LetRegNum(9,0);>
+      Release('BM_%$(|BM_keyfield|);_key');>
+      Assign('BM_tmp','1');>
+      Loop(!'>
+         SetOK(1);>
+         FindInString(''%$(*BM_keyfield*);'',''{author|editor}'',6,6,1);>
+         IfOK(!''// It's a bit more complicated for authors: <>
+            IfStr(|%$(""BM_tmp"");|,|0|,|=|,|LetReg(6,*NotOK*);|,>
+               !|SetOK(1);>
+                 FindInString(""%!1"",""+{<|| }AND+{ ||>}"",6,5,1001,%!5);>
+                 IfOK("""",!""// this is the last author <>
+                     GetLength(5,||%!1||);Assign(||BM_tmp||,||0||);"");>
+                 // The last name is either the part before a comma,
+                 SetOK(1);>
+                 FindInString(""%!1"",""%$(:bib_{%$(*BM_keyfield*);}_firstletter:);%$(:bib_{%$(*BM_keyfield*);}_letters:);,"",2,3,1011,%!9);>
+                 IfNum(%!2,%!5-2,""<"",!"">
+                      LetRegNum(3,%!3+1);"",>
+                  !""// or the last word <>
+                     SetOK(1);>
+                     FindInString(:%!1:,:{ ||\~}%$(*bib_{%$(**BM_keyfield**);}_firstletter*);%$(*bib_{%$(**BM_keyfield**);}_letters*);~{\.}:,2,3,1111,%!6-1);>
+                     IfOK(!:>
+                        LetRegNum(2,%!2+1);>
+                        LetRegNum(3,%!3+2);:>
+                     );"">
+                 );>
+                 LetRegNum(9,%!5);>
+                 LetReg(6,""OK"");|>
+            );'',>
+         !''SetOK(1);//(<>
+            FindInString(|{%!1}|,|{\{|| }%$(:bib_{%$(*BM_keyfield*);}_firstletter:);%$(:bib_{%$(*BM_keyfield*);}_letters:);{>|| ||\}||$["".,;:?!""""``''''\-)""]$}|,2,3,1011,%!3);>
+            IfOK(|LetReg(6,""OK"");|,|LetReg(6,""NotOK"");|);''>
+         );>
+         IfStr(''%!6'',''OK'',''='',!''>
+             ExtractByIndex(4,|{%!1}|,%!2+1,%!3-1);>
+             SetOK(1);>
+             FindInString(|%!4|,|$[#13]$|,2,2,1);>
+             IfOK(!|ReplaceInString(||%!4||,||||,%!2,%!2,0,4);|);>
+             GetLength(2,|%!4|);>
+             // Words have to have at least x letters:
+             IfNum(%!2,|%$(:bib_{%$(*BM_keyfield*);}_minletters:);|,|<|,||,>
+                !|// extract part of the word (or the whole word) <>
+                  IfNum(||%$(:bib_{%$(*BM_keyfield*);}_extractletters:);||,0,||<||,>
+                    !||GetLength(7,*%!4*);>
+                       LetRegNum(6,""%!7+(%$(:bib_{%$(*BM_keyfield*);}_extractletters:);)"");||,>
+                    !||LetRegNum(6,0);>
+                       LetRegNum(7,""%$(:bib_{%$(*BM_keyfield*);}_extractletters:);-1"");||);>
+                  ExtractByIndex(4,||%!4||,%!6,%!7);>
+                  IfNum(%!8,0,||>||,>
+                    !||LetReg(4,""%$(:bib_{%$(*BM_keyfield*);}_delim:);%!4"");||);>
+                  // Maximum number of words:
+                  IfNum(%!8,||%$(:bib_{%$(*BM_keyfield*);}_nrwords:);||,||=||,>
+                    !||LetReg(4,""%$(:bib_{%$(*BM_keyfield*);}_etc:);"");>
+                       LetRegNum(3,100000);>
+                       Assign(""BM_tmp"",""0"");||);>
+                  // case of the words (suggested by Dominik Wujastyk)
+                  IfStr(||%$(:bib_{%$(*BM_keyfield*);}_case:);||,||||,||<>||,!||>
+                     FindInString(""###%!4###"",""###\(0*\)###"",2,2,1);>
+                     ReplaceInString(""%!4"",""\%$(:bib_{%$(*BM_keyfield*);}_case:);0"",0,%!2,1,4);||);>
+                  Assign(||BM_%$(*BM_keyfield*);_key||,||%$(:BM_%$(*BM_keyfield*);_key:);%!4||);>
+                  LetRegNum(8,%!8+1);|>
+             );>
+            '',>
+           !''Stop;'');'>
+      );",>
+     "// The field is empty: <>
+      IfStr('%$(|bib_{%$(*BM_keyfield*);}_alt|);','','=',>
+        !'Release(''BM_%$(|BM_keyfield|);_key'');Release(''BM_keydelim'');',>
+        !'Assign(|BM_%$(*BM_keyfield*);_key|,>
+                 |%$(:bib_{%$(*BM_keyfield*);}_alt:);|);>
+        ');>
+      ">
+   );>
+`);
+
+
+// Get the item (if not called by bibCleanEntry.edt):
+IfStr("%$('bibAutoKey');","bibCleanEntry","=","",!`>
+   SaveFind;>
+   SetTracking(0);>
+   BeginGroup;>
+   Assign("BMGetEntry","bibCleanEntry");>
+   Exe("%b\Macros\LaTeX\bibMacros\Get Entry.edt");>
+   IfStr("%$('BM_entry');","","=","Release('bibAutoKey');Goto(0);Beep(0);RestoreFind;PopTagsandRegisters;Exit;");>
+   Release("BM_conf");`>
+);
+
+// crossrefencing another entry?
+Release("BM_crossrefEntry");
+FindInString("%$('BM_entry');","<@{ }crossref@{ }=@{ }{""|\{}\(1*\){""|\}}",1,2,1);
+IfOK(!">
+   SetSel(0);>
+   GetSel(1,1);>
+   GotoCL('%$(|BM_entryEndC|);','%$(|BM_entryEndL|);');>
+   Mark(0);>
+   GotoCL('%$(|BM_entryStart2C|);','%$(|BM_entryStart2L|);');>
+   CMD('Select From Mark');>
+   SetOK(1);>
+   GetTag(1,3);>
+   FindInString('%!1','%$(|bib_beginLine|);\@+$Alpha$@{ }\{@{ }%!3,@{>|{\{@{>|{\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}',2,3,1);>
+   IfOK(!'ExtractByIndex(1,''%!1'',%!2,%!3);>
+      Assign(''BM_crossrefEntry'',''%!1'');');">
+);
+
+
+Assign("autoKeyMain",!:>
+   Loop(!`>
+      SetOK(1);>
+      FindInString("%$('tmpkey');","\{*\}",6,7,11);>
+      IfOK(!">
+         ExtractByIndex(4,'%$(|tmpkey|);',0,%!6-1);>
+         Assign('BM_keydelim','%!4');>
+         ExtractByIndex(3,'%$(|tmpkey|);',%!6+1,%!7-1);>
+         Assign('BM_keyfield','%!3');>
+         ReplaceInString('%$(|tmpkey|);','',0,%!7,0,5);>
+         Assign('tmpkey','%!5');>
+         Do('%$(|BM_makekey|);');>
+         Assign('BM_thekey','%$(|BM_thekey|);%$(|BM_keydelim|);%$(|BM_%$(*BM_keyfield*);_key|);');>
+        ",>
+       !"GetLength(6,'%$(|tmpkey|);');>
+         ExtractByIndex(4,'%$(|tmpkey|);',0,%!6);>
+         Assign('BM_thekey','%$(|BM_thekey|);%!4');>
+         Stop;">
+      );>
+   `);>
+:);
+
+
+// parse "bib_key" (splitting the conditional rules, suggested by Mark Ainsworth <ma@maths.strath.ac.uk>)
+Release('BM_thekey');
+Assign("7","-1");
+Loop(!`>
+   LetReg(7,"%$('7');");>
+   IfStr("%$('BM_thekey');","","=",!``>
+      SetOK(1);>
+      FindInString("%$('bib_key');","{^{\\}\[\(0*\)=\(1*\)~{\\}\]}|{^{\\}\[\(1*\)~{\\}\]\(0\)}",6,7,1011,%!7);>
+      IfOK(!">
+         Assign('7','%!7');>
+         GetTag(0,6);>
+         IfStr('%!6','','=',!'>
+            ReplaceInString(''0'',''\1'',0,1000,1,6);>
+            Assign(''tmpkey'',''%!6'');>
+            Do(''%$(|autoKeyMain|);'');>
+          ',!'>
+            SetOK(1);>
+            FindInString(''%$(|BM_type|);%$(|BM_entry|);'',''<@{ }@{\@}%!6@{ }{\{|=}'',3,4,1);>
+            IfOK(!''>
+               ReplaceInString(|1|,|\1|,0,1000,1,6);>
+               Assign(|tmpkey|,|%!6|);>
+               Do(''''%$(|autoKeyMain|);'''');>
+            '');>
+         ');>
+      ","Assign('BM_thekey','@');");>
+   ``,!``>
+      IfStr("%$('BM_thekey');","@","=","Release('BM_thekey');");>
+      SetOK(1);>
+      FindInString("%$('bib_key');","^{\\}\]",6,5,111);>
+      GetLength(6,"%$('bib_key');");>
+      IfNum(%!6-1,%!5,"=","Stop;",!">
+         ExtractByIndex(6,'%$(|bib_key|);',%!5+1,%!6);>
+         LetRegNum(7,%!5);>
+         Assign('tmpkey','%!6');>
+         Do('%$(|autoKeyMain|);');>
+         Stop;>
+      ");>
+   ``);>
+`);
+
+
+// show the key and test whether it already exists:
+LetRegNum(2,0);
+LetReg(9,"%$('BM_thekey');");
+Loop(!">
+   SetOK(1);>
+   FindInString('%!9','\\{\(\[|\]\)}',1,2,1001,%!2);>
+   IfOK(!'ReplaceInString(''%!9'',''\0'',%!1,%!2,1,9);',>
+     'Stop;'>
+   );">
+);
+FindInString("%$('bib_extraLabel');","\{@{\+}1\}",1,2,1);
+IfOK("Assign('BM_label','1');","Assign('BM_label','a');");
+Loop(!`>
+   IfStr("%$('bib_keyPrompt');","no","=","",!">
+      EnterReg(9,'Insert the Key:','Insert Key');>
+   ");>
+   StartWorking("Key unique?");>
+   LetRegNum(2,-2);>
+   LetReg(6,"%!9");>
+   SetOK(1);>
+   FindInString("%!6","[""#,%%~{} ""]|\\",1,2,11);>
+   IfOK(!">
+      Prompt('Illegal characters in entry key!%\(It''s one of these: # \ , % ~ { } or <space>)',3,2,'',>
+        'SetSel(0);>
+         SetTracking(1);>
+         Refresh;>
+         Release(*bibAutoKey*);>
+         EndGroup;>
+         PopTagsandRegisters;>
+         RestoreFind;>
+         Exit;'>
+      );",>
+    !"LetRegNum(2,-2);>
+      Loop(!'>
+         SetOK(1);>
+         FindInString(''%!6'',''\(0\*|\?|\.|\+|\\|\$|\[|\]|\<|\>|\@|\||\^\)'',1,2,1011,%!2+2);>
+         IfOK(!''ReplaceInString(|%!6|,|\\\0|,%!1,%!2,1,6);'',''Stop;'');'>
+      );>
+      GDIReset;>
+      GDISetPage('Bib','');>
+      GDIUpdate;>
+      CopyFromClipboard(4);>
+      GDICopy;>
+      CopyFromClipboard(8);>
+      CopyToClipboard('%!4',0);>
+      // remove current key from list of keys
+      // thanks to Juan Fiol <fiolj@umr.edu>
+      SetOK(1);>
+      FindInString('%$(|BM_entry|);','{\{|(}@{ }\(2*\),',1,2,1);//)<>
+      IfOK(!'SetOK(1);>
+         FindInString(''%!8'',''<{~>}@{ }\2:'',1,2,1);>
+         IfOK(!''>
+           ReplaceInString(|%!8|,||,%!1,%!2,0,8);>
+         '');>
+      ');>
+      SetOK(1);>
+      FindInString('%!8','<{~>}@{ }%!6@{%$(|bib_extraLabel|);}:',1,2,1);>
+      IfOK(!'>
+         IfStr(''%$(|bib_extraLabel|)'',''no'',''='',!''>
+             Prompt(|This key already exists. Please choose another one.|,3,2,||,>
+                |SetTracking(1);>
+                 Refresh;>
+                 Release(*bibAutoKey*);>
+                 Release(*BM_thekey*);>
+                 Assign(*BM_lastLine*,*0*);>
+                 EndGroup;>
+                 PopTagsandRegisters;>
+                 RestoreFind;>
+                 Exit;|);>
+             IfStr(|%$(*bib_keyPrompt*);|,|no|,|=|,|Stop;|);>
+             '',>
+          !''// automatically add an extra label, if key is ambiguous: <>
+             // suggested by Patrick Wallman <patrik.wallman@chemeng.lth.se>
+             Beep(0);>
+             SetOK(1);>
+             FindInString(|%$(*bib_extraLabel*);|,|\{@{\+}1\}|,5,7,1);>
+             IfOK(!|// either numerical <>
+                Loop(!||>
+                   ReplaceInString(""%$(*bib_extraLabel*);"",""%$(*BM_label*);"",%!5,%!7,0,4);>
+                   SetOK(1);>
+                   FindInString(""%!8"",""<{~>}@{ }%!6%!4>"",1,2,1);>
+                   IfOK(!``>
+                       LetRegNum(3,""%$(*BM_label*);+1"");>
+                       Assign(""BM_label"",""%!3"");``,>
+                    !``Assign(""BM_label"",""%!4"");>
+                       Stop;``>
+                   );||>
+                );|,>
+              !|// or alphabetical <>
+                SetOK(1);>
+                FindInString(||%$(*bib_extraLabel*);||,||\{@{\+}a\}||,5,7,11);>
+                Loop(!||>
+                   ReplaceInString(""%$(*bib_extraLabel*);"",""%$(*BM_label*);"",%!5,%!7,0,4);>
+                   SetOK(1);>
+                   FindInString(""%!8"",""<{~>}@{ }%!6%!4:"",1,2,1);>
+                   IfOK(!``>
+                      IfStr(*%$(""BM_label"");*,*z*,*=*,!*>
+                         Assign(""BM_label"",""0"");>
+                         GetLength(3,""%!6"");>
+                         InsertByIndex(6,""%!6"",""a"",%!3);>
+                         GetLength(3,""%!9"");>
+                         InsertByIndex(9,""%!9"",""a"",%!3);>
+                      *);>
+                      // (unfortunately, we don't have a macro like "CharToInt")
+                      IfStr(*%$(""BM_label"");*,*y*,*=*,*Assign(""BM_label"",""z"");*);>
+                      IfStr(*%$(""BM_label"");*,*x*,*=*,*Assign(""BM_label"",""y"");*);>
+                      IfStr(*%$(""BM_label"");*,*w*,*=*,*Assign(""BM_label"",""x"");*);>
+                      IfStr(*%$(""BM_label"");*,*v*,*=*,*Assign(""BM_label"",""w"");*);>
+                      IfStr(*%$(""BM_label"");*,*u*,*=*,*Assign(""BM_label"",""v"");*);>
+                      IfStr(*%$(""BM_label"");*,*t*,*=*,*Assign(""BM_label"",""u"");*);>
+                      IfStr(*%$(""BM_label"");*,*s*,*=*,*Assign(""BM_label"",""t"");*);>
+                      IfStr(*%$(""BM_label"");*,*r*,*=*,*Assign(""BM_label"",""s"");*);>
+                      IfStr(*%$(""BM_label"");*,*q*,*=*,*Assign(""BM_label"",""r"");*);>
+                      IfStr(*%$(""BM_label"");*,*p*,*=*,*Assign(""BM_label"",""q"");*);>
+                      IfStr(*%$(""BM_label"");*,*o*,*=*,*Assign(""BM_label"",""p"");*);>
+                      IfStr(*%$(""BM_label"");*,*n*,*=*,*Assign(""BM_label"",""o"");*);>
+                      IfStr(*%$(""BM_label"");*,*m*,*=*,*Assign(""BM_label"",""n"");*);>
+                      IfStr(*%$(""BM_label"");*,*l*,*=*,*Assign(""BM_label"",""m"");*);>
+                      IfStr(*%$(""BM_label"");*,*k*,*=*,*Assign(""BM_label"",""l"");*);>
+                      IfStr(*%$(""BM_label"");*,*j*,*=*,*Assign(""BM_label"",""k"");*);>
+                      IfStr(*%$(""BM_label"");*,*i*,*=*,*Assign(""BM_label"",""j"");*);>
+                      IfStr(*%$(""BM_label"");*,*h*,*=*,*Assign(""BM_label"",""i"");*);>
+                      IfStr(*%$(""BM_label"");*,*g*,*=*,*Assign(""BM_label"",""h"");*);>
+                      IfStr(*%$(""BM_label"");*,*f*,*=*,*Assign(""BM_label"",""g"");*);>
+                      IfStr(*%$(""BM_label"");*,*e*,*=*,*Assign(""BM_label"",""f"");*);>
+                      IfStr(*%$(""BM_label"");*,*d*,*=*,*Assign(""BM_label"",""e"");*);>
+                      IfStr(*%$(""BM_label"");*,*c*,*=*,*Assign(""BM_label"",""d"");*);>
+                      IfStr(*%$(""BM_label"");*,*b*,*=*,*Assign(""BM_label"",""c"");*);>
+                      IfStr(*%$(""BM_label"");*,*a*,*=*,*Assign(""BM_label"",""b"");*);>
+                      IfStr(*%$(""BM_label"");*,*0*,*=*,*Assign(""BM_label"",""a"");*);>
+                    ``,>
+                   !``Assign(""BM_label"",""%!4"");>
+                      Stop;``>
+                   );||>
+                );|>
+             );>
+             GetLength(3,|%!9|);>
+             InsertByIndex(9,|%!9|,|%$(*BM_label*);|,%!3);>
+             StopWorking;>
+             Stop;''>
+         );',>
+       !'SetOK(1);>
+         FindInString(''%$(|bib_extraLabel|);'',''\{\+{a|1}\}'',1,2,11);>
+         IfOK(!''// always append a label <>
+            ReplaceInString(|%$(*bib_extraLabel*);|,|%$(*BM_label*);|,%!1,%!2,0,4);>
+            GetLength(3,|%!9|);>
+            InsertByIndex(9,|%!9|,|%!4|,%!3);''>
+         );>
+         Release(''BM_label'');>
+         StopWorking;>
+         Stop;'>
+      );">
+   );`>
+);
+
+Assign("BM_thekey","%!9");
+FindInString("%$('BM_entry');","{\{|(}@^{,|=},",1,2,11);//)
+IfNum(%!1,0,"=",!`>
+   ReplaceInString("%$('BM_entry');","%!9,",1,%!2,0,0);`,>
+ !`InsertByIndex(0,"%$('BM_entry');","%!9,",1);`);
+Assign("BM_entry","%!0");
+
+// Insert it (if not called by bibCleanEntry.edt):
+IfStr("%$('bibAutoKey');","bibCleanEntry","=","",!`>
+   IfStr('%$(|bib_alignKey|);','no','=','',!'>
+      GetLength(2,''%$(|BM_type|);'');>
+      LetRegNum(2,''%$(|bib_alignValue|);+(%$(|bib_alignKey|);-%!2+1)'');>
+      IfNum(%!2,0,''>'',!''Repeat(%!2,!|LetReg(0,|| %!0||);|);'');'>
+   );>
+   Assign('BM_entry','%!0');>
+   Ins("%$('BM_entry');");>
+   IfStr("%$('bib_keyPrompt');","no","=",!">
+      IfStr('%$(|BM_thekey|);','','=','',!'>
+         SetFindStr(''%$(|BM_thekey|);'');>
+         SetRegEx(0);>
+         SetSearchForward(0);>
+         SearchReset;>
+         Find;>
+         CMD(''Caret <-> Select'');>
+      ');>
+   ");>
+   SetTracking(1);>
+   Refresh;>
+   EndGroup;>
+   RestoreFind;>
+   Release("BM_thekey");`>
+);
+
+Release("bibAutoKey");
+PopTagsandRegisters;
+
+End;
+
+$Id: bibAutoKey.edt,v 1.11 2007-06-07 00:13:39+02 schlicht Exp schlicht $

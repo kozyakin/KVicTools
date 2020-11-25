@@ -1,0 +1,15 @@
+// !Mode:: "EDT:UTF-8"
+// -*- EDT:UTF-8 -*-
+// bibTidyStrings.edt
+// (kozyakin 20090920)
+// Search of Cyrillic in Math mode
+/////////////////////////
+
+
+SearchReset;
+SetSearchForward(1);
+SetSearchSelected;
+SetRegEx(1);
+SetFindStr( "[ЁёА-я]\E{isMathX}" );
+SetTracking(1);
+FindDialog;

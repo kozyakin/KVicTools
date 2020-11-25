@@ -1,0 +1,272 @@
+// !Mode:: "EDT:UTF-8"
+// -*- EDT:UTF-8 -*-
+// changeEnv.edt
+// changes the current environment
+// (schlicht 20010705)
+// MUI variant by V.Kozyakin 20100327
+///////////////////////
+// Requires WinEdt 7 Build 20120413 (or later)
+Requires(20120413);
+
+
+//=============================================================================
+// There are two ways to invoke this macro:
+// 1. by an Active String, i.e. by typing ">" after the environment commands
+//      "\begin{environment}"
+//    and / or
+//      "\end{environment}";
+//    or "$$", or "\[";
+// 2. manually (resp. via a shortcut) from anywhere inside the environment.
+//
+//  To define an Active String,
+//    * Go to Options | Settings | Active Strings;
+//    * Right-click in the list and insert a new item:
+//         "\begin{?}>"
+//      and / or
+//         "$$>"
+//      and / or
+//         "\[>"
+//      and maybe also "\end{?}>" etc.
+//    * Define the Action:
+//          Exe("%B\Macros\LaTeX\ChangeEnvMUI.edt");
+//    * Check the box in "Action" and define "TeX" as "On Type".
+//
+// You can add new environments to the list using the prompt.
+// If it's a "normal" environment (e.g. "\begin{eqnarray}" ... "\end{eqnarray}"),
+// you should specify the name of the environment ("eqnarray") only.
+// Otherwise you have to specify both parts of the environment separated by "^",
+// f.i. "\[^\]".
+//
+// Note that the macro relies on WinEdt's finding the matching delimiter,
+// as defined in Options | Settings | Delimiters.
+//
+////=============================================================================
+// Requires WinEdt 7 Build 20120413 (or later)
+Requires(20120413);
+
+PushTagsandRegisters;
+
+LetRegNum(0,%l*1000+%c);
+SetTracking(1);
+Mark(0);
+
+// Anything preselected? Then give the macro
+// a chance to find the environment again:
+IfSel(0,">","CharRight;");
+
+// Called by an Active String?
+SelCharLeft;
+IfStr("%S",">","=","Delete;","CharRight(2);");
+SetTracking(0);
+
+    LetReg(8,'');
+    LetReg(9,'');
+
+MUIReset('Изменение окружения');
+    MUISet('','position','1'); // Main Form Center
+    MUISet('','font bold','1');
+    MUISet('','font bold','0');
+    MUIGet('','text width',7,'proposition');
+    LetRegNum(4,3);
+    LetRegNum(6,8*%!4+7*6+7*%!7);
+    MUISet('','width','%!6');
+    MUIGet('','text height',6,'|'); //button half-height
+    LetRegNum(3,%!7+6);
+    MUISet('','height','315');
+    LetRegNum(5,3);
+
+MUIAdd(%!4,%!4,6*%!4+6*6+7*%!7,3*%!4+5*%!6, 'MyEQ','TGroupBox','','Уравнения');
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton1','TButton','MyEQ','$$...$$');
+  MUISet('MyButton1','on click', !'LetReg(8,|$$|);LetReg(9,|$$|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton2','TButton','MyEQ','align  ');
+  MUISet('MyButton2','on click', !'LetReg(8,|\begin{align}|);LetReg(9,|\end{align}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton3','TButton','MyEQ','alignat  ');
+  MUISet('MyButton3','on click', !'LetReg(8,|\begin{alignat}|);LetReg(9,|\end{alignat}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton4','TButton','MyEQ','equation  ');
+  MUISet('MyButton4','on click', !'LetReg(8,|\begin{equation}|);LetReg(9,|\end{equation}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton5','TButton','MyEQ','eqnarray  ');
+  MUISet('MyButton5','on click', !'LetReg(8,|\begin{eqnarray}|);LetReg(9,|\end{eqnarray}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton6','TButton','MyEQ','gather  ');
+  MUISet('MyButton6','on click', !'LetReg(8,|\begin{gather}|);LetReg(9,|\end{gather}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton7','TButton','MyEQ','multline  ');
+  MUISet('MyButton7','on click', !'LetReg(8,|\begin{multline}|);LetReg(9,|\end{multline}|);MUIHide(1);');
+
+  LetRegNum(5,3);
+  MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton21','TButton','MyEQ','\[...\]');
+  MUISet('MyButton21','on click', !'LetReg(8,|\[|);LetReg(9,|\]|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton22','TButton','MyEQ','align*');
+  MUISet('MyButton22','on click', !'LetReg(8,|\begin{align*}|);LetReg(9,|\end{align*}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton23','TButton','MyEQ','alignat*');
+  MUISet('MyButton23','on click', !'LetReg(8,|\begin{alignat*}|);LetReg(9,|\end{alignat*}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton24','TButton','MyEQ','equation*');
+  MUISet('MyButton24','on click', !'LetReg(8,|\begin{equation*}|);LetReg(9,|\end{equation*}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton25','TButton','MyEQ','eqnarray*');
+  MUISet('MyButton25','on click', !'LetReg(8,|\begin{eqnarray*}|);LetReg(9,|\end{eqnarray*}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton26','TButton','MyEQ','gather*');
+  MUISet('MyButton26','on click', !'LetReg(8,|\begin{gather*}|);LetReg(9,|\end{gather*}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton27','TButton','MyEQ','multline*');
+  MUISet('MyButton27','on click', !'LetReg(8,|\begin{multline*}|);LetReg(9,|\end{multline*}|);MUIHide(1);');
+
+MUIAdd(%!4,2+4*%!4+5*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyTH','TGroupBox','','Теоремы');
+  LetRegNum(5,3);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton31','TButton','MyTH','corollary');
+  MUISet('MyButton31','on click', !'LetReg(8,|\begin{corollary}|);LetReg(9,|\end{corollary}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton32','TButton','MyTH','definition');
+  MUISet('MyButton32','on click', !'LetReg(8,|\begin{definition}|);LetReg(9,|\end{definition}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton33','TButton','MyTH','example');
+  MUISet('MyButton33','on click', !'LetReg(8,|\begin{example}|);LetReg(9,|\end{example}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton34','TButton','MyTH','lemma');
+  MUISet('MyButton34','on click', !'LetReg(8,|\begin{lemma}|);LetReg(9,|\end{lemma}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton35','TButton','MyTH','proposition');
+  MUISet('MyButton35','on click', !'LetReg(8,|\begin{proposition}|);LetReg(9,|\end{proposition}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton36','TButton','MyTH','remark');
+  MUISet('MyButton36','on click', !'LetReg(8,|\begin{remark}|);LetReg(9,|\end{remark}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton37','TButton','MyTH','theorem');
+  MUISet('MyButton37','on click', !'LetReg(8,|\begin{theorem}|);LetReg(9,|\end{theorem}|);MUIHide(1);');
+
+MUIAdd(%!4,3+7*%!4+8*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyCenter','TGroupBox','','Форматирование');
+  LetRegNum(5,3);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton41','TButton','MyCenter','center');
+  MUISet('MyButton41','on click', !'LetReg(8,|\begin{center}|);LetReg(9,|\end{center}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton42','TButton','MyCenter','flushleft');
+  MUISet('MyButton42','on click', !'LetReg(8,|\begin{flushleft}|);LetReg(9,|\end{flushleft}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton43','TButton','MyCenter','flushright');
+  MUISet('MyButton43','on click', !'LetReg(8,|\begin{flushright}|);LetReg(9,|\end{flushright}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton44','TButton','MyCenter','minipage');
+  MUISet('MyButton44','on click', !'LetReg(8,|\begin{minipage}|);LetReg(9,|\end{minipage}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton45','TButton','MyCenter','quote');
+  MUISet('MyButton45','on click', !'LetReg(8,|\begin{quote}|);LetReg(9,|\end{quote}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton46','TButton','MyCenter','verbatim');
+  MUISet('MyButton46','on click', !'LetReg(8,|\begin{verbatim}|);LetReg(9,|\end{verbatim}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton47','TButton','MyCenter','verse');
+  MUISet('MyButton47','on click', !'LetReg(8,|\begin{verse}|);LetReg(9,|\end{verse}|);MUIHide(1);');
+
+MUIAdd(%!4,4+10*%!4+11*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyArray','TGroupBox','','Массивы, таблицы, рисунки');
+  LetRegNum(5,3);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton51','TButton','MyArray','array');
+  MUISet('MyButton51','on click', !'LetReg(8,|\begin{array}|);LetReg(9,|\end{array}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton52','TButton','MyArray','cases');
+  MUISet('MyButton52','on click', !'LetReg(8,|\begin{cases}|);LetReg(9,|\end{cases}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton53','TButton','MyArray','tabbing');
+  MUISet('MyButton53','on click', !'LetReg(8,|\begin{tabbing}|);LetReg(9,|\end{tabbing}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton54','TButton','MyArray','table');
+  MUISet('MyButton54','on click', !'LetReg(8,|\begin{table}|);LetReg(9,|\end{table}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton55','TButton','MyArray','tabular');
+  MUISet('MyButton55','on click', !'LetReg(8,|\begin{tabular}|);LetReg(9,|\end{tabular}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton56','TButton','MyArray','figure');
+  MUISet('MyButton56','on click', !'LetReg(8,|\begin{figure}|);LetReg(9,|\end{figure}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton57','TButton','MyArray','picture');
+  MUISet('MyButton57','on click', !'LetReg(8,|\begin{picture}|);LetReg(9,|\end{picture}|);MUIHide(1);');
+
+MUIAdd(%!4,5+13*%!4+14*%!6,3*%!4+3*6+3*%!7,2*%!4+3*%!6, 'MyItem','TGroupBox','','Списки');
+  LetRegNum(5,3);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton61','TButton','MyItem','description');
+  MUISet('MyButton61','on click', !'LetReg(8,|\begin{description}|);LetReg(9,|\end{description}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton62','TButton','MyItem','enumerate');
+  MUISet('MyButton62','on click', !'LetReg(8,|\begin{enumerate}|);LetReg(9,|\end{enumerate}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton63','TButton','MyItem','itemize');
+  MUISet('MyButton63','on click', !'LetReg(8,|\begin{itemize}|);LetReg(9,|\end{itemize}|);MUIHide(1);');
+
+  MUIGet('','text width',2,'Задать окружение вручную');
+
+MUIAdd(3*%!4+5*6+6*%!7-%!2-1,5+13*%!4+14*%!6,2*%!4+2*6+%!7+%!2+1,2*%!4+3*%!6, 'MyEnd','TGroupBox','',' ');
+  LetRegNum(5,3);
+  MUIAdd(%!5,%!4+%!6,%!2+6,0, 'MyButton71','TButton','MyEnd','Задать окружение вручную');
+  MUISet('MyButton71','default', '1');
+  MUISet('MyButton71','on click', !'MUIHide(1);LetReg(8,"");>
+  EnterReg(9,"Изменить окружение на следующее:","Задать окружение вручную");');
+  LetRegNum(5,7+%!5+%!2);
+  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton72','TButton','MyEnd','Cancel');
+  MUISet('MyButton72','cancel', '1'); // ESCAPE
+  MUISet('MyButton72','on click', !'MUIHide(2);JMP(`exit`);');
+
+MUIShow; // Show Modal Dialog
+
+// Now comes the real thing.
+
+:change::
+ResetGroup;
+BeginGroup;
+SaveFind;
+SetFindTextSelect(1);
+SetNotFoundNotify(1);
+SetSearchSelected;
+SetSearchCurrentDoc;
+SetSearchCyclic(0);
+SetSearchEntire(0);
+SetSearchForward(0);
+SetRegEx(1);
+SetSearchCaseSensitive(1);
+SetFindStr("{\\begin\{*\}}|{\$\$}|{\\\[}");
+
+Loop(!`>
+   IfFound(>
+     !"Mark(1);>
+       GetSel(0,1);>
+       MatchDelimiter(0,0,1,1);>
+       IfOK('','Stop;');>
+       IfNum(%!3,%l,'=','Mark(1);MatchDelimiter(0,0,1,1);IfOK('''',''Stop;'');');>
+       LetRegNum(3,%l);>
+       IfNum(%l*1000+%c+1,%!0,'>=',>
+        !'SetTracking(1);>
+          Refresh(1);>
+          IfStr(''%!9'','''',''='',''Goto(0);RestoreFind; Exit;'');>
+          SetTracking(0);>
+          GetSel(0,2);>
+          GetLength(7,''%!2'');>
+          Repeat(%!7,''SelCharLeft;'');>
+          IfStr(''%!8'','''',''='',''LetReg(8,|\begin{%!9}|);LetReg(9,|\end{%!9}|);'');>
+          InsText(''%!9'');>
+          Goto(1);>
+          GetLength(7,''%!1'');>
+          Repeat(%!7,''SelCharRight;'');>
+          InsText(''%!8'');>
+          Stop;',>
+        !'MatchDelimiter(0,0,1,1);'>
+       );>
+       ",>
+     "Stop;">
+   );>
+`);
+
+RestoreFind;
+
+:exit::
+GotoLin(%!0/1000);
+SetTracking(1);
+Refresh;
+EndGroup;
+PopTagsandRegisters;
+End;
