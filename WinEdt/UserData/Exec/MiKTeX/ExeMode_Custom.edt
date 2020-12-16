@@ -325,6 +325,31 @@
     Release(!"BibTeX-Background_Window");
     Assign(!"BibTeX-Pause", !|1|);
 
+// upBibTeX
+    Assign(!"upBibTeX-Executable", !|upbibtex.exe|);
+    Release(!"upBibTeX-Switches");
+    Assign(!"upBibTeX-Parameters", !|"%N"|);
+    Release(!"upBibTeX-Paper_Size");
+    Release(!"upBibTeX-Paper_Custom_Size");
+    Release(!"upBibTeX-Landscape");
+    Release(!"upBibTeX-GUI");
+    Release(!"upBibTeX-High_Priority");
+    Assign(!"upBibTeX-Wait", !|1|);
+    Release(!"upBibTeX-Report");
+    Release(!"upBibTeX-Errors");
+    Release(!"upBibTeX-Warnings");
+    Assign(!"upBibTeX-ExitCode", !|1|);
+    Release(!"upBibTeX-Viewer");
+    Release(!"upBibTeX-View_Search");
+    Release(!"upBibTeX-STD_IO");
+    Release(!"upBibTeX-No_Interaction");
+    Release(!"upBibTeX-C-style-errors");
+    Release(!"upBibTeX-Clean_Build");
+    Assign(!"upBibTeX-WinEdt_Console", !|1|);
+    Release(!"upBibTeX-Hidden_Window");
+    Release(!"upBibTeX-Background_Window");
+    Assign(!"upBibTeX-Pause", !|1|);
+
 // MakeIndex
     Assign(!"MakeIndex-Executable", !|miktex-upmendex.exe|);
     Release(!"MakeIndex-Switches");

@@ -9272,6 +9272,18 @@ TeXPDFTeXify
 Exe('%b\Exec\TeX\PDFTeXify.edt');
 24656
 
+0
+PDFTeXify+upBibTeX
+PDFTeXify+upBibTeX
+TeXPDFTeXify
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\upPDFTeXify.edt');
+0
+
 3
 0
 LuaLaTeXify
@@ -9297,6 +9309,18 @@ TeXLuaTeXify
 Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 24661
 
+0
+LuaTeXify+upBibTeX
+LuaTeXify+upBibTeX
+TeXLuaTeXify+upBibTeX
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+0
+
 3
 0
 XeLaTeXify
@@ -9321,6 +9345,18 @@ TeXXeTeXify
 
 Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 24645
+
+0
+XeTeXify+upBibTeX
+XeTeXify+upBibTeX
+TeXXeTeXify
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+0
 
 3
 0
@@ -9380,6 +9416,18 @@ TeXTeXify
 
 Exe('%b\Exec\TeX\TeXify.edt');
 24664
+
+0
+TeXify+upBibTeX
+TeXify+upBibTeX
+TeXTeXify
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\upTeXify.edt');
+0
 
 2
 3
@@ -9649,6 +9697,18 @@ BibTeX
 
 Exe('%b\Exec\TeX\BibTeX.edt');
 24642
+
+0
+upBibTeX
+&upBibTeX
+Bold
+
+0
+0
+%O\%N.aux*"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\upBibTeX.edt');
+0
 
 0
 Make_Index
@@ -16205,7 +16265,7 @@ Notepad
 MS_Paint
 
 Toolbar_TeX2
-43
+44
 0
 0
 0
@@ -16411,13 +16471,15 @@ TeX Compile
 
 
 
-25
+29
 PDFLaTeXify
 PDFTeXify
+PDFTeXify+upBibTeX
 PDFLaTeX
 PDFTeX
 -
 LaTeXify
+LaTeXify+upBibTeX
 TeXify
 LaTeX
 TeX
@@ -16427,11 +16489,13 @@ ConTeXt
 -
 LuaLaTeXify
 LuaTeXify
+LuaTeXify+upBibTeX
 LuaLaTeX
 LuaTeX
 -
 XeLaTeXify
 XeTeXify
+XeTeXify+upBibTeX
 XeLaTeX
 XeTeX
 -
@@ -16456,6 +16520,15 @@ Biber
 
 0
 BibTeX
+
+0
+0
+0
+
+
+
+0
+upBibTeX
 
 0
 0
