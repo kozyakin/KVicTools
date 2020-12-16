@@ -9312,7 +9312,7 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Ex
 0
 LuaTeXify+upBibTeX
 LuaTeXify+upBibTeX
-TeXLuaTeXify+upBibTeX
+TeXLuaTeXify
 
 4
 0
@@ -16479,8 +16479,8 @@ PDFLaTeX
 PDFTeX
 -
 LaTeXify
-LaTeXify+upBibTeX
 TeXify
+TeXify+upBibTeX
 LaTeX
 TeX
 AMSTeX
