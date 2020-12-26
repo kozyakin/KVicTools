@@ -9257,7 +9257,7 @@ TeXPDFLaTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("BibTeX-Executable","biber.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Release("Old-BibTeX-Executable");
+Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");
 49232
 
 0
@@ -9294,7 +9294,7 @@ TeXLuaLaTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("BibTeX-Executable","biber.exe");Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Release("Old-BibTeX-Executable");SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 49237
 
 0
@@ -9331,7 +9331,7 @@ TeXXeLaTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("BibTeX-Executable","biber.exe");Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Release("Old-BibTeX-Executable");SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 49221
 
 0
@@ -9368,7 +9368,7 @@ TeXLaTeXify2PDF
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("BibTeX-Executable","biber.exe");Assign("Old-PDFTeXify-Method","%$('PDFTeXify-Method');");Assign("PDFTeXify-Method","2");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Release("Old-BibTeX-Executable");Assign("PDFTeXify-Method","%$('Old-PDFTeXify-Method');");Release("Old-PDFTeXify-Method");
+Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Assign("Old-PDFTeXify-Method","%$('PDFTeXify-Method');");Assign("PDFTeXify-Method","2");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");Assign("PDFTeXify-Method","%$('Old-PDFTeXify-Method');");Release("Old-PDFTeXify-Method");
 49233
 
 0
@@ -9402,7 +9402,7 @@ TeXLaTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("BibTeX-Executable","biber.exe");Exe('%b\Exec\TeX\TeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Release("Old-BibTeX-Executable");
+Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Exe('%b\Exec\TeX\TeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");
 49240
 
 0
@@ -9683,7 +9683,7 @@ Biber
 0
 %O\%N.bcf*"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("BibTeX-Executable","biber.exe");Exe('%b\Exec\TeX\BibTeX.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Release("Old-BibTeX-Executable");
+Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Exe('%b\Exec\TeX\BibTeX.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");
 49218
 
 0
