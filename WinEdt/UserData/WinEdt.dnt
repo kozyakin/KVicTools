@@ -7998,7 +7998,7 @@ GetMode
 
 0
 1
-"%!m=TeX"|"%!m=TeX:INS"|"%!m=TeX:DTX"|"%!m=TeX:STY"|"%!m=TeX:AUX"
+
 
 Exe('%b\Macros\Custom\SetMode.edt');
 0
