@@ -1,21 +1,21 @@
 @echo off
-chcp 1251 >nul
+chcp 65001 >nul
 echo.
 net session >nul 2>&1
 if %errorLevel% == 0 goto work 
-echo Для полного обновления системы TeX Live этот файл
-echo должен быть запущен с правами администратора!
+echo Р”Р»СЏ РїРѕР»РЅРѕРіРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ СЃРёСЃС‚РµРјС‹ TeX Live СЌС‚РѕС‚ С„Р°Р№Р»
+echo РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ Р·Р°РїСѓС‰РµРЅ СЃ РїСЂР°РІР°РјРё Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°!
 echo. 
 pause
 exit
 
 :work
 echo. 
-echo При необходимости измените путь в команде
-echo C:\texlive\2020\bin\win32\tlmgr.bat
-echo в данном batch-файле
+echo РџСЂРё РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё РёР·РјРµРЅРёС‚Рµ РїСѓС‚СЊ РІ РєРѕРјР°РЅРґРµ
+echo C:\texlive\2021\bin\win32\tlmgr.bat
+echo РІ РґР°РЅРЅРѕРј batch-С„Р°Р№Р»Рµ
 echo. 
 pause 
 @echo on
-cmd.exe /C C:\texlive\2020\bin\win32\tlmgr.bat update --self --all --pause
+cmd.exe /C C:\texlive\2021\bin\win32\tlmgr.bat update --self --all --pause
 @echo off

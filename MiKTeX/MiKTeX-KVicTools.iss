@@ -40,7 +40,6 @@ VersionInfoVersion={#BuildInfo}
 VersionInfoTextVersion={#BuildInfo}
 ShowLanguageDialog=yes
 UsePreviousAppDir=false
-SetupIconFile=MikTeX2018.ico
 UninstallLogMode=overwrite
 ChangesEnvironment=yes
 WizardStyle=modern

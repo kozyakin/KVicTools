@@ -14,6 +14,7 @@
 %% "format.eprint" is modified by V. Kozyakin, 13.03.2011
 
 
+
 ENTRY
   { address
     annote
@@ -1264,7 +1265,7 @@ FUNCTION {format.isbn}
 {
   isbn empty$
     { "" }
-    { "ISBN:~\href{http://isbndb.com/search-all.html?kw=" isbn *
+    { "ISBN:~\href{https://isbndb.com/search-all.html?kw=" isbn *
       "}{" * isbn * "}" *
     }
   if$
@@ -1279,7 +1280,7 @@ FUNCTION {add.doi.url}
           { "\href{" url * "}{" * swap$ * "}" * }
         if$
       }
-      { "\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" * }
+      { "\href{https://dx.doi.org/" doi * "}{" * swap$ * "}" * }
       if$
     }
   if$
@@ -1291,19 +1292,19 @@ FUNCTION {format.eprint}
     { archive empty$
     { primaryClass empty$
        { archivePrefix empty$
-            { " \href{http://arxiv.org/abs/" eprint * "}" *
+              { " \href{https://arxiv.org/abs/" eprint * "}" *
              "{" * eprint * "}" *
             }
-            { " \href{http://arxiv.org/abs/" eprint * "}" *
+              { " \href{https://arxiv.org/abs/" eprint * "}" *
            "{" * archivePrefix * ":" * eprint * "}" *
             }
           if$
         }
         { archivePrefix empty$
-            { " \href{http://arxiv.org/abs/" eprint * "}" *
+              { " \href{https://arxiv.org/abs/" eprint * "}" *
              "{" * primaryClass * "/" * eprint * "}" *
             }
-            { " \href{http://arxiv.org/abs/" eprint * "}" *
+              { " \href{https://arxiv.org/abs/" eprint * "}" *
            "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
             }
           if$

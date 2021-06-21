@@ -39,7 +39,6 @@ VersionInfoVersion={#BuildInfo}
 VersionInfoTextVersion={#BuildInfo}
 ShowLanguageDialog=yes
 UsePreviousAppDir=false
-SetupIconFile=tlmgr.ico 
 UninstallLogMode=overwrite
 ChangesEnvironment=yes
 WizardStyle=modern

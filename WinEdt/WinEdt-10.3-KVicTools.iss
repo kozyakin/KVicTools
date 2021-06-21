@@ -40,7 +40,6 @@ VersionInfoCopyright=Copyright © {#Year} by Victor Kozyakin
 ShowLanguageDialog=yes
 DisableDirPage=true
 DisableReadyPage=true
-SetupIconFile=winedt.ico
 VersionInfoVersion={#BuildInfo}
 VersionInfoTextVersion={#BuildInfo}
 PrivilegesRequired=none
