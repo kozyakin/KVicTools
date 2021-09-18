@@ -152,6 +152,16 @@
                  $$0001001111111,// Enable Flags (13)<>
                  $$1111);        // Enable Pause..WinEdt Console Flags (4)
 
+  AddApplication(!'upBibTeX',    // Name<>
+                 !'upbibtex.exe',// Executable<>
+                 !'',            // Switches<>
+                 !'"%N"',        // Parameters<>
+                 !'',            // Environmental Variable <-- Executable<>
+                 0,              // Paper Size Switch Enabled<>
+                 0,              // Landscape Switch Enabled<>
+                 $$0001001111111,// Enable Flags (13)<>
+                 $$1111);        // Enable Pause..WinEdt Console Flags (4)
+
   AddApplication(!'MakeIndex',   // Name<>
                  !'makeindex.exe',// Executable<>
                  !'',            // Switches<>

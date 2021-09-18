@@ -299,6 +299,8 @@ IfStr("%$('BMCleanEntry');","bibCleanBibliography","=",!`>
    SetFindCenterLine(0);>
    SetFindTextSelect(0);>
    SetSearchCurrentDoc;>
+// Next line added by V.Kozyakin
+   SetSearchCaseSensitive(0);>
    SetSearchCyclic(0);>
    SetSearchEntire(0);>
    SetSearchForward(1);>

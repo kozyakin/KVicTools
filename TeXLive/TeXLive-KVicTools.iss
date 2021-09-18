@@ -64,23 +64,21 @@ Source: "rudicthunspell\texmf-config\*.*"; DestDir: "{code:TEXMFCONFIG}"; Flags:
 Source: "User_home_dir\*.*"; DestDir: "{%USERPROFILE}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
-Root: "HKLM"; Subkey: SOFTWARE\Ghostgum\GSview; ValueType: dword; ValueName: Number; ValueData: 20233; Flags: createvalueifdoesntexist
-Root: "HKLM"; Subkey: SOFTWARE\Ghostgum\GSview; ValueType: dword; ValueName: Receipt; ValueData: 22567; Flags: createvalueifdoesntexist
 
 [Icons]
 
 [UninstallDelete]
 
 [Run]
-Filename: "{code:TEXMFMAIN}\..\bin\win32\mktexlsr.exe"; Flags: skipifdoesntexist runascurrentuser waituntilterminated; StatusMsg: "Обновление базы данных файлов TeX Live..."; Components: default
-Filename: "{code:TEXMFMAIN}\..\bin\win32\updmap-sys.exe"; Flags: skipifdoesntexist runascurrentuser waituntilterminated; StatusMsg: "Обновление map-файлов"; Components: default
-Filename: "{code:TEXMFMAIN}\..\bin\win32\fmtutil-sys.exe"; Parameters: "--all"; Flags: skipifdoesntexist runascurrentuser waituntilterminated; StatusMsg: "Обновление форматных файлов"
+Filename: "{code:TEXMFMAIN}\..\bin\win32\mktexlsr.exe"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов TeX Live..."; Components: default
+Filename: "{code:TEXMFMAIN}\..\bin\win32\updmap-sys.exe"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов"; Components: default
+Filename: "{code:TEXMFMAIN}\..\bin\win32\fmtutil-sys.exe"; Parameters: "--all"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов"
 
 [UninstallRun]
-Filename: "{code:TEXMFMAIN}\..\bin\win32\mktexlsr.exe"; Flags: skipifdoesntexist runascurrentuser waituntilterminated; StatusMsg: "Обновление базы данных файлов TeX Live..."; RunOnceId: "texlive_kvic"; Components: default
-Filename: "{code:TEXMFMAIN}\..\bin\win32\updmap-sys.exe"; Parameters: "--syncwithtrees"; Flags: skipifdoesntexist runascurrentuser waituntilterminated; StatusMsg: "Обновление map-файлов"; RunOnceId: "texlive_kvic"; Components: default
-Filename: "{code:TEXMFMAIN}\..\bin\win32\updmap-sys.exe"; Flags: skipifdoesntexist runascurrentuser waituntilterminated; StatusMsg: "Обновление map-файлов"; RunOnceId: "texlive_kvic"; Components: default
-Filename: "{code:TEXMFMAIN}\..\bin\win32\fmtutil-sys.exe"; Parameters: "--all"; Flags: skipifdoesntexist runascurrentuser waituntilterminated; StatusMsg: "Обновление форматных файлов"; RunOnceId: "texlive_kvic"
+Filename: "{code:TEXMFMAIN}\..\bin\win32\mktexlsr.exe"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов TeX Live..."; RunOnceId: "texlive_kvic"; Components: default
+Filename: "{code:TEXMFMAIN}\..\bin\win32\updmap-sys.exe"; Parameters: "--syncwithtrees"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов"; RunOnceId: "texlive_kvic"; Components: default
+Filename: "{code:TEXMFMAIN}\..\bin\win32\updmap-sys.exe"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов"; RunOnceId: "texlive_kvic"; Components: default
+Filename: "{code:TEXMFMAIN}\..\bin\win32\fmtutil-sys.exe"; Parameters: "--all"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов"; RunOnceId: "texlive_kvic"
 
 [Code]
 var

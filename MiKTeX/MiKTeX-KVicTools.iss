@@ -1,4 +1,4 @@
-; MiKTeX 2.9 KVicTools Inno (Installer) Setup Script
+; MiKTeX 20+ KVicTools Inno (Installer) Setup Script
 ; Prepared by Victor Kozyakin
 ; =====================================================================
 ;
@@ -12,7 +12,7 @@
 #define Build Str(Int(Build)+1);
 #expr WriteIni(AddBackslash(SourcePath) +'build', 'Inno Setup', 'Build', Build);
 #define Year GetDateTimeString('yyyy', '', '');
-#define BuildInfo AppVersion+'.'+Year+'.'+Build;
+#define BuildInfo Year+'.'+Build;
 #define PublisherName 'KVicTools';
 
 [Setup]
@@ -58,31 +58,32 @@ BeveledLabel={#PublisherName}
 Name: {app}\miktex\config\*.*; Type: files
 
 [Files]
+Source: default\texmfmain\miktex\bin\*.*; DestDir: {code:BinRoot}; Flags: overwritereadonly ignoreversion; Components: default
 Source: default\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: disser\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default disser
 
 [Registry]
-Root: "HKLM"; Subkey: SOFTWARE\Ghostgum\GSview; ValueType: dword; ValueName: Number; ValueData: 20233; Flags: createvalueifdoesntexist
-Root: "HKLM"; Subkey: SOFTWARE\Ghostgum\GSview; ValueType: dword; ValueName: Receipt; ValueData: 22567; Flags: createvalueifdoesntexist
+Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environment; ValueType: string; ValueName: BIBTEX; ValueData: bibtex8.bat; Flags: uninsdeletevalue
+Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environment; ValueType: string; ValueName: MAKEINDEX; ValueData: miktex-upmendex.exe; Flags: uninsdeletevalue
 
 [Icons]
 
 [UninstallDelete]
 
 [Run]
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --quiet --uninstall=lh"; Flags: skipifdoesntexist runminimized; StatusMsg: "Подготовка установки..."; Components: default
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --quiet --uninstall=cm-super"; Flags: skipifdoesntexist runminimized; StatusMsg: "Подготовка установки..."; Components: default
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --install=lh  --verbose"; Flags: skipifdoesntexist runminimized; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --install=cm-super  --verbose"; Flags: skipifdoesntexist runminimized; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --update-fndb --verbose"; Flags: skipifdoesntexist; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--dump --verbose"; Flags: skipifdoesntexist; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --dump --verbose"; Flags: skipifdoesntexist; StatusMsg: "Обновление форматных файлов MiKTeX... ..."; Components: default
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --update-db  --verbose"; Flags: skipifdoesntexist runminimized; StatusMsg: "Синхронизация локальной базы данных файлов MiKTeX с репозитарием..."; Components: default
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --mklinks --verbose"; Flags: skipifdoesntexist runminimized; StatusMsg: "Обновление ссылок файлов MiKTeX..."; Components: default
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --mkmaps --verbose"; Flags: skipifdoesntexist; StatusMsg: "Обновление map-файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --verbose --uninstall=lh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Подготовка установки..."; Components: default
+Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --verbose --uninstall=cm-super"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Подготовка установки..."; Components: default
+Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --install=lh  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
+Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --install=cm-super  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
+Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --update-fndb --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--dump --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --dump --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX... ..."; Components: default
+Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --update-db  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Синхронизация локальной базы данных файлов MiKTeX с репозитарием..."; Components: default
+Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --mklinks --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление ссылок файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --mkmaps --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов MiKTeX..."; Components: default
 
 [UninstallRun]
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --dump --mkmaps --mklinks --update-fndb --verbose"; Flags: skipifdoesntexist; StatusMsg: "Обновление форматных файлов MiKTeX... ..."; RunOnceId: "miktex_kvic"; Components: default
+Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --dump --mkmaps --mklinks --update-fndb --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX... ..."; RunOnceId: "miktex_kvic"; Components: default
 
 [Code]
 var
@@ -124,20 +125,20 @@ begin
   begin
 // Create the page
   PageInputDirWP := CreateInputDirPage(wpSelectDir,
-  'Выбор директории установки', 'Корневая директория установки системы MiKTeX {#AppVersion} не найдена !',
-  'Пожалуйста, для выбора корневой директории установки системы MiKTeX {#AppVersion} нажмите кнопку Обзор.',
+  'Выбор директории установки', 'Корневая директория установки системы MiKTeX не найдена !',
+  'Пожалуйста, для выбора корневой директории установки системы MiKTeX нажмите кнопку Обзор.',
   False, 'New Folder');
   PageInputDirWP.Add('');
 // Set initial value (optional)
-  PageInputDirWP.Values[0] := ExpandConstant('{pf}\MiKTeX {#AppVersion}');
+  PageInputDirWP.Values[0] := ExpandConstant('{pf}\MiKTeX');
   end else
   begin
     // Create the page
   PageInputDirWP := CreateInputDirPage(wpSelectDir,
-  'Выбор директории установки', 'Обнаружена установленная система MiKTeX {#AppVersion} !',
-  'Пожалуйста, подтвердите правильность выбора корневой директории установки системы MiKTeX {#AppVersion}, '+
+  'Выбор директории установки', 'Обнаружена установленная система MiKTeX !',
+  'Пожалуйста, подтвердите правильность выбора корневой директории установки системы MiKTeX, '+
   'нажав на кнопку Далее.'#13#10#13#10 +
-  'Для ручного выбора корневой директории установки системы MiKTeX {#AppVersion} нажмите кнопку Обзор.',
+  'Для ручного выбора корневой директории установки системы MiKTeX нажмите кнопку Обзор.',
   False, 'New Folder');
   PageInputDirWP.Add('');
 // Set initial value (optional)

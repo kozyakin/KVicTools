@@ -455,6 +455,8 @@ SetSearchCurrentDoc;
 SetSearchCyclic(0);
 SetSearchEntire(0);
 SetNotFoundNotify(0);
+// Next line added by V.Kozyakin
+SetSearchCaseSensitive(0);
 SetFindStr("%$('bib_beginLine');\@{~{STRING|PREAMBLE|COMMENT}+$Alpha$}@{ }{\{|(}");
 SearchReset;
 ResetGroup;
