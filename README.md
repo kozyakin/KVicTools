@@ -1,26 +1,4 @@
 # KVicTools
-Здесь собраны некоторые программы и скрипты, предназначенные для настройки поддержки русского языка в системах *MikTeX*, *TeX Live* и редакторе *WinEdt*.
-
-### MikTeX и TeX Live
-
-Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилевые файлы для русской библиографии в стиле ГОСТ и др. 
-
-Исходные файлы для построения инсталляторов: [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/tree/main/TeXLive)
-
-### WinEdt
-
-Добавлен перевод всех элементов интерфейса WinEdt На русский язык, а также существенно дополнен набор сервисных макросов для выполнения повседневных нужд - поиск и чистка мусора, перекодировка документов, поиск неиспользуемых или многократно используемых ссылок и меток и др.
-
-Исходные файлы для построения инсталлятора: [WinEdt](https://github.com/kozyakin/KVicTools/tree/main/WinEdt)
-
-### Другое
-
-Набор сервисных bat-файлов для массовой перекодировки pdf-документов в eps, обновления менеджера пакетов *tlmgr* и др.
-
----
-
-
-
 Here are collected some programs and scripts designed to configure support for the Russian language in *MikTeX*, *TeX Live* systems and the *WinEdt* editor.
 
 ### MikTeX and TeX Live
@@ -39,3 +17,22 @@ Sources to build installer: [WinEdt](https://github.com/kozyakin/KVicTools/tree/
 
 A set of service bat files for mass conversion of pdf documents to eps, updating the *tlmgr* package manager, etc.
 
+---
+
+Здесь собраны некоторые программы и скрипты, предназначенные для настройки поддержки русского языка в системах *MikTeX*, *TeX Live* и редакторе *WinEdt*.
+
+### MikTeX и TeX Live
+
+Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилевые файлы для русской библиографии в стиле ГОСТ и др. 
+
+Исходные файлы для построения инсталляторов: [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/tree/main/TeXLive)
+
+### WinEdt
+
+Добавлен перевод всех элементов интерфейса WinEdt На русский язык, а также существенно дополнен набор сервисных макросов для выполнения повседневных нужд - поиск и чистка мусора, перекодировка документов, поиск неиспользуемых или многократно используемых ссылок и меток и др.
+
+Исходные файлы для построения инсталлятора: [WinEdt](https://github.com/kozyakin/KVicTools/tree/main/WinEdt)
+
+### Другое
+
+Набор сервисных bat-файлов для массовой перекодировки pdf-документов в eps, обновления менеджера пакетов *tlmgr* и др.
