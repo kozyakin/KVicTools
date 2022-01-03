@@ -652,7 +652,7 @@
 
 // latexdiff
     Assign(!"latexdiff-Executable", !|latexdiff.exe|);
-    Release(!"latexdiff-Switches");
+    Assign(!"latexdiff-Switches", !|--append-context2cmd="abstract"|);
     Assign(!"latexdiff-Parameters", !|"%n%t"|);
     Release(!"latexdiff-Paper_Size");
     Release(!"latexdiff-Paper_Custom_Size");

@@ -1,4 +1,4 @@
-# **WinEdt 10.3 KVicTools** 
+# **WinEdt 10.3 KVicTools**
 
 Эта программа является надстройкой над программой WinEdt 10.3, добавляющей к ней русский интерфейс и ряд сервисных функций, направленных на облегчение работы с документами в формате TeX.
 
@@ -14,14 +14,14 @@
 
 ---
 
-This program is an add-on over WinEdt 10.3, adding to it a Russian interface and a number of service functions aimed at making it easier to work with documents in TeX format. 
+This program is an add-on over WinEdt 10.3, adding to it a Russian interface and a number of service functions aimed at making it easier to work with documents in TeX format.
 
-Added extended capabilities for working with Cyrillic TeX documents written in various encodings - CP1251 (Windows ANSI), UTF-8, and CP866 (DOS, Russian encoding). 
+Added extended capabilities for working with Cyrillic TeX documents written in various encodings - CP1251 (Windows ANSI), UTF-8, and CP866 (DOS, Russian encoding).
 
-To view PDF files, the SumatraPDF program is used by default, which has the ability to search back and forth between TEX documents and their PDF images. 
+To view PDF files, the SumatraPDF program is used by default, which has the ability to search back and forth between TEX documents and their PDF images.
 
-Additional information and the latest news regarding the WinEdt project can be found at <http://www.winedt.com> 
+Additional information and the latest news regarding the WinEdt project can be found at <http://www.winedt.com>
 
-Questions regarding the original version of WinEdt should be directed to <support@winedt.com> 
+Questions regarding the original version of WinEdt should be directed to <support@winedt.com>
 
 Questions regarding **WinEdt 10.3 KVicTools** will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru)

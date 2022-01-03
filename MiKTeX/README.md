@@ -1,4 +1,4 @@
-# **MiKTeX KVicTools** 
+# **MiKTeX KVicTools**
 
 Эта программа является надстройкой над пакетом **MiKTeX**, упрощающей и автоматизирующей установку поддержки русского языка.
 
@@ -19,37 +19,51 @@
 **ВНИМАНИЕ! С 2018г. MiKTeX KVicTools более не устанавливает поддержку устаревших шрифтовых пакетов PSCyr и TXCyr.**
 
 В случае, если в преамбуле Ваших файлов встретится строка
-```
+
+```latex
 \usepackage[...]{pscyr}
 ```
+
 ее рекомендуется заменить строкой
-```
+
+```latex
 \usepackage{erewhon}
 ```
+
 В случае, если в преамбуле Ваших файлов встретится строка
-```
+
+```latex
 \usepackage[...]{txcyr}
 ```
+
 ее следует заменить строками
-```
+
+```latex
 \usepackage[proportional,space]{erewhon}
 \usepackage[erewhon,vvarbb]{newtxmath}
 ```
+
 При этом вместо
-```
+
+```latex
 \usepackage[vvarbb]{newtxmath}
 ```
+
 Может использоваться команда
-```
+
+```latex
 \usepackage[vvarbb,slantedGreek]{newtxmath}
 ```
+
 определяющая отрисовку по умолчанию греческих символов в режиме «италик».
 
 В слайдах при использовании пакета beamer рекомендуется применять шрифт noto оптимизированный для web-презентаций
-```
+
+```latex
 \usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font
 \usepackage[vvarbb,upint]{notomath}
 ```
+
 Пакеты *pxcyr* и *txcyr* можно заменить также пакетами temporа, paratype и другими.
 
 На вопросы, касающиеся **MiKTeX KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:kozyakin@iitp.ru)
@@ -75,37 +89,51 @@ After that, your MiKTeX system will be updated, and only then the actual install
 **ATTENTION! Since 2018. MiKTeX KVicTools no longer installs support for the legacy PSCyr and TXCyr font packages.**
 
 In case the preamble of your files contains the line
-```
+
+```latex
 \usepackage[...]{pscyr}
 ```
+
 it is recommended to replace it with the string
-```
+
+```latex
 \usepackage{erewhon}
 ```
+
 In case the preamble of your files contains the line
-```
+
+```latex
 \usepackage[...]{txcyr}
 ```
+
 it should be replaced with strings
-```
+
+```latex
 \usepackage[proportional,space]{erewhon}
 \usepackage[erewhon,vvarbb]{newtxmath}
 ```
+
 Moreover, instead of
-```
+
+```latex
 \usepackage[vvarbb]{newtxmath}
 ```
+
 The command can be used
-```
+
+```latex
 \usepackage[vvarbb,slantedGreek]{newtxmath}
 ```
+
 defining the default rendering of Greek characters in "Italian" mode.
 
 It is recommended to use noto font optimized for web presentations in slides when using the beamer package
-```
+
+```latex
 \usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font
 \usepackage[vvarbb,upint]{notomath}
 ```
+
 The *pxcyr* and *txcyr* packages can also be replaced with the tempora, paratype, and others.
 
-Questions regarding **MiKTeX KVicTools**, if possible, will be answered by  [Victor Kozyakin](mailto:kozyakin@iitp.ru)
+Questions regarding **MiKTeX KVicTools**, if possible, will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru)

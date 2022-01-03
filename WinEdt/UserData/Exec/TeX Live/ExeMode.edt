@@ -652,7 +652,7 @@
 
 // latexdiff
     Assign(!"latexdiff-Executable", !|latexdiff.exe|);
-    Release(!"latexdiff-Switches");
+    Assign(!"latexdiff-Switches", !|--append-context2cmd="abstract"|);
     Assign(!"latexdiff-Parameters", !|"%n%t"|);
     Release(!"latexdiff-Paper_Size");
     Release(!"latexdiff-Paper_Custom_Size");
@@ -677,7 +677,7 @@
 
 // latexrevise
     Assign(!"latexrevise-Executable", !|latexrevise.exe|);
-    Release(!"latexrevise-Switches");
+    Assign(!"latexrevise-Switches", !|--append-context2cmd="abstract"|);
     Assign(!"latexrevise-Parameters", !|"%n%t"|);
     Release(!"latexrevise-Paper_Size");
     Release(!"latexrevise-Paper_Custom_Size");

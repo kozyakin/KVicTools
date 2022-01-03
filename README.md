@@ -1,4 +1,5 @@
 # KVicTools
+
 Here are collected some programs and scripts designed to configure support for the Russian language in *MikTeX*, *TeX Live* systems and the *WinEdt* editor.
 
 ### MikTeX and TeX Live
@@ -23,7 +24,7 @@ A set of service bat files for mass conversion of pdf documents to eps, updating
 
 ### MikTeX и TeX Live
 
-Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилевые файлы для русской библиографии в стиле ГОСТ и др. 
+Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилевые файлы для русской библиографии в стиле ГОСТ и др.
 
 Исходные файлы для построения инсталляторов: [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/tree/main/TeXLive)
 
