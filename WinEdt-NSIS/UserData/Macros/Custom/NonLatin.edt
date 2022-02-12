@@ -3,7 +3,8 @@
 // NonLatin.edt
 // (kozyakin 20090920)
 // Search of non-Latin symbols
-/////////////////////////
+//=========================================================================
+
 
 SearchReset;
 SetSearchForward(1);

@@ -4,7 +4,9 @@
 // (gschmitz 20011016: changed for xml compliances )
 // (kozyakin 16:24, 21.12.2007)
 // Set mode of a document
-//////////////////////
+//=========================================================================
+
+
 // Requires WinEdt 7 Build 20120413 (or later)
 Requires(20120413);
 

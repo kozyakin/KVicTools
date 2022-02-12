@@ -5,7 +5,8 @@
 // SetEncoding.edt
 // (kozyakin 21.12.2007)
 // Set encoding of a document
-//////////////////////
+//=========================================================================
+
 
 // Requires WinEdt 7 Build 20120413 (or later)
 Requires(20120413);

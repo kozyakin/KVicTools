@@ -1,14 +1,14 @@
 // !Mode:: "EDT:UTF-8"
 // -*- EDT:UTF-8 -*-
-// changeEnv.edt
+// changeEnvMUI.edt
 // changes the current environment
 // (schlicht 20010705)
 // MUI variant by V.Kozyakin 20100327
-///////////////////////
 // Requires WinEdt 7 Build 20120413 (or later) Requires(20120413);
+//=========================================================================
 
 
-//=============================================================================
+//=========================================================================
 // There are two ways to invoke this macro:
 // 1. by an Active String, i.e. by typing ">" after the environment commands
 //      "\begin{environment}"
@@ -39,7 +39,7 @@
 // Note that the macro relies on WinEdt's finding the matching delimiter,
 // as defined in Options | Settings | Delimiters.
 //
-////=============================================================================
+////=======================================================================
 // Requires WinEdt 7 Build 20120413 (or later)
 Requires(20120413);
 

@@ -3,6 +3,9 @@
 // DeadLabels.edt
 // (kozyakin 20190613)
 // Make list of non-referenced (dead) labels
+//=========================================================================
+
+
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

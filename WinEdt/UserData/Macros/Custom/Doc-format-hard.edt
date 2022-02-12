@@ -3,7 +3,9 @@
 // Doc-format-hard.edt
 // (kozyakin 20190717)
 // Format document in hard mode
-/////////////////////////
+//=========================================================================
+
+
 PushTagsandRegisters;
 BeginGroup;
 GoToBeginningOfFile;

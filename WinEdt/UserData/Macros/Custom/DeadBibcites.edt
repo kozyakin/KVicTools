@@ -2,7 +2,10 @@
 // -*- EDT:UTF-8 -*-
 // DeadBibcites.edt
 // (kozyakin 20200118)
-// Make list of non-referenced (dead) bibcite's
+// Make list of non-referenced (dead) bibcites
+//=========================================================================
+
+
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

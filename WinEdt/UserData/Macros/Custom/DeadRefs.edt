@@ -2,7 +2,10 @@
 // -*- EDT:UTF-8 -*-
 // DeadRefs.edt
 // (kozyakin 20190613)
-// Make list of non-referenced (dead) ref's and eqref's
+// Make list of non-referenced (dead) refs and eqrefs
+//=========================================================================
+
+
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

@@ -3,6 +3,9 @@
 // MultiTags.edt
 // (kozyakin 20190613)
 // Make list of multiply defined tags
+//=========================================================================
+
+
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

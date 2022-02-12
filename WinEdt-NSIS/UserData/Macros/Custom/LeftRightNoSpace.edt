@@ -3,7 +3,7 @@
 // LeftRightNoSpace.edt
 // (kozyakin 20101125)
 // Remove spaces after \left and \right
-/////////////////////////
+//=========================================================================
 
 
 BeginGroup;

@@ -2,8 +2,8 @@
 // -*- EDT:UTF-8 -*-
 // Cyrillic.edt
 // (kozyakin 20090920)
-// Search for Cyrillic
-/////////////////////////
+// Search for Cyrillic letters
+//=========================================================================
 
 
 SearchReset;

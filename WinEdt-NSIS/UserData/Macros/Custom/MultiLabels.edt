@@ -3,6 +3,9 @@
 // MultiLabels.edt
 // (kozyakin 20190613)
 // Make list of multiply defined labels
+//=========================================================================
+
+
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

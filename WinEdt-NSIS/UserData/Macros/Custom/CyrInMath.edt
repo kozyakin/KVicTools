@@ -2,8 +2,8 @@
 // -*- EDT:UTF-8 -*-
 // CyrInMath.edt
 // (kozyakin 20090920)
-// Search for Cyrillic in Math mode
-/////////////////////////
+// Search for Cyrillic letters in Math mode
+//=========================================================================
 
 
 SearchReset;

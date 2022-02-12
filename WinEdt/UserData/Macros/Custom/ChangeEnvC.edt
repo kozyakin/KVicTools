@@ -4,10 +4,10 @@
 // changes the current environment
 // (schlicht 20010705)
 // modified by V.Kozyakin 20130403
-///////////////////////
+//=========================================================================
 
 
-//=============================================================================
+//=========================================================================
 // There are two ways to invoke this macro:
 // 1. by an Active String, i.e. by typing ">" after the environment commands
 //      "\begin{environment}"

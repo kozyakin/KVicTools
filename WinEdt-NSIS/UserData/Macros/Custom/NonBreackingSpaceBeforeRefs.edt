@@ -3,7 +3,7 @@
 // NonBreackingSpaceBeforeRefs.edt
 // (kozyakin 20160724)
 // Replace soft spaces by non-breaking spaces before \ref, \eqref, \pageref, \cite
-/////////////////////////
+//=========================================================================
 
 
 BeginGroup;
