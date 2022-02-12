@@ -1,8 +1,8 @@
 // !Mode:: "ASCII:EDT"
 // -*- ASCII:EDT -*-
-// bibTidyStrings.edt
+// NonBreackingSpaceBeforeRefs.edt
 // (kozyakin 20160724)
-// Replace soft spaces to non-breaking before \ref, \eqref, \pageref, \cite
+// Replace soft spaces by non-breaking spaces before \ref, \eqref, \pageref, \cite
 /////////////////////////
 
 

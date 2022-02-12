@@ -2,8 +2,9 @@
 // setMode.edt
 // (schlicht 20010327)
 // (gschmitz 20011016: changed for xml compliances )
-// setCodePage.edt
-// (kozyakin 16:24, 21.12.2007)
+// SetEncoding.edt
+// (kozyakin 21.12.2007)
+// Set encoding of a document
 //////////////////////
 
 // Requires WinEdt 7 Build 20120413 (or later)

@@ -1,3 +1,9 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// Format-cite.edt
+// (kozyakin 20190712)
+// Format \cite{...}
+/////////////////////////
 PushTagsandRegisters;
 BeginGroup;
 SetTracking(0);

@@ -9,8 +9,8 @@
 ;--------------------------------
 ;Constants
 
-!define MUI_VERSION "10.3"
 !define MUI_PRODUCT "WinEdt-${MUI_VERSION}-KVicTools"
+!define MUI_VERSION "10.3"
 !define MUI_BUILD "20180507"
 !define MUI_COMPANY "WinEdt Team"
 !define WINEDT_PRODUCT "WinEdt 10"

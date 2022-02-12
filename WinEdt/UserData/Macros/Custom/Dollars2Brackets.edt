@@ -1,8 +1,8 @@
 // !Mode:: "ASCII:EDT"
 // -*- ASCII:EDT -*-
-// bibTidyStrings.edt
+// Dollars2Brackets.edt
 // (kozyakin 20090920)
-// Global replace of $$...$$ to \[...\]
+// Global replace of $$...$$ by \[...\]
 /////////////////////////
 
 

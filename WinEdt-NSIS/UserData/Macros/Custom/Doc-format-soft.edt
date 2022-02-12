@@ -1,3 +1,9 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// Doc-format-soft.edt
+// (kozyakin 20190711)
+// Format document in soft mode
+/////////////////////////
 PushTagsandRegisters;
 BeginGroup;
 GoToBeginningOfFile;

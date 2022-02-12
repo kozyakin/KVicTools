@@ -60,7 +60,7 @@ Name: {app}\miktex\config\*.*; Type: files
 [Files]
 Source: default\texmfmain\miktex\bin\*.*; DestDir: {code:BinRoot}; Flags: overwritereadonly ignoreversion; Components: default
 Source: default\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
-Source: disser\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default disser
+Source: gost705bib\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default gost705bib
 
 [Registry]
 Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environment; ValueType: string; ValueName: BIBTEX; ValueData: bibtex8.bat; Flags: uninsdeletevalue
@@ -71,8 +71,6 @@ Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environme
 [UninstallDelete]
 
 [Run]
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --verbose --uninstall=lh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Подготовка установки..."; Components: default
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --verbose --uninstall=cm-super"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Подготовка установки..."; Components: default
 Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --install=lh  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
 Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--admin --install=cm-super  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
 Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--admin --update-fndb --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
@@ -186,4 +184,4 @@ LanguageID=$0419
 [Components]
 Name: "default"; Description: "Установка и конфигурация поддержки русского языка"; Types: custom compact full; Flags: fixed
 Name: "cmsuper"; Description: "Пакет поддержки кириллических Type1 шрифтов CM-Super"; ExtraDiskSpaceRequired: 72000000; Types: custom full
-Name: "disser"; Description: "Пакет Disser для оформления диссертаций"; Types: custom full
+Name: "gost705bib"; Description: "Библиографические стили GOST-705"; Types: custom full

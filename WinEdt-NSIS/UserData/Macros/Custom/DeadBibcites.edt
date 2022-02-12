@@ -1,7 +1,8 @@
-// !Mode:: "ASCII:EDT"
-// -*- ASCII:EDT -*-
+// !Mode:: "EDT:UTF-8"
+// -*- EDT:UTF-8 -*-
+// DeadBibcites.edt
 // (kozyakin 20200118)
-//Prompt("Создание списка меток библиографии, на которые в документе отсутствуют ссылки.",0,1);
+// Make list of non-referenced (dead) bibcite's
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

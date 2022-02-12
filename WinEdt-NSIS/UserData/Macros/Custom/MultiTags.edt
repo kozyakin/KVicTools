@@ -1,7 +1,8 @@
 // !Mode:: "ASCII:EDT"
 // -*- ASCII:EDT -*-
+// MultiTags.edt
 // (kozyakin 20190613)
-//Prompt("Создание списка многократно определенных тегов \tag{...}.",0,1);
+// Make list of multiply defined tags
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

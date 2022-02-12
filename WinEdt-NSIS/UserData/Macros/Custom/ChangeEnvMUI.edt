@@ -5,8 +5,7 @@
 // (schlicht 20010705)
 // MUI variant by V.Kozyakin 20100327
 ///////////////////////
-// Requires WinEdt 7 Build 20120413 (or later)
-Requires(20120413);
+// Requires WinEdt 7 Build 20120413 (or later) Requires(20120413);
 
 
 //=============================================================================

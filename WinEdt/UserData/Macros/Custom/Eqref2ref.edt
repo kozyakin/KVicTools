@@ -1,8 +1,8 @@
 // !Mode:: "ASCII:EDT"
 // -*- ASCII:EDT -*-
-// bibTidyStrings.edt
+// Eqref2ref.edt
 // (kozyakin 20091112)
-// Replace of \eqref{...} to \ref{...}
+// Replace \eqref{...} by \ref{...}
 /////////////////////////
 
 

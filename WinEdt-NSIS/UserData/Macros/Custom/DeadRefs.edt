@@ -1,7 +1,8 @@
-// !Mode:: "ASCII:EDT"
-// -*- ASCII:EDT -*-
+// !Mode:: "EDT:UTF-8"
+// -*- EDT:UTF-8 -*-
+// DeadRefs.edt
 // (kozyakin 20190613)
-//Prompt("Создание списка неопределенных ссылок \ref{...} и \eqref{...}.",0,1);
+// Make list of non-referenced (dead) ref's and eqref's
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;

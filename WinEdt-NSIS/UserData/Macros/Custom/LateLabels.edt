@@ -1,7 +1,8 @@
-// !Mode:: "ASCII:EDT"
-// -*- ASCII:EDT -*-
+// !Mode:: "EDT:UTF-8"
+// -*- EDT:UTF-8 -*-
+// LateLabels.edt
 // (kozyakin 20190613)
-//Prompt("Создание списка меток \label{...}, ссылки на которые появляются до их определения.",0,1);
+// Make list of labels referenced before their definition
 PushTagsandRegisters;
 SetFindStr("");
 SaveFind;
