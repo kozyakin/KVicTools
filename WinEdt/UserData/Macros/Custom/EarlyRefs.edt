@@ -1,14 +1,14 @@
 // !Mode:: "EDT:UTF-8"
 // -*- EDT:UTF-8 -*-
-// EarlyRefs.edt 
+// EarlyRefs.edt
 // (kozyakin 20190613)
 // Make list of ref's for which labels defined later
 //=========================================================================
 
 
 PushTagsandRegisters;
-SetFindStr("");
 SaveFind;
+SetFindStr("");
 Mark(0);
 Goto(0,0);
 SetTracking(0);

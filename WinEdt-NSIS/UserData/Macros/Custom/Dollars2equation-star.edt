@@ -1,8 +1,8 @@
 // !Mode:: "ASCII:EDT"
 // -*- ASCII:EDT -*-
-// Brackets2Dollars.edt
-// (kozyakin 20130403)
-// Global replace of \[...\] by $$...$$
+// Dollars2Brackets.edt
+// (kozyakin 20090920)
+// Global replace of $$...$$ by \[...\]
 //=========================================================================
 
 PushTagsandRegisters;
@@ -15,18 +15,35 @@ SetSearchCurrentDoc;
 SetSearchEntire(0);
 SetSearchInline(0);
 SetNotFoundNotify(0);
-SetReplaceNotify(0);
 SetReplacePrompt(0);
 SetSearchForward(1);
-SetRegEx(1);
-SetFindStr("{\\\[}|{\\\]}");
-SetReplaceStr("\$\$");
+SetRegEx(0);
+SetFindStr("$$");
 SetTracking(0);
-GotoLin(1);
-ReplaceAll;
 
-Goto(0);
+GotoLin(1);
+
+:begin::
+Find;
+IfOK(!'JMP("cycle");','JMP("exit");')
+
+:cycle::
+GetSwitchIndex(0,"$$?$$");
+IfGetNum("%!0",1,9999,!'JMP("run");','JMP("begin");');
+
+:run::
+
+SetSearchForward(0);
+SetReplaceStr("\begin{equation*}");
+Replace;
+SetSearchForward(1);
+SetReplaceStr("\end{equation*}");
+Replace;
+JMP("begin");
+
+:exit::
 RestoreFind;
+Goto(0);
 SetTracking(1);
 Refresh(1,0);
 EndGroup;

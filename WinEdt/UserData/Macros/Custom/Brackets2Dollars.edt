@@ -5,7 +5,8 @@
 // Global replace of \[...\] by $$...$$
 //=========================================================================
 
-
+PushTagsandRegisters;
+SaveFind;
 BeginGroup;
 Mark(0);
 SaveFind;
@@ -29,4 +30,6 @@ RestoreFind;
 SetTracking(1);
 Refresh(1,0);
 EndGroup;
+RestoreFind;
+PopTagsandRegisters;
 Exit;

@@ -11,9 +11,9 @@
 // Requires WinEdt 7 Build 20120413 (or later)
 Requires(20120413);
 
-
 // Save the Registers!
 PushTagsandRegisters;
+SaveFind;
 BeginGroup;
 Mark(0);
 
@@ -174,5 +174,6 @@ SaveFind;
 
 Goto(0);
 EndGroup;
+RestoreFind;
 PopTagsandRegisters;
 End;

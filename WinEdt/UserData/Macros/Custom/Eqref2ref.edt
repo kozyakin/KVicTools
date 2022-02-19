@@ -5,8 +5,9 @@
 // Replace \eqref{...} by \ref{...}
 //=========================================================================
 
-
-BeginGroup;
+PushTagsandRegisters;
+SaveFind;
+SaveFind;
 Mark(0);
 SaveFind;
 SearchReset;
@@ -27,4 +28,6 @@ RestoreFind;
 Goto(0);
 Refresh(1,0);
 EndGroup;
+RestoreFind;
+PopTagsandRegisters;
 Exit;

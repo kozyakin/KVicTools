@@ -5,8 +5,8 @@
 // Format \cite{...}
 //=========================================================================
 
-
 PushTagsandRegisters;
+SaveFind;
 BeginGroup;
 SetTracking(0);
 SetFindStr(",\($Alpha+Numeric$\)\E{isCite}");
@@ -26,5 +26,6 @@ SearchReset;
 ReplaceAll;
 SetTracking(1);
 EndGroup;
+RestoreFind;
 PopTagsandRegisters;
 // ReplaceDialog;

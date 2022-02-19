@@ -5,7 +5,8 @@
 // Remove spaces after \left and \right
 //=========================================================================
 
-
+PushTagsandRegisters;
+SaveFind;
 BeginGroup;
 Mark(0);
 SaveFind;
@@ -27,4 +28,6 @@ RestoreFind;
 Goto(0);
 Refresh(1,0);
 EndGroup;
+RestoreFind;
+PopTagsandRegisters;
 Exit;

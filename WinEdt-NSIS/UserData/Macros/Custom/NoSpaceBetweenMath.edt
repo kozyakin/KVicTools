@@ -5,7 +5,8 @@
 // Remove spaces between $...$
 //=========================================================================
 
-
+PushTagsandRegisters;
+SaveFind;
 BeginGroup;
 SaveFind;
 SearchReset;
@@ -25,4 +26,6 @@ ReplaceDialog;
 RestoreFind;
 Refresh(1,0);
 EndGroup;
+RestoreFind;
+PopTagsandRegisters;
 Exit;

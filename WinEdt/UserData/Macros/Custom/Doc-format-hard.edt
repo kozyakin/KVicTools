@@ -5,8 +5,8 @@
 // Format document in hard mode
 //=========================================================================
 
-
 PushTagsandRegisters;
+SaveFind;
 BeginGroup;
 GoToBeginningOfFile;
 StartWorking( "Formatting...", 0 );
@@ -47,4 +47,5 @@ SetTracking(1);
 StopWorking;
 EndGroup;
 Refresh;
+RestoreFind;
 PopTagsandRegisters;

@@ -13,6 +13,7 @@ Requires(20120413);
 
   // Save the Registers!
 PushTagsandRegisters;
+SaveFind;
 BeginGroup;
 Mark(0);
 
@@ -175,5 +176,6 @@ IfNum(%!1, 2, "=", "Assign(`MUIRadioButton`, `UTF-8`);", "Relax;");
 Release('CodePage');
 Goto(0);
 EndGroup;
+RestoreFind;
 PopTagsandRegisters;
 End;

@@ -44,7 +44,7 @@
 Requires(20120413);
 
 PushTagsandRegisters;
-
+SaveFind;
 LetRegNum(0,%l*1000+%c);
 SetTracking(1);
 Mark(0);
@@ -267,5 +267,6 @@ GotoLin(%!0/1000);
 SetTracking(1);
 Refresh;
 EndGroup;
+RestoreFind;
 PopTagsandRegisters;
 End;

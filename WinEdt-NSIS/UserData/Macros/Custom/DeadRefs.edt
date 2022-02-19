@@ -7,8 +7,8 @@
 
 
 PushTagsandRegisters;
-SetFindStr("");
 SaveFind;
+SetFindStr("");
 Mark(0);
 Goto(0,0);
 SetTracking(0);

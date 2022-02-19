@@ -1,5 +1,5 @@
 33
-1089357896770408151
+1089357896773534540
 WinEdt 10
 WinEdt #
 1
@@ -3502,6 +3502,30 @@ Invert
 "%!m=TeX;BibTeX"
 
 Exe('%b\Macros\Custom\Brackets2Dollars.edt');
+0
+
+0
+$$...$$->equation*
+$$...$$      -> \begin{equation*}...\end{equation*}
+Invert
+
+0
+1
+"%!m=TeX;BibTeX"
+
+Exe('%b\Macros\Custom\Dollars2equation-star.edt');
+0
+
+0
+\[...\]->equation*
+\[...\]        -> \begin{equation*}...\end{equation*}
+Invert
+
+0
+1
+"%!m=TeX;BibTeX"
+
+Exe('%b\Macros\Custom\Brackets2equation-star.edt');
 0
 
 0
