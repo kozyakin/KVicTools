@@ -3482,7 +3482,7 @@ RemoveEmptyLines;
 3
 0
 $$...$$->\[...\]
-$$...$$      -> \[...\]
+$$...$$       -> \[...\]
 Invert
 
 0
@@ -3494,7 +3494,7 @@ Exe('%b\Macros\Custom\Dollars2Brackets.edt');
 
 0
 \[...\]->$$..$$
-\[...\]        -> $$...$$
+\[...\]         -> $$...$$
 Invert
 
 0
@@ -3506,7 +3506,7 @@ Exe('%b\Macros\Custom\Brackets2Dollars.edt');
 
 0
 $$...$$->equation*
-$$...$$      -> \begin{equation*}...\end{equation*}
+$$...$$       -> equation*
 Invert
 
 0
@@ -3518,7 +3518,7 @@ Exe('%b\Macros\Custom\Dollars2equation-star.edt');
 
 0
 \[...\]->equation*
-\[...\]        -> \begin{equation*}...\end{equation*}
+\[...\]         -> equation*
 Invert
 
 0
@@ -3529,8 +3529,32 @@ Exe('%b\Macros\Custom\Brackets2equation-star.edt');
 0
 
 0
+equation*->$$...$$
+equation* -> $$...$$
+Invert
+
+0
+1
+"%!m=TeX;BibTeX"
+
+Exe('%b\Macros\Custom\Equation-star2dollars.edt');
+0
+
+0
+equation*->\[...\]
+equation* -> \[...\]
+Invert
+
+0
+1
+"%!m=TeX;BibTeX"
+
+Exe('%b\Macros\Custom\Equation-star2brackets.edt');
+0
+
+0
 ref->eqref
-(\ref{...})  -> \eqref{...}
+(\ref{...})   -> \eqref{...}
 Invert
 
 0
@@ -3542,7 +3566,7 @@ Exe('%b\Macros\Custom\Ref2eqref.edt');
 
 0
 eqref->ref
-\eqref{...} -> (\ref{...})
+\eqref{...}  -> (\ref{...})
 Invert
 
 0
