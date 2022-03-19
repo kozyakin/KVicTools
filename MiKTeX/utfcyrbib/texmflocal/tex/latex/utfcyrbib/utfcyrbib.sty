@@ -1,0 +1,44 @@
+% This is UTFCYRBIB.STY, a LaTeX style written by Victor Kozyakin
+% (kozyakin@iitp.ru), that allows to use utf-8 encoded Cyrillic .bib files
+% with BibTeX.
+%
+% Iconv and Perl are required
+%
+% 2018/08/03 v0.1 initial version
+% 2018/08/09 v0.2 disabled creation of *-1251.bib files if they already exist,
+%                 iconv is replaced by piconv, the Perl reinvention of iconv.
+%
+%                 Iconv is no longer required
+%
+% 2018/08/13 v0.3 at the end of script, del/rm commands to delete *.bak files
+%                 are replaced by perl invocation of unlink.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{utfcyrbib}
+[2018/08/13 v0.3 Tool to use utf8 encoded Cyrillic .bib databases in bibtex]
+
+\RequirePackage{xstring,xparse}%
+
+\NewDocumentCommand{\@UTFtoCPWin}{ >{\SplitList{,}} m }{%
+  \ProcessList{#1}{\@iconv}}%
+
+\NewDocumentCommand{\@iconv}{m}{%
+  \IfSubStr{#1}{-utf8}{%
+  \StrSubstitute{#1}{-utf8}{}[\@Item]%
+  \IfFileExists{\@Item-cp1251.bib}{\relax}{%
+    \immediate\write18{piconv -f utf-8 -t cp1251 \@Item-utf8.bib > \@Item-cp1251.bib}%
+    \immediate\write18{perl -p -i.bak -e s/"TeX encoding = UTF-8"/"TeX encoding = windows-1251"/g \@Item-cp1251.bib}%
+    \immediate\write18{perl -p -i.bak -e s/(\%.*):UTF-8/\string$1:CP1251/g \@Item-cp1251.bib}%
+    \immediate\write18{perl -p -i.bak -e s/inputencoding\string\{utf8\string\}/inputencoding\string\{cp1251\string\}/g \@Item-cp1251.bib}%
+    \immediate\write18{perl -e "unlink q(\@Item-cp1251.bib.bak)"}%
+  }%
+  }{\relax}}%
+
+\def\bibliography#1{%
+  \IfSubStr{#1}{-utf8}{%
+    \StrSubstitute{#1}{-utf8}{-cp1251}[\@List]}{\edef\@List{#1}}
+    \if@filesw%
+      \immediate\write\@auxout{\string\bibdata{\@List}}%
+    \fi%
+  \@UTFtoCPWin{#1}%
+  \@input@{\jobname.bbl}}%
+% end

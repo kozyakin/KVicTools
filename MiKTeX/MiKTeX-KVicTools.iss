@@ -61,6 +61,8 @@ Name: {app}\miktex\config\*.*; Type: files
 Source: default\texmfmain\miktex\bin\*.*; DestDir: {code:BinRoot}; Flags: overwritereadonly ignoreversion; Components: default
 Source: default\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: gost705bib\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default gost705bib
+Source: utfcyrbib\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
+Source: "User_home_dir\*.*"; DestDir: "{%USERPROFILE}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
 Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environment; ValueType: string; ValueName: BIBTEX; ValueData: bibtex8.bat; Flags: uninsdeletevalue
