@@ -3578,7 +3578,7 @@ Exe('%b\Macros\Custom\Eqref2ref.edt');
 
 0
 Format cite
-\cite{A,B,C,...}->\cite{A, B, C ,...}
+\cite{A,B,C,...}   ->\cite{A, B, C ,...}
 Invert
 
 0
@@ -3586,6 +3586,18 @@ Invert
 "%!m=TeX;BibTeX"
 
 Exe('%b\Macros\Custom\Format-cite.edt');
+0
+
+0
+Format cite2
+\cite{A, B, C, ...}->\cite{A,B,C,...}
+Invert
+
+0
+1
+"%!m=TeX;BibTeX"
+
+Exe('%b\Macros\Custom\Format-cite2.edt');
 0
 
 
