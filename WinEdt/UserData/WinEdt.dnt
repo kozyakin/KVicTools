@@ -19105,7 +19105,7 @@ end{comment}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{equation*} .. \end{equation*}
 
@@ -19153,7 +19153,7 @@ end{equation*}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{equation} .. \end{equation}
 
@@ -19201,7 +19201,7 @@ end{equation}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{gather*} .. \end{gather*}
 
@@ -19249,7 +19249,7 @@ end{gather*}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{gather} .. \end{gather}
 
@@ -19297,7 +19297,7 @@ end{gather}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{multline*} .. \end{multline*}
 
@@ -19345,7 +19345,7 @@ end{multline*}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{multline} .. \end{multline}
 
@@ -19393,7 +19393,7 @@ end{multline}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{align*} .. \end{align*}
 
@@ -19441,7 +19441,7 @@ end{align*}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{align} .. \end{align}
 
@@ -19489,7 +19489,7 @@ end{align}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{alignat*} .. \end{alignat*}
 
@@ -19537,7 +19537,7 @@ end{alignat*}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{alignat} .. \end{alignat}
 
@@ -19585,7 +19585,7 @@ end{alignat}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{flalign*} .. \end{flalign*}
 
@@ -19633,7 +19633,7 @@ end{flalign*}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{flalign} .. \end{flalign}
 
@@ -19681,7 +19681,7 @@ end{flalign}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{eqnarray*} .. \end{eqnarray*}
 
@@ -19729,7 +19729,7 @@ end{eqnarray*}
 0
 0
 0
--6810924778257664
+-4556925941316864
 0
 \begin{eqnarray} .. \end{eqnarray}
 
@@ -21505,7 +21505,7 @@ TeX
 0
 0
 0
--3616954000487742720
+-2821224241326718208
 0
 \[?\]
 
@@ -21553,7 +21553,7 @@ TeX;BibTeX|DTX;INS;STY;AUX
 0
 0
 0
--3616954000487742720
+-2821224241326718208
 0
 \(?\)
 
@@ -21697,7 +21697,7 @@ TeX;BibTeX;MetaPost
 0
 0
 0
--3616954000487742720
+-2821224241326718208
 0
 $$?$$
 
@@ -21745,7 +21745,7 @@ $
 0
 0
 0
--3616954000487742720
+-2821224241326718208
 0
 $?$
 
@@ -23842,7 +23842,7 @@ TeX;BibTeX;MetaPost
 0
 0
 0
-2370781265461772800
+-3386759696340745728
 0
 \footnote{?}
 
@@ -23891,7 +23891,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--7291328896224460288
+-5701276752785964544
 0
 \todo{?}
 
@@ -23940,7 +23940,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 1
--7291328896224460288
+-5701276752785964544
 0
 \todo{?}
 
@@ -23988,7 +23988,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 2
--7291328896224460288
+-5701276752785964544
 0
 \todo{?}
 
@@ -60700,20 +60700,20 @@ fscTextDelimiters
 RGB_0
 9109504
 kbgLightBlue
-#CDE7FF
-16771021
+#CFEFFF
+16773071
 kbgLightGreen
-#B5E620
-2156213
+#D0FFD0
+13696976
 kbgLightLightRed
-#FFCDCD
-13487615
+#FFD8D8
+14211327
 kbgLightLilac
 #F2CDFF
 16764402
 kbgLightOrange
-#FFCF9A
-10145791
+#FFE0B0
+11591935
 kbgLightViolet
 #DADAFF
 16767706
@@ -64254,13 +64254,13 @@ RGB_F
 swclLaTeXCommentEx
 RGB_B
 kbgLightBlue
-#CDE7FF
+#CFEFFF
 kbgLightLightRed
-#FFCDCD
+#FFD8D8
 kbgLightGreen
-#B5E620
+#D0FFD0
 kbgLightOrange
-#FFCF9A
+#FFE0B0
 kbgLightViolet
 #DADAFF
 kbgLightLilac
