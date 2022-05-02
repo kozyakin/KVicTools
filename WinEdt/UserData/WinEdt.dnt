@@ -11019,18 +11019,6 @@ Assign('THEME','Easy Gray');Exe('%b\Config\ChangeTheme.edt');
 
 3
 0
-Theme_Comfortable
-&Comfortable
-Templates
-
-0
-0
-
-
-LoadConfig('ConfigEx\SwitchesC.ini');Assign('THEME','Kvic');Exe('%b\Config\ChangeTheme.edt');
-0
-
-0
 Theme_Highlited
 &Highlited
 Templates
@@ -11039,7 +11027,7 @@ Templates
 0
 
 
-LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Kvic');Exe('%b\Config\ChangeTheme.edt');
+LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Highlited');Exe('%b\Config\ChangeTheme.edt');
 0
 
 2
@@ -58137,7 +58125,7 @@ Ins('\right');
 + / -  ...
 
 
-1
+3
 MathOper.bmp
 2
 16
@@ -58210,11 +58198,49 @@ Ins('\dagger');
 dagger
 Ins('\ddagger');
 ddagger
---->  ...
---->  ...
-
-
+ArrowsDiag.bmp
+2
+2
+32
+32
+0
+10
+4
+Ins('\nearrow');
+nearrow
+Ins('\searrow');
+searrow
+Ins('\nwarrow');
+nwarrow
+Ins('\swarrow');
+swarrow
+ArrowsLong.bmp
+2
+4
+48
+32
+0
+10
 7
+Ins('\longleftarrow');
+longleftarrow
+Ins('\longrightarrow');
+longrightarrow
+Ins('\longleftrightarrow');
+longleftrightarrow
+Ins('\longmapsto');
+longmapsto
+Ins('\Longleftarrow');
+Longleftarrow
+Ins('\Longrightarrow');
+Longrightarrow
+Ins('\Longleftrightarrow');
+Longleftrightarrow
+--->  ...
+--->  ...
+
+
+5
 ArrowsShort.bmp
 2
 3
@@ -58255,28 +58281,6 @@ Ins('\nRightarrow');
 nRightarrow
 Ins('\nLeftrightarrow');
 nLeftrightarrow
-ArrowsLong.bmp
-2
-4
-48
-32
-0
-10
-7
-Ins('\longleftarrow');
-longleftarrow
-Ins('\longrightarrow');
-longrightarrow
-Ins('\longleftrightarrow');
-longleftrightarrow
-Ins('\longmapsto');
-longmapsto
-Ins('\Longleftarrow');
-Longleftarrow
-Ins('\Longrightarrow');
-Longrightarrow
-Ins('\Longleftrightarrow');
-Longleftrightarrow
 Arrows1.bmp
 2
 8
@@ -58365,22 +58369,6 @@ Ins('\rightsquigarrow');
 rightsquigarrow
 Ins('\multimap');
 multimap
-ArrowsDiag.bmp
-2
-2
-32
-32
-0
-10
-4
-Ins('\nearrow');
-nearrow
-Ins('\searrow');
-searrow
-Ins('\nwarrow');
-nwarrow
-Ins('\swarrow');
-swarrow
 < > =  ...
 < > =  ...
 
@@ -63833,7 +63821,7 @@ slcDefault
 slcProjectAlt
 SysGrayText
 
-Kvic
+Highlited
 clWhite
 16777215
 clBlack

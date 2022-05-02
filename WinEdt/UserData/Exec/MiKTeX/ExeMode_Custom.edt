@@ -77,7 +77,7 @@
 
 // PDFLaTeX
     Assign(!"PDFLaTeX-Executable", !|pdflatex.exe|);
-    Assign(!"PDFLaTeX-Switches", !|--enable-write18|);
+    Assign(!"PDFLaTeX-Switches", !|%0  --enable-write18|);
     Assign(!"PDFLaTeX-Parameters", !|"%N%T"|);
     Release(!"PDFLaTeX-Paper_Size");
     Release(!"PDFLaTeX-Paper_Custom_Size");
@@ -102,7 +102,7 @@
 
 // PDFTeX
     Assign(!"PDFTeX-Executable", !|pdftex.exe|);
-    Assign(!"PDFTeX-Switches", !|--enable-write18|);
+    Assign(!"PDFTeX-Switches", !|%0  --enable-write18|);
     Assign(!"PDFTeX-Parameters", !|"%N%T"|);
     Release(!"PDFTeX-Paper_Size");
     Release(!"PDFTeX-Paper_Custom_Size");
@@ -227,7 +227,7 @@
 
 // TeXify
     Assign(!"TeXify-Executable", !|%@("LATEX");|);
-    Assign(!"TeXify-Switches", !|%0 --tex-option=--enable-write18|);
+    Assign(!"TeXify-Switches", !|%0  --enable-write18|);
     Assign(!"TeXify-Parameters", !|"%N%T"|);
     Release(!"TeXify-Paper_Size");
     Release(!"TeXify-Paper_Custom_Size");
@@ -252,7 +252,7 @@
 
 // PDFTeXify
     Assign(!"PDFTeXify-Executable", !|%@("PDFLATEX");|);
-    Assign(!"PDFTeXify-Switches", !|--pdf  --tex-option=--enable-write18|);
+    Assign(!"PDFTeXify-Switches", !|%0  --enable-write18|);
     Assign(!"PDFTeXify-Parameters", !|"%N%T"|);
     Release(!"PDFTeXify-Paper_Size");
     Release(!"PDFTeXify-Paper_Custom_Size");
