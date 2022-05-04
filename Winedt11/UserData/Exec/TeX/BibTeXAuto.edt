@@ -1,0 +1,38 @@
+// Auto-detect BibTeX executable (bibtex, bibtex8, or biber)
+  IfStr("%$(!'Bib-AutoDetect');",!"1",!"<>",!"Exit;");
+  IfFileExists('%O\%N.aux',!'Relax;',!"Exit;");
+  PushTagsandRegisters;
+
+  // Check %O\%N.run.xml file for Bibtex Executable
+  IfFileExists("%O\%N.run.xml",!"Relax;",!"JMP(!'no_xml');");
+  IfFileOlder('%O\%N.run.xml','%O\%N.aux',!"JMP(!'no_xml');","",99);
+  ReadFile("%O\%N.run.xml",4,9999);
+  FindInString("%!4","<binary>biber</binary>",-11,-11,100);
+  IfOK(!"LetReg(0,!'biber.exe');JMP(!'auto_Bib');");
+  FindInString("%!4","<binary>bibtex</binary>",-11,-11,100);
+  IfOK(!"LetReg(0,!'bibtex.exe');JMP(!'auto_Bib');");
+  FindInString("%!4","<binary>bibtex8</binary>",-11,-11,100);
+  IfOK(!"LetReg(0,!'bibtex8.exe');JMP(!'auto_Bib');");
+  FindInString("%!4","<generic>biber</generic>",-11,-11,100);
+  IfOK(!"LetReg(0,!'biber.exe');JMP(!'auto_Bib');");
+  FindInString("%!4","<generic>bibtex</generic>",-11,-11,100);
+  IfOK(!"LetReg(0,!'bibtex.exe');JMP(!'auto_Bib');");
+  JMP(!'no_xml');
+:auto_Bib:: =====================================================================
+  Assign(!'BibTeX-Executable',"%!0");
+  Release("BibTeX-Switches");
+  JMP(!'no_bibAutoExe');
+:no_xml:: =======================================================================
+  // If .bcf is newer than .aux it must be biber!
+  IfFileExists('%O\%N.bcf',!'Relax;',!"JMP(!'no_biber');");
+  IfFileOlder('%O\%N.bcf','%O\%N.aux',!"JMP(!'no_biber');","",99);
+  Assign(!'BibTeX-Executable',!"biber.exe");
+  Release("BibTeX-Switches");
+  JMP(!'no_bibAutoExe');
+:no_biber:: =====================================================================
+  // if .bcf does not exist or it is older than .aux it cannot be biber!
+  IfStr("%$(!'BibTeX-Executable');",!"biber.exe",!"=",>
+       !"Assign(!'BibTeX-Executable',!'bibtex.exe')");
+:no_bibAutoExe:: ================================================================
+  PopTagsandRegisters;
+End;

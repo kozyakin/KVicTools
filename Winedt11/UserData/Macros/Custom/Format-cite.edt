@@ -1,0 +1,31 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// Format-cite.edt
+// (kozyakin 20190712)
+// Format \cite{...}
+//=========================================================================
+
+PushTagsandRegisters;
+SaveFind;
+BeginGroup;
+SetTracking(0);
+SetFindStr(",\($Alpha+Numeric$\)\E{isCite}");
+SetReplaceStr(", \0");
+SetSearchCaseSensitive(1);
+SetSearchRelaxed(1);
+SetSearchWholeWords(0);
+SetSearchInline(0);
+SetRegEx(1);
+SetSearchCurrentDoc;
+SetSearchCyclic(0);
+SetSearchForward(1);
+SetSearchEntire(1);
+SetReplaceRespectCaps(1);
+SetReplacePrompt(0);
+SearchReset;
+ReplaceAll;
+SetTracking(1);
+EndGroup;
+RestoreFind;
+PopTagsandRegisters;
+// ReplaceDialog;
