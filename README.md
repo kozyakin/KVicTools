@@ -31,15 +31,10 @@ Sources to build installers: [MiKTeX](https://github.com/kozyakin/KVicTools/tree
 
 ### WinEdt
 
-<<<<<<< HEAD
-The translation of all elements of the *WinEdt 10.3 и 11.0* interface into Russian has been added, as well as the set of service macros for fulfilling everyday needs has been significantly expanded - searching and cleaning garbage, recoding documents, finding unused or reused links, labels and tags, etc.
-=======
 The translation of all elements of the *WinEdt 10.3 and 11.0* interface into Russian has been added, as well as the set of service macros for fulfilling everyday needs has been significantly expanded - searching and cleaning garbage, recoding documents, finding unused or reused links, labels and tags, etc.
->>>>>>> 1bcd41e46b25c523fd5b353fcf6d600d0219c2e1
 
 Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt) and [WinEdt 11.0](https://github.com/kozyakin/KVicTools/tree/main/Winedt11)
 
 ### Other
 
 A set of service bat files for mass conversion of pdf documents to eps, updating the *tlmgr* package manager, etc.
-
