@@ -1629,7 +1629,7 @@ FUNCTION {misc}
   output.bibitem
   format.authors "author" output.check
   new.block
-  format.title "title" output.check
+  format.title add.doi.url "title" output.check
   new.block
   howpublished output
   new.block
