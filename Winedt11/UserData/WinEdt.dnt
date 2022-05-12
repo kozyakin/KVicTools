@@ -1,5 +1,5 @@
 36
-1089357896773216745
+1089357896773207387
 WinEdt 11
 WinEdt #
 1
@@ -1635,6 +1635,30 @@ NewDoc('TeX');
 0
 
 0
+$New_Rnw_Doc
+RNW Document
+DocRnw
+
+0
+0
+
+
+NewDoc('TeX:RNW');
+0
+
+0
+$New_R_Doc
+R Document
+DocR
+
+0
+0
+
+
+NewDoc('R');
+0
+
+0
 $New_BibTeX_Doc
 &BibTeX Document
 DocBibTeX
@@ -1717,6 +1741,18 @@ FileGLS
 "%!M=TeX"*%O\%N.gls
 
 IfFileExists('%O\%N.gls',!'CloseFile(|%O\%N.gls|,1);DeleteFile(|%O\%N.gls|);UpdateStatus;');
+0
+
+0
+$Erase_NLS_File
+Erase NLS File
+FileNLS
+
+0
+0
+"%!M=TeX"*%O\%N.nls
+
+IfFileExists('%O\%N.nls',!'CloseFile(|%O\%N.nls|,1);DeleteFile(|%O\%N.nls|);UpdateStatus;');
 0
 
 0
@@ -8001,7 +8037,7 @@ Compile
 Default
 4
 0
-"%!M=HTML:HHC"*%P\%N.hhp?"%F==%P\%N.hhp"?"%!M=XWE"?"%!M=TeX"?"%!M=MetaPost"?"%!M=MetaFont"?"%!M=NSIS"|"%!M=TeX:STY"|"%!M=TeX:AUX"|"%!M=MetaPost:AUX"|"%!M=NSIS:NSH"
+"%!M=HTML:HHC"*%P\%N.hhp?"%F==%P\%N.hhp"?"%!M=XWE"?"%!M=TeX"?"%!M=MetaPost"?"%!M=MetaFont"?"%!M=NSIS"?"%!M=RMD"|"%!M=TeX:STY"|"%!M=TeX:AUX"|"%!M=MetaPost:AUX"|"%!M=NSIS:NSH"
 
 Exe('%b\Exec\Compile.edt');
 120
@@ -8188,7 +8224,7 @@ Run('explorer.exe /n,/e, "%!P"','%!P',0,0,'Windows Explorer');
 
 0
 Command_Prompt
-Командная строка
+Командная &строка
 CommandPrompt
 
 0
@@ -8201,7 +8237,7 @@ Run('%$(|CMD|);','%!P',0,0,'%$(|CMDTitle|);',1,1);
 0
 Calculator
 Калькулятор
-Calculator
+&Calculator
 
 0
 0
@@ -8214,7 +8250,7 @@ Run('calc.exe','%!P',0,0,'Calculator',1,1);
 0
 Notepad
 &Блокнот
-Notepad
+&Notepad
 
 0
 0
@@ -8225,7 +8261,7 @@ Run('notepad.exe','%!P',0,0,'Notepad',1,1);
 
 0
 MS_Paint
-MS Paint
+&MS Paint
 Paint
 
 0
@@ -8491,6 +8527,19 @@ Left1
 PrevSpellingError;
 8309
 
+3
+0
+Thesaurus
+&Тезаурус
+Thesaurus
+
+0
+1
+
+
+Exe('%b\Menus\Tools\Word Web.edt');
+32880
+
 2
 3
 1
@@ -8621,7 +8670,7 @@ Enumerate
 
 0
 Evaluate_Expression
-Вычисление целого выражения
+Вычисление &целого выражения
 Evaluate
 
 0
@@ -9049,6 +9098,7 @@ Bold
 Exe('%b\Exec\TeX\upBibTeX.edt');
 0
 
+3
 0
 Make_Index
 Создать &Index
@@ -9072,6 +9122,18 @@ Glossary
 
 Exe('%b\Exec\TeX\MakeGlossary.edt');
 24647
+
+0
+Make_Nomenclature
+Создать &Nomenclature
+Nomenclature
+
+0
+0
+%O\%N.nlo*"%!M=TeX"|"%!M=TeX:INS"|"%!M=TeX:DTX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\MakeNomenclature.edt');
+49230
 
 3
 0
@@ -9790,6 +9852,12 @@ Open('%b\Macros\LaTeX\bibMacros\bibMacros.cfg');
 0
 
 
+R_Menu
+&R
+
+1
+0
+
 User_Menu
 &User
 
@@ -9982,6 +10050,19 @@ Notepad
 
 
 Exe('%b\Exec\ASCII\Load Config.edt');
+0
+
+3
+0
+R_Manager
+&RManager
+RHistory
+
+0
+0
+
+
+Exe('%b\Config\RManager.edt');
 0
 
 2
@@ -15036,8 +15117,8 @@ Exe('%b\Menus\Popups\BookmarkHelp.edt');
 1
 1
 3
-Toolbar_TeX
-34
+Toolbar_TeX1
+33
 0
 0
 0
@@ -15120,6 +15201,33 @@ Save
 
 
 0
+Undo
+
+0
+0
+0
+
+
+
+0
+Redo
+
+0
+0
+0
+
+
+
+0
+|
+
+1
+0
+0
+
+
+
+0
 Cut
 
 0
@@ -15170,44 +15278,6 @@ Find_in_Files
 Replace
 -
 Incremental_Search
-|
-
-1
-0
-0
-
-
-
-0
-ChkTeX
-
-0
-0
-0
-Default;MiKTeX;TeX Live
-
-
-0
-|
-
-1
-0
-0
-
-
-
-0
-latexdiff
-
-6
-0
-0
-Default;MiKTeX;TeX Live
-
-
-2
-latexdiff
-latexrevise
 |
 
 1
@@ -15308,22 +15378,10 @@ Emphasize_(Italic)
 
 
 
-17
+5
 Emphasize_(Italic)
 Bold
 Teletype
-Underline
--
-tiny
-scriptsize
-footnotesize
-small
-normalsize
-large
-Large
-LARGE
-huge
-Huge
 -
 Color_(RGB)
 Center_Env
@@ -15334,12 +15392,11 @@ Center_Env
 
 
 
-7
+6
 Center_Env
 Left_Env
 Right_Env
 -
-Minipage_Env
 Quote_Env
 Verbatim_Env
 Itemize
@@ -15373,17 +15430,12 @@ Tabular_(n_x_m)
 
 
 
-10
+5
 Tabular_(n_x_m)
 Tabbing_(n_x_m)
 -
 Array_(n_x_m)
 Matrix_(n_x_m)
--
-(Matrix)_(n_x_m)
-[Matrix]_(n_x_m)
-|Matrix|_(n_x_m)
-||Matrix||_(n_x_m)
 Equation
 
 6
@@ -15392,12 +15444,7 @@ Equation
 
 
 
-20
-$...$
-\(...\)
-$$...$$
-\[...\]
--
+15
 Equation
 Equation*
 -
@@ -15421,27 +15468,21 @@ Citation
 
 
 
-9
-Label
--
-Quotation
+5
 Citation
 Reference
-EqReference
-PageReference
+Label
 -
 Footnote
 Insert_Environment
 
-6
 0
 0
+0
 
 
 
-2
-Insert_Environment
-Change_Environment
+0
 |
 
 1
@@ -15674,31 +15715,23 @@ TeX Compile
 
 
 
-24
+16
 PDFTeXify
-PDFTeXify+upBibTeX
 PDFLaTeX
 PDFTeX
 -
 TeXify
-TeXify+upBibTeX
 LaTeX
 TeX
 AMSTeX
 -
 ConTeXt
 -
-LuaTeXify
-LuaTeXify+upBibTeX
 LuaLaTeX
 LuaTeX
 -
-XeTeXify
-XeTeXify+upBibTeX
 XeLaTeX
 XeTeX
--
-TeXify2PDF
 |
 
 1
@@ -15709,15 +15742,6 @@ TeXify2PDF
 
 0
 BibTeX
-
-0
-0
-0
-
-
-
-0
-upBibTeX
 
 0
 0
@@ -15834,6 +15858,15 @@ DVI_Search
 
 
 0
+|
+
+1
+0
+0
+
+
+
+0
 PDF_Preview
 
 0
@@ -15890,7 +15923,7 @@ TeX Live
 0
 
 Toolbar
-47
+45
 0
 0
 0
@@ -16061,24 +16094,6 @@ Find_in_Files
 Replace
 -
 Incremental_Search
-|
-
-1
-0
-0
-
-
-
-0
-ChkTeX
-
-0
-0
-0
-Default;MiKTeX;TeX Live
-
-
-0
 |
 
 1
@@ -30194,6 +30209,7 @@ newterm
 newabbreviation
 storeglosentry
 newacronym
+nomenclature
 glslink
 glsdisp
 glsadd
@@ -35852,6 +35868,7 @@ PDF
 WinEdt
 WinEdtPDF
 SyncTeX
+RManager
 
 130624389376
 Special+
@@ -36236,7 +36253,7 @@ spcCompounded
 0
 0
 0
-9
+10
 Default
 1
 
@@ -37403,6 +37420,20 @@ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 0
 
+R Chunk
+1
+chunk
+1
+1
+.^@#$\?!<:0123456789
+1
+^@#>=\0123456789
+1
+abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+0
+
+0
+
 57
 User (Addon)
 %b\Dict\User.dic
@@ -38149,6 +38180,7 @@ log
 or enter new name. (Default extension:
 !pdfTeX error
 !LuaTeX error
+l.NA
 
 
 Type V:  ? ...
@@ -38404,7 +38436,7 @@ slcProjectAlt
 
 *
 18
-Default|*.*|TeX|*.tex;*.ltx;*.texi;*.dtx;*.fdd;*.drv;*.ins;*.sty;*.fd;*.def;*.clo;*.cls;*.aux;*.lof;*.lot;*.toc;*.bbl;*.gls;*.glo;*.ind;*.idx|BibTeX|*.bib|MetaFont|*.mf|MetaPost|*.mp;*.mpx|BST|*.bst|IST|*.ist|HTML|*.html;*.htm;*.shtml;*.shtm;*.php;*.hhc;*.hhk|NSIS|*.nsi;*.nsh|DATA|*.*;*.dat;*.ini;*.cfg;*.dic|TEXT|*.*;*.txt;*.doc|ASCII|*.*;*.txt;*.edt|Binary|*.*;*.exe;*.dll;*.ocx;*.bmp;*.png|Application|*.exe;*.bat|:EDT|*.edt|:INI|*.ini|:DTX|*.dtx;*.fdd|:INS|*.ins;*.drv|:STY|*.sty;*.fd;*.def;*.clo;*.cls|:AUX|*.aux;*.lof;*.lot;*.toc;*.bbl;*.gls;*.glo;*.ind;*.idx;*.mpx|:NSH|*.nsh|:PHP|*.php|:CSS|*.css|:DIC|*.dic|:HHC|*.hhc;*.hhk|:UK|*.uk;*.*|:US|*.us;*.*|:DE|*.de;*.*|:FR|*.fr;*.*|:Soft|*.soft;*.*|:Hard|*.hard;*.*|:UTF-8|*.utf8;*.*|:ACP|*.acp;*.*
+Default|*.*|TeX|*.tex;*.ltx;*.texi;*.rnw;*.snw;*.dtx;*.fdd;*.drv;*.ins;*.sty;*.fd;*.def;*.clo;*.cls;*.aux;*.lof;*.lot;*.toc;*.bbl;*.gls;*.glo;*.ind;*.idx;*.nls;*.nlo|BibTeX|*.bib|MetaFont|*.mf|MetaPost|*.mp;*.mpx|BST|*.bst|IST|*.ist|R|*.R;*.S|HTML|*.html;*.htm;*.rhtml;*.shtml;*.shtm;*.php;*.hhc;*.hhk|NSIS|*.nsi;*.nsh|DATA|*.*;*.dat;*.ini;*.cfg;*.dic|TEXT|*.*;*.txt;*.rmd;*.md;*.doc|ASCII|*.*;*.txt;*.edt|Binary|*.*;*.exe;*.dll;*.ocx;*.bmp;*.png|Application|*.exe;*.bat|:EDT|*.edt|:INI|*.ini|:DTX|*.dtx;*.fdd|:INS|*.ins;*.drv|:STY|*.sty;*.fd;*.def;*.clo;*.cls|:AUX|*.aux;*.lof;*.lot;*.toc;*.bbl;*.gls;*.glo;*.ind;*.idx;*.nls;*.nlo;*.mpx|:NSH|*.nsh|:PHP|*.php|:CSS|*.css|:DIC|*.dic|:HHC|*.hhc;*.hhk|:RNW|*.rnw;*.snw|:RHTML|*.rhtml|:RMD|*.rmd|:MD|*.md|:UK|*.uk;*.*|:US|*.us;*.*|:DE|*.de;*.*|:FR|*.fr;*.*|:Soft|*.soft;*.*|:Hard|*.hard;*.*|:UTF-8|*.utf8;*.*|:ACP|*.acp;*.*
 1
 
 0
@@ -38784,7 +38816,7 @@ et cetera
 *
 23
 0
-132
+135
 $$>
 
 0
@@ -39929,6 +39961,45 @@ TeX|DTX;INS;STY;AUX
 1
 TeX|DTX;INS;STY;AUX
 [Exe('%b\Macros\Active Strings\ArgStart.edt');GDIShow;GDISetPage('Glos');]
+\nomenclature?{}
+
+0
+0
+
+0
+
+1
+TeX|DTX;INS;STY;AUX
+[Exe('%b\Macros\Active Strings\Nom.edt');]
+1
+TeX|DTX;INS;STY;AUX
+[Exe('%b\Macros\Active Strings\ArgEnd.edt');Exe('%b\Macros\Active Strings\Nom.edt');]
+\nomenclature?{?}
+
+0
+0
+
+0
+
+0
+TeX|DTX;INS;STY;AUX
+[GDIShow;GDISetPage('Nom','%?');]
+1
+TeX|DTX;INS;STY;AUX
+[Exe('%b\Macros\Active Strings\ArgEnd.edt');CharLeft;GDIShow;GDISetPage('Nom','%?');]
+\nomenclature?{
+
+0
+0
+
+0
+
+0
+TeX|DTX;INS;STY;AUX
+[Relax;]
+1
+TeX|DTX;INS;STY;AUX
+[Exe('%b\Macros\Active Strings\ArgStart.edt');GDIShow;GDISetPage('Nom');]
 \(
 
 0
@@ -40507,7 +40578,7 @@ INI
 0
 0
 1
-1
+0
 999
 9
 1
@@ -40867,7 +40938,7 @@ Consolas
 
 *
 31
-20
+22
 TEXT Document
 
 TEXT
@@ -40914,6 +40985,20 @@ TeX Document
 
 TeX
 .tex
+
+
+
+RNW Document
+
+TeX:RNW
+.rnw
+
+
+
+R Document
+
+R
+.r
 
 
 
@@ -46404,7 +46489,7 @@ Underlined Readonly Modified Text
 
 *
 40
-4
+5
 DocASCII
 tex;ltx;mp;mf;htm;html;ini
 Book
@@ -46413,7 +46498,9 @@ DocNSI
 nsi
 DocNSH
 nsh
-38
+DocRnw
+rnw;snw
+42
 DocASCII
 txt
 DocData
@@ -46432,6 +46519,10 @@ FileTEX
 tex;texi
 FileLTX
 ltx
+DocRnw
+rnw;snw
+DocR
+r;s
 FileAUX
 aux
 FileBBL
@@ -46481,7 +46572,11 @@ mf
 FileMP
 mp
 FileMPX
-mpx
+nlg
+FileNLO
+nlo
+FileNLS
+nls
 FileSTY
 sty
 FileSYNC
@@ -46508,7 +46603,7 @@ TeX|DTX;STY;AUX
 tex;ltx;texi
 
 
-18
+21
 \include{"?"}
 
 
@@ -46553,6 +46648,30 @@ tex;ltx;texi
 
 
 *;.tex
+%P;%p;%@('TEXINPUTS');
+
+
+0
+\SweaveInput{?}
+
+
+*
+%P;%p;%@('TEXINPUTS');
+
+
+0
+<<?child='?'
+
+
+*
+%P;%p;%@('TEXINPUTS');
+
+
+0
+<<?child=c('?')
+
+,
+*
 %P;%p;%@('TEXINPUTS');
 
 
@@ -47114,7 +47233,7 @@ ASCII
 1
 1
 1
-17
+18
 TOC-TeX
 TOC
 TeX|DTX;INS;STY;AUX
@@ -48407,6 +48526,62 @@ ActivateChild;BeginGroup;SetSel(0);Ins('%?');EndGroup;
 2
 \glossary{?name=?,
 \glossary{?name=?}
+0
+Nomenclature-TeX
+Nomenclature  (#)
+TeX|DTX;INS;STY;AUX
+Thesaurus
+0
+1
+1
+1
+1
+SaveSort;SetSort(1,1,1,-1,1,1);
+RestoreSort;
+1
+\nomenclature{?}
+TeX
+
+1
+1
+1
+1
+1
+0
+FlagPurple
+0
+%?
+8
+
+
+
+
+
+
+GlobalMark(1);TreeTrack(2,1);
+GlobalReturn;BeginGroup;SetSel(0);Ins('%?');EndGroup;
+
+
+
+
+
+
+ActivateChild;BeginGroup;SetSel(0);Ins('%?');EndGroup;
+
+
+
+0
+{}\
+2
+Find
+Find
+GlobalMark(1);TreeTrack(2);
+Insert
+Insert
+ActivateChild;BeginGroup;SetSel(0);Ins('%?');EndGroup;
+0
+1
+\nomenclature[?]{?}
 0
 Labels-TeX
 Labels  (#)
@@ -50541,7 +50716,7 @@ TreeTrack(2);
 42
 1
 1
-27
+28
 TOC-TeX
 TOC
 TeX|DTX;INS;STY;AUX
@@ -51843,6 +52018,65 @@ ActivateChild;BeginGroup;SetSel(0);Ins('%?');EndGroup;
 2
 \glossary{?name=?,
 \glossary{?name=?}
+0
+Nomenclature-TeX
+Nom
+TeX|DTX;INS;STY;AUX
+1
+1
+1
+1
+SaveSort;SetSort(1,1,1,-1,1,1);
+RestoreSort;
+GlobalMark;
+GlobalMark;
+
+
+
+1
+\nomenclature{?}
+TeX
+
+1
+1
+1
+1
+1
+0
+
+0
+%?
+8
+
+
+
+
+
+
+GlobalMark(1);GDITrack;
+GlobalReturn;BeginGroup;SetSel(0);Ins('%?');EndGroup;
+
+
+
+
+
+
+ActivateChild;BeginGroup;SetSel(0);Ins('%?');EndGroup;
+
+
+
+0
+{}\
+2
+Find
+Find
+GlobalMark(1);GDITrack;
+Insert
+Insert
+ActivateChild;BeginGroup;SetSel(0);Ins('%?');EndGroup;
+0
+1
+\nomenclature[?]{?}
 0
 Label-TeX
 Label
@@ -57552,7 +57786,7 @@ Exec\ASCII\ExecModes.edt
 
 *
 44
-1
+0
 #F4F4F4
 1
 48
@@ -59260,7 +59494,7 @@ nVDash
 1
 0
 0
-41
+43
 ASCII
 txt
 DocASCII
@@ -59276,6 +59510,12 @@ FileTEX
 LaTeX
 ltx
 FileLTX
+RNW
+rnw;snw
+DocRnw
+R
+r;s
+DocR
 AUX
 aux
 FileAUX

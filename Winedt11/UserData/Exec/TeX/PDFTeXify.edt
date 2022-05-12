@@ -17,6 +17,7 @@
   IfFileExists("%O\%N.blg",!"DeleteFile('%O\%N.blg');");
   IfFileExists("%O\%N.ilg",!"DeleteFile('%O\%N.ilg');");
   IfFileExists("%O\%N.glg",!"DeleteFile('%O\%N.glg');");
+  IfFileExists("%O\%N.nlg",!"DeleteFile('%O\%N.nlg');");
   IfStr("%$('PDFTeXify-Clean_Build');","1","=",>
     !|IfFileExists("%O\%N.bbl",!"DeleteFile('%O\%N.bbl');");>
       IfFileExists("%O\%N.bcf",!"DeleteFile('%O\%N.bcf');");>
@@ -26,6 +27,8 @@
       IfFileExists("%O\%N.ind",!"DeleteFile('%O\%N.ain');");>
       IfFileExists("%O\%N.gls",!"DeleteFile('%O\%N.gls');");>
       IfFileExists("%O\%N.glo",!"DeleteFile('%O\%N.glo');");>
+      IfFileExists("%O\%N.nls",!"DeleteFile('%O\%N.nls');");>
+      IfFileExists("%O\%N.nlo",!"DeleteFile('%O\%N.nlo');");>
       IfFileExists("%O\%N.toc",!"DeleteFile('%O\%N.toc');");>
       IfFileExists("%O\%N.lof",!"DeleteFile('%O\%N.lof');");>
       IfFileExists("%O\%N.lot",!"DeleteFile('%O\%N.lot');");>

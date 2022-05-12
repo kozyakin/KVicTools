@@ -627,6 +627,31 @@ Assign(!"KillConsoleApp",!"1");
     Release(!"TtH-Background_Window");
     Assign(!"TtH-Pause", !|1|);
 
+// Rscript
+    Assign(!"Rscript-Executable", !|%$("R-Exe");|);
+    Release(!"Rscript-Switches");
+    Assign(!"Rscript-Parameters", !|"%N%T"|);
+    Release(!"Rscript-Paper_Size");
+    Release(!"Rscript-Paper_Custom_Size");
+    Release(!"Rscript-Landscape");
+    Release(!"Rscript-GUI");
+    Release(!"Rscript-High_Priority");
+    Assign(!"Rscript-Wait", !|1|);
+    Release(!"Rscript-Report");
+    Release(!"Rscript-Errors");
+    Release(!"Rscript-Warnings");
+    Release(!"Rscript-ExitCode");
+    Assign(!"Rscript-Viewer", !|1|);
+    Release(!"Rscript-View_Search");
+    Release(!"Rscript-STD_IO");
+    Release(!"Rscript-No_Interaction");
+    Release(!"Rscript-C-style-errors");
+    Release(!"Rscript-Clean_Build");
+    Assign(!"Rscript-WinEdt_Console", !|1|);
+    Release(!"Rscript-Hidden_Window");
+    Release(!"Rscript-Background_Window");
+    Assign(!"Rscript-Pause", !|1|);
+
 // HHC
     Assign(!"HHC-Executable", !|%$("HHC");|);
     Release(!"HHC-Switches");

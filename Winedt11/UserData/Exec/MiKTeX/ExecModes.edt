@@ -273,6 +273,16 @@
                  $$0001011000111,// Enable Flags (13)<>
                  $$1111);        // Enable Pause..WinEdt Console Flags (4)
 
+  AddApplication(!'Rscript',     // Name<>
+                 !'%$("R-Exe");',// Executable<>
+                 !'',            // Switches<>
+                 !'"%N%T"',      // Parameters<>
+                 !'',            // Environmental Variable <-- Executable<>
+                 0,              // Paper Size Switch Enabled<>
+                 0,              // Landscape Switch Enabled<>
+                 $$0001011000111,// Enable Flags (13)<>
+                 $$1111);        // Enable Pause..WinEdt Console Flags (4)
+
   AddApplication(!'HHC',         // Name<>
                  !'%$("HHC");',  // Executable<>
                  !'',            // Switches<>
