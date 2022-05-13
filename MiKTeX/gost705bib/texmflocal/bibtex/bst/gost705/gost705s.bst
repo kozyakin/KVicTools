@@ -12,6 +12,9 @@
 %% This file is part of the disser package.
 %%
 %% "format.eprint" is modified by V. Kozyakin, 13.03.2011
+%%
+%% URL is printed only if both DOI and EPRINT fields,
+%% for a reference, are absent or empty, 13.05.2022 9:57:23
 
 
 
@@ -1253,11 +1256,17 @@ FUNCTION {format.urldate}
 
 FUNCTION {output.url}
 {
-  url empty$
+  doi empty$
+  { eprint empty$
+    { url empty$
+      'skip$
+      { format.url output
+        format.urldate output
+	  }
+      if$}
     'skip$
-    { format.url output
-      format.urldate output
-    }
+    if$}
+  'skip$
   if$
 }
 
