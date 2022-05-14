@@ -8237,7 +8237,7 @@ Run('%$(|CMD|);','%!P',0,0,'%$(|CMDTitle|);',1,1);
 0
 Calculator
 Калькулятор
-&Calculator
+Calculator
 
 0
 0
@@ -8250,7 +8250,7 @@ Run('calc.exe','%!P',0,0,'Calculator',1,1);
 0
 Notepad
 &Блокнот
-&Notepad
+Notepad
 
 0
 0
