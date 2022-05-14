@@ -10155,7 +10155,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','1l');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','1l');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 0
@@ -10167,7 +10167,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2l');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','2l');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 0
@@ -10179,7 +10179,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2s');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','2s');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 3
@@ -15118,7 +15118,7 @@ Exe('%b\Menus\Popups\BookmarkHelp.edt');
 1
 3
 Toolbar_TeX
-34
+37
 0
 0
 0
@@ -15186,6 +15186,33 @@ Open
 
 0
 Save
+
+0
+0
+0
+
+
+
+0
+|
+
+1
+0
+0
+
+
+
+0
+Undo
+
+0
+0
+0
+
+
+
+0
+Redo
 
 0
 0
@@ -15551,7 +15578,7 @@ Notepad
 MS_Paint
 
 Toolbar_TeX2
-42
+46
 0
 0
 0
@@ -15900,6 +15927,33 @@ ps2pdf
 
 
 0
+PDF_Preview
+
+0
+0
+0
+
+
+
+0
+PDF_Search
+
+0
+0
+0
+
+
+
+0
+|
+
+1
+0
+0
+
+
+
+0
 DVI_Preview
 
 0
@@ -15912,6 +15966,15 @@ DVI_Preview
 DVI_Search
 
 0
+0
+0
+
+
+
+0
+|
+
+1
 0
 0
 
