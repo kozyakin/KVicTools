@@ -15,7 +15,7 @@
 
 ### Другое
 
-Набор сервисных bat-файлов для массовой перекодировки pdf-документов в eps, обновления менеджера пакетов *tlmgr* и др.
+Набор сервисных cmd-файлов для массовой перекодировки pdf-документов в eps, обновления менеджера пакетов *tlmgr* и др.
 
 ---
 
@@ -37,4 +37,4 @@ Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools
 
 ### Other
 
-A set of service bat files for mass conversion of pdf documents to eps, updating the *tlmgr* package manager, etc.
+A set of service cmd files for mass conversion of pdf documents to eps, updating the *tlmgr* package manager, etc.
