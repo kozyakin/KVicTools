@@ -33,8 +33,8 @@
   IfOK(!"Relax;",!"JMP(!'not_BibTeX');");
   IfStr("%O","%P","=",!"JMP(!'Pre_Done');");
     // Add %P to environment variable
-    SetEnvVar(!"BIBINPUTS","%!8;%$('OLDBIBINPUTS');");
-    SetEnvVar(!"BSTINPUTS","%!8;%$('OLDBSTINPUTS');");
+    SetEnvVar(!"BIBINPUTS","%!8;%@('BIBINPUTS');");
+    SetEnvVar(!"BSTINPUTS","%!8;%@('BSTINPUTS');");
   JMP(!"Pre_Done");
 
 :not_BibTeX:: =======================================================
@@ -59,7 +59,7 @@
   IfStr("%O","%P","=",!"JMP(!'Pre_Done');");
     Exe("%b\Exec\TeX\CreateAUX.edt");
     // Add %P to environment variable
-    SetEnvVar(!"MPINPUTS","%!8;%$('OLDMPINPUTS');");
+    SetEnvVar(!"MPINPUTS","%!8;%@('MPINPUTS');");
   JMP(!"Pre_Done");
 
 :not_MetaPost:: =====================================================
@@ -85,7 +85,7 @@
   IfStr("%O","%P","=",!"JMP(!'Pre_Done');");
     Exe("%b\Exec\TeX\CreateAUX.edt");
     // Add %P to environment variable
-    SetEnvVar(!"MFINPUTS","%!8;%$('OLDMFINPUTS');");
+    SetEnvVar(!"MFINPUTS","%!8;%@('MFINPUTS');");
   JMP(!"Pre_Done");
 
 :not_MetaFont:: =====================================================
@@ -128,7 +128,7 @@
   IfStr("%O","%P","=",!"JMP(!'Pre_Done');");
     Exe("%b\Exec\TeX\CreateAUX.edt");
     // Add %P to environment variable
-    SetEnvVar(!"TEXINPUTS","%!8;%$('OLDTEXINPUTS');");
+    SetEnvVar(!"TEXINPUTS","%!8;%@('TEXINPUTS');");
   JMP(!"Pre_Done");
 
 :not_TeX2HTML:: =====================================================
@@ -154,7 +154,7 @@
   IfStr("%O","%P","=",!"JMP(!'Pre_Done');");
     Exe("%b\Exec\TeX\CreateAUX.edt");
     // Add %P to environment variable
-    SetEnvVar(!"TEXINPUTS","%!8;%$('OLDTEXINPUTS');");
+    SetEnvVar(!"TEXINPUTS","%!8;%@('TEXINPUTS');");
   JMP(!"Pre_Done");
 
 :not_TeX:: ==========================================================
