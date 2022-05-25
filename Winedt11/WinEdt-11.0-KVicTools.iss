@@ -14,7 +14,7 @@
 #expr WriteIni(AddBackslash(SourcePath) +'build', 'Inno Setup', 'Build', Build);
 #define Year GetDateTimeString('yyyy', '', '');
 #define BuildInfo AppVersion+'.'+MinAppVersion+'.'+Year+'.'+Build;
-#define WinEdtFileVersion '11.0.2022.519';
+#define WinEdtFileVersion '11.0.2022.524';
 #define WinEdtName 'WinEdt '+AppVersion;
 #define WinEdtTeam 'WinEdt Team';
 #define PublisherName 'KVicTools';
