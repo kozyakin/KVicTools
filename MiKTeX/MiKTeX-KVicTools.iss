@@ -16,7 +16,6 @@
 #define PublisherName 'KVicTools';
 
 [Setup]
-PrivilegesRequired=admin
 AppName=MiKTeX {#PublisherName}
 AppVerName=MiKTeX {#PublisherName}
 AppPublisher=Victor Kozyakin
@@ -72,16 +71,20 @@ Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environme
 [UninstallDelete]
 
 [Run]
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--install=lh  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--install=cm-super  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--update-fndb --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--dump --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
-Filename: "{code:BinRoot}\mpm.exe"; Parameters: "--update-db  --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Синхронизация локальной базы данных файлов MiKTeX с репозитарием..."; Components: default
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--mklinks --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление ссылок файлов MiKTeX..."; Components: default
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--mkmaps --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install lh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install cm-super"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fndb refresh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose formats build"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages update-package-database"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Синхронизация локальной базы данных файлов MiKTeX с репозитарием..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose links install"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление ссылок файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fontmaps configure"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов MiKTeX..."; Components: default
 
 [UninstallRun]
-Filename: "{code:BinRoot}\initexmf.exe"; Parameters: "--dump --mkmaps --mklinks --update-fndb --verbose"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX... ..."; RunOnceId: "miktex_kvic"; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fndb refresh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose formats build"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages update-package-database"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Синхронизация локальной базы данных файлов MiKTeX с репозитарием..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose links install"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление ссылок файлов MiKTeX..."; Components: default
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fontmaps configure"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов MiKTeX..."; Components: default
 
 [Code]
 var
