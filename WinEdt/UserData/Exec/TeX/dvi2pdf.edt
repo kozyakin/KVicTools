@@ -1,0 +1,80 @@
+// -*- ASCII:EDT -*-
+// TeX: dvi2pdf ...
+
+  Requires(20180507); // Requires this build of WinEdt to work properly
+
+  PushTagsandRegisters;
+  SetExitHandler('Exit_Handler');
+
+  Assign('ExitCode-OK','0'); // OK Exit Code
+  LetReg(9,'dvi2pdf');  // Execution Modes Compiler
+  LetReg(8,'');         // Log File (or empty)
+  LetReg(7,'pdf');      // Output Format
+  LetReg(6,'%P');       // Startup Folder
+
+//  LockVar(!'%!9-Executable');
+  Assign(!'%!9-Executable-tmp','%$(!|%!9-Executable|);');
+//  LockVar(!'%!9-Switches');
+  Assign(!'%!9-Switches-tmp','%$(!|%!9-Switches|);');
+//  LockVar(!'%!9-Parameters');
+  Assign(!'%!9-Parameters-tmp','%$(!|%!9-Parameters|);');
+
+
+  // Display a Dialog for Extra Switches:
+  IfStr("%$('%!9-GUI');","1","=",>
+    !|EnterSwitches('%!9',1,1,1,1,'-s ','-');>
+      IfOK(!`Relax;`,!`Exit;`);|,>
+    !|Release('%!9--Switches');Release('%!9--Pages');|);
+
+  LetReg(4,'');
+  IfStr("%$('%!9-Paper_Size');","1","=",!|LetReg(4, "%!4 -p letter");|);
+  IfStr("%$('%!9-Paper_Size');","2","=",!|LetReg(4, "%!4 -p legal");|);
+  IfStr("%$('%!9-Paper_Size');","3","=",!|LetReg(4, "%!4 -p a4");|);
+  IfStr("%$('%!9-Paper_Size');","4","=",!|LetReg(4, "%!4 -p %$('%!9-Paper_Custom_Size');");|);
+  IfStr("%$('%!9-Landscape');", "1","=",!|LetReg(4, "%!4 -l");|);
+
+  JMP(!'Start');
+
+:Exit_Handler:: =====================================================
+  IfFileExists("%P\%N.pdf",>
+    !|IfStr("%$('%!9-Clean_Build');",!"1",!"=",>
+       !||IfFileExists("%P\%N.dvi",!"DeleteFile('%P\%N.dvi')");||);|);
+  PopTagsandRegisters;
+  UpdateStatus;
+//
+  Assign(!'%!9-Executable','%$(!|%!9-Executable-tmp|);');
+  Release('%!9-Executable-tmp');
+  Assign(!'%!9-Switches','%$(!|%!9-Switches-tmp|);');
+  Release('%!9-Switches-tmp');
+  Assign(!'%!9-Parameters','%$(!|%!9-Parameters-tmp|);');
+  Release('%!9-Parameters-tmp');
+Return;
+
+:Start:: ============================================================
+
+  IfStr("%$(!'TeX-PragmaCmd');",!"1",!"<>",!"JMP(!'Run');");
+  GetPreamble("\begin{document}",0,99);
+  FindInString("%!0",!'<%@{ }!DVI2PDF @{ }exe@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign("%!9-Executable","%#0");');
+  FindInString("%!0",!'<%@{ }!DVI2PDF @{ }opt@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign("%!9-Switches","%#0");');
+  FindInString("%!0",!'<%@{ }!DVI2PDF @{ }par@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign("%!9-Parameters","%#0");');
+  FindInString("%!0",!'<%@{ }!DVI2PDF @{ }ext@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign("%!9--Switches","%$(`%!9--Switches`); %#0");');
+  // Command Line overwrites the executable, switches, and parameters!
+  FindInString("%!0",!'<%@{ }!DVI2PDF @{ }cmd@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'LetReg(5,"%#0");JMP(!"Exe");');
+
+:Run:: ==========================================================================
+
+  // Build the Command Line ...
+  LetReg(5, "%$('%!9-Executable'); %$('%!9-Switches'); %!4 "+>
+            "%$('%!9--Switches'); %$('%!9--Pages'); %$('%!9-Parameters');");
+
+:Exe:: ==========================================================================
+
+  // Use Execution Modes to determine the flow of execution...
+  Exe('%b\Exec\ExeCompiler.edt');
+
+End;

@@ -9309,18 +9309,6 @@ TeXPDFTeXify
 1
 
 0
-PDFLaTeXify
-&PDFLaTeXify
-TeXPDFLaTeXify
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");
-49232
-
-0
 PDFTeXify
 PDF&TeXify
 TeXPDFTeXify
@@ -9345,18 +9333,6 @@ Exe('%b\Exec\TeX\upPDFTeXify.edt');
 0
 
 3
-0
-LuaLaTeXify
-&LuaLaTeXify
-TeXLuaLaTeXify
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
-49237
-
 0
 LuaTeXify
 L&uaTeXify
@@ -9383,18 +9359,6 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Ex
 
 3
 0
-XeLaTeXify
-&XeLaTeXify
-TeXXeLaTeXify
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
-49221
-
-0
 XeTeXify
 X&eTeXify
 TeXXeTeXify
@@ -9420,18 +9384,6 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe
 
 3
 0
-LaTeXify2PDF
-&LaTeXify2PDF
-TeXLaTeXify2PDF
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Assign("Old-PDFTeXify-Method","%$('PDFTeXify-Method');");Assign("PDFTeXify-Method","2");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");Assign("PDFTeXify-Method","%$('Old-PDFTeXify-Method');");Release("Old-PDFTeXify-Method");
-49233
-
-0
 TeXify2PDF
 TeXify&2PDF
 TeXTeXify2PDF
@@ -9452,18 +9404,6 @@ TeXTeXify
 
 0
 1
-
-0
-LaTeXify
-&LaTeXify
-TeXLaTeXify
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Exe('%b\Exec\TeX\TeXify.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");
-49240
 
 0
 TeXify
@@ -9735,21 +9675,9 @@ Exe('%b\Exec\TeX\ConTeXt.edt');
 
 3
 0
-Biber
-Biber
-Biber
-
-0
-0
-%O\%N.bcf*"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Assign("Old-BibTeX-Executable","%$('BibTeX-Executable');");Assign("Old-BibTeX-Switches","%$('BibTeX-Switches');");Assign("BibTeX-Executable","biber.exe");Release("BibTeX-Switches");Exe('%b\Exec\TeX\BibTeX.edt');Assign("BibTeX-Executable","%$('Old-BibTeX-Executable');");Assign("BibTeX-Switches","%$('Old-BibTeX-Switches');");Release("Old-BibTeX-Executable");Release("Old-BibTeX-Switches");
-49218
-
-0
 BibTeX
-&BibTeX
-BibTeX
+&BibTeX / Biber
+Biber
 
 0
 0
@@ -10831,7 +10759,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','1l');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','1l');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 0
@@ -10843,7 +10771,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','1s');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','1s');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 0
@@ -10855,7 +10783,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','1c');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','1c');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 3
@@ -10868,7 +10796,7 @@ WinEdt
 0
 
 
-Assign('TOOLBAR','');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 3
@@ -10881,7 +10809,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2l');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','2l');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 0
@@ -10893,7 +10821,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2s');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','2s');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 0
@@ -10905,7 +10833,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2c');Exe('%b\Config\ChangeToolbar.edt');
+Assign('TOOLBAR','2c');Exe('%b\Config\ChangeToolbarLocal.edt');
 0
 
 3
@@ -16313,7 +16241,7 @@ Notepad
 MS_Paint
 
 Toolbar_TeX2
-44
+43
 0
 0
 0
@@ -16519,14 +16447,12 @@ TeX Compile
 
 
 
-29
-PDFLaTeXify
+24
 PDFTeXify
 PDFTeXify+upBibTeX
 PDFLaTeX
 PDFTeX
 -
-LaTeXify
 TeXify
 TeXify+upBibTeX
 LaTeX
@@ -16535,32 +16461,20 @@ AMSTeX
 -
 ConTeXt
 -
-LuaLaTeXify
 LuaTeXify
 LuaTeXify+upBibTeX
 LuaLaTeX
 LuaTeX
 -
-XeLaTeXify
 XeTeXify
 XeTeXify+upBibTeX
 XeLaTeX
 XeTeX
 -
-LaTeXify2PDF
 TeXify2PDF
 |
 
 1
-0
-0
-
-
-
-0
-Biber
-
-0
 0
 0
 
@@ -40824,8 +40738,8 @@ INI
 24
 0
 0
-1
 0
+9
 999
 9
 1
@@ -45092,15 +45006,15 @@ Courier New
 ASCII Documents
 ASCII
 1
-9
-19
+8
+16
 0
 0
 68
 0
 0
-Consolas
-12
+Courier New
+10
 0
 0
 0
@@ -45123,15 +45037,15 @@ Consolas
 TeX Source
 DTX;INS;STY
 1
-9
-19
+8
+16
 0
 0
 80
 0
 0
-Consolas
-12
+Courier New
+10
 0
 0
 0
@@ -59826,8 +59740,8 @@ Default:TeX Live
 0
 0
 0
-1079
-719
+1217
+1047
 0
 0
 0
@@ -60007,7 +59921,7 @@ Consolas
 0
 
 Console
-0
+1
 2
 0
 1
@@ -60089,6 +60003,7 @@ Recorded Macro.edt
 
 *
 86
+c:\Users\Vitya\AppData\Roaming\WinEdt Team\WinEdt 10\Exec\TeX\BibTeXAuto.edt 
 
 
 *
