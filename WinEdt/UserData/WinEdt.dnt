@@ -1,5 +1,5 @@
 33
-1089357896773534540
+1089357896773026270
 WinEdt 10
 WinEdt #
 1
@@ -10759,7 +10759,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','1l');Exe('%b\Config\ChangeToolbarLocal.edt');
+Assign('TOOLBAR','1l');Exe('%b\Config\ChangeToolbar.edt');
 0
 
 0
@@ -10771,7 +10771,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','1s');Exe('%b\Config\ChangeToolbarLocal.edt');
+Assign('TOOLBAR','1s');Exe('%b\Config\ChangeToolbar.edt');
 0
 
 0
@@ -10783,7 +10783,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','1c');Exe('%b\Config\ChangeToolbarLocal.edt');
+Assign('TOOLBAR','1c');Exe('%b\Config\ChangeToolbar.edt');
 0
 
 3
@@ -10796,7 +10796,7 @@ WinEdt
 0
 
 
-Assign('TOOLBAR','');Exe('%b\Config\ChangeToolbarLocal.edt');
+Assign('TOOLBAR','');Exe('%b\Config\ChangeToolbar.edt');
 0
 
 3
@@ -10809,7 +10809,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2l');Exe('%b\Config\ChangeToolbarLocal.edt');
+Assign('TOOLBAR','2l');Exe('%b\Config\ChangeToolbar.edt');
 0
 
 0
@@ -10821,7 +10821,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2s');Exe('%b\Config\ChangeToolbarLocal.edt');
+Assign('TOOLBAR','2s');Exe('%b\Config\ChangeToolbar.edt');
 0
 
 0
@@ -10833,7 +10833,7 @@ Toolbar
 0
 
 
-Assign('TOOLBAR','2c');Exe('%b\Config\ChangeToolbarLocal.edt');
+Assign('TOOLBAR','2c');Exe('%b\Config\ChangeToolbar.edt');
 0
 
 3
@@ -40738,8 +40738,8 @@ INI
 24
 0
 0
+1
 0
-9
 999
 9
 1
@@ -59740,8 +59740,8 @@ Default:TeX Live
 0
 0
 0
-1217
-1047
+1079
+719
 0
 0
 0
@@ -59921,7 +59921,7 @@ Consolas
 0
 
 Console
-1
+0
 2
 0
 1
@@ -60003,7 +60003,6 @@ Recorded Macro.edt
 
 *
 86
-c:\Users\Vitya\AppData\Roaming\WinEdt Team\WinEdt 10\Exec\TeX\BibTeXAuto.edt 
 
 
 *
