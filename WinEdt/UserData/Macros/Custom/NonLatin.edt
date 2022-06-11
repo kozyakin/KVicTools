@@ -6,7 +6,6 @@
 //=========================================================================
 
 PushTagsandRegisters;
-SaveFind;
 SearchReset;
 SetSearchForward(1);
 SetSearchSelected;
@@ -14,5 +13,4 @@ SetRegEx(1);
 SetFindStr( "$~[#32..#126]-[#9]$|\u" );
 SetTracking(1);
 FindDialog;
-RestoreFind;
 PopTagsandRegisters;

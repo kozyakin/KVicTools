@@ -6,7 +6,6 @@
 //=========================================================================
 
 PushTagsandRegisters;
-SaveFind;
 SearchReset;
 SetSearchForward(1);
 SetSearchSelected;
@@ -14,5 +13,4 @@ SetRegEx(1);
 SetFindStr( "[ЁёА-я]\E{isMathX}" );
 SetTracking(1);
 FindDialog;
-RestoreFind;
 PopTagsandRegisters;
