@@ -2107,7 +2107,7 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\BibAnnote}[1]{#1}"
   write$ newline$
-  "\begin{thebibliography}{" longest.label  * "}" *
+  "\bgroup\begin{thebibliography}{" longest.label  * "}" *
   write$ newline$
   "\def\selectlanguageifdefined#1{"
   write$ newline$
@@ -2132,7 +2132,7 @@ ITERATE {call.type$}
 FUNCTION {end.bib}
 {
   newline$
-  "\end{thebibliography}" write$ newline$
+  "\end{thebibliography}\egroup" write$ newline$
 }
 
 EXECUTE {end.bib}
