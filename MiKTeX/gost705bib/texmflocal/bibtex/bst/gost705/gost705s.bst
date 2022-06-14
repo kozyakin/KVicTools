@@ -627,7 +627,7 @@ FUNCTION {bbl.techrep}
     { curlanguage "german" =
       { "Tech.~Bericht" }
       { curlanguage "russian" =
-        { "{\cyr\CYRT\cyre\cyrh.\ \cyrd\cyro\cyrk\cyrl\cyra\cyrd.}" }
+        { "{\cyr\CYRO\cyrt\cyrch\cyre\cyrt}" }
         { "language is not defined: " language * warning$ "Tech Rep" }
       if$
       }
@@ -1262,7 +1262,7 @@ FUNCTION {output.url}
       'skip$
       { format.url output
         format.urldate output
-	  }
+      }
       if$}
     'skip$
     if$}
@@ -2000,9 +2000,9 @@ FUNCTION {sort.format.title}
   't :=
   "A " #2
     "An " #3
-      "The " #4 t chop.word
-    chop.word
-  chop.word
+      "The " #4 t chop.word % Removes "The " if any
+    chop.word               % Removes "An " if any
+  chop.word                 % Removes "A " if any
   sortify
   #1 global.max$ substring$
 }
@@ -2115,12 +2115,12 @@ FUNCTION {begin.bib}
   write$ newline$
   "\else\language\csname l@#1\endcsname\fi\ignorespaces}"
   write$ newline$
-  "  \providecommand\backrefparscanfalse{}"   %% added
-  write$ newline$                             %% added
-  "  \providecommand\backrefparscantrue{}"    %% added
-  write$ newline$                             %% added
-  "  \providecommand\backrefprint{}"          %% added
-  write$ newline$                             %% added
+  "\providecommand\backrefparscanfalse{}"   %% added
+  write$ newline$                           %% added
+  "\providecommand\backrefparscantrue{}"    %% added
+  write$ newline$                           %% added
+  "\providecommand\backrefprint{}"          %% added
+  write$ newline$                           %% added
 }
 
 EXECUTE {begin.bib}
