@@ -2085,10 +2085,6 @@ ITERATE {longest.label.pass}
 
 FUNCTION {begin.bib}
 {
-  preamble$ empty$
-    'skip$
-    { preamble$ write$ newline$ }
-  if$
   "\providecommand{\BibEmph}[1]{#1}"
   write$ newline$
   "\providecommand{\href}[2]{#2}"
@@ -2109,8 +2105,6 @@ FUNCTION {begin.bib}
   write$ newline$
   "\begin{thebibliography}{"  longest.label  * "}" *
   write$ newline$
-  "\bgroup"
-  write$ newline$
   "\def\selectlanguageifdefined#1{"
   write$ newline$
   "\expandafter\ifx\csname date#1\endcsname\relax"
@@ -2123,6 +2117,10 @@ FUNCTION {begin.bib}
   write$ newline$                           %% added
   "\providecommand\backrefprint{}"          %% added
   write$ newline$                           %% added
+  preamble$ empty$                          %% moved here by VK
+    'skip$                                  %% moved here by VK
+    { preamble$ write$ newline$ }           %% moved here by VK
+  if$                                       %% moved here by VK
 }
 
 EXECUTE {begin.bib}
@@ -2134,7 +2132,6 @@ ITERATE {call.type$}
 FUNCTION {end.bib}
 {
   newline$
-  "\egroup" write$ newline$
   "\end{thebibliography}" write$ newline$
 }
 
