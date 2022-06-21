@@ -172,6 +172,8 @@ SaveFind;
 
 :FINAL::
 
+Release('MUIRadioButton');
+Release('InputEnc');
 Goto(0);
 EndGroup;
 RestoreFind;

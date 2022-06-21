@@ -174,6 +174,10 @@ IfNum(%!1, 2, "=", "Assign(`MUIRadioButton`, `UTF-8`);", "Relax;");
 :FINAL::
 
 Release('CodePage');
+Release('WrapMode');
+Release('tmp');
+Release('MUIRadioButton');
+Release('MUIRadioButton2');
 Goto(0);
 EndGroup;
 RestoreFind;
