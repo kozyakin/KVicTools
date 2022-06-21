@@ -162,7 +162,7 @@ IfNum(%!1, 2, "=", "Assign(`MUIRadioButton`, `UTF-8`);", "Relax;");
     CMD('Insert Comment');
     Goto(0);
 
-    IfStr("%$(`MUIRadioButton2`)","Hard","=","Relax;","Exe(`%b\Macros\Custom\Doc-format-soft.edt`);");
+    IfStr("%$(`MUIRadioButton2`)","Soft","=","Exe(`%b\Macros\Custom\Doc-format-soft.edt`);","Relax;");
 
     LetReg(1,"%f");
     SaveAll(0,0,0,0,0,"%f");
