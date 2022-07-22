@@ -1,5 +1,5 @@
 36
-1089357896773207387
+1089357896773027423
 WinEdt 11
 WinEdt #
 1
@@ -38238,7 +38238,7 @@ Russian (physics)
 1
 1
 1
-1
+0
 1
 1
 0
@@ -38272,7 +38272,7 @@ Type III: ?<String>...[Line]
 TeX
 log
 <{LaTeX|Package natbib} Warning: *{`|'}\(*\)'
-<{LaTeX|Package|Class} *Warning:
+<{LaTeX3|LaTeX|Package|Class|Module} *Warning:
 
 
 Type IV: ? ...
@@ -58065,7 +58065,7 @@ Greek
 Greek
 
 
-3
+4
 GreekUpp.bmp
 2
 6
@@ -58100,12 +58100,12 @@ Ins('$');
 $
 GreekLow.bmp
 2
-15
+12
 24
 24
 0
 4
-30
+24
 Ins('\alpha');
 alpha
 Ins('\beta');
@@ -58116,16 +58116,12 @@ Ins('\delta');
 delta
 Ins('\epsilon');
 epsilon
-Ins('\varepsilon');
-varepsilon
 Ins('\zeta');
 zeta
 Ins('\eta');
 eta
 Ins('\theta');
 theta
-Ins('\vartheta');
-vartheta
 Ins('\iota');
 iota
 Ins('\kappa');
@@ -58139,33 +58135,49 @@ nu
 Ins('\xi');
 xi
 Ins('o');
-o
+omicron
 Ins('\pi');
 pi
-Ins('\varpi');
-varpi
 Ins('\rho');
 rho
-Ins('\varrho');
-varrho
 Ins('\sigma');
 sigma
-Ins('\varsigma');
-varsigma
 Ins('\tau');
 tau
 Ins('\upsilon');
 upsilon
 Ins('\phi');
 phi
-Ins('\varphi');
-varphi
 Ins('\chi');
 chi
 Ins('\psi');
 psi
 Ins('\omega');
 omega
+GreekVar.bmp
+2
+4
+24
+24
+0
+4
+8
+Ins('\varepsilon');
+varepsilon
+Ins('\vartheta');
+vartheta
+Ins('\varkappa');
+varkappa
+Ins('\varpi');
+varpi
+Ins('\varrho');
+varrho
+Ins('\varsigma');
+varsigma
+Ins('\varphi');
+varphi
+Ins('\digamma');
+digamma
 Hebrew.bmp
 2
 2
@@ -58174,8 +58186,8 @@ Hebrew.bmp
 0
 4
 4
-Ins('\digamma');
-digamma
+Ins('\aleph');
+aleph
 Ins('\beth');
 beth
 Ins('\gimel');
@@ -59772,7 +59784,7 @@ TeX
 
 Exe('%b\Macros\Events\DynDict.edt');
 0
-89
+90
 \begin{...}
 Exe('%b\Macros\Auto Complete\TeX_BeginEnv.edt');
 \textcolor[rgb]{...}{}
@@ -59820,6 +59832,8 @@ Exe('%b\Macros\Auto Complete\TeX_GlsOpt.edt');
 \GLS[]{...}
 Exe('%b\Macros\Auto Complete\TeX_GlsOpt.edt');
 \includegraphics[width=]{filename}
+Exe('%b\Macros\Auto Complete\TeX_InclGraphics.edt');
+\includegraphics[height=]{filename}
 Exe('%b\Macros\Auto Complete\TeX_InclGraphics.edt');
 \emph{}
 Exe('%b\Macros\Auto Complete\TeX_Arg.edt');
