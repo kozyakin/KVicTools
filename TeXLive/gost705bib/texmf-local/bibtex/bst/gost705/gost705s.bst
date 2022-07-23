@@ -2084,7 +2084,17 @@ EXECUTE {initialize.longest.label}
 ITERATE {longest.label.pass}
 
 FUNCTION {begin.bib}
-{
+{ "\ifdefined\inputencoding\edef\docenc{\inputencodingname}"         write$ newline$
+  "\ifdefined\AddToHook%"                            write$ newline$
+  "\AddToHook{cmd/@oddhead/before}{\bgroup\inputencoding{\docenc}} " write$ newline$
+  "\AddToHook{cmd/@oddhead/after}{\egroup}"          write$ newline$
+  "\AddToHook{cmd/@evenhead/before}{\bgroup\inputencoding{\docenc}}" write$ newline$
+  "\AddToHook{cmd/@evenhead/after}{\egroup}"         write$ newline$
+  "\AddToHook{cmd/@oddfoot/before}{\bgroup\inputencoding{\docenc}}"  write$ newline$
+  "\AddToHook{cmd/@oddfoot/after}{\egroup}"          write$ newline$
+  "\AddToHook{cmd/@evenfoot/before}{\bgroup\inputencoding{\docenc}}" write$ newline$
+  "\AddToHook{cmd/@evenfoot/after}{\egroup}"         write$ newline$
+  "\fi\fi"                                           write$ newline$
   "\providecommand{\BibEmph}[1]{#1}"
   write$ newline$
   "\providecommand{\href}[2]{#2}"
