@@ -2084,7 +2084,7 @@ EXECUTE {initialize.longest.label}
 ITERATE {longest.label.pass}
 
 FUNCTION {begin.bib}
-{ "\ifdefined\inputencoding\edef\docenc{\inputencodingname}"         write$ newline$
+{ "\ifdefined\inputencoding\xdef\docenc{\inputencodingname}"         write$ newline$
   "\ifdefined\AddToHook%"                            write$ newline$
   "\AddToHook{cmd/@oddhead/before}{\bgroup\inputencoding{\docenc}} " write$ newline$
   "\AddToHook{cmd/@oddhead/after}{\egroup}"          write$ newline$
