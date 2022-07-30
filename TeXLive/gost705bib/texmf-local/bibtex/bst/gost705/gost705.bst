@@ -2004,10 +2004,6 @@ FUNCTION {begin.bib}
   write$ newline$
   "\providecommand{\BibUrlDate}[1]{({%"
   write$ newline$
-  "\cyr\cyrd\cyra\cyrt\cyra\ %"
-  write$ newline$
-  "\cyro\cyrb\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}: #1)}"
-  write$ newline$
   "\providecommand{\BibAnnote}[1]{#1}"
   write$ newline$
   "\begin{thebibliography}{" longest.label  * "}" *
@@ -2028,6 +2024,10 @@ FUNCTION {begin.bib}
     'skip$                                  %% moved here by VK
     { preamble$ write$ newline$ }           %% moved here by VK
   if$                                       %% moved here by VK
+  "\cyr\cyrd\cyra\cyrt\cyra\ %"
+  write$ newline$
+  "\cyro\cyrb\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}: #1)}"
+  write$ newline$
 }
 
 EXECUTE {begin.bib}
