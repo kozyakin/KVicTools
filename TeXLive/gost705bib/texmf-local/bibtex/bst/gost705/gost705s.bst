@@ -8,9 +8,9 @@
 %%
 %% Copyright (c) 2004-2014 Stanislav Kruchinin.
 %% All rights reserved.
-%%
+%% 
 %% This file is part of the disser package.
-%%
+%% 
 %% "format.eprint" is modified by V. Kozyakin, 13.03.2011
 %%
 %% URL is printed only if both DOI and EPRINT fields,
@@ -1259,10 +1259,10 @@ FUNCTION {output.url}
   doi empty$
   { eprint empty$
     { url empty$
-      'skip$
-      { format.url output
-        format.urldate output
-      }
+    'skip$
+    { format.url output
+      format.urldate output
+    }
       if$}
     'skip$
     if$}
@@ -1299,27 +1299,27 @@ FUNCTION {format.eprint}
 { eprint empty$
     { "" }
     { archive empty$
-      { primaryClass empty$
-         { archivePrefix empty$
+    { primaryClass empty$
+       { archivePrefix empty$
               { " \href{https://arxiv.org/abs/" eprint * "}" *
-               "{" * eprint * "}" *
-              }
+             "{" * eprint * "}" *
+            }
               { " \href{https://arxiv.org/abs/" eprint * "}" *
-             "{" * archivePrefix * ":" * eprint * "}" *
-              }
-            if$
-          }
-          { archivePrefix empty$
+           "{" * archivePrefix * ":" * eprint * "}" *
+            }
+          if$
+        }
+        { archivePrefix empty$
               { " \href{https://arxiv.org/abs/" eprint * "}" *
-               "{" * primaryClass * "/" * eprint * "}" *
-              }
+             "{" * primaryClass * "/" * eprint * "}" *
+            }
               { " \href{https://arxiv.org/abs/" eprint * "}" *
-             "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
-              }
-            if$
-          }
-       if$
-      }
+           "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
+            }
+          if$
+        }
+     if$
+    }
       { primaryClass empty$
          { archivePrefix empty$
               { " \href{" archive * eprint * "}" *
@@ -2095,27 +2095,27 @@ FUNCTION {begin.bib}
   "\AddToHook{cmd/@evenfoot/before}{\bgroup\inputencoding{\docenc}}" write$ newline$
   "\AddToHook{cmd/@evenfoot/after}{\egroup}"         write$ newline$
   "\fi\fi"                                           write$ newline$
-  "\providecommand{\BibEmph}[1]{#1}"
+  preamble$ empty$
+    'skip$
+    { preamble$ write$ newline$ }
+  if$
+  "\ifx\undefined\BibEmph\def\BibEmph#1{#1}\else\fi"
   write$ newline$
-  "\providecommand{\href}[2]{#2}"
+  "\ifx\undefined\href\def\href#1#2{#2}\else\fi"
   write$ newline$
-  "\providecommand{\url}[1]{{\small\texttt{#1}}}"
+  "\ifx\undefined\url\def\url#1{\texttt{#1}}\else\fi"
   write$ newline$
-  "\providecommand{\urlprefix}{URL: }"
+  "\ifx\undefined\urlprefix\def\urlprefix{URL: }\else\fi"
   write$ newline$
-  "\providecommand{\BibUrl}[1]{\urlprefix\url{#1}}"
+  "\ifx\undefined\BibUrl\def\BibUrl#1{\urlprefix\url{#1}}\else\fi"
   write$ newline$
-  "\providecommand{\BibUrlDate}[1]{({%"
+  "\ifx\undefined\BibUrlDate\long\def\BibUrlDate#1{({%"
   write$ newline$
-  "\providecommand{\BibAnnote}[1]{#1}"
+  "\cyr\cyrd\cyra\cyrt\cyra\ %"
   write$ newline$
-  "\begin{thebibliography}{"  longest.label  * "}" *
+  "\cyro\cyrb\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}: #1)}\else\fi"
   write$ newline$
-  "\def\selectlanguageifdefined#1{"
-  write$ newline$
-  "\expandafter\ifx\csname date#1\endcsname\relax"
-  write$ newline$
-  "\else\language\csname l@#1\endcsname\fi\ignorespaces}"
+  "\ifx\undefined\BibAnnote\long\def\BibAnnote#1{#1}\else\fi"
   write$ newline$
   "\providecommand\backrefparscanfalse{}"   %% added
   write$ newline$                           %% added
@@ -2123,13 +2123,13 @@ FUNCTION {begin.bib}
   write$ newline$                           %% added
   "\providecommand\backrefprint{}"          %% added
   write$ newline$                           %% added
-  preamble$ empty$                          %% moved here by VK
-    'skip$                                  %% moved here by VK
-    { preamble$ write$ newline$ }           %% moved here by VK
-  if$                                       %% moved here by VK
-  "\cyr\cyrd\cyra\cyrt\cyra\ %"
+  "\begin{thebibliography}{" longest.label  * "}" *
   write$ newline$
-  "\cyro\cyrb\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}: #1)}"
+  "\def\selectlanguageifdefined#1{"
+  write$ newline$
+  "\expandafter\ifx\csname date#1\endcsname\relax"
+  write$ newline$
+  "\else\language\csname l@#1\endcsname\fi}"
   write$ newline$
 }
 
@@ -2146,3 +2146,4 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
+
