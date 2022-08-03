@@ -10,7 +10,7 @@ SearchReset;
 SetSearchForward(1);
 SetSearchSelected;
 SetRegEx(1);
-SetFindStr( "$~[#32..#126]-[#9]$|\u" );
+SetFindStr( '$~[#1..#126]*~["А".."я"]*~["Ёё"]$' );
 SetTracking(1);
 FindDialog;
 PopTagsandRegisters;
