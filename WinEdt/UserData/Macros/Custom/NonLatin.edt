@@ -20,7 +20,7 @@ SearchReset;
 SetSearchForward(1);
 SetSearchSelected;
 SetRegEx(1);
-SetFindStr( "\u" );
+SetFindStr( "$[#161..#255]$|\u" );
 SetTracking(1);
 FindDialog;
 PopTagsandRegisters;
