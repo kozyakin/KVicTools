@@ -1,0 +1,342 @@
+// !Mode:: "ASCII:EDT"
+// Clean Entry.edt
+// remove empty fields, format lines and
+// suggest a key for a bibliography item
+// part of the bibMacros package
+// (schlicht 20010817)
+// $Revision: 1.10 $
+////////////////////////////////////
+
+
+PushTagsandRegisters;
+
+// Read the global configuration file:
+IfStr("%$('BM_conf');","","=",!"Exe('%b\Macros\LaTeX\bibMacros\bibMacros.cfg');");
+
+JMP("clean_entry_done");
+:clean_entry::
+// Get the item
+Assign("BMGetEntry","bibCleanEntry");
+Exe("%b\Macros\LaTeX\bibMacros\Get Entry.edt");
+IfStr("%$('BM_entry');","","=","Beep(0);Goto(0);JMP('exit');");
+
+// Replace tabs by spaces
+LetReg(0,"%$('BM_entry');");
+SubstituteInString("%!0","{\&9;}"," ",1,2);
+Assign(|BM_entry|,|%!2|);
+
+// Put the last brace on a line of its own
+LetReg(0,"%$('BM_entry');");
+FindInString("%!0","~{>@{ }}{\}|)}",1,2,101);
+IfOK(!"GetLength(3,'%!0');>
+   IfNum(%!2+1,%!3,'=',!'>
+   InsertByIndex(0,''%!0'',''%\'',%!2);');>
+");
+
+// Remove empty fields and lines:
+IfStr("%$('bib_emptyFields');","remove","=",!`>
+   LetRegNum(2,0);>
+   Loop(!">
+      SetOK(1);>
+      FindInString('%!0','<@{ }+$Alpha$@{ }=@{ }@{>}@{ }{{\{@{| }\}}|{""@{| }""}|{| }}@{,}@{ }>',1,2,1011,%!2-2);>
+      IfOK(!'>
+         ReplaceInString(''%!0'','''',%!1,%!2,1,0);>
+         LetRegNum(2,''%!2-(%!2-%!1)'');',>
+        'Stop;'>
+      );>
+   ");>
+`);
+IfStr("%$('bib_emptyLines');","remove","=",!`>
+   LetRegNum(2,2);>
+   Loop(!">
+      SetOK(1);>
+      FindInString('%!0','<@{ }>',1,2,1011,%!2-2);>
+      IfOK(!'ReplaceInString(''%!0'','''',%!1,%!2,1,0);',>
+        'Stop;'>
+      );>
+   ");>
+`);
+Assign("BM_entry","%!0");
+
+// Replace parentheses with braces
+LetReg(0,"%$('BM_entry');");
+ExtractByIndex(2,"%!0",0,0);
+IfStr("%!2","(","=",!"//)<>
+   ReplaceInString('%!0','{',0,0,0,0);>
+   GetLength(2,'%!0');>
+   ReplaceInString('%!0','}',%!2-1,%!2-1,0,0);");
+
+// Align the key
+SetOK(1);
+FindInString("%!0","{\{|(}@^{,|~=},",1,2,1);
+IfOK(!`>
+   ExtractByIndex(5,"%!0",%!1,%!2);>
+   Loop(!">
+      SetOK(1);>
+      FindInString('%!5','+{ |>}',3,4,1);>
+      IfOK(!'ReplaceInString(''%!5'','''',%!3,%!4,0,5);','Stop;');>
+   ");>
+   ReplaceInString("%!0","%!5",%!1,%!2,0,0);>
+`);
+Loop(!`>
+  ExtractByIndex(2,"%!0",0,1);>
+  IfStr("%!2","{ ","=",!">
+    ReplaceInString('%!0','{',0,1,0,0);",>
+   "Stop;");`>
+);
+IfStr("%$('bib_alignKey');","no","=","",!">
+   GetLength(2,'%$(|BM_type|);');>
+   LetRegNum(2,'%$(|bib_alignValue|);+(%$(|bib_alignKey|);-%!2+1)');>
+   IfNum(%!2,0,'>',!'Repeat(%!2,!''LetReg(0,| %!0|);'');');">
+);
+Assign("BM_entry","%!0");
+
+// If the key is still empty, suggest one:
+ExtractByIndex(1,"%$('BM_entry');",1,1);
+SetOK(1);>
+FindInString("%!1","$[#13]$|$[#10]$||,",2,3,0001,0);
+IfOK(>
+ !"IfStr('%$(|bib_keyAlways|);','never','<>',!'>
+     Assign(''bibAutoKey'',''bibCleanEntry'');>
+     Exe(''%b\Macros\LaTeX\bibMacros\Auto Key.edt'');');",>
+ !"IfStr('%$(|bib_keyAlways|);','yes','=','>
+     Assign(''bibAutoKey'',''bibCleanEntry'');>
+     Exe(''%b\Macros\LaTeX\bibMacros\Auto Key.edt'');'>
+   );>
+");
+
+// The fields
+Assign("BM_aName","");
+Repeat("%$('bib_alignName');",>
+  !"Assign('BM_aName',' %$(|BM_aName|);');");
+Assign("BM_aValue","");
+IfNum("%$('bib_alignValue');+(%$('bib_alignContValue');)",0,">",>
+  !"Repeat('%$(|bib_alignValue|);+(%$(|bib_alignContValue|);)',>
+      !'Assign(''BM_aValue'','' %$(|BM_aValue|);'');'>
+    );">
+);
+LetRegNum(2,0);
+Loop(!`>
+   SetOK(1);>
+   // this will have to be redone some time:
+//   FindInString("%$('BM_entry');","<@{ }\(0+^{ |=}\)@{ }=@{ }{\(3""\)\(1@{>|\\""|^""}\)\(4""\)@{,}>}|{\(3\{\)\(1@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}@{+{ |>}#+{ |>}+{^{ |>}}#+{ |>}\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}\)\(4\}\)@{,}>}|{\(3\)\(1*\)\(4\)@{,}>}",1,2,1011,%!2+1);>
+// Correction by V.Kozyakin to avoid formatting "=" in annote etc.
+   FindInString("%$('BM_entry');","<@{ }\(0+{[A-z0-9]}\)@{ }=@{ }{\(3""\)\(1@{>|\\""|^""}\)\(4""\)@{,}>}|{\(3\{\)\(1@{>|{\{@{>|{\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}@{+{ |>}#+{ |>}+{^{ |>}}#+{ |>}\{@{>|{\{@{>|{\{@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}|^{\}}}\}}\)\(4\}\)@{,}>}|{\(3\)\(1*\)\(4\)@{,}>}",1,2,1011,%!2+1);>
+   IfOK(!">
+      ExtractByIndex(9,'%$(|BM_entry|);',%!1,%!2-2);>
+      GetTag(1,3);>
+      // Braces or quotes?
+      SetOK(1);>
+      FindInString('%!9','{\{|""}\1',3,4,11);>
+      IfOK(!'>
+         LetReg(0,''\3\1\4'');>
+         IfStr(''%$(|bib_fieldDelim|);'',''braces'',''='',>
+            !''LetReg(0,|\{\1\}|);'');>
+         IfStr(''%$(|bib_fieldDelim|);'',''quotes'',''='',>
+            !''LetReg(0,|""\1""|);'');>
+         IfStr(''%$(|bib_numericFieldDelim|);'',''remove'',''='',>
+            !''ExtractByIndex(8,|%!9|,%!3+1,%!4);>
+               FindInString(|%!8|,|?+{^$Numeric$}|,3,4,11);>
+               IfNum(%!3,%!4,|>|,!|LetReg(0,||\1||);|);'');',>
+       !'LetReg(0,''\1'');>
+         IfStr(''%$(|bib_numericFieldDelim|);'',''add'',''='',>
+            !''SetOK(1);>
+               FindInString(|%!9|,|@{ }=@{ }+^$Numeric$@{,}|,3,4,11);>
+               IfNum(%!3,%!4,|>|,!|>
+                  IfStr(||%$(*bib_fieldDelim*);||,||quotes||,||=||,>
+                    !||LetReg(0,*""\1""*);||,>
+                    !||LetReg(0,*\{\1\}*);||>
+                  );|>
+               );''>
+         );'>
+      );>
+      // Insert leading spaces:
+      LetReg(8,'');>
+      SetOK(1);>
+      FindInString('%!9','<@{ }\0@{ }=',3,4,0001,0);>
+      IfOK(!'>
+         IfStr(''%$(|bib_alignEqual|);'',''name'',''='',!''>
+            ReplaceInString(|%!9|,|<%$(*BM_aName*);\%$(*bib_fieldCase*);0 =|,%!3,%!4,1,9);>
+          '',!''>
+            ReplaceInString(|%!9|,|<%$(*BM_aName*);\%$(*bib_fieldCase*);0|,%!3,%!4,1,9);''>
+         );'>
+      );>
+      // Insert spaces after the field name:
+      LetReg(8,'');>
+      FindInString('%!9','\0',3,4,1);>
+      IfOK('LetRegNum(5,%!4-%!3+2);','LetRegNum(5,1000);');>
+      IfNum('%$(|bib_alignValue|);-%$(|bib_alignName|);-%!5-1',0,'<',>
+         'LetReg(8,''Error'');',>
+        !'Repeat(''%$(|bib_alignValue|);-%$(|bib_alignName|);-%!5-1'',!''LetReg(8,| %!8|);'');>
+          IfStr(''%$(|bib_alignEqual|);'',''name'',''='',!''>
+             ReplaceInString(|%!9|,|%!8%!0|,%!4+3,|%!2+%$(*bib_alignName*);+%$(*bib_alignValue*);|,1,9);'',!''>
+             ReplaceInString(|%!9|,|%!8= %!0|,%!4+1,|%!2+%$(*bib_alignName*);+%$(*bib_alignValue*);|,1,9);''>
+          );'>
+      );>
+      IfStr('%$(|bib_wrap|);','no','=',>
+        !'// insert spaces before continued field values: <>
+          LetRegNum(4,0);>
+          Loop(!''>
+             SetOK(1);>
+             FindInString(|%!9|,|><@{ }~ |,3,4,1001,%!4);>
+             IfNum(%!4,%!3,|>|,!|>
+                ReplaceInString(||%!9||,||><%$(*BM_aValue*);||,%!3,%!4,1,9);|,>
+               |Stop;|>
+             );''>
+          );',>
+        !'// wrap lines: <>
+          // suggested by Juan Fiol <fiolj@umr.edu>
+          SetOK(1);>
+          FindInString(''%!9'',''=@{ }'',4,3,1);>
+          Loop(!''SetOK(1);>
+//             FindInString(|%!9|,|{ +{ }}||{>^{<>}}|,3,4,1001,%!3);>
+             FindInString(|%!9|,|>||{ +{ }}|,3,4,1001,%!3);>
+             IfOK(!|ReplaceInString(||%!9||,|| ||,%!3,%!4,0,9);|,|Stop;|);''>
+          );>
+          // TODO: don't remove empty lines inside fields (thanks to Dominik Wujastyk <d.wujastyk@ucl.ac.uk>)
+//          IfStr(''%$(|bib_emptyLines|);'',''remove'',''<>'',!''>
+//            GetLength(3,|%!9|);>
+//            Loop(!|SetOK(1);>
+//               FindInString(||%!9||,||>||,3,4,1101,%!3-1);>
+//               IfOK(!||ReplaceInString(*%!9*,*>><%$(:BM_aValue:);*,%!3,%!4,1,9);||,||Stop;||);|);>
+//          '');>
+// The next lines are written by V. Kozyakin
+            LetRegNum(7,''0'');>
+            LetRegNum(3,''%$(*bib_alignValue*);+%$(*bib_alignContValue*);+2'');>
+            Loop(!''>
+              FindInString(""%!9;"","" +^{ }"",3,5,1011,%!3+1);>
+              IfOK(!"">
+                IfNum(``%!5-%!7``,``%$(*bib_wrap*);``,``<``,``Relax``,>
+                  !``ReplaceInString(:%!9:,: >%$(*BM_aValue*);:,%!3,%!3,1,9);>
+                  LetRegNum(7,:%!3+2:);>
+                  LetRegNum(3,:%!7+%$(*bib_alignValue*);+%$(*bib_alignContValue*);:);>
+                  ``);>
+                "",""Stop;"");>
+            '');'>
+// instead of the following ones
+// which cause breakage of formatting on long lines and occurrence of "=":
+//          Loop(!''>
+//             GetLength(3,|%!9|);>
+//             IfNum(%!3,%!4,|>|,!|>
+//                SetOK(1);>
+//                FindInString(""%!9"",""\#^{\0|| ||=} +^{\0|| ||=}"",3,5,1111,%!4);>
+//                IfOK(>
+//                 !""ReplaceInString(||%!9||,||><%$(*BM_aValue*);||,%!3,%!3,1,9);"",>
+//                 !""SetOK(1);>
+//                    FindInString(*%!9*,*\#^{\0|| ||=} +^{\0|| ||=}*,3,5,1011,%!4);>
+//                    IfOK(!*ReplaceInString(||%!9||,||><%$(:BM_aValue:);||,%!3,%!3,1,9);*,*Stop;*);"">
+//                );>
+//                LetRegNum(4,""%!4+%$(*bib_wrap*);-(%!4-%!3)-1"");|,>
+//               |Stop;|>
+//             );''>
+//          );'>
+      );>
+      // Insert the nicely formatted field:
+      IfStr('%!8','Error','=','',>
+         !'ReplaceInString(''%$(|BM_entry|);'',''%!9,%\'',%!1,%!2,0,0);>
+           Assign(''BM_entry'',''%!0'');');>
+      LetRegNum(3,%!2-%!1);>
+      GetLength(1,'%!9');>
+      LetRegNum(2,'%!2+%!1-%!3');>
+     ",>
+    !"// Finally: The closing bracket of the entry: <>
+      IfStr('%$(|bib_beginLine|);','<','=',!'>
+         GetLength(2,''%$(|BM_entry|);'');>
+         SetOK(1);>
+         FindInString(''%$(|BM_entry|);'',''<@{ }\}'',1,2,1111,%!2);>
+         IfOK(!''>
+            ReplaceInString(|%$(*BM_entry*);|,|}|,%!1,%!2,0,0);>
+            Assign(|BM_entry|,|%!0|);''>
+         );'>
+      );>
+      // and the last comma:
+      IfStr('%$(|bib_lastComma|);','no','=',!'>
+         GetLength(2,''%$(|BM_entry|);'');>
+         SetOK(1);>
+         FindInString(''%$(|BM_entry|);'','','',1,2,1110,%!2);>
+         IfOK(!''>
+            ReplaceInString(|%$(*BM_entry*);|,||,%!1,%!2,0,0);>
+            Assign(|BM_entry|,|%!0|);''>
+         );'>
+      );>
+      Stop;">
+   );>
+`);
+
+// Insert and end
+Ins("%$('BM_entry');");
+//IfStr("%$('bib_keyPrompt');","no","=",!`>
+//   IfStr("%$('BM_thekey');","","=","",!">
+//      SetFindStr('%$(|BM_thekey|);');>
+//      SetRegEx(0);>
+//      SetSearchForward(0);>
+//      Find;>
+//      CMD('Caret <-> Select');>
+//      Release('BM_thekey');>
+//   ");>
+//`);
+Return;
+// END of :clean_entry:
+:clean_entry_done::
+
+// Clean the whole bibliography?
+IfStr("%$('BMCleanEntry');","bibCleanBibliography","=",!`>
+   SetOK(1);>
+   IfSel(0,">",!">
+      Mark(0);>
+      LetRegNum(0,%l);>
+      CMD('Caret <-> Select');>
+      IfNum(%l,%!0,'<',>
+         'Assign(''BM_lastLine'',''%!0'');',>
+         'Assign(''BM_lastLine'',''%l'');>
+          Goto(0);'>
+      );",>
+     "CMD('Go To Beginning Of File');>
+      Assign('BM_lastLine','999999999');">
+   );>
+   Release("BMCleanEntry");>
+   SaveFind;>
+   SetFindCenterLine(0);>
+   SetFindTextSelect(0);>
+   SetSearchCurrentDoc;>
+// Next line added by V.Kozyakin
+   SetSearchCaseSensitive(0);>
+   SetSearchCyclic(0);>
+   SetSearchEntire(0);>
+   SetSearchForward(1);>
+   SetRegEx(1);>
+   SetReplaceRespectCaps(0);>
+   SetNotFoundNotify(0);>
+   SetFindStr("%$('bib_beginLine');\@{~{STRING|PREAMBLE|COMMENT}");>
+   SearchReset;>
+   BeginGroup;>
+   Loop(!">
+      IfFound(!'>
+         IfNum(%l,''%$(|BM_lastLine|);'',''>='',>
+            ''Stop;'',>
+           !''SaveFind;Call(|clean_entry|);RestoreFind;''>
+         );',>
+        'Stop;'>
+      );">
+   );>
+   Release("BM_conf");>
+   JMP("exit");>
+  `,`>
+   Release("BM_conf");`>
+);
+
+SaveFind;
+BeginGroup;
+SetTracking(0);
+
+Call("clean_entry");
+
+:exit::
+RestoreFind;
+SetTracking(1);
+EndGroup;
+Refresh;
+PopTagsandRegisters;
+
+End;
+$Id: bibCleanEntry.edt,v 1.10 2007-05-08 22:17:57+02 schlicht Exp schlicht $
