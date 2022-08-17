@@ -37,7 +37,7 @@
 
 `\usepackage[vvarbb]{newtxmath}`
 
-Может использоваться команда
+может использоваться команда
 
 `\usepackage[vvarbb,slantedGreek]{newtxmath}`
 
