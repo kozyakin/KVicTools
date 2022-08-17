@@ -1,8 +1,0 @@
-// -*- ASCII:EDT -*-
-
-BeginGroup;
-IfSel(|0|,|=|,>
-    |Ins('{\tiny }');CharLeft|,>
-    |InsLabel('','{\tiny ','}')|);
-EndGroup;
-End;
