@@ -30,7 +30,7 @@
 
 ее следует заменить строками
 
-`\usepackage[proportional,space]{erewhon}`
+`\usepackage[proportional,space]{erewhon}`<br>
 `\usepackage[erewhon,vvarbb]{newtxmath}`
 
 При этом вместо
@@ -45,7 +45,7 @@
 
 В слайдах при использовании пакета beamer рекомендуется применять шрифт `noto` оптимизированный для web-презентаций
 
-`\usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font`
+`\usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font`<br>
 `\usepackage[vvarbb,upint]{notomath}`
 
 Пакеты `pxcyr` и `txcyr` можно заменить также пакетами `temporа`, `paratype` и другими.
