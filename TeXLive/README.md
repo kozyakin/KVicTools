@@ -37,7 +37,7 @@
 \usepackage[vvarbb]{newtxmath}
 ```
 
-Может использоваться команда
+может использоваться команда
 
 ```latex
 \usepackage[vvarbb,slantedGreek]{newtxmath}
@@ -52,7 +52,7 @@
 \usepackage[vvarbb,upint]{notomath}
 ```
 
-Пакеты *pxcyr* и *txcyr* можно заменить также пакетами temporа, paratype и другими.
+Пакеты *pxcyr* и *txcyr* можно заменить также пакетами *temporа*, *paratype* и другими.
 
 На вопросы, касающиеся **TeX Live KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:kozyakin@iitp.ru)
 
@@ -110,6 +110,6 @@ It is recommended to use *noto*  font optimized for web presentations in slides 
 \usepackage[vvarbb,upint]{notomath}
 ```
 
-The *pxcyr* and *txcyr* packages can also be replaced with the tempora, paratype, and others.
+The *pxcyr* and *txcyr* packages can also be replaced with the *tempora*, *paratype*, and others.
 
 Questions regarding **TeX Live KVicTools** will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru)

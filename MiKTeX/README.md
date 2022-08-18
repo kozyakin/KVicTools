@@ -49,7 +49,7 @@
 \usepackage[vvarbb]{newtxmath}
 ```
 
-Может использоваться команда
+может использоваться команда
 
 ```latex
 \usepackage[vvarbb,slantedGreek]{newtxmath}
@@ -57,14 +57,14 @@
 
 определяющая отрисовку по умолчанию греческих символов в режиме «италик».
 
-В слайдах при использовании пакета beamer рекомендуется применять шрифт noto оптимизированный для web-презентаций
+В слайдах при использовании пакета beamer рекомендуется применять шрифт *noto* оптимизированный для web-презентаций
 
 ```latex
 \usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font
 \usepackage[vvarbb,upint]{notomath}
 ```
 
-Пакеты *pxcyr* и *txcyr* можно заменить также пакетами temporа, paratype и другими.
+Пакеты *pxcyr* и *txcyr* можно заменить также пакетами *temporа*, *paratype* и другими.
 
 На вопросы, касающиеся **MiKTeX KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:kozyakin@iitp.ru)
 
@@ -134,6 +134,6 @@ It is recommended to use noto font optimized for web presentations in slides whe
 \usepackage[vvarbb,upint]{notomath}
 ```
 
-The *pxcyr* and *txcyr* packages can also be replaced with the tempora, paratype, and others.
+The *pxcyr* and *txcyr* packages can also be replaced with the *tempora*, *paratype*, and others.
 
 Questions regarding **MiKTeX KVicTools**, if possible, will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru)
