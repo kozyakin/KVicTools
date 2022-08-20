@@ -2964,7 +2964,7 @@ Invert
 
 0
 1
-"%!m=TeX;BibTeX"
+"%!m=TeX;BibTeX;BST"
 
 Exe('%b\Macros\Custom\TransCyrToCodes.edt');
 0
@@ -2976,7 +2976,7 @@ Invert
 
 0
 1
-"%!m=TeX;BibTeX"
+"%!m=TeX;BibTeX;BST"
 
 Exe('%b\Macros\Custom\TransCodesToCyr.edt');
 0
@@ -2988,7 +2988,7 @@ Invert
 
 0
 1
-"%!m=TeX;BibTeX"
+"%!m=TeX;BibTeX;BST"
 
 Exe('%b\Macros\Custom\TransTexUnicode.edt');
 0
@@ -3000,7 +3000,7 @@ Invert
 
 0
 1
-"%!m=TeX;BibTeX"
+"%!m=TeX;BibTeX;BST"
 
 Exe('%b\Macros\Custom\TransUnicodeTex.edt');
 0
@@ -45888,8 +45888,38 @@ From_cyr-codes
 0
 TeX
   "\ " -> " "
+  "\CYRISHRT" -> "Й"
+  "\cyrishrt" -> "й"
+  "\CYRHRDSN" -> "Ъ"
+  "\cyrhrdsn" -> "ъ"
+  "\CYRSFTSN" -> "Ь"
+  "\cyrsftsn" -> "ь"
+  "\CYRSHCH" -> "Щ"
+  "\cyrshch" -> "щ"
+  "\CYREREV" -> "Э"
+  "\cyrerev" -> "э"
+  "\CYRERY" -> "Ы"
+  "\cyrery" -> "ы"
+  "\CYRGUP" -> "Ґ"
+  "\cyrgup" -> "ґ"
   "\CYRII" -> "I"
   "\cyrii" -> "i"
+  "\CYRZH" -> "Ж"
+  "\cyrzh" -> "ж"
+  "\CYRCH" -> "Ч"
+  "\cyrch" -> "ч"
+  "\CYRSH" -> "Ш"
+  "\cyrsh" -> "ш"
+  "\CYRYU" -> "Ю"
+  "\cyryu" -> "ю"
+  "\CYRYA" -> "Я"
+  "\cyrya" -> "я"
+  "\CYRIO" -> "Ё"
+  "\cyrio" -> "ё"
+  "\CYRIE" -> "Є"
+  "\cyrie" -> "є"
+  "\CYRYI" -> "Ї"
+  "\cyryi" -> "ї"
   "\CYRA" -> "А"
   "\cyra" -> "а"
   "\CYRB" -> "Б"
@@ -45902,14 +45932,10 @@ TeX
   "\cyrd" -> "д"
   "\CYRE" -> "Е"
   "\cyre" -> "е"
-  "\CYRZH" -> "Ж"
-  "\cyrzh" -> "ж"
   "\CYRZ" -> "З"
   "\cyrz" -> "з"
   "\CYRI" -> "И"
   "\cyri" -> "и"
-  "\CYRISHRT" -> "Й"
-  "\cyrishrt" -> "й"
   "\CYRK" -> "К"
   "\cyrk" -> "к"
   "\CYRL" -> "Л"
@@ -45936,32 +45962,6 @@ TeX
   "\cyrh" -> "х"
   "\CYRC" -> "Ц"
   "\cyrc" -> "ц"
-  "\CYRCH" -> "Ч"
-  "\cyrch" -> "ч"
-  "\CYRSH" -> "Ш"
-  "\cyrsh" -> "ш"
-  "\CYRSHCH" -> "Щ"
-  "\cyrshch" -> "щ"
-  "\CYRHRDSN" -> "Ъ"
-  "\cyrhrdsn" -> "ъ"
-  "\CYRERY" -> "Ы"
-  "\cyrery" -> "ы"
-  "\CYRSFTSN" -> "Ь"
-  "\cyrsftsn" -> "ь"
-  "\CYREREV" -> "Э"
-  "\cyrerev" -> "э"
-  "\CYRYU" -> "Ю"
-  "\cyryu" -> "ю"
-  "\CYRYA" -> "Я"
-  "\cyrya" -> "я"
-  "\CYRIO" -> "Ё"
-  "\cyrio" -> "ё"
-  "\CYRIE" -> "Є"
-  "\cyrie" -> "є"
-  "\CYRYI" -> "Ї"
-  "\cyryi" -> "ї"
-  "\CYRGUP" -> "Ґ"
-  "\cyrgup" -> "ґ"
 
 To_cyr-codes
 0
