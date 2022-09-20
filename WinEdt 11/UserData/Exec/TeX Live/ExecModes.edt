@@ -322,6 +322,16 @@
                  $$0001011000111,// Enable Flags (13)<>
                  $$1111);        // Enable Pause..WinEdt Console Flags (4)
 
+  AddApplication(!'latexindent', // Name<>
+                 !'latexindent.exe',// Executable<>
+                 !'',            // Switches<>
+                 !'"%n%t"',      // Parameters<>
+                 !'',            // Environmental Variable <-- Executable<>
+                 0,              // Paper Size Switch Enabled<>
+                 0,              // Landscape Switch Enabled<>
+                 $$0001001000111,// Enable Flags (13)<>
+                 $$1111);        // Enable Pause..WinEdt Console Flags (4)
+
   ShowExecutionModes('Execution Modes - TeX Live',>
     '%b\Exec\TeX Live\ExeMode.edt',>
     '%b\Exec\TeX Live\ExeMode_Backup.edt',>

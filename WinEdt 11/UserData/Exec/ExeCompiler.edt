@@ -38,7 +38,7 @@
 //
 // ==================================================================
 
-  Requires(20180507); // Requires this build of WinEdt to work properly
+  Requires(20211103); // Requires this build of WinEdt to work properly
 
 // Kill any application that is already running in WinEdt's console?
 
@@ -61,22 +61,11 @@ IfStr("%$(!'KillConsoleApp');",!"1",!"<>",!"JMP(!'no_Kill');");
 
   PushTagsandRegisters;
   SetExitHandler('Exit_Handler');
-
-//  LockEnvVar(!'TEXINPUTS');
-  GetEnvVar(0,!'TEXINPUTS');
-  Assign('TMPTEXINPUTS','%!0');
-//  LockEnvVar(!'BIBINPUTS');
-  GetEnvVar(0,!'BIBINPUTS');
-  Assign('TMPBIBINPUTS','%!0');
-//  LockEnvVar(!'BSTINPUTS');
-  GetEnvVar(0,!'BSTINPUTS');
-  Assign('TMPBSTINPUTS','%!0');
-//  LockEnvVar(!'MPINPUTS');
-  GetEnvVar(0,!'MPINPUTS');
-  Assign('TMPMPINPUTS','%!0');
-//  LockEnvVar(!'MFINPUTS');
-  GetEnvVar(0,!'MFINPUTS');
-  Assign('TMPMFINPUTS','%!0');
+  LockEnvVar(!'TEXINPUTS');
+  LockEnvVar(!'BIBINPUTS');
+  LockEnvVar(!'BSTINPUTS');
+  LockEnvVar(!'MPINPUTS');
+  LockEnvVar(!'MFINPUTS');
 
   SetErrorFlag(0);
   SetOK(1);  // Just in case ...
@@ -88,18 +77,6 @@ IfStr("%$(!'KillConsoleApp');",!"1",!"<>",!"JMP(!'no_Kill');");
   PopTagsandRegisters(0,0001111111);
   StopWorking;
   UpdateStatus;
-//
-  SetEnvVar(!'TEXINPUTS','%$(!|TMPTEXINPUTS|);')
-  Release('TMPTEXINPUTS');
-  SetEnvVar(!'BIBINPUTS','%$(!|TMPBIBINPUTS|);')
-  Release('TMPBIBINPUTS');
-  SetEnvVar(!'BSTINPUTS','%$(!|TMPBSTINPUTS|);')
-  Release('TMPBSTINPUTS');
-  SetEnvVar(!'MPINPUTS','%$(!|TMPMPINPUTS|);')
-  Release('TMPMPINPUTS');
-  SetEnvVar(!'MFINPUTS','%$(!|TMPMFINPUTS|);')
-  Release('TMPMFINPUTS');
-
 Return;
 
 :Start:: ============================================================

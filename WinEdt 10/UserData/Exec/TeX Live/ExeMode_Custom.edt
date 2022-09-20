@@ -725,4 +725,30 @@
     Release(!"NSIS-Background_Window");
     Assign(!"NSIS-Pause", !|1|);
 
+// latexindent
+    Assign(!"latexindent-Executable", !|latexindent.exe|);
+    Assign(!"latexindent-Switches", !|-w -l|);
+    Assign(!"latexindent-Parameters", !|"%n%t"|);
+    Release(!"latexindent-Paper_Size");
+    Release(!"latexindent-Paper_Custom_Size");
+    Release(!"latexindent-Landscape");
+    Release(!"latexindent-GUI");
+    Release(!"latexindent-High_Priority");
+    Assign(!"latexindent-Wait", !|1|);
+    Release(!"latexindent-Report");
+    Release(!"latexindent-Errors");
+    Release(!"latexindent-Warnings");
+    Assign(!"latexindent-ExitCode", !|1|);
+    Release(!"latexindent-Viewer");
+    Release(!"latexindent-View_Search");
+    Release(!"latexindent-STD_IO");
+    Release(!"latexindent-No_Interaction");
+    Release(!"latexindent-C-style-errors");
+    Release(!"latexindent-Clean_Build");
+    Assign(!"latexindent-WinEdt_Console", !|1|);
+    Release(!"latexindent-Hidden_Window");
+    Release(!"latexindent-Background_Window");
+    Assign(!"latexindent-Pause", !|1|);
+
 End;
+
