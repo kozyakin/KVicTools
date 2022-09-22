@@ -39166,7 +39166,7 @@ et cetera
 
 *
 23
-132
+131
 $$>
 
 0
@@ -39402,19 +39402,6 @@ TeX|AUX
 TeX|AUX
 Exe('%b\Macros\Doc\LaTeXDocEx.edt');]
 \usepackage
-
-0
-0
-
-0
-
-0
-
-
-1
-TeX|AUX
-Exe('%b\Macros\Doc\LaTeXDocEx.edt');]
-\bibliographystyle
 
 0
 0

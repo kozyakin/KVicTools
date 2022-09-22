@@ -38039,7 +38039,7 @@ Afrikaans
 %b\Dict\Languages\Afrikaans\za.dic
 http://www.winedt.org/dict/Afrikaans.zip
 0
-ZA
+*;ZA
 0
 1
 0
@@ -38051,7 +38051,7 @@ Belarusian
 %b\Dict\Languages\Belarusian\by.dic
 http://www.winedt.org/dict/Belarusian.zip
 0
-BY
+*;BY
 0
 1
 0
@@ -38063,7 +38063,7 @@ Bulgarian
 %b\Dict\Languages\Bulgarian\bg.dic
 http://www.winedt.org/dict/Bulgarian.zip
 0
-BG
+*;BG
 0
 1
 0
@@ -38075,7 +38075,7 @@ Catalan
 %b\Dict\Languages\Catalan\ca.dic
 http://www.winedt.org/dict/Catalan.zip
 0
-CA
+*;CA
 0
 1
 0
@@ -38087,7 +38087,7 @@ Croatian
 %b\Dict\Languages\Croatian\hr.dic
 http://www.winedt.org/dict/Croatian.zip
 0
-HR
+*;HR
 0
 1
 0
@@ -38099,7 +38099,7 @@ Czech
 %b\Dict\Languages\Czech\cz.dic
 http://www.winedt.org/dict/Czech.zip
 0
-CZ
+*;CZ
 0
 1
 0
@@ -38111,7 +38111,7 @@ Danish
 %b\Dict\Languages\Danish\dk.dic
 http://www.winedt.org/dict/Danish.zip
 0
-DK
+*;DK
 0
 1
 0
@@ -38123,7 +38123,7 @@ Dutch
 %b\Dict\Languages\Dutch\nl.dic
 http://www.winedt.org/dict/Dutch.zip
 0
-NL
+*;NL
 0
 1
 0
@@ -38135,7 +38135,7 @@ French
 %b\Dict\Languages\French\fr.dic
 http://www.winedt.org/dict/French.zip
 0
-FR
+*;FR
 0
 1
 0
@@ -38147,7 +38147,7 @@ German
 %b\Dict\Languages\German\de.dic
 http://www.winedt.org/dict/German.zip
 0
-DE
+*;DE
 0
 1
 0
@@ -38159,7 +38159,7 @@ Greek
 %b\Dict\Languages\Greek\gr.dic
 http://www.winedt.org/dict/Greek.zip
 0
-GR
+*;GR
 0
 1
 0
@@ -38171,7 +38171,7 @@ Hungarian
 %b\Dict\Languages\Hungarian\hu.dic
 http://www.winedt.org/dict/Hungarian.zip
 0
-HU
+*;HU
 0
 1
 0
@@ -38183,7 +38183,7 @@ Italian
 %b\Dict\Languages\Italian\it.dic
 http://www.winedt.org/dict/Italian.zip
 0
-IT
+*;IT
 0
 1
 0
@@ -38195,7 +38195,7 @@ Latin
 %b\Dict\Languages\Latin\latin.dic
 http://www.winedt.org/dict/Latin.zip
 0
-LATIN
+*;LATIN
 0
 1
 0
@@ -38207,7 +38207,7 @@ Mongolian
 %b\Dict\Languages\Mongolian\mn.dic
 http://www.winedt.org/dict/Mongolian.zip
 0
-MN
+*;MN
 0
 1
 0
@@ -38219,7 +38219,7 @@ Polish
 %b\Dict\Languages\Polish\pl.dic
 http://www.winedt.org/dict/Polish.zip
 0
-PL
+*;PL
 0
 1
 0
@@ -38231,7 +38231,7 @@ Portuguese
 %b\Dict\Languages\Portuguese\pt.dic
 http://www.winedt.org/dict/Portuguese.zip
 0
-PT
+*;PT
 0
 1
 0
@@ -38243,7 +38243,7 @@ Romanian
 %b\Dict\Languages\Romanian\ro.dic
 http://www.winedt.org/dict/Romanian.zip
 0
-RO
+*;RO
 0
 1
 0
@@ -38267,7 +38267,7 @@ Serbian (Cyrillic)
 %b\Dict\Languages\Serbian\sr_cyr.dic
 http://www.winedt.org/dict/Serbian.zip
 0
-SR
+*;SR
 0
 1
 0
@@ -38279,7 +38279,7 @@ Serbian (Latin)
 %b\Dict\Languages\Serbian\sr_lat.dic
 http://www.winedt.org/dict/Serbian.zip
 0
-SR
+*;SR
 0
 1
 0
@@ -38291,7 +38291,7 @@ Slovak
 %b\Dict\Languages\Slovak\sk.dic
 http://www.winedt.org/dict/Slovak.zip
 0
-SK
+*;SK
 0
 1
 0
@@ -38303,7 +38303,7 @@ Slovenian
 %b\Dict\Languages\Slovenian\si.dic
 http://www.winedt.org/dict/Slovenian.zip
 0
-SI
+*;SI
 0
 1
 0
@@ -38315,7 +38315,7 @@ Spanish
 %b\Dict\Languages\Spanish\es.dic
 http://www.winedt.org/dict/Spanish.zip
 0
-ES
+*;ES
 0
 1
 0
@@ -38327,7 +38327,7 @@ Swedish
 %b\Dict\Languages\Swedish\se.dic
 http://www.winedt.org/dict/Swedish.zip
 0
-SE
+*;SE
 0
 1
 0
@@ -38339,7 +38339,7 @@ Ukrainian
 %b\Dict\Languages\Ukrainian\ua.dic
 http://www.winedt.org/dict/Ukrainian.zip
 0
-UA
+*;UA
 0
 1
 0
@@ -39071,7 +39071,7 @@ et cetera
 *
 23
 0
-135
+134
 $$>
 
 0
@@ -39307,19 +39307,6 @@ TeX|AUX
 TeX|AUX
 Exe('%b\Macros\Doc\LaTeXDocEx.edt');]
 \usepackage
-
-0
-0
-
-0
-
-0
-
-
-1
-TeX|AUX
-Exe('%b\Macros\Doc\LaTeXDocEx.edt');]
-\bibliographystyle
 
 0
 0
