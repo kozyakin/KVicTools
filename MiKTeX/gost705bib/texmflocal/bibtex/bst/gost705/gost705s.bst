@@ -324,7 +324,7 @@ FUNCTION {bbl.edby} % { "\bbledby{}" }
         { curlanguage "russian" =
           { "{\cyr\CYRP\cyro\cyrd\ \cyrr\cyre\cyrd.\ }" }
           { "language is not defined: " language  "edited by" * *
-           warning$ "edited by" }
+            warning$ "edited by" }
       if$
       }
     if$
@@ -351,15 +351,15 @@ FUNCTION {bbl.cmplr}
 FUNCTION {bbl.edition} % { "\bbledition{}" }
 {
   curlanguage "english" =
-   { "edition" }
-   { curlanguage "german" =
-     { "Aufl." }
-       { curlanguage "russian" =
-         { "{\cyr\cyri\cyrz\cyrd.}" }
-         { "language is not defined: " language  "edition" * * warning$ "edition" }
-       if$
-      }
-    if$
+    { "edition" }
+    { curlanguage "german" =
+        { "Aufl." }
+        { curlanguage "russian" =
+            { "{\cyr\cyri\cyrz\cyrd.}" }
+            { "language is not defined: " language  "edition" * * warning$ "edition" }
+          if$
+        }
+      if$
     }
   if$
 }
@@ -641,14 +641,14 @@ FUNCTION {bbl.mthesis}
   curlanguage "english" =
     { "Master's thesis" }
     { curlanguage "german" =
-      { "Diss.~Mag." }
-      { curlanguage "russian" =
-        { "{\cyr\CYRM\cyra\cyrg\cyri\cyrs\cyrt\cyre\cyrr\cyrs\cyrk\cyra\cyrya\ "
-          "\cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyrya}" * }
-         { "language is not defined: " language * warning$ "Master thesis" }
+        { "Diss.~Mag." }
+        { curlanguage "russian" =
+            { "{\cyr\CYRM\cyra\cyrg\cyri\cyrs\cyrt\cyre\cyrr\cyrs\cyrk\cyra\cyrya\ "
+              "\cyrd\cyri\cyrs\cyrs\cyre\cyrr\cyrt\cyra\cyrc\cyri\cyrya}" * }
+            { "language is not defined: " language * warning$ "Master thesis" }
+          if$
+        }
       if$
-      }
-    if$
     }
   if$
 }
@@ -1299,48 +1299,48 @@ FUNCTION {format.eprint}
 { eprint empty$
     { "" }
     { archive empty$
-    { primaryClass empty$
-       { archivePrefix empty$
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-             "{" * eprint * "}" *
+        { primaryClass empty$
+            { archivePrefix empty$
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * eprint * "}" *
+                }
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * archivePrefix * ":" * eprint * "}" *
+                }
+              if$
             }
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-           "{" * archivePrefix * ":" * eprint * "}" *
+            { archivePrefix empty$
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * primaryClass * "/" * eprint * "}" *
+                }
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
+                }
+              if$
             }
           if$
         }
-        { archivePrefix empty$
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-             "{" * primaryClass * "/" * eprint * "}" *
+        { primaryClass empty$
+            { archivePrefix empty$
+                { " \href{" archive * eprint * "}" *
+                  "{" * eprint * "}" *
+                }
+                { " \href{" archive * eprint * "}" *
+                  "{" * archivePrefix * ":" * eprint * "}" *
+                }
+              if$
             }
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-           "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
+            { archivePrefix empty$
+                { " \href{" archive * eprint * "}" *
+                  "{" * primaryClass * "/" * eprint * "}" *
+                }
+                { " \href{" archive * eprint * "}" *
+                  "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
+                }
+              if$
             }
           if$
         }
-     if$
-    }
-      { primaryClass empty$
-         { archivePrefix empty$
-              { " \href{" archive * eprint * "}" *
-               "{" * eprint * "}" *
-              }
-              { " \href{" archive * eprint * "}" *
-             "{" * archivePrefix * ":" * eprint * "}" *
-              }
-            if$
-          }
-          { archivePrefix empty$
-              { " \href{" archive * eprint * "}" *
-               "{" * primaryClass * "/" * eprint * "}" *
-              }
-              { " \href{" archive * eprint * "}" *
-             "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
-              }
-            if$
-          }
-       if$
-      }
       if$
     }
   if$
