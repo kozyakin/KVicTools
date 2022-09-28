@@ -15,7 +15,7 @@
 
 ### Другое
 
-##### Файлы локализации MikTeX,TexLive, WinEdt 10.3, WinEdt 11.0:
+##### Файлы локализации MikTeX, TeXLive, WinEdt 10.3 и WinEdt 11.0:
 
 - setup-MiKTeX-KVicTools.exe
 - setup-TeXLive-KVicTools.exe
@@ -62,7 +62,7 @@ Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools
 
 ### Other
 
-##### MikTeX, TexLive, WinEdt 10.3, WinEdt 11.0 localization files:
+##### MikTeX, TeXLive, WinEdt 10.3 and WinEdt 11.0 localization files:
 
 - setup-MiKTeX-KVicTools.exe
 - setup-TeXLive-KVicTools.exe
