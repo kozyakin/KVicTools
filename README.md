@@ -13,9 +13,34 @@
 
 Исходные файлы для построения инсталляторов: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) и [WinEdt 11.0](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2011)
 
-### Другое
+### Содержимое
 
-Набор сервисных cmd-файлов для массовой перекодировки pdf-документов в eps, обновления менеджера пакетов *tlmgr* и др.
+Файлы локализации MikTeX,TexLive, WinEdt 10.3, WinEdt 11.0:
+
+- setup-MiKTeX-KVicTools.exe
+- setup-TeXLive-KVicTools.exe
+- setup-WinEdt-10.3-KVicTools.exe
+- setup-WinEdt-11.0-KVicTools.exe
+
+Набор сервисных cmd-файлов для массовой перекодировки pdf-документов в eps:
+
+- pdf\_page\_group\_removing.cmd
+- pdf\_page\_group\_removing\_single\_file.cmd
+- pdf\_to\_eps\_batch.cmd
+- pdf\_to\_eps\_single\_file.cmd
+- pdf\_to\_pdfa\_batch.cmd
+- pdf\_to\_pdfa\_single\_file.cmd
+- pdf\_to\_png\_batch.cmd
+- pdf\_to\_png\_single\_file.cmd
+
+Набор сервисных cmd-файлов для  обновления TeXLive, менеджера пакетов *tlmgr* и др.
+
+- tlmgr\_update\_list.cmd
+- tlmgr\_update\_self\_all.cmd
+- tlmgr\_update\_self\_only.cmd
+- tlmgr-restore\_path.cmd
+
+
 
 ---
 
@@ -35,6 +60,29 @@ The translation of all elements of the *WinEdt 10.3 and 11.0* interface into Rus
 
 Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) and [WinEdt 11.0](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2011)
 
-### Other
+### Contents
 
-A set of service cmd files for mass conversion of pdf documents to eps, updating the *tlmgr* package manager, etc.
+MikTeX, TexLive, WinEdt 10.3, WinEdt 11.0 localization files:
+
+- setup-MiKTeX-KVicTools.exe
+- setup-TeXLive-KVicTools.exe
+- setup-WinEdt-10.3-KVicTools.exe
+- setup-WinEdt-11.0-KVicTools.exe
+
+A set of service cmd files for mass conversion of pdf documents to eps:
+
+- pdf\_page\_group\_removing.cmd
+- pdf\_page\_group\_removing\_single\_file.cmd
+- pdf\_to\_eps\_batch.cmd
+- pdf\_to\_eps\_single\_file.cmd
+- pdf\_to\_pdfa\_batch.cmd
+- pdf\_to\_pdfa\_single\_file.cmd
+- pdf\_to\_png\_batch.cmd
+- pdf\_to\_png\_single\_file.cmd
+
+A set of service cmd files for updating TeXLive, *tlmgr* package manager, etc.
+
+- tlmgr\_update\_list.cmd
+- tlmgr\_update\_self\_all.cmd
+- tlmgr\_update\_self\_only.cmd
+- tlmgr-restore\_path.cmd
