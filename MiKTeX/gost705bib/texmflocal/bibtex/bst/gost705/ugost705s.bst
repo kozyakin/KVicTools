@@ -1,10 +1,10 @@
 %%
-%% This is file `gost705s.bst',
+%% This is file `ugost705s.bst' for utf8 encoded bibliography
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% gost705.dtx  (with options: `gost705us')
+%% gost705.dtx  (with options: `gost705s')
 %%
 %% Copyright (c) 2004-2014 Stanislav Kruchinin.
 %% All rights reserved.
@@ -322,9 +322,9 @@ FUNCTION {bbl.edby} % { "\bbledby{}" }
     { curlanguage "german" =
       { "ed. " }
         { curlanguage "russian" =
-          { "{Под\ ред.\ }" }
+          { "Под ред. " }
           { "language is not defined: " language  "edited by" * *
-           warning$ "edited by" }
+            warning$ "edited by" }
       if$
       }
     if$
@@ -339,7 +339,7 @@ FUNCTION {bbl.cmplr}
     { curlanguage "german" =
       { "Hrsg. " }
         { curlanguage "russian" =
-        { "{Сост.\ }" }
+        { "Сост. " }
         { "language is not defined: " language  "compiler" * * warning$ "compiler" }
       if$
       }
@@ -351,15 +351,15 @@ FUNCTION {bbl.cmplr}
 FUNCTION {bbl.edition} % { "\bbledition{}" }
 {
   curlanguage "english" =
-   { "edition" }
-   { curlanguage "german" =
-     { "Aufl." }
-       { curlanguage "russian" =
-         { "{изд.}" }
-         { "language is not defined: " language  "edition" * * warning$ "edition" }
-       if$
-      }
-    if$
+    { "edition" }
+    { curlanguage "german" =
+        { "Aufl." }
+        { curlanguage "russian" =
+            { "изд." }
+            { "language is not defined: " language  "edition" * * warning$ "edition" }
+          if$
+        }
+      if$
     }
   if$
 }
@@ -371,7 +371,7 @@ FUNCTION {bbl.vvolume} % { "\bblVolume{}" }
     { curlanguage "german" =
       { "Band" }
       { curlanguage "russian" =
-        { "{Том}" }
+        { "Том" }
         { "language is not defined: " language  "Volume" * * warning$ "Volume" }
       if$
       }
@@ -387,7 +387,7 @@ FUNCTION {bbl.vvol} % { "\bblVol{}" }
     { curlanguage "german" =
       { "Bd." }
       { curlanguage "russian" =
-        { "{Т.}" }
+        { "Т." }
         { "language is not defined: " language  "Vol." * * warning$ "Vol." }
         if$
       }
@@ -403,7 +403,7 @@ FUNCTION {bbl.iissue} % { "\bblIssue{}" }
     { curlanguage "german" =
       { "Heft" }
       { curlanguage "russian" =
-        { "{Выпуск}" }
+        { "Выпуск" }
         { "language is not defined: " language * warning$ "Issue" }
       if$
       }
@@ -419,7 +419,7 @@ FUNCTION {bbl.iiss} % { "\bblIss{}" }
     { curlanguage "german" =
       { "H." }
       { curlanguage "russian" =
-        { "{Вып.}" }
+        { "Вып." }
         { "language is not defined: " language * warning$ "Iss." }
       if$
       }
@@ -435,7 +435,7 @@ FUNCTION {bbl.of} % { "\bblof{}" }
     { curlanguage "german" =
       { "von" }
       { curlanguage "russian" =
-        { "{из}" }
+        { "из" }
         { "language is not defined: " language * warning$ "of" }
       if$
       }
@@ -451,7 +451,7 @@ FUNCTION {bbl.etal} % { "\bblof{}" }
     { curlanguage "german" =
       { "u.~a." }
       { curlanguage "russian" =
-        { "{и~др.}" }
+        { "и~др." }
         { "language is not defined: " language * warning$ "etal" }
       if$
       }
@@ -467,7 +467,7 @@ FUNCTION {bbl.nnumber} % { "\bblNumber{}" }
     { curlanguage "german" =
       { "Heft" }
       { curlanguage "russian" =
-        { "{Номер}" }
+        { "Номер" }
         { "language is not defined: " language * warning$ "Number" }
       if$
       }
@@ -483,7 +483,7 @@ FUNCTION {bbl.number} % { "\bblnumber{}" }
     { curlanguage "german" =
       { "Heft" }
       { curlanguage "russian" =
-        { "{номер}" }
+        { "номер" }
         { "language is not defined: " language * warning$ "number" }
       if$
       }
@@ -499,7 +499,7 @@ FUNCTION {bbl.nr} % { "\bblno{}" }
     { curlanguage "german" =
       { "H." }
       { curlanguage "russian" =
-        { "{\textnumero}" }
+        { "№" }
         { "language is not defined: " language * warning$ "no" }
       if$
       }
@@ -515,7 +515,7 @@ FUNCTION {bbl.nnr} % { "\bblno{}" }
     { curlanguage "german" =
       { "H." }
       { curlanguage "russian" =
-        { "{\textnumero}" }
+        { "№" }
         { "language is not defined: " language * warning$ "No" }
       if$
       }
@@ -531,7 +531,7 @@ FUNCTION {bbl.in} % { "\bblin{}" }
     { curlanguage "german" =
       { "in" }
     { curlanguage "russian" =
-      { "{в}" }
+      { "в" }
       { "language is not defined: " language * warning$ "in" }
       if$
       }
@@ -547,7 +547,7 @@ FUNCTION {bbl.iin} % { "\bblIn{}" }
     { curlanguage "german" =
       { "In" }
       { curlanguage "russian" =
-        { "{В}" }
+        { "В" }
         { "language is not defined: " language * warning$ "In" }
       if$
       }
@@ -563,7 +563,7 @@ FUNCTION {bbl.pages} % { "\bblpp." }
     { curlanguage "german" =
       { "S." }
       { curlanguage "russian" =
-        { "{с.}" }
+        { "с." }
         { "language is not defined: " language * warning$ "p." }
       if$
       }
@@ -579,7 +579,7 @@ FUNCTION {bbl.page} % { "\bblp." }
     { curlanguage "german" =
       { "S." }
       { curlanguage "russian" =
-        { "{с.}"}
+        { "с."}
         { "language is not defined: " language * warning$ "p." }
       if$
       }
@@ -595,7 +595,7 @@ FUNCTION {bbl.ppages} % { "\bblPp." }
     { curlanguage "german" =
       { "S." }
       { curlanguage "russian" =
-        { "{С.}" }
+        { "С." }
         { "language is not defined: " language * warning$ "P." }
       if$
       }
@@ -611,7 +611,7 @@ FUNCTION {bbl.ppage} % { "\bblP." }
     { curlanguage "german" =
       { "S." }
       { curlanguage "russian" =
-        { "{С.}" }
+        { "С." }
         { "language is not defined: " language * warning$ "P." }
       if$
       }
@@ -627,7 +627,7 @@ FUNCTION {bbl.techrep}
     { curlanguage "german" =
       { "Tech.~Bericht" }
       { curlanguage "russian" =
-        { "{Тех.\ доклад.}" }
+        { "Отчет" }
         { "language is not defined: " language * warning$ "Tech Rep" }
       if$
       }
@@ -641,14 +641,13 @@ FUNCTION {bbl.mthesis}
   curlanguage "english" =
     { "Master's thesis" }
     { curlanguage "german" =
-      { "Diss.~Mag." }
-      { curlanguage "russian" =
-        { "{Магистерская\ "
-          "диссертация}" * }
-         { "language is not defined: " language * warning$ "Master thesis" }
+        { "Diss.~Mag." }
+        { curlanguage "russian" =
+            { "Магистерская диссертация" }
+            { "language is not defined: " language * warning$ "Master thesis" }
+          if$
+        }
       if$
-      }
-    if$
     }
   if$
 }
@@ -660,8 +659,7 @@ FUNCTION {bbl.phdthesis}
     { curlanguage "german" =
       { "Diss.~Ph.\,D." }
       { curlanguage "russian" =
-        { "{Кандидатская\ "
-          "диссертация}" * }
+        { "Кандидатская диссертация" }
         { "language is not defined: " language * warning$ "PhD thesis" }
       if$
       }
@@ -677,8 +675,7 @@ FUNCTION {bbl.docdisser}
     { curlanguage "german" =
       { "Diss.~Dr." }
       { curlanguage "russian" =
-        { "{Докторская\ "
-          "диссертация}" * }
+        { "Докторская диссертация" }
         { "language is not defined: " language * warning$ "Dr. Sci. dissertation" }
       if$
       }
@@ -694,7 +691,7 @@ FUNCTION {bbl.req}
     { curlanguage "german" =
       { "ang." }
       { curlanguage "russian" =
-        { "{заявл.}" }
+        { "заявл." }
         { "language is not defined: " language * warning$ "req" }
       if$
       }
@@ -710,7 +707,7 @@ FUNCTION {bbl.publ}
     { curlanguage "german" =
       { "ausg." }
       { curlanguage "russian" =
-        { "{опубл.}" }
+        { "опубл." }
         { "language is not defined: " language * warning$ "In" }
       if$
       }
@@ -726,7 +723,7 @@ FUNCTION {bbl.prio}
     { curlanguage "german" =
       { "Prioritat" }
       { curlanguage "russian" =
-        { "{приоритет}" }
+        { "приоритет" }
         { "language is not defined: " language * warning$ "In" }
       if$
       }
@@ -1299,48 +1296,48 @@ FUNCTION {format.eprint}
 { eprint empty$
     { "" }
     { archive empty$
-      { primaryClass empty$
-         { archivePrefix empty$
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-               "{" * eprint * "}" *
-              }
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-             "{" * archivePrefix * ":" * eprint * "}" *
-              }
-            if$
-          }
-          { archivePrefix empty$
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-               "{" * primaryClass * "/" * eprint * "}" *
-              }
-              { " \href{https://arxiv.org/abs/" eprint * "}" *
-             "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
-              }
-            if$
-          }
-       if$
-      }
-      { primaryClass empty$
-         { archivePrefix empty$
-              { " \href{" archive * eprint * "}" *
-               "{" * eprint * "}" *
-              }
-              { " \href{" archive * eprint * "}" *
-             "{" * archivePrefix * ":" * eprint * "}" *
-              }
-            if$
-          }
-          { archivePrefix empty$
-              { " \href{" archive * eprint * "}" *
-               "{" * primaryClass * "/" * eprint * "}" *
-              }
-              { " \href{" archive * eprint * "}" *
-             "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
-              }
-            if$
-          }
-       if$
-      }
+        { primaryClass empty$
+            { archivePrefix empty$
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * eprint * "}" *
+                }
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * archivePrefix * ":" * eprint * "}" *
+                }
+              if$
+            }
+            { archivePrefix empty$
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * primaryClass * "/" * eprint * "}" *
+                }
+                { " \href{https://arxiv.org/abs/" eprint * "}" *
+                  "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
+                }
+              if$
+            }
+          if$
+        }
+        { primaryClass empty$
+            { archivePrefix empty$
+                { " \href{" archive * eprint * "}" *
+                  "{" * eprint * "}" *
+                }
+                { " \href{" archive * eprint * "}" *
+                  "{" * archivePrefix * ":" * eprint * "}" *
+                }
+              if$
+            }
+            { archivePrefix empty$
+                { " \href{" archive * eprint * "}" *
+                  "{" * primaryClass * "/" * eprint * "}" *
+                }
+                { " \href{" archive * eprint * "}" *
+                  "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
+                }
+              if$
+            }
+          if$
+        }
       if$
     }
   if$
@@ -2000,9 +1997,9 @@ FUNCTION {sort.format.title}
   't :=
   "A " #2
     "An " #3
-      "The " #4 t chop.word
-    chop.word
-  chop.word
+      "The " #4 t chop.word % Removes "The " if any
+    chop.word               % Removes "An " if any
+  chop.word                 % Removes "A " if any
   sortify
   #1 global.max$ substring$
 }
@@ -2084,32 +2081,25 @@ EXECUTE {initialize.longest.label}
 ITERATE {longest.label.pass}
 
 FUNCTION {begin.bib}
-{
-  "\providecommand{\BibEmph}[1]{#1}"
+{ preamble$ empty$
+    'skip$
+    { preamble$ write$ newline$ }
+  if$
+  "\ifx\undefined\BibEmph\def\BibEmph#1{#1}\else\fi"
   write$ newline$
-  "\providecommand{\href}[2]{#2}"
+  "\ifx\undefined\href\def\href#1#2{#2}\else\fi"
   write$ newline$
-  "\providecommand{\url}[1]{{\small\texttt{#1}}}"
+  "\ifx\undefined\url\def\url#1{\texttt{#1}}\else\fi"
   write$ newline$
-  "\providecommand{\urlprefix}{URL: }"
+  "\ifx\undefined\urlprefix\def\urlprefix{URL: }\else\fi"
   write$ newline$
-  "\providecommand{\BibUrl}[1]{\urlprefix\url{#1}}"
+  "\ifx\undefined\BibUrl\def\BibUrl#1{\urlprefix\url{#1}}\else\fi"
   write$ newline$
-  "\providecommand{\BibUrlDate}[1]{({%"
+  "\ifx\undefined\BibUrlDate\long\def\BibUrlDate#1{%"
   write$ newline$
-  "дата\ %"
+  "(дата обращения: #1)}\else\fi"
   write$ newline$
-  "обращения}: #1)}"
-  write$ newline$
-  "\providecommand{\BibAnnote}[1]{#1}"
-  write$ newline$
-  "\begin{thebibliography}{" longest.label  * "}" *
-  write$ newline$
-  "\def\selectlanguageifdefined#1{"
-  write$ newline$
-  "\expandafter\ifx\csname date#1\endcsname\relax"
-  write$ newline$
-  "\else\language\csname l@#1\endcsname\fi\ignorespaces}"
+  "\ifx\undefined\BibAnnote\long\def\BibAnnote#1{#1}\else\fi"
   write$ newline$
   "\providecommand\backrefparscanfalse{}"   %% added
   write$ newline$                           %% added
@@ -2117,10 +2107,14 @@ FUNCTION {begin.bib}
   write$ newline$                           %% added
   "\providecommand\backrefprint{}"          %% added
   write$ newline$                           %% added
-  preamble$ empty$                          %% moved here by VK
-    'skip$                                  %% moved here by VK
-    { preamble$ write$ newline$ }           %% moved here by VK
-  if$                                       %% moved here by VK
+  "\begin{thebibliography}{" longest.label  * "}" *
+  write$ newline$
+  "\def\selectlanguageifdefined#1{"
+  write$ newline$
+  "\expandafter\ifx\csname date#1\endcsname\relax"
+  write$ newline$
+  "\else\language\csname l@#1\endcsname\fi}"
+  write$ newline$
 }
 
 EXECUTE {begin.bib}

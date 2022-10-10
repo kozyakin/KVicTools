@@ -2095,10 +2095,6 @@ FUNCTION {begin.bib}
   "\AddToHook{cmd/@evenfoot/before}{\bgroup\inputencoding{\docenc}}" write$ newline$
   "\AddToHook{cmd/@evenfoot/after}{\egroup}"         write$ newline$
   "\fi\fi"                                           write$ newline$
-  preamble$ empty$
-    'skip$
-    { preamble$ write$ newline$ }
-  if$
   "\ifx\undefined\BibEmph\def\BibEmph#1{#1}\else\fi"
   write$ newline$
   "\ifx\undefined\href\def\href#1#2{#2}\else\fi"
@@ -2131,6 +2127,10 @@ FUNCTION {begin.bib}
   write$ newline$
   "\else\language\csname l@#1\endcsname\fi}"
   write$ newline$
+  preamble$ empty$
+    'skip$
+    { preamble$ write$ newline$ }
+  if$
 }
 
 EXECUTE {begin.bib}
