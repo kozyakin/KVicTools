@@ -63,7 +63,6 @@ Source: utfcyrbib\texmflocal\*.*; DestDir: {app}; Flags: recursesubdirs overwrit
 Source: "User_home_dir\*.*"; DestDir: "{%USERPROFILE}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
-Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environment; ValueType: string; ValueName: BIBTEX; ValueData: bibtex8.bat; Flags: uninsdeletevalue
 Root: "HKLM"; Subkey: SYSTEM\CurrentControlSet\Control\Session Manager\Environment; ValueType: string; ValueName: MAKEINDEX; ValueData: miktex-upmendex.exe; Flags: uninsdeletevalue
 
 [Icons]
