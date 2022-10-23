@@ -8209,6 +8209,19 @@ Exe('%b\Exec\TeX\Preview.edt');
 
 3
 0
+arara
+&arara
+arara
+Default;MiKTeX;TeX Live
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\arara.edt');
+49217
+
+3
+0
 HTML_Preview
 Просмотр &HTML
 IExplorer
@@ -15725,7 +15738,7 @@ Notepad
 MS_Paint
 
 Toolbar_TeX2
-43
+45
 0
 0
 0
@@ -15862,6 +15875,24 @@ TeX:Preview
 0
 0
 MiKTeX;TeX Live|Default
+
+
+0
+|
+
+1
+0
+0
+
+
+
+0
+arara
+
+0
+0
+0
+
 
 
 0

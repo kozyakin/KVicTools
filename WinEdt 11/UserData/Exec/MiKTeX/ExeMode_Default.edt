@@ -2,6 +2,31 @@
 
 Assign(!"KillConsoleApp",!"1");
 
+// arara
+    Assign(!"arara-Executable", !|arara.exe|);
+    Release(!"arara-Switches");
+    Assign(!"arara-Parameters", !|"%N%T"|);
+    Release(!"arara-Paper_Size");
+    Release(!"arara-Paper_Custom_Size");
+    Release(!"arara-Landscape");
+    Release(!"arara-GUI");
+    Release(!"arara-High_Priority");
+    Assign(!"arara-Wait", !|1|);
+    Release(!"arara-Report");
+    Release(!"arara-Errors");
+    Release(!"arara-Warnings");
+    Assign(!"arara-ExitCode", !|1|);
+    Assign(!"arara-Viewer", !|1|);
+    Release(!"arara-View_Search");
+    Release(!"arara-STD_IO");
+    Release(!"arara-No_Interaction");
+    Release(!"arara-C-style-errors");
+    Release(!"arara-Clean_Build");
+    Assign(!"arara-WinEdt_Console", !|1|);
+    Release(!"arara-Hidden_Window");
+    Release(!"arara-Background_Window");
+    Assign(!"arara-Pause", !|1|);
+
 // LaTeX
     Assign(!"LaTeX-Executable", !|latex.exe|);
     Assign(!"LaTeX-Switches", !|%0|);
