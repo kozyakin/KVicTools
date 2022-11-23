@@ -5,12 +5,12 @@
 %% The original source files were:
 %%
 %% gost705.dtx  (with options: `gost705')
-%% 
+%%
 %% Copyright (c) 2004-2014 Stanislav Kruchinin.
 %% All rights reserved.
-%% 
+%%
 %% This file is part of the disser package.
-%% 
+%%
 %% "format.eprint" is modified by V. Kozyakin, 13.03.2011
 %%
 %% URL is printed only if both DOI and EPRINT fields,
@@ -51,7 +51,6 @@ ENTRY
     urldate
     isbn
     doi
-    archive
     archivePrefix
     primaryClass
     eprint
@@ -1298,46 +1297,22 @@ FUNCTION {add.doi.url}
 FUNCTION {format.eprint}
 { eprint empty$
     { "" }
-    { archive empty$
-        { primaryClass empty$
-            { archivePrefix empty$
-                { " \href{https://arxiv.org/abs/" eprint * "}" *
-                  "{" * eprint * "}" *
-                }
-                { " \href{https://arxiv.org/abs/" eprint * "}" *
-                  "{" * archivePrefix * ":" * eprint * "}" *
-                }
-              if$
+    { primaryClass empty$
+        { archivePrefix empty$
+            { " \href{https://arxiv.org/abs/" eprint * "}" *
+              "{" * eprint * "}" *
             }
-            { archivePrefix empty$
-                { " \href{https://arxiv.org/abs/" eprint * "}" *
-                  "{" * primaryClass * "/" * eprint * "}" *
-                }
-                { " \href{https://arxiv.org/abs/" eprint * "}" *
-                  "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
-                }
-              if$
+            { " \href{https://arxiv.org/abs/" eprint * "}" *
+              "{" * archivePrefix * ":" * eprint * "}" *
             }
           if$
         }
-        { primaryClass empty$
-            { archivePrefix empty$
-                { " \href{" archive * eprint * "}" *
-                  "{" * eprint * "}" *
-                }
-                { " \href{" archive * eprint * "}" *
-                  "{" * archivePrefix * ":" * eprint * "}" *
-                }
-              if$
+        { archivePrefix empty$
+            { " \href{https://arxiv.org/abs/" eprint * "}" *
+              "{" * primaryClass * "/" * eprint * "}" *
             }
-            { archivePrefix empty$
-                { " \href{" archive * eprint * "}" *
-                  "{" * primaryClass * "/" * eprint * "}" *
-                }
-                { " \href{" archive * eprint * "}" *
-                  "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
-                }
-              if$
+            { " \href{https://arxiv.org/abs/" eprint * "}" *
+              "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
             }
           if$
         }
@@ -2043,4 +2018,3 @@ FUNCTION {end.bib}
 }
 
 EXECUTE {end.bib}
-
