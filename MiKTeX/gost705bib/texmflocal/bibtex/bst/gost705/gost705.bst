@@ -14,7 +14,7 @@
 %% "format.eprint" is modified by V. Kozyakin, 13.03.2011
 %%
 %% URL is printed only if both DOI and EPRINT fields,
-%% for a reference, are absent or empty, 13.05.2022 9:57:23
+%% for a reference, are absent or empty, 24.11.2022 9:57:23
 
 
 
@@ -37,7 +37,7 @@ ENTRY
     number
     organization
     pages
-    numpages
+    pagetotal
     publisher
     school
     series
@@ -51,8 +51,8 @@ ENTRY
     urldate
     isbn
     doi
-    archivePrefix
-    primaryClass
+    eprinttype
+    eprintclass
     eprint
     authortype
     media
@@ -67,7 +67,6 @@ ENTRY
     prdate
     prnumber
     prcountry
-    pagetotal
   }
   {}
   { label }
@@ -1076,9 +1075,9 @@ FUNCTION {format.pages}
 FUNCTION {format.pages.page}
 {
   pages empty$
-    { numpages empty$
+    { pagetotal empty$
         { "" }
-        { numpages bbl.pages tie.connect }
+        { pagetotal bbl.pages tie.connect }
       if$
     }
     { format.pages }
@@ -1297,22 +1296,22 @@ FUNCTION {add.doi.url}
 FUNCTION {format.eprint}
 { eprint empty$
     { "" }
-    { primaryClass empty$
-        { archivePrefix empty$
+    { eprintclass empty$
+        { eprinttype empty$
             { " \href{https://arxiv.org/abs/" eprint * "}" *
               "{" * eprint * "}" *
             }
             { " \href{https://arxiv.org/abs/" eprint * "}" *
-              "{" * archivePrefix * ":" * eprint * "}" *
+              "{" * eprinttype * ":" * eprint * "}" *
             }
           if$
         }
-        { archivePrefix empty$
+        { eprinttype empty$
             { " \href{https://arxiv.org/abs/" eprint * "}" *
-              "{" * primaryClass * "/" * eprint * "}" *
+              "{" * eprintclass * "/" * eprint * "}" *
             }
             { " \href{https://arxiv.org/abs/" eprint * "}" *
-              "{" * archivePrefix * ":" * primaryClass * "/" * eprint * "}" *
+              "{" * eprinttype * ":" * eprintclass * "/" * eprint * "}" *
             }
           if$
         }
