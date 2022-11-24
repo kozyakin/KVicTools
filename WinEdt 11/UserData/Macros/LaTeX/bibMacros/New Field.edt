@@ -83,8 +83,8 @@ IfStr("%$('bib_bibStyle');","","=",>
    "LetReg(1,'');",>
    "LetReg(1,'(%$(|bib_bibStyle|);)');");
 MUIReset("New field in %$('BM_type'); %!1");
-MUISet('','width','300');
-MUISet('','height','350');
+MUISet('','width','312');
+MUISet('','height','360');
 MUISet('','position','1');
 Assign('mui_margin','8');
 
