@@ -1,4 +1,4 @@
-﻿// Execution Modes - MiKTeX
+// Execution Modes - MiKTeX
 
 // arara
     Assign(!"arara-Executable", !|arara.exe|);
@@ -102,7 +102,7 @@
 
 // PDFLaTeX
     Assign(!"PDFLaTeX-Executable", !|pdflatex.exe|);
-    Assign(!"PDFLaTeX-Switches", !|%0  --enable-write18|);
+    Assign(!"PDFLaTeX-Switches", !|--enable-write18|);
     Assign(!"PDFLaTeX-Parameters", !|"%N%T"|);
     Release(!"PDFLaTeX-Paper_Size");
     Release(!"PDFLaTeX-Paper_Custom_Size");
@@ -127,7 +127,7 @@
 
 // PDFTeX
     Assign(!"PDFTeX-Executable", !|pdftex.exe|);
-    Assign(!"PDFTeX-Switches", !|%0  --enable-write18|);
+    Assign(!"PDFTeX-Switches", !|--enable-write18|);
     Assign(!"PDFTeX-Parameters", !|"%N%T"|);
     Release(!"PDFTeX-Paper_Size");
     Release(!"PDFTeX-Paper_Custom_Size");
@@ -277,7 +277,7 @@
 
 // PDFTeXify
     Assign(!"PDFTeXify-Executable", !|%@("PDFLATEX");|);
-    Assign(!"PDFTeXify-Switches", !|%0  --enable-write18|);
+    Assign(!"PDFTeXify-Switches", !|--enable-write18|);
     Assign(!"PDFTeXify-Parameters", !|"%N%T"|);
     Release(!"PDFTeXify-Paper_Size");
     Release(!"PDFTeXify-Paper_Custom_Size");
