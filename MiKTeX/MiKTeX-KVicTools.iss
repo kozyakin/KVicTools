@@ -69,7 +69,7 @@ Source: "User_home_dir\*.*"; DestDir: "{%USERPROFILE}"; Flags: recursesubdirs ov
 [UninstallDelete]
 
 [Run]
-Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install lh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install _miktex-lang-cyrillic"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка поддержки кириллицы. Ждите..."; Components: cmsuper 
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install cm-super"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fndb refresh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose formats build"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
@@ -182,7 +182,8 @@ end;
 [LangOptions]
 LanguageName=Russian
 LanguageID=$0419
+
 [Components]
 Name: "default"; Description: "Установка и конфигурация поддержки русского языка"; Types: custom compact full; Flags: fixed
-Name: "cmsuper"; Description: "Пакет поддержки кириллических Type1 шрифтов CM-Super"; ExtraDiskSpaceRequired: 72000000; Types: custom full
+Name: "cmsuper"; Description: "Пакеты поддержки кириллицы"; ExtraDiskSpaceRequired: 72000000; Types: custom full
 Name: "gost705bib"; Description: "Библиографические стили GOST-705"; Types: custom full
