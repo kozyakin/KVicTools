@@ -69,7 +69,8 @@ Source: "User_home_dir\*.*"; DestDir: "{%USERPROFILE}"; Flags: recursesubdirs ov
 [UninstallDelete]
 
 [Run]
-Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install _miktex-lang-cyrillic"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка поддержки кириллицы. Ждите..."; Components: cmsuper 
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install t2"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install lh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install cm-super"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fndb refresh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose formats build"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
