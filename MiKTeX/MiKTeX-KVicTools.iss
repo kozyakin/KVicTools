@@ -57,9 +57,9 @@ BeveledLabel={#PublisherName}
 Name: {app}\miktex\config\*.*; Type: files
 
 [Files]
-Source: default\texmflocal\*.*; DestDir: {code:InstallRoot}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
-Source: gost705bib\texmflocal\*.*; DestDir: {code:InstallRoot}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default gost705bib
-Source: utfcyrbib\texmflocal\*.*; DestDir: {code:InstallRoot}; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
+Source: default\texmflocal\*.*; DestDir: {userappdata}\MiKTeX; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
+Source: gost705bib\texmflocal\*.*; DestDir: {userappdata}\MiKTeX;Flags: recursesubdirs overwritereadonly ignoreversion; Components: default gost705bib
+Source: utfcyrbib\texmflocal\*.*; DestDir: {userappdata}\MiKTeX; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "User_home_dir\*.*"; DestDir: "{%USERPROFILE}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
@@ -78,8 +78,6 @@ Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose links install"; Fl
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fontmaps configure"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов MiKTeX..."; Components: default
 
 [UninstallRun]
-Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages remove hyph-utf8"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
-Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install hyph-utf8"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fndb refresh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose formats build"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages update-package-database"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Синхронизация локальной базы данных файлов MiKTeX с репозитарием..."; Components: default
