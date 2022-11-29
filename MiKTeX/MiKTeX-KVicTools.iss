@@ -78,6 +78,8 @@ Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose links install"; Fl
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fontmaps configure"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление map-файлов MiKTeX..."; Components: default
 
 [UninstallRun]
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages remove hyph-utf8"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
+Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages install hyph-utf8"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Установка пакета CM-Super. Ждите..."; Components: cmsuper
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose fndb refresh"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление базы данных файлов MiKTeX..."; Components: default
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose formats build"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Обновление форматных файлов MiKTeX..."; Components: default
 Filename: "{code:BinRoot}\miktex.exe"; Parameters: "--verbose packages update-package-database"; Flags: skipifdoesntexist runascurrentuser; StatusMsg: "Синхронизация локальной базы данных файлов MiKTeX с репозитарием..."; Components: default
