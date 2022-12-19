@@ -61,7 +61,7 @@ Source: "utfcyrbib\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recurs
 Source: "gost705bib\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "ruenhyph\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "rudicthunspell\texmf-config\*.*"; DestDir: "{code:TEXMFCONFIG}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default rudicthunspell
-Source: "User_home_dir\*.*"; DestDir: "{%USERPROFILE}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
+Source: "User_home_dir\latexmkrc"; DestDir: "{%USERPROFILE}"; DestName: ".latexmkrc"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
 
