@@ -1,0 +1,30 @@
+// -*- ASCII:EDT -*-
+// TeX: ChkTeX ...
+
+  Requires(20110812); // Requires this build of WinEdt to work properly
+
+  PushTagsandRegisters;
+  Assign('ExitCode-OK','0'); // OK Exit Code
+  LetReg(9,'ChkTeX');   // Execution Modes Compiler
+  LetReg(8,'clg');      // Log File (or empty)
+  LetReg(7,'clg');      // Output Format
+  LetReg(6,'%P');       // Startup Folder
+
+  // Display a Dialog for Extra Switches:
+  IfStr("%$('%!9-GUI');","1","=",>
+    !|GetString("Switches: ","%!9 Switches","%$('%!9--Switches');");>
+      IfOK(!`Assign('%!9--Switches','%!?');`,!`PopTagsandRegisters;Exit;`);|,>
+    !|Release('%!9--Switches');|);
+  // Build the Command Line ...
+  LetReg(5, "%$('%!9-Executable'); %$('%!9-Switches'); %$('%!9--Switches'); %$('%!9-Parameters');");
+  // The next string added by V. Kozyakin on 30.08.2020 to make console window
+  // in UTF-8 encoding provided the tex-file is in UTF-8 encoding
+  SetConsoleCodePage(0);
+  IfStr( "%!e", "UTF-8", "=", "SetConsoleCodePage(-1, 65001);", "Relax;" );
+  IfStr( "%!e", "CP866", "=", "SetConsoleCodePage(-1, 866);", "Relax;" );
+  IfStr( "%!e", "CP1251", "=", "SetConsoleCodePage(-1, 1251);", "Relax;" );
+  // Use Execution Modes to determine the flow of execution...
+  Exe('%b\Exec\ExeCompiler.edt');
+  PopTagsandRegisters;
+  SetConsoleCodePage(0);
+End;

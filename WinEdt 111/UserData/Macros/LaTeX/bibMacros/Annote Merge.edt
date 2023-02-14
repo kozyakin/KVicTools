@@ -1,0 +1,160 @@
+// !Mode:: "ASCII:EDT"
+// Annote Merge.edt
+// merges annotation files
+// into one bibliography file
+// part of the bibMacros package
+// (schlicht 20010817)
+// $Revision: 1.8 $
+/////////////////////////////
+
+PushTagsandRegisters;
+
+//Assign("bib_annotePath", ""); // path for annotation files, relative to %p
+
+Assign("bib_annoteString","annote");
+IfStr("%$('bib_bibStyle');","biblatex","=",!"Assign('bib_annoteString','annotation');");
+// other packages?
+
+// Read the global configuration file, if it exists
+IfFileExists("%b\Macros\LaTeX\bibMacros\bibMacros.cfg",>
+   "Exe('%b\Macros\LaTeX\bibMacros\bibMacros.cfg');",>
+   "IfFileExists('%B\Macros\LaTeX\bibMacros\bibMacros.cfg',>
+      'Exe(''%B\Macros\LaTeX\bibMacros\bibMacros.cfg'');',>
+      'Assign(''bib_beginLine'',''<'');'>
+    );">
+);
+
+// Get the bibliography:
+// We are in a BibTeX file:
+Assign("BM_stop","0");
+IfisMode("BibTeX","%!m",>
+  !"SetSel(0);>
+    GetSel(1,0);>
+    Assign('BM_file','%p\%n%t');",>
+// else get bibliography (from aux file, to be on the safe side)
+  !`Assign("BM_file","%P\%N");>
+    IfFileExists("%$('BM_file');.aux",>
+     !"ReadFile('%$(|BM_file|);.aux',0);",>
+     !"Prompt('I need the file%\   ""%$(|BM_file|);.aux"".%\%\Run LaTeX on your main file, and then we can try again.',2,1); PopTagsandRegisters; Exit;");>
+    FindInString("%!0","\\bibdata\{*\}",1,2,11);>
+    IfOK(!"ExtractByIndex(1,'%!0',%!1+9,%!2-1);",>
+      "Prompt('I found no \bibliography command.',3,1); PopTagsandRegisters; Exit;");>
+    LetReg(0,"");>
+    LetRegNum(3,-1);>
+    LetRegNum(4,-1);>
+    Loop(!:>
+       FindInString("%!1","{~,}*,",2,3,1011,%!3+1);>
+       IfOK(>
+         !"ExtractByIndex(6,'%!1',%!2,%!3-1);",>
+         !"ExtractByIndex(6,'%!1',%!4+1,%!3+1);>
+           Assign('BM_stop','1');>
+           Stop;">
+       );>
+       IfFileExists("%b\Macros\LaTeX\bibMacros\Get File.edt",">
+          Exe('%b\Macros\LaTeX\bibMacros\Get File.edt');",">
+            IfFileExists('%B\Macros\LaTeX\bibMacros\Get File.edt',>
+               'Exe(''%B\Macros\LaTeX\bibMacros\Get File.edt'');',>
+               'Assign(''BM_getFile'',''noBM'');');");>
+       IfStr("%$('BM_getFile');","cancel","=","PopTagsandRegisters;Exit;");>
+       IfStr("%$('BM_getFile');","noBM","=",>
+        !"IfStr('%$(|BM_%$(*BM_file*);_%!6|);','','=',!'Assign(''BM_%$(|BM_file|);_%!6'',''%P'');');>
+          IfFileExists('%$(|BM_%$(*BM_file*);_%!6|);\%!6.bib',>
+            !'ReadFile(''%$(|BM_%$(*BM_file*);_%!6|);\%!6.bib'',4);',>
+            !'Prompt(''I don''''t know where the file%\   ""%!6.bib"" is!%\%\Can you help me, please?%\(If you were using the complete bibMacros package%\I would probably be able to find the file.)'',2,3,>
+              !''Browse(4,|Looking for ""%!6.bib""||*.bib|,|%P|);>
+                 GetFilePath(|%!4|,2);>
+                 Assign(|BM_%$(*BM_file*);_%!6|,|%!2|);>
+                 ReadFile(|%!4|,4);'',>
+               ''PopTagsandRegisters;Exit;''>
+             );'>
+          );">
+       );>
+       LetReg(0,'%!0%!4%\');>
+       LetRegNum(4,%!3);>
+       IfNum('%$(|BM_stop|);',1,'=','Stop;');>
+   :);>
+`);
+
+Release("BM_annoteMergeFiles");
+StartWorking("merge annotations...");
+LetRegNum(9,0);
+Loop(!`>
+   GetLength(3,"%!0");>
+   Release("working");>
+   Repeat("76-((%!9*75)/%!3)",!"Assign('working','%$(|working|);|');");>
+   StartWorking("%$('working');");>
+   SetOK(1);>
+   FindInString("%!0","%$('bib_beginLine');\@+$Alpha$@{ }{\{|(}*,",7,9,1011,%!9);//)<>
+   IfOK(!">
+      ExtractByIndex(1,'%!0',%!7,%!9);>
+      SetOK(1);>
+      FindInString('%!1','{\{|(}*,',7,8,11);//)<>
+      IfOK(!'>
+         ExtractByIndex(5,''%!1'',%!7,%!7);>
+         ExtractByIndex(1,''%!1'',%!7+1,%!8-1);>
+         FormatString(''%!1'',1,''trimboth'');>
+         IfFileExists(''%p\%$(|bib_annotePath|);\%!1.tex'',>
+           !''ReadFile(|%p\%$(*bib_annotePath*);\%!1.tex|,2);>
+              Assign(|BM_annoteMergeFiles|,|%$(*BM_annoteMergeFiles*);  %!1%\|);>
+              GetLength(1,|%!2|);>
+              IfStr(|%!5|,|(|,|=|,//((((<>
+                 !:LetReg(4,::@{>|{(@{>|{(@{>|{(@{>|{(*)}|^{)}}*)}|^{)}}*)}|^{)}}*)}|^{)}}*)::);:,>
+                 !:LetReg(4,::@{>|{\{@{>|{\{@{>|{\{@{>|{\{*\}}|^{\}}}*\}}|^{\}}}*\}}|^{\}}}*\}}|^{\}}}*\}::);:);>
+              FindInString(|%!0|,|%!4|,8,9,1011,%!9-1);>
+              IfOK(!|>
+                 // This is a bit risky: Do the last 10 characters contain a comma? If not, insert one.
+                 ExtractByIndex(4,||%!0||,%!9-10,%!9);>
+                 SetOK(1);>
+                 FindInString(||%!4||,||,||,7,8,10);>
+                 IfOK(||LetReg(4,**)||,||LetReg(4,*,%\*);||);>
+                 IfStr(||%!5||,||(||,||=||,||LetReg(5,:):);||,||LetReg(5,:}:);||);>
+                 ReplaceInString(||%!0||,||%!4  %$(*bib_annoteString*);  =  {%!2%\   }%\%!5||,%!9,%!9,0,0);>
+                 LetRegNum(9,%!9+%!1);|>
+              );''>
+         );'>
+      );>
+   ","Stop;");>
+`);
+StopWorking;
+
+IfStr("%$('BM_annoteMergeFiles');","","=","Prompt('I didn''t find any annotation files!',2,1);",!">
+  GetFileType('%$(|BM_file|);',1);>
+  IfStr('%!1','.bib','=',>
+     !'Assign(''BM_file'',''%p\%n'');');>
+  OpenOutput('%$(|BM_file|);-merged.bib');>
+  WrL('%!0%\%\>
+ @COMMENT{%\>
+ The following annotation file have been merged into this file:%\>
+ **************************************************************%\>
+%$(|BM_annoteMergeFiles|); }');>
+  CloseOutput;>
+  Open('%$(|BM_file|);-merged.bib');>
+");
+
+PopTagsandRegisters;
+
+End;
+
+
+
+//===============================================================================
+ This macro and the macro Annote Extract.edt deal with the "annote" or
+ "annotation" field of bibliography entries, which is used by some BibTeX styles.
+ These styles usually allow you to put the annotations either directly in the
+ bibliography database or in separate files with the same name as the respective
+ bibliography items.
+
+  * Annote Extract.edt
+    extracts all "annote" or "annotation" fields from a bibliography file, writing
+    them into separate files;
+  * Annote Merge.edt
+    searches for annotation files with the same name as the bibliography entries,
+    merging everything into a new file called "<file name>-merged.bib".
+
+ This macro supposes that the "annote"/"annotation" fields are delimited by {braces}
+
+ The path from which annotation files should be merged can be configured at the top
+ of this file or in bibMacros.cfg, or at the end of the bibliography.
+
+ Robert <w.m.l@gmx.net>
+//===============================================================================

@@ -1,0 +1,26 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// NonLatin.edt
+// (kozyakin 20220805)
+// Search of non Russian/Latin symbols
+// Section ADMISSIBLE_CHARACTERS of Unicode.ini
+// should be modified as follows:
+//
+//ADMISSIBLE_CHARACTERS="END_LIST"
+//  9
+//  32-126
+//  1025
+//  1040-1103
+//  1105
+//END_LIST
+//=========================================================================
+
+PushTagsandRegisters;
+SearchReset;
+SetSearchForward(1);
+SetSearchSelected;
+SetRegEx(1);
+SetFindStr( "$[#161..#255]$|\u" );
+SetTracking(1);
+FindDialog;
+PopTagsandRegisters;

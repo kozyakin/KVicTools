@@ -1,0 +1,46 @@
+----------------------------------------------------------------------
+English: Last updated 2013/01/21
+
+This is the forth release of the Russian spellchecker  dictionary.  It 
+consists of  three  parts,  words  of  "General usage"  (ru_gen4.dic),  
+"Physics" (ru_phys4.dic) and "Proper names" (ru_names4.dic) wordlists. 
+In comparison with the previous edition,  prepared  by  Lev  Melnikov, 
+support of Russian letter "io"  has  been  added  in  conformity  with 
+recommendations of the  Ministry  of  Education  and  Science  of  the 
+Russian Federation.
+The dictionary is provided  AS  IS  without any warranty. Feel free to 
+copy, use, distribute, abuse or delete this dictionary in any way  you 
+wish. I tried to verify it to my best, still  if  you  find  something 
+that you believe is  an  error or an omission,  please  contact  me.  
+To avoid breeding of various versions of this dictionary please do not 
+disctribute your versions of  the  dictionary  under  the  same  names.
+The  dictionary  assumes Unicode (utf8) encoding adopted in WinEdt 7+. 
+Translation to other encodings seems to be obvious (you can find a lot
+of translation  tables on the net).
+
+                      "Igor A. Kotelnikov" <i.a.kotelnikov@inp.nsk.su>
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Russian (UTF8): Последнее обновление 2013/01/21
+
+Это четвёртая редакция русского словаря. Теперь  он  состоит  из  трёх
+частей  --  слова  "Общего  употребления"  (ru_gen4.dic), "Физическая"
+терминология  (ru_phys4.dic) и  "Имена  собственные"  (ru_names4.dic).  
+По сравнению с предыдущим изданием, которое  было  подготовлено  Львом
+Мельниковым,  была   добавлена   поддержка   русской   буквы   "ё"   в 
+соответствии с рекомендациями Министерства  образования  и науки РФ.
+По-прежнему,  словарь  не  претендует на сколь-нибудь полное отражение
+"Великого и могучего" языка ни в физической, ни в нефизической области.
+Никаких  гарантий  (я не ГосСтрах) не предполагается. Вы можете делать
+со  словарем что угодно (не можешь проконтролировать - лучше разреши).
+Если,  вдруг,  Вы  обнаружите  какие-либо  ошибки, пропуски слов и т.п.
+я их с радостью  исправлю.  Что  избежать  появления  множества  версий 
+словаря, прошу не выкладывать ваши собственные  версии  на  winedt.org,
+не изменив имена файлов.  
+Словарь  записан  в кодировке UTF8 и предназначен для редактора  WinEdt
+версии 7 и выше.  Если хотите,  переводите  в  любую  другую  кодировку  
+-- в сети есть таблицы перевода.
+
+                      "Igor A. Kotelnikov" <i.a.kotelnikov@inp.nsk.su>
+----------------------------------------------------------------------
