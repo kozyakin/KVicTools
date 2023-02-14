@@ -1,0 +1,152 @@
+5
+
+0
+0
+1
+0
+1
+1
+1
+1
+0
+
+A very long filename.pdf
+0
+1
+1
+0
+1
+
+0
+0
+14939901
+0
+2
+1
+0
+1
+
+1
+1
+0
+
+0
+0
+1
+1
+-
+
+"C:\Program Files\WinEdt Team\WinEdt 11\WinEdt.exe" -C="WinEdt 11.1" "[Open(|%f|);SelPar(%l,8);]"
+
+1
+100000000
+1
+0
+400,300,200,100,50
+
+0
+0
+1
+0
+1
+1
+1
+
+1
+%HKCR\Software\Adobe\Acrobat\Exe
+C:\Program Files (x86)\Adobe\Acrobat 2017\Acrobat\Acrobat.exe
+/A "page=%p&pagemode=none" "%f"
+Open in Adobe...
+Ctrl+Alt+O
+1
+0
+
+1
+51
+; ============================================
+9 FileList
+9 Open
+|
+9 DocumentProperties
+8 OpenFolder
+7 Print
+6A OpenAdobe
+;5 SendMail
+;5 Reload
+;5 Save
+;5 Close
+;5 CloseAll
+|
+;5 SelAll
+;5 SelPage
+;5 Copy
+;|
+9 PageLabel " Page:  " "Page: "
+9 PageGoto Selector "  9999  "
+9 PageCount "  (9999/9999)  "
+|
+;4 SetMark
+;4 GotoMark
+;4 Back
+;4 Forward
+;|
+;3 RotateRight
+;3 RotateLeft
+;|
+9 ShowBookmarks "Bookmark"
+|
+9 CountiniousView "ContView"
+9 ZoomFitWidth "FitWidth"
+9 ZoomFitPage "FitPage"
+|
+9 ZoomLabel " Zoom:  " "Zoom: "
+9 Zoom Drop-down Selector
+3 ZoomIn
+3 ZoomOut
+|
+; Search Items (if there is enough room)
+; --------------------------------------
+2s Find
+2S FindOpt
+;0S FindLabel " Find:  " "Find: "
+2S FindString "A long String to Find ... "
+2S FindNext
+2S FindPrev
+2S FoundCount "  9999/9999  "
+; ============================================
+
+96
+256
+4
+-4
+1040
+1208
+0
+0
+
+0
+0
+0
+0
+0
+0
+
+1
+1
+99
+1
+
+C:\Users\Vitya\Dropbox\Mathematics\2023-SimpleSlides\Slides-via-article.pdf
+0
+77786606
+0
+0
+0
+0
+1
+1
+1
+13
+0
+0
+0
