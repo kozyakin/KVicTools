@@ -3170,7 +3170,7 @@ ErrorsHide
 
 
 ShowErrorLog(-1);
-0
+24645
 
 1
 Garbage
@@ -7582,7 +7582,7 @@ CloseFile('%b\_Run.log',1);Open('%b\_Run.log',1,1,-1);GotoCL(1,1);TrackCaret;
 
 0
 BAK_File
-&BAK-файл
+BAK-файл
 BAK
 
 0
@@ -7594,7 +7594,7 @@ Open('%R',1);
 
 0
 SAV_File
-SA&V-файл
+SAV-файл
 SAV
 
 1
@@ -10464,7 +10464,7 @@ Assign('TOOLBAR','2s');Exe('%b\Config\ChangeToolbarLocal.edt');
 3
 0
 Toolbar_Old_Style
-&Старый стиль (2 строки)
+2 строки (&cтарый стиль)
 Toolbar
 
 0
