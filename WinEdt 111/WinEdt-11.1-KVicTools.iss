@@ -1,4 +1,4 @@
-; WinEdt KVicTools for WinEdt 11.0 Inno (Installer) Setup Script
+; WinEdt KVicTools for WinEdt 11.1 Inno (Installer) Setup Script
 ; Prepared by Victor Kozyakin
 ; =====================================================================
 ;

@@ -1,5 +1,5 @@
 41
-1089357896772343455
+1089357896772342176
 WinEdt 11
 WinEdt #
 1
@@ -16838,19 +16838,19 @@ sclSel11Bk
 Custom Sel (12)
 sclSel12Text
 sclSel12Bk
-141836999918336
+-9187343235540909312
 Custom Sel (13)
 sclSel13Text
 sclSel13Bk
--2149471565023083776
+72057044282114816
 Custom Sel (14)
 sclSel14Text
 sclSel14Bk
--9223230199854857472
+36170634018882304
 Custom Sel (15)
 sclSel15Text
 sclSel15Bk
-36170634018882304
+-800281737300016640
 82
 0
 EmptySet
@@ -17549,7 +17549,7 @@ fscBullet
 0
 0
 0
-877022216454
+907676352774
 Space (160)
 
 fscNBSpace
@@ -18295,7 +18295,7 @@ TeX;BibTeX;MetaPost;MetaFont;BST;IST;macrocode|DTX
 0
 0
 0
--14088583647657216
+-370997754605141248
 0
 \verb"?"
 
@@ -18345,7 +18345,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--14088583647657216
+-370997754605141248
 0
 \verb|?|
 
@@ -18395,7 +18395,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--14088583647657216
+-370997754605141248
 0
 \verb/?/
 
@@ -18733,7 +18733,7 @@ end{comment}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{equation*} .. \end{equation*}
 
@@ -18781,7 +18781,7 @@ end{equation*}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{equation} .. \end{equation}
 
@@ -18829,7 +18829,7 @@ end{equation}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{gather*} .. \end{gather*}
 
@@ -18877,7 +18877,7 @@ end{gather*}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{gather} .. \end{gather}
 
@@ -18925,7 +18925,7 @@ end{gather}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{multline*} .. \end{multline*}
 
@@ -18973,7 +18973,7 @@ end{multline*}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{multline} .. \end{multline}
 
@@ -19021,7 +19021,7 @@ end{multline}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{align*} .. \end{align*}
 
@@ -19069,7 +19069,7 @@ end{align*}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{align} .. \end{align}
 
@@ -19117,7 +19117,7 @@ end{align}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{alignat*} .. \end{alignat*}
 
@@ -19165,7 +19165,7 @@ end{alignat*}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{alignat} .. \end{alignat}
 
@@ -19213,7 +19213,7 @@ end{alignat}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{flalign*} .. \end{flalign*}
 
@@ -19261,7 +19261,7 @@ end{flalign*}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{flalign} .. \end{flalign}
 
@@ -19309,7 +19309,7 @@ end{flalign}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{eqnarray*} .. \end{eqnarray*}
 
@@ -19357,7 +19357,7 @@ end{eqnarray*}
 0
 0
 0
--4556925941316864
+-5681726336531712
 0
 \begin{eqnarray} .. \end{eqnarray}
 
@@ -19405,7 +19405,7 @@ end{eqnarray}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{array} .. \end{array}
 
@@ -19453,7 +19453,7 @@ end{array}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{aligned} .. \end{aligned}
 
@@ -19501,7 +19501,7 @@ end{aligned}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{matrix} .. \end{matrix}
 
@@ -19549,7 +19549,7 @@ end{matrix}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{pmatrix*} .. \end{pmatrix*}
 
@@ -19597,7 +19597,7 @@ end{pmatrix*}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{pmatrix} .. \end{pmatrix}
 
@@ -19645,7 +19645,7 @@ end{pmatrix}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{bmatrix} .. \end{bmatrix}
 
@@ -19693,7 +19693,7 @@ end{bmatrix}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{vmatrix} .. \end{vmatrix}
 
@@ -19741,7 +19741,7 @@ end{vmatrix}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{Vmatrix} .. \end{Vmatrix}
 
@@ -19789,7 +19789,7 @@ end{Vmatrix}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{cases} .. \end{cases}
 
@@ -19837,7 +19837,7 @@ end{cases}
 0
 0
 0
--10455260078210304
+-10161690473594112
 0
 \begin{split} .. \end{split}
 
@@ -21133,7 +21133,7 @@ TeX
 0
 0
 0
--2821224241326718208
+-2025494482165693696
 0
 \[?\]
 
@@ -21181,7 +21181,7 @@ TeX;BibTeX|DTX;INS;STY;AUX
 0
 0
 0
--2821224241326718208
+-2025494482165693696
 0
 \(?\)
 
@@ -21325,7 +21325,7 @@ TeX;BibTeX;MetaPost
 0
 0
 0
--2821224241326718208
+-2025494482165693696
 0
 $$?$$
 
@@ -21373,7 +21373,7 @@ $
 0
 0
 0
--2821224241326718208
+-2025494482165693696
 0
 $?$
 
@@ -23470,7 +23470,7 @@ TeX;BibTeX;MetaPost
 0
 0
 0
--3386759696340745728
+-2811984495362702848
 0
 \footnote{?}
 
@@ -23519,7 +23519,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--5701276752785964544
+-3681412319910297088
 0
 \todo{?}
 
@@ -23568,7 +23568,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 1
--5701276752785964544
+-3681412319910297088
 0
 \todo{?}
 
@@ -23616,7 +23616,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 2
--5701276752785964544
+-3681412319910297088
 0
 \todo{?}
 
@@ -26272,7 +26272,7 @@ H6>
 0
 0
 0
-1095501938944
+315495612672
 128
 <IMG ..>
 Courier New
@@ -27188,7 +27188,7 @@ EDT `
 0
 0
 0
-597000454400
+315495612672
 0
 |EDT String|
 
@@ -27389,7 +27389,7 @@ EDT
 0
 0
 0
-597000454402
+971393073410
 128
 :EDT Label: (Indented)
 
@@ -30792,7 +30792,7 @@ listofschemes
 listoftodos
 listofpdfcomments
 
-315495612672
+2533359872
 LaTeX Classes
 
 kwcLaTeXClassEx
@@ -33252,7 +33252,7 @@ STRING
 TECHREPORT
 UNPUBLISHED
 
-1095501938944
+599332487424
 BibLaTeX Fields
 
 kwcBibTeXFields
@@ -33378,7 +33378,7 @@ volumes
 xdata
 xref
 
-1095501938944
+599332487424
 BibTeX Fields
 
 kwcBibTeXFields
@@ -33446,7 +33446,7 @@ REVERSE
 SORT
 STRINGS
 
-1095501938944
+599332487424
 BibTeX Style Functions
 
 kwcBibTeXStyleFunctions
@@ -33496,7 +33496,7 @@ top
 pop
 if
 
-1095501938944
+599332487424
 BibTeX Style Operators
 
 kwcBibTeXStyleOperators
@@ -36249,7 +36249,7 @@ Win10
 Win11
 
 1
--3109418883350016
+-4804865813380608
 128
 Right Margin
 bscRightMarginText
@@ -36296,7 +36296,7 @@ bscFoldingScopeHotEmph
 1
 bscRightMarginBk
 bscRightMarginText
--3109418883350016
+-4804865813380608
 0
 0
 
@@ -36305,7 +36305,7 @@ bscRightMarginText
 1
 bscCurrentLineBk
 bscCurrentLineText
--221544995927096832
+-369899900839656960
 Light
 
 A;B
@@ -61607,9 +61607,9 @@ Tree
 520
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 0
 Tahoma
 8
@@ -61629,9 +61629,9 @@ Gather
 440
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 1
 Consolas
 10
@@ -61651,9 +61651,9 @@ Macro Recorder
 440
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 1
 Consolas
 10
@@ -61673,9 +61673,9 @@ Errors
 440
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 1
 Consolas
 10
@@ -61695,9 +61695,9 @@ Character Map
 180
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 2
 Consolas
 10
@@ -61717,9 +61717,9 @@ Find in Files
 440
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 1
 Consolas
 10
@@ -61739,9 +61739,9 @@ Console
 440
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 1
 Consolas
 10
@@ -61761,9 +61761,9 @@ Options Interface
 520
 
 fclFormBk
--16777211
+16777215
 fclFormText
--16777208
+0
 0
 Tahoma
 8
@@ -61866,8 +61866,8 @@ bscBookmarkPanel
 #F4F6FA
 16447220
 bscCurrentLineBk
-#EAECFC
-16575722
+#DADDFA
+16440794
 bscCurrentLineText
 SysNone
 16777216
@@ -61893,8 +61893,8 @@ bscLineNumbers
 #506080
 8413264
 bscRightMarginBk
-#F4F4FF
-16774388
+#EEEEFF
+16772846
 bscRightMarginText
 SysNone
 16777216
@@ -62502,37 +62502,37 @@ dtcText
 clBtnText
 0
 fclFormBk
-SysNone
-16777216
+clWindow
+16777215
 fclFormText
-SysNone
-16777216
+clWindowText
+0
 fscAngleBrackets
-RGB_3
+clPurple
 8388736
 fscAt
-RGB_F
+clDarkCyanLimeGreen
 4814081
 fscBackslash
-RGB_0
+clDarkBlue
 9109504
 fscBraces
-RGB_0
+clDarkBlue
 9109504
 fscBrackets
-RGB_0
+clDarkBlue
 9109504
 fscBullet
-RGB_2
+clBlueViolet
 14822282
 fscComment
 xclComment
 9470064
 fscCtrl
-RGB_B
+clMediumOrchid
 13850042
 fscDelimiters
-RGB_0
+clDarkBlue
 9109504
 fscDollar
 xclMath
@@ -62541,25 +62541,25 @@ fscEqual
 fscMathSymbols
 9109504
 fscHRT
-RGB_7
+clDarkCyan
 9145088
 fscMathSymbols
 RGB_0
 9109504
 fscNBSpace
-RGB_A
-13382297
+clMediumOrchid
+13850042
 fscNumeric
 SysNone
 16777216
 fscParenthesis
-RGB_0
+clDarkBlue
 9109504
 fscTab
-RGB_2
+clBlueViolet
 14822282
 fscTextDelimiters
-RGB_0
+clDarkBlue
 9109504
 gclActiveHotTabBk
 #B4CEE2
@@ -62595,38 +62595,38 @@ gclTeXGUIBk
 clBtnFace
 15790320
 kbgLightBlue
-#CFEFFF
-16773071
+#D0EBFF
+16772048
 kbgLightGreen
-#D0FFD0
-13696976
+#D3F9D8
+14219731
 kbgLightLightRed
-#FFD8D8
-14211327
+#FFE3E3
+14935039
 kbgLightLilac
-#F2CDFF
-16764402
+#F3D9FA
+16439795
 kbgLightOrange
-#FFE0B0
-11591935
+#FFE8CC
+13428991
 kbgLightViolet
-#DADAFF
-16767706
+#E5DBFF
+16767973
 kwcBibTeX
 RGB_9
 16733525
 kwcBibTeXFields
-RGB_1
-16716033
+RGB_7
+9145088
 kwcBibTeXStyle
 RGB_1
 16716033
 kwcBibTeXStyleFunctions
-RGB_1
-16716033
+RGB_7
+9145088
 kwcBibTeXStyleOperators
-RGB_1
-16716033
+RGB_7
+9145088
 kwcEditSpecial
 RGB_E
 32896
@@ -62670,10 +62670,10 @@ kwcLaTeXClass
 RGB_F
 4814081
 kwcLaTeXClassEx
-RGB_F
-4814081
+RGB_6
+38656
 kwcLaTeXEnv
-RGB_0
+clDarkBlue
 9109504
 kwcLaTeXInput
 RGB_9
@@ -62682,10 +62682,10 @@ kwcLaTeXKeywords
 RGB_0
 9109504
 kwcLaTeXKeywordsEx
-RGB_0
+clDarkBlue
 9109504
 kwcLaTeXLabels
-RGB_0
+clDarkBlue
 9109504
 kwcLaTeXSections
 RGB_9
@@ -62754,7 +62754,7 @@ kwcNSISVarConst
 RGB_4
 128
 kwcTeXUnits
-RGB_0
+clDarkBlue
 9109504
 kwcTikZKeywords
 RGB_0
@@ -62901,29 +62901,29 @@ sclSel11Text
 clWhite
 16777215
 sclSel12Bk
-clMaroon
-128
+clTeal
+8421376
 sclSel12Text
-clWhite
-16777215
+clYellow
+65535
 sclSel13Bk
-clBlueViolet
-14822282
+clYellow
+65535
 sclSel13Text
-clWhite
-16777215
+clNavy
+8388608
 sclSel14Bk
-clPurple
-8388736
+clOlive
+32896
 sclSel14Text
 clWhite
 16777215
 sclSel15Bk
-clOlive
-32896
+#D4E4F4
+16049364
 sclSel15Text
-clWhite
-16777215
+SysNone
+16777216
 sclWarningBk
 clBlueViolet
 14822282
@@ -63072,8 +63072,8 @@ swcEDTLabel
 RGB_1
 16716033
 swcEDTLabelIndented
-RGB_0
-9109504
+RGB_2
+14822282
 swcEDTString1
 RGB_6
 38656
@@ -63081,8 +63081,8 @@ swcEDTString2
 RGB_E
 32896
 swcEDTString3
-RGB_0
-9109504
+RGB_F
+4814081
 swcFootnote
 clDarkGreen
 25600
@@ -63123,8 +63123,8 @@ swcHTMLHREFArg
 RGB_9
 16733525
 swcHTMLIMGArg
-RGB_1
-16716033
+RGB_F
+4814081
 swcHTMLSRCArg
 RGB_9
 16733525
@@ -63171,10 +63171,10 @@ swcLaTeX3Properties
 RGB_D
 1993170
 swcLaTeXBreak
-RGB_1
+clVividBlue
 16716033
 swcLaTeXBreakSkip
-RGB_1
+clVividBlue
 16716033
 swclLaTeXAlgorithmEnv
 RGB_8
@@ -63183,14 +63183,14 @@ swclLaTeXAlgorithmicEnv
 RGB_7
 9145088
 swclLaTeXArrayEnv
-RGB_0
-9109504
+RGB_7
+9145088
 swclLaTeXCommentEx
 RGB_B
 13850042
 swclLaTeXEnvName
-SysNone
-16777216
+RGB_6
+38656
 swclLaTeXFigEnv
 RGB_8
 13458026
@@ -63210,7 +63210,7 @@ swcNumberNot
 RGB_F
 4814081
 swcPart
-RGB_4
+clMaroon
 128
 swcRCSAdd
 RGB_1
@@ -63225,13 +63225,13 @@ swcRefArg
 SysNone
 16777216
 swcSection
-RGB_0
+clDarkBlue
 9109504
 swcSubsection
 clDarkGreen
 25600
 swcSubsubsection
-RGB_F
+clDarkCyanLimeGreen
 4814081
 swcTagArg
 SysNone
@@ -63243,7 +63243,7 @@ swcTextsl
 SysNone
 16777216
 swcTexttt
-RGB_8
+clSlateBlue
 13458026
 swcTikzOption
 RGB_7
@@ -63372,7 +63372,7 @@ tvcSelectedText
 #222222
 2236962
 xclBackslash
-RGB_0
+clDarkBlue
 9109504
 xclBackslashEx
 RGB_9
@@ -66515,39 +66515,7 @@ clBlack
 16777216
 
 16777216
-211
-RGB_0
-clDarkBlue
-RGB_1
-clVividBlue
-RGB_2
-clBlueViolet
-RGB_3
-clPurple
-RGB_4
-clMaroon
-RGB_5
-clRed
-RGB_6
-clDarkLimeGreen
-RGB_7
-clDarkCyan
-RGB_8
-clSlateBlue
-RGB_9
-clLightSlateBlue
-RGB_A
-clDarkOrchid
-RGB_B
-clMediumOrchid
-RGB_C
-clSienna
-RGB_D
-clChocolate
-RGB_E
-clOlive
-RGB_F
-clDarkCyanLimeGreen
+82
 sclWindowBk
 clWindow
 sclWindowText
@@ -66592,98 +66560,50 @@ sclHighBlockBk
 clVividBlue
 sclHighBlockText
 clAqua
-sclSel11Bk
-clDarkBlue
-sclSel11Text
-clWhite
-sclSel12Bk
-clMaroon
-sclSel12Text
-clWhite
-sclSel13Bk
-clBlueViolet
-sclSel13Text
-clWhite
-sclSel14Bk
-clPurple
-sclSel14Text
-clWhite
-sclSel15Bk
-clOlive
-sclSel15Text
-clWhite
-bscBookmarkArrow
-#1177FF
-bscBookmarkPanel
-#F4F6FA
-bscLineNumberPanel
-#F4F6FB
-bscLineNumbers
-#506080
-bscFoldingPanel
-#F4F6FC
-bscFoldingScope
-#999999
-bscFoldingScopeEmph
-SysNone
-bscFoldingScopeHot
-clBlue
-bscFoldingScopeHotEmph
-SysNone
-bscCurrentLineBk
-#EAECFC
-bscCurrentLineText
-SysNone
-bscRightMarginBk
-#F4F4FF
-bscRightMarginText
-SysNone
-fclFormBk
-SysNone
-fclFormText
-SysNone
-spcError
-clRed
-spcWarning
-#00A0FF
-spcCompounded
-#8000FF
 fscNumeric
 SysNone
-fscMathSymbols
-RGB_0
 fscTextDelimiters
-RGB_0
+clDarkBlue
 fscDelimiters
-RGB_0
+clDarkBlue
 fscParenthesis
-RGB_0
+clDarkBlue
 fscBrackets
-RGB_0
+clDarkBlue
 fscBraces
-RGB_0
+clDarkBlue
 fscAngleBrackets
-RGB_3
+clPurple
 fscAt
-RGB_F
+clDarkCyanLimeGreen
 fscEqual
 fscMathSymbols
 fscDollar
 xclMath
 fscBackslash
-RGB_0
+clDarkBlue
 fscCtrl
-RGB_B
+clMediumOrchid
 fscTab
-RGB_2
+clBlueViolet
 fscHRT
-RGB_7
+clDarkCyan
 fscBullet
-RGB_2
+clBlueViolet
 fscNBSpace
-RGB_A
+clMediumOrchid
 fscComment
 xclComment
+kwcLaTeXEnv
+clDarkBlue
+kwcLaTeXLabels
+clDarkBlue
+kwcLaTeXKeywordsEx
+clDarkBlue
+kwcTeXUnits
+clDarkBlue
+swcSubsection
+clDarkGreen
 xclComment
 clSlateGray
 xclVerbatim
@@ -66693,135 +66613,15 @@ clTeal
 xclMath
 clNavy
 xclBackslash
-RGB_0
+clDarkBlue
 xclEnvBk
 clGhostWhite
 xclEnvBkLeftGradient
 #F2F2F8
-kwcGeneric
-RGB_4
-kwcEditSpecial
-RGB_E
-kwcEditSpecialEx
-RGB_D
-kwcMUICtrls
-RGB_F
-kwcMUIEvents
-RGB_2
-kwcMUIProperties
-RGB_7
-kwcMUIValues
-RGB_0
-kwcWEMacros
-SysNone
-kwcWETmpReg
-RGB_C
-kwcWEGlobalReg
-RGB_5
-kwcWEWorkingReg
-RGB_1
-kwcWENegReg
-RGB_A
-kwcWETags
-RGB_8
-kwcWEVar
-RGB_9
-kwcWEInput
-RGB_1
-kwcINISections
-RGB_2
-kwcINIKeywords
-RGB_0
-kwcLaTeXEnv
-RGB_0
-kwcLaTeXInput
-RGB_9
-kwcLaTeXClass
-RGB_F
-kwcLaTeXClassEx
-RGB_F
-kwcLaTeXLabels
-RGB_0
-kwcLaTeXSections
-RGB_9
-kwcLaTeXKeywords
-RGB_0
-kwcLaTeXKeywordsEx
-RGB_0
-kwcTeXUnits
-RGB_0
-kwcBibTeX
-RGB_9
-kwcBibTeXFields
-RGB_1
-kwcBibTeXStyle
-RGB_1
-kwcBibTeXStyleFunctions
-RGB_1
-kwcBibTeXStyleOperators
-RGB_1
-kwcMakeIndexStyle
-RGB_7
-kwcMPMacros
-RGB_7
-kwcMPKeywords
-RGB_1
-kwcMPVar
-RGB_6
-kwcMPConst
-RGB_4
-kwcMPBegin_End
-RGB_6
-kwcMPTeX
-RGB_4
-kwcMPPos
-RGB_E
-kwcMPOper
-RGB_3
-kwcNSISInstructions
-RGB_1
-kwcNSISDirectives
-RGB_F
-kwcNSISPredefines
-RGB_4
-kwcNSISStrConst
-RGB_4
-kwcNSISVarConst
-RGB_4
-kwcNSISMUI2
-RGB_0
-kwcNSISPar
-RGB_5
-kwcNSISPlugins
-RGB_2
-kwcHTMLChar
-RGB_A
-kwcHTMLAttr
-RGB_7
-kwcHTMLElements
-RGB_C
-kwcHTML3Attr
-RGB_3
-kwcHTML3Elements
-RGB_2
-kwcXWEAttr
-RGB_0
-kwcXWEElements
-RGB_2
-swclLaTeXArrayEnv
-RGB_0
-swclLaTeXTabularEnv
-RGB_7
-swclLaTeXTableEnv
-RGB_8
-swclLaTeXFigEnv
-RGB_8
-swclLaTeXEnvName
-SysNone
 swcLaTeXBreakSkip
-RGB_1
+clVividBlue
 swcLaTeXBreak
-RGB_1
+clVividBlue
 swcDocClassArg
 SysNone
 swcUsePackageArg
@@ -66855,89 +66655,31 @@ SysNone
 swcTextsl
 SysNone
 swcTexttt
-RGB_8
+clSlateBlue
 swcFootnote
 clDarkGreen
 swcPart
-RGB_4
+clMaroon
 swcChapter
 SysNone
 swcSection
-RGB_0
+clDarkBlue
 swcSubsection
 clDarkGreen
 swcSubsubsection
-RGB_F
-swcHrefArg
-RGB_1
-swcRCSMark
-RGB_7
-swcRCSAdd
-RGB_1
-swcRCSDel
-RGB_5
-swcHTMLCharArg
-RGB_7
-swcHTMLHREFArg
-RGB_9
-swcHTMLSRCArg
-RGB_9
-swcHTMLH1Arg
-SysNone
-swcHTMLH2Arg
-RGB_0
-swcHTMLH3Arg
-RGB_7
-swcHTMLH4Arg
-RGB_F
-swcHTMLH5Arg
-RGB_8
-swcHTMLH6Arg
-RGB_D
-swcHTMLIMGArg
-RGB_1
-swcHTMLTTArg
-RGB_F
-swcHTMLTTagExArg
-RGB_1
-swcHTMLTTagArg
-RGB_F
-swcEDTString1
-RGB_6
-swcEDTString2
-RGB_E
-swcEDTString3
-RGB_0
-swcEDTLabel
-RGB_1
-swcEDTLabelIndented
-RGB_0
-swcDTXBeginGuard
-RGB_0
-swcDTXEndGuard
-RGB_5
-swcDTXSingleGuard
-RGB_E
-swcNSISVar
-RGB_4
-swcNumber
-RGB_5
-swcNumberNot
-RGB_F
-swclLaTeXCommentEx
-RGB_B
+clDarkCyanLimeGreen
 kbgLightBlue
-#CFEFFF
+#D0EBFF
 kbgLightLightRed
-#FFD8D8
+#FFE3E3
 kbgLightGreen
-#D0FFD0
+#D3F9D8
 kbgLightOrange
-#FFE0B0
+#FFE8CC
 kbgLightViolet
-#DADAFF
+#E5DBFF
 kbgLightLilac
-#F2CDFF
+#F3D9FA
 
 
 *
