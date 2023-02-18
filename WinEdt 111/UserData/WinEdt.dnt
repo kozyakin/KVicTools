@@ -30792,7 +30792,7 @@ listofschemes
 listoftodos
 listofpdfcomments
 
-2533359872
+315495612672
 LaTeX Classes
 
 kwcLaTeXClassEx
@@ -33252,7 +33252,7 @@ STRING
 TECHREPORT
 UNPUBLISHED
 
-599332487424
+1095501938944
 BibLaTeX Fields
 
 kwcBibTeXFields
@@ -33378,7 +33378,7 @@ volumes
 xdata
 xref
 
-599332487424
+1095501938944
 BibTeX Fields
 
 kwcBibTeXFields
@@ -33446,7 +33446,7 @@ REVERSE
 SORT
 STRINGS
 
-599332487424
+1095501938944
 BibTeX Style Functions
 
 kwcBibTeXStyleFunctions
@@ -33496,7 +33496,7 @@ top
 pop
 if
 
-599332487424
+1095501938944
 BibTeX Style Operators
 
 kwcBibTeXStyleOperators
@@ -62616,17 +62616,17 @@ kwcBibTeX
 RGB_9
 16733525
 kwcBibTeXFields
-RGB_7
-9145088
+clVividBlue
+16716033
 kwcBibTeXStyle
 RGB_1
 16716033
 kwcBibTeXStyleFunctions
-RGB_7
-9145088
+clVividBlue
+16716033
 kwcBibTeXStyleOperators
-RGB_7
-9145088
+clVividBlue
+16716033
 kwcEditSpecial
 RGB_E
 32896
@@ -62670,8 +62670,8 @@ kwcLaTeXClass
 RGB_F
 4814081
 kwcLaTeXClassEx
-RGB_6
-38656
+clDarkCyanLimeGreen
+4814081
 kwcLaTeXEnv
 clDarkBlue
 9109504
@@ -62877,10 +62877,10 @@ sclHighBlockText
 clAqua
 16776960
 sclHighlightBk
-SysHighlight
+clHighlight
 14120960
 sclHighlightText
-SysHighlightText
+clHighlightText
 16777215
 sclHighLinesBk
 clLightSlateBlue
@@ -63183,14 +63183,14 @@ swclLaTeXAlgorithmicEnv
 RGB_7
 9145088
 swclLaTeXArrayEnv
-RGB_7
-9145088
+clDarkBlue
+9109504
 swclLaTeXCommentEx
 RGB_B
 13850042
 swclLaTeXEnvName
-RGB_6
-38656
+SysNone
+16777216
 swclLaTeXFigEnv
 RGB_8
 13458026
@@ -66515,51 +66515,7 @@ clBlack
 16777216
 
 16777216
-82
-sclWindowBk
-clWindow
-sclWindowText
-clWindowText
-sclHighlightBk
-SysHighlight
-sclHighlightText
-SysHighlightText
-sclFoundStringBk
-clDarkBlue
-sclFoundStringText
-clAqua
-sclDelimiterStackBk
-clGray
-sclDelimiterStackText
-clWhite
-sclDelimiterCurrentBk
-clLime
-sclDelimiterCurrentText
-clBlack
-sclDelimiterMatchBk
-clAqua
-sclDelimiterMatchText
-clBlack
-sclWarningBk
-clBlueViolet
-sclWarningText
-clWhite
-sclErrorBk
-clRed
-sclErrorText
-clWhite
-sclInverseSearchBk
-clDarkCyan
-sclInverseSearchText
-clWhite
-sclHighLinesBk
-clLightSlateBlue
-sclHighLinesText
-clAqua
-sclHighBlockBk
-clVividBlue
-sclHighBlockText
-clAqua
+67
 fscNumeric
 SysNone
 fscTextDelimiters
@@ -66582,6 +66538,8 @@ fscDollar
 xclMath
 fscBackslash
 clDarkBlue
+xclBackslash
+clDarkBlue
 fscCtrl
 clMediumOrchid
 fscTab
@@ -66596,12 +66554,20 @@ fscComment
 xclComment
 kwcLaTeXEnv
 clDarkBlue
+kwcLaTeXClassEx
+clDarkCyanLimeGreen
 kwcLaTeXLabels
 clDarkBlue
 kwcLaTeXKeywordsEx
 clDarkBlue
 kwcTeXUnits
 clDarkBlue
+kwcBibTeXFields
+clVividBlue
+kwcBibTeXStyleFunctions
+clVividBlue
+kwcBibTeXStyleOperators
+clVividBlue
 swcSubsection
 clDarkGreen
 xclComment
@@ -66618,6 +66584,10 @@ xclEnvBk
 clGhostWhite
 xclEnvBkLeftGradient
 #F2F2F8
+swclLaTeXArrayEnv
+clDarkBlue
+swclLaTeXEnvName
+SysNone
 swcLaTeXBreakSkip
 clVividBlue
 swcLaTeXBreak
