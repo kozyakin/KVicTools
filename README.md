@@ -9,7 +9,7 @@
 
 ### WinEdt
 
-Добавлен перевод всех элементов интерфейса *WinEdt 10.3 и 11.0* на русский язык, а также существенно дополнен набор сервисных макросов для выполнения повседневных нужд - поиск и чистка мусора, перекодировка документов, поиск неиспользуемых или многократно используемых ссылок и меток и др.
+Добавлен перевод всех элементов интерфейса *WinEdt 10.3 и 11.1* на русский язык, а также существенно дополнен набор сервисных макросов для выполнения повседневных нужд - поиск и чистка мусора, перекодировка документов, поиск неиспользуемых или многократно используемых ссылок и меток и др.
 
 Исходные файлы для построения инсталляторов: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) и [WinEdt 11.0](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2011)
 
@@ -20,7 +20,7 @@
 - setup-MiKTeX-KVicTools.exe
 - setup-TeXLive-KVicTools.exe
 - setup-WinEdt-10.3-KVicTools.exe
-- setup-WinEdt-11.0-KVicTools.exe
+- setup-WinEdt-11.1-KVicTools.exe
 
 ##### Набор сервисных cmd-файлов для массовой перекодировки pdf-документов в eps, png, pdfa и др.
 
@@ -56,7 +56,7 @@ Sources to build installers: [MiKTeX](https://github.com/kozyakin/KVicTools/tree
 
 ### WinEdt
 
-The translation of all elements of the *WinEdt 10.3 and 11.0* interface into Russian has been added, as well as the set of service macros for fulfilling everyday needs has been significantly expanded - searching and cleaning garbage, recoding documents, finding unused or reused links, labels and tags, etc.
+The translation of all elements of the *WinEdt 10.3 and 11.1* interface into Russian has been added, as well as the set of service macros for fulfilling everyday needs has been significantly expanded - searching and cleaning garbage, recoding documents, finding unused or reused links, labels and tags, etc.
 
 Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) and [WinEdt 11.0](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2011)
 
@@ -67,7 +67,7 @@ Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools
 - setup-MiKTeX-KVicTools.exe
 - setup-TeXLive-KVicTools.exe
 - setup-WinEdt-10.3-KVicTools.exe
-- setup-WinEdt-11.0-KVicTools.exe
+- setup-WinEdt-11.1-KVicTools.exe
 
 ##### A set of service cmd files for mass conversion of pdf documents to eps, png, pdfa, etc.
 
