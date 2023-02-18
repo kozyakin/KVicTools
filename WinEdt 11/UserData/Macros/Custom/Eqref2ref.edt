@@ -1,0 +1,33 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// Eqref2ref.edt
+// (kozyakin 20091112)
+// Replace \eqref{...} by \ref{...}
+//=========================================================================
+
+PushTagsandRegisters;
+SaveFind;
+SaveFind;
+Mark(0);
+SaveFind;
+SearchReset;
+SetSearchCurrentDoc;
+SetSearchEntire(0);
+SetSearchInline(1);
+SetNotFoundNotify(1);
+SetReplacePrompt(1);
+SetSearchForward(1);
+SetSearchCaseSensitive(1);
+SetRegEx(1);
+SetFindStr( "\\eqref@[ \&9;]\{\(0*\)\}" );
+SetReplaceStr( "(\\ref\{\0\})" );
+
+Replace;
+
+RestoreFind;
+Goto(0);
+Refresh(1,0);
+EndGroup;
+RestoreFind;
+PopTagsandRegisters;
+Exit;

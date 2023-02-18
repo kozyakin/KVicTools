@@ -1,0 +1,55 @@
+PushTagsandRegisters;
+
+BeginGroup;
+SetTracking(0);
+
+SetFindStr("{\#^{\\}\(0\{\)}|{\#^{\\}\(0(\)}|{\#^{\\}\(0\[\)}");
+SetSearchForward(1);
+SetSearchCaseSensitive(0);
+SetSearchEntire(0);
+SetSearchCyclic(0);
+SetSearchRelaxed(1);
+SetSearchWholeWords(0);
+SetSearchInline(1);
+SetSearchCurrentDoc;
+SetRegEx(1);
+SearchReset;
+
+GoToBeginningOfLine;>
+Find;
+CharLeft(1);
+Mark(9);
+
+SetSel(0);
+GetTag(0,7);
+
+IfStr("%!7","{","=","LetReg(8,'}');>
+  SetFindStr('{\#^{\\}\(0\{\)}|{\#^{\\}\(0\}\)}');>
+  ","Relax;");
+IfStr("%!7","(","=","LetReg(8,')');>
+  SetFindStr('{\#^{\\}\(0(\)}|{\#^{\\}\(0)\)}');>
+  ","Relax;");
+IfStr("%!7","[","=","LetReg(8,']');>
+  SetFindStr('{\#^{\\}\(0\[\)}|{\#^{\\}\(0\]\)}');>
+  ","Relax;");
+
+SearchReset;
+CharRight(1);
+
+LetRegNum(6,1);
+LetRegNum(2,0);
+Loop(!'>
+  IfFound(!">
+    GetTag(0,4);>
+    IfStr(`%!4`,`%!7`,`=`,`LetRegNum(6,*%!6+1*);`,`Relax;`);>
+    IfStr(`%!4`,`%!8`,`=`,`LetRegNum(6,*%!6-1*);`,`Relax;`);>
+    IfStr(`%!6`,`0`,`=`,`Stop;`,`Relax;`);","Stop;">
+  );>
+');
+IfOK("Mark(8);Goto(9);SelectFromMark(8);","Beep;");
+
+PopTagsandRegisters;
+//SetTracking(1);
+EndGroup;
+//Refresh;
+//

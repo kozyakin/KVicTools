@@ -1,0 +1,31 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// NoSpaceBetweenMath.edt
+// (kozyakin 20101125)
+// Remove spaces between $...$
+//=========================================================================
+
+PushTagsandRegisters;
+SaveFind;
+BeginGroup;
+SaveFind;
+SearchReset;
+SetSearchCurrentDoc;
+SetSearchEntire(0);
+SetSearchInline(0);
+SetNotFoundNotify(1);
+SetReplacePrompt(1);
+SetSearchForward(1);
+SetSearchCaseSensitive(1);
+SetRegEx(1);
+SetFindStr("{\#~{\$}\$+[ ]\E{isMath}}|{+[ ]\E{isMath}\$}");
+SetReplaceStr("\$");
+
+ReplaceDialog;
+
+RestoreFind;
+Refresh(1,0);
+EndGroup;
+RestoreFind;
+PopTagsandRegisters;
+Exit;

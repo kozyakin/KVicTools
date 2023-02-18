@@ -1,0 +1,261 @@
+// !Mode:: "ASCII:EDT"
+// Get Field.edt
+// part of the bibMacros package
+// (schlicht 20011205)
+// $Revision: 1.9 $
+/////////////////////////
+
+PushTagsandRegisters;
+IfStr("%$('BM_conf');","","=","Exe('%b\Macros\LaTeX\bibMacros\bibMacros.cfg');");
+
+Assign("expandstring",!`>
+   IfStr("%$('BMGetField');","expandonly","=","","StartWorking('expanding @STRING...');");>
+   // @STRINGs from current file:
+   SetOK(1);>
+   FindInString("%!5","/%_/ bibEndStrings",2,3,10);>
+   IfOK(!"ExtractByIndex(5,'%!5',0,%!2);");>
+   // @STRINGs from user-defined file:
+   LetRegNum(3,0);>
+   Loop(!">
+      SetOK(1);>
+      FindInString('%$(|bib_stringFile|);','\{*\}',2,3,11);>
+      IfOK(!'>
+         ExtractByIndex(6,''%$(|bib_stringFile|);'',%!2+1,%!3-1);>
+         ReplaceInString(''%$(|bib_stringFile|);'','''',%!2,%!3,0,2);>
+         Assign(''bib_stringFile'',''%!2'');',>
+       !'LetReg(6,''%$(|bib_stringFile|);'');Stop;'>
+      );>
+      IfFileExists('%!6',>
+       !'ReadFile(''%!6'',6);>
+         SetOK(1);>
+         FindInString(''%!6'',''/%_/ bibEndStrings'',2,4,10);>
+         IfOK(!''ExtractByIndex(6,|%!6|,0,%!2);'');>
+         LetReg(5,''%!5%\%!6'');',>
+       !'IfStr(''%!6'','''',''='','''',''Prompt(|I did not find the file  ""%!6"",%\which you specified in ""bib_stringFile"" !|,3,0);'');'>
+      );">
+   );>
+   // @STRINGs from default file:
+   IfFileExists("%b\Macros\LaTeX\bibMacros\BMStrings.bib",>
+      !"ReadFile('%b\Macros\LaTeX\bibMacros\BMStrings.bib',6);",>
+      !"IfFileExists('%B\Macros\LaTeX\bibMacros\BMStrings.bib',>
+         !'ReadFile(''%B\Macros\LaTeX\bibMacros\BMStrings.bib'',6);',>
+         !'Prompt(''I did not find the String definition file  ""BMStrings.bib"" !'',3,1);LetReg(6,'''');'>
+       );">
+   );>
+   LetReg(5,"%!5%\%!6");>
+   // Edit the field:
+   LetRegNum(2,0);>
+   LetRegNum(4,0);>
+   LetReg(3,"%$('BM_fieldValue');");>
+   Loop(!">
+      SetOK(1);>
+      FindInString('%!3','@{ }#',4,4,1011,%!4);>
+      IfOK('',!'GetLength(4,''%!3'');Stop;');>
+      ExtractByIndex(0,'%!3',%!2,%!4-1);>
+      GetLength(6,'%!3');>
+      FormatString('%!0',0,'trimboth');>
+      SetOK(1);>
+      FindInString('%!0','{\(2""\)\(1@{>|\\""|^""}\)\(3""\)}|{\(2\{\)\(1@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\)\(3\}\)}',8,9,11);>
+      IfOK(!'>
+         ExtractByIndex(0,''%!0'',%!8+1,%!9-1);>
+         ReplaceInString(''%!3'',''%!0'',%!2,%!4,0,3);>
+         GetLength(9,''%!3'');>
+         LetRegNum(4,''%!4+(%!9-%!6)'');>
+       ',!'>
+         GetLength(8,''%!0'');>
+         ExtractByIndex(9,''%!0'',%!8-1,%!8);>
+         IfStr(''%!9'','','',''='',!''ReplaceInString(|%!0|,||,%!8-1,%!8,0,0);'');>
+         // special RegEx characters in %!0 have to be stripped here
+         SetOK(1);>
+         FindInString(''%!5'',''\@STRING@{ }{(@{ |>}%!0@{ |>}=@{ |>}{""\(0@{>|\\""|^""}\)""}|{\{\(0@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\)\}}@{ |>})}|{\{@{ |>}%!0@{ |>}=@{ |>}{""\(0@{>|\\""|^""}\)""}|{\{\(0@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\)\}}@{ |>}\}}'',8,9,1);>
+         IfOK(!''>
+            ExtractByIndex(1,|%!5|,%!8,%!9);>
+            ReplaceInString(|%!3|,|\0|,%!2,%!4,1,3);>
+            GetLength(9,|%!3|);>
+            LetRegNum(4,|%!4+(%!9-%!6)|);>
+          '',!''>
+            LetReg(3,|Error|);>
+            Stop;''>
+         );'>
+      );>
+      LetRegNum(2,%!4+1);">
+   );>
+   IfStr("%$('BMGetField');","expandonly","=",!">
+      Assign('BM_fieldValue','%!3');",>
+    !"IfStr('%!3','Error','=',>
+       !'Prompt(''I didn''''t find an expansion for %\""%$(|BM_fieldValue|);"" !'',2,1);',>
+       !'Assign(''BM_fieldValue'',''{%!3}'');>
+         IfStr(''%$(|bib_fieldDelim|);'',''leave'',''='',>
+           !''ReplaceInString(|[|,|\2|,0,0,1,2);>
+              ReplaceInString(|]|,|\3|,0,0,1,4);>
+              IfStr(|%!2|,||,|=|,>
+               !|Assign(||BM_fieldValue||,||{%!3}||);|,>
+               !|Assign(||BM_fieldValue||,||%!2%!3%!4||);|>
+              );'',>
+           !''IfStr(|%$(*bib_fieldDelim*);|,|quotes|,|=|,>
+              !|Assign(||BM_fieldValue||,||""%!3""||);|>
+             );''>
+         );'>
+      );">
+   );`>
+);
+
+IfStr("%$('BMGetField');","expandonly","=",!"Do('%$(|expandstring|);');Release('BMGetField');PopTagsandRegisters;Exit;");
+
+SaveFind;
+SetSearchCurrentDoc;
+SetSearchCyclic(0);
+SetSearchEntire(0);
+SetFindTextSelect(1);
+SetSearchForward(0);
+SetRegEx(1);
+SetSearchCaseSensitive(0);
+SetReplaceRespectCaps(0);
+SetSearchInline(0);
+SetNotFoundNotify(0);
+SetFindStr("<@{ }+{$Alpha$}@{ }=@{ }{""\(0@{>|\\""|^""}\)""@{,}>}|{\{\(0@{>|{\{@{>|{\{*\}}|^{\}}}\}}|^{\}}}\)\}@{,}>}|{@{ }\(0*\)@{,}>}");
+SearchReset;
+
+IfStr("%$('BMGetField');","bibNextField","=","","SetTracking(0);");
+Mark(1);
+CMD("Go To End Of Line");
+Find;
+GetSel(0,1);
+CMD("Caret <-> Select");
+
+Release("BM_fieldName");
+Release("BM_fieldValue");
+IfStr("%!1","","=",">
+   SetTracking(1);Refresh;EndGroup;",>
+ !"SetOK(1);>
+   FindInString('%!1','=',2,3,10);>
+   IfOK(!'>
+      ExtractByIndex(2,''%!1'',0,%!3-1);>
+      FormatString(''%!2'',2,''trimboth'');>
+      Assign(''BM_fieldName'',''%!2'');>
+      GetLength(2,''%!1'');>
+      ExtractByIndex(3,''%!1'',%!3+1,%!2-3);>
+      FormatString(''%!3'',3,''trimboth'');>
+      Assign(''BM_fieldValue'',''%!3'');'>
+   );>
+// Do something with the field value:
+   IfStr('%$(|BMGetField|);','bibValue','=',!'>
+      Release(''BMGetField'');>
+      Repeat(''%$(|bib_alignName|);'',>
+        !''Assign(|BM_fieldName|,| %$(*BM_fieldName*);|);'');>
+      IfStr(''%$(|bib_alignEqual|);'',''name'',''='',>
+        !''Assign(|BM_fieldName|,|%$(*BM_fieldName*); =|);'');>
+      GetLength(2,''%$(|BM_fieldName|);'');>
+      LetRegNum(2,''%$(|bib_alignValue|);-%!2-2'');>
+      IfNum(%!2,0,''>'',>
+        !''Repeat(%!2,!|Assign(||BM_fieldName||,||%$(*BM_fieldName*); ||);|);'');>
+      IfStr(''%$(|bib_alignEqual|);'',''value'',''='',>
+        !''Assign(|BM_fieldName|,|%$(*BM_fieldName*);= |)'');>
+      GetLength(4,''%$(|BM_fieldValue|);'');>
+      ExtractByIndex(2,''%$(|BM_fieldValue|);'',%!4-1,%!4-1);>
+      IfStr(''%!2'','','',''='',>
+        !''ReplaceInString(|%$(*BM_fieldValue*);|,||,%!4-1,%!4-1,0,3);>
+           Assign(|BM_fieldValue|,|%!3|);'');>
+      ExtractByIndex(2,''%$(|BM_fieldValue|);'',0,0);>
+      SetOK(1);>
+      FindInString(''%!2'',''\{|""'',8,9,11);>
+      IfOK(!''>
+         IfStr(|%$(*bibValue*);|,|expandstring|,|=|,>
+           !|Do(||%$(*expandstring*);||);|>
+         );>
+         // Strip inner braces
+         // suggested by G. M. Ambrosi <ambrosi@uni-trier.de>
+         IfStr(|%$(*bibValue*);|,|stripinner|,|=|,>
+           !|IfStr(||%!2||,||{||,||=||,||LetRegNum(2,1);||,||LetRegNum(2,0);||);>
+             LetReg(3,||%$(*BM_fieldValue*);||);>
+             Loop(!""SetOK(1);>
+                FindInString(||%!3||,||\{\(@{>||||{\{@{>||||{\{*\}}||||^{\}}}*\}}||||^{\}}}\)\}||,1,2,1011,%!2);>
+                IfOK(!||LetReg(0,*OK*);ReplaceInString(*%!3*,*\0*,%!1,%!2,1,3);>
+                   LetRegNum(2,%!2-2);||,||Stop;||>
+                );"">
+             );>
+             ReplaceInString(||%$(*BM_fieldValue*);||,||%!3||,0,%!4,0,3);>
+             Assign(||BM_fieldValue||,||%!3||);|>
+         );>
+         // If there's no inner brace to strip, take the outer one?
+//         IfStr(|%!0|,|OK|,|=|,||,|Beep(0);Assign(||bibValue||,||stripbraces||);|);>
+         IfStr(|%$(*bibValue*);|,|stripbraces|,|=|,>
+           !|SetOK(1);>
+             FindInString(||%$(*BM_fieldValue*);||,||{\}||||""}||,3,4,1111,%!4+1);>
+             ExtractByIndex(3,||%$(*BM_fieldValue*);||,1,%!4-1);>
+             Assign(||BM_fieldValue||,||%!3||);|>
+         );>
+         IfStr(|%$(*bibValue*);|,|delete|,|=|,>
+           !|Assign(||BM_fieldValue||,||{}||);>
+             IfStr(||%$(*bib_fieldDelim*);||,||leave||,||=||,>
+               !||IfStr(*%!2*,*""*,*=*,>
+                   !*Assign(**BM_fieldValue**,**""""**);*);||);>
+             IfStr(||%$(*bib_fieldDelim*);||,||quotes||,||=||,>
+               !||Assign(*BM_fieldValue*,*""""*);||);|>
+         );>
+       '',!''>
+         IfStr(|%$(*bibValue*);|,|expandstring|,|=|,>
+            !|Do(||%$(*expandstring*);||);|);>
+         IfStr(|%$(*bibValue*);|,|delete|,|=|,>
+            !|Assign(||BM_fieldValue||,||||);|);''>
+      );>
+      Ins(''%$(|BM_fieldName|);%$(|BM_fieldValue|);,%\'');>
+      IfStr(''%$(|bibValue|);'',''delete'',''='',>
+         ''CMD(|Previous Bullet|);'',>
+         ''Goto(1);'');>
+      SetTracking(1);>
+      Refresh;'>
+   );>
+   IfStr('%$(|BMGetField|);','bibDeleteField','=',!'>
+      Release(''BMGetField'');>
+      CopyToClipboard(''%!1'',0);>
+      CMD(''Delete'');>
+      SetTracking(1);>
+      Refresh;'>
+   );">
+);
+
+IfStr("%$('BMGetField');","bibGetInfo","=",!`>
+   Release("BM_conf");>
+   Release("BMGetField");>
+   SetSel(0);>
+   Goto(1);>
+   SetTracking(1);>
+   Refresh;>
+   IfStr("%$('BM_fieldName');","","=","PopTagsandRegisters;RestoreFind;Exit;");>
+   IfStr("%$('bib_bibStyle');","","=","",!">
+      Assign('BorbName','BM_Fields_%$(|bib_bibStyle|);.cfg');>
+      Assign('BorbFile','Macros\LaTeX\bibMacros\Fields_%$(|bib_bibStyle|);.cfg');>
+      IfStr('%[|%$(:Borb:);|];%$(|BM_Fields_%$(*bib_bibStyle*);.cfg|);','???','=','',>
+        'Exe(''%$(|BM_Fields_%$(*bib_bibStyle*);.cfg|);'');');">
+   );>
+   Assign("BorbName","BM_Fields.cfg");>
+   Assign("BorbFile","Macros\LaTeX\bibMacros\Fields.cfg");>
+   IfStr("%['%$(|Borb|);'];%$('BM_Fields.cfg');","???","=",>
+      "Prompt('I did not find the configuration file  ""Fields.cfg"" !',3,1);PopTagsandRegisters;RestoreFind;Exit;",>
+      "Exe('%$(|BM_Fields.cfg|);');");>
+   LetReg(0,"No info for  ""%$('BM_fieldName');""  available.");>
+   FindInString("%$('bib_FIELDS%$(|bib_bibStyle|);');","\{%$('BM_fieldName');=*\}",1,2,1,0);>
+   IfOK(!">
+      GetLength(3,'%$(|BM_fieldName|);');>
+      ExtractByIndex(1,'%$(|bib_FIELDS%$(*bib_bibStyle*);|);',%!1+%!3+2,%!2-1);>
+      IfStr('%!1','','=',!'>
+         SetOK(1);>
+         FindInString(''%$(|bib_FIELDS|);'',''\{%$(|BM_fieldName|);=*\}'',1,2,1,0);>
+         IfOK(!''>
+            ExtractByIndex(1,|%$(*bib_FIELDS*);|,%!1+%!3+2,%!2-1);>
+            IfStr(|%!1|,||,|=|,||,!|LetReg(0,||%$(*BM_fieldName*); :%\%!1||);|);''>
+         );',>
+       !'LetReg(0,''%$(|BM_fieldName|); :  %\%!1'');'>
+      );">
+   );>
+   Prompt("%!0",0,1);>
+`);
+
+
+Release("bibValue");
+RestoreFind;
+PopTagsandRegisters;
+End;
+
+$Id: bibGetField.edt,v 1.9 2007-06-07 00:14:13+02 schlicht Exp schlicht $

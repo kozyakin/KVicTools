@@ -1,0 +1,185 @@
+// !Mode:: "EDT:UTF-8"
+// setMode.edt
+// (schlicht 20010327)
+// (gschmitz 20011016: changed for xml compliances )
+// (kozyakin 16:24, 21.12.2007)
+// Set mode of a document
+//=========================================================================
+
+
+// Requires WinEdt 7 Build 20120413 (or later)
+Requires(20120413);
+
+
+  // Save the Registers!
+PushTagsandRegisters;
+SaveFind;
+BeginGroup;
+Mark(0);
+
+  Assign('CodePage','3');
+  Assign('WrapMode','2');
+  LetReg(9,'%!m');
+  Loop(!|>
+  SubstituteInString("%!9", ":CP-866","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('CodePage','0')||,!'Stop;')|);
+
+  Loop(!|>
+  SubstituteInString("%!9", ":CP866","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('CodePage','0')||,!'Stop;')|);
+
+  Loop(!|>
+  SubstituteInString("%!9", ":CP-1251","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('CodePage','1')||,!'Stop;')|);
+
+  Loop(!|>
+  SubstituteInString("%!9", ":CP1251","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('CodePage','1')||,!'Stop;')|);
+
+  Loop(!|>
+  SubstituteInString("%!9", ":UTF-8","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('CodePage','2')||,!'Stop;')|);
+
+  Loop(!|>
+  SubstituteInString("%!9", ":UTF8","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('CodePage','2')||,!'Stop;')|);
+
+  Loop(!|>
+  SubstituteInString("%!9", ":Hard","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('WrapMode','0')||,!'Stop;')|);
+
+  Loop(!|>
+  SubstituteInString("%!9", ":Soft","",0,2);>
+  IfOK(!||LetReg(9,'%!2');Assign('WrapMode','1')||,!'Stop;')|);
+//  SetFileMode( "%!1:cp866" );
+
+  // Let's Go ...
+  SetOK(1);              // Go...
+  LetRegNum(6,0);
+  Loop(!`>
+    LetRegNum(6,%!6+1);    // Increase the Line Counter<>
+    GetLine(0,%!6);        // Get the line<>
+    LetReg(1,'');          // Ready...<>
+    LetReg(3,'-1');        // Not Found...<>
+    SetOK(1);              // Go...<>
+    FindInString("%!0", !'@',2,3,10);>
+    IfOK(!|CMD("Go To Beginning Of File");>
+        JMP("SETCP")|,!'Relax;');>
+    Loop(!|FindInString("%!0", !'!Mode:: ',2,3,10);>
+           IfOK(!"Relax;",!'Stop;');>
+           FindInString("%!0", !'{"\(*\)"}', 2,3, 1011, %!3);>
+           IfOK(!'LetReg(1,"%#0");');>
+           Stop;>
+           |);>
+    GotoLin(%!6);>
+    TrackCaret;>
+    IfStr("%!1","",">",|CMD("Line Down");>
+        CMD("Go To Beginning Of Line");>
+        CMD("Select To Beginning Of File");>
+        JMP("SETCP")|);      // Mode Info was found<>
+    IfNum(%!6,9,">",|CMD("Go To Beginning Of File");>
+        JMP("SETCP")|);      // Lines limit!<>
+    `);
+
+:SETCP::
+
+MUIReset('Задание кодировки и моды документа');
+    MUISet('','position','1'); // Main Form Center
+    MUISet('','font bold','1');
+    MUIGet('','text width',7,'ВНИМАНИЕ!____Документ_может_быть_НЕОБРАТИМО_ИСПОРЧЕН_');
+    LetRegNum(6,20+%!7);
+    Assign('tmp','20+%!7');
+    MUISet('','width','%!6');
+    MUIGet('','text width',7,'ВНИМАНИЕ!__');
+    MUIGet('','text height',5,'ВНИМАНИЕ!');
+    MUISet('','font bold','0');
+    LetRegNum(4,8*%!5+150);
+    MUISet('','height','%!4');
+
+MUIAdd(0,0,0,6*%!5+12, 'TopPanel','TPanel');
+    MUISet('TopPanel','aligned','alTop');
+    MUISet('TopPanel','inner bevel', '1');
+    MUISet('TopPanel','outer bevel', '2');
+
+    MUIAdd(10,12,0,0, 'MyLabel1','TLabel','TopPanel','ВНИМАНИЕ!    Документ может быть НЕОБРАТИМО ИСПОРЧЕН');
+    MUIAdd(%!7+10,%!5+12,0,0, 'MyLabel2','TLabel','TopPanel','при неправильном выборе кодировки!');
+    MUISet('MyLabel1','font bold','1');
+    MUISet('MyLabel1','font color','clRed');
+    MUISet('MyLabel2','font bold','1');
+    MUISet('MyLabel2','font color','clRed');
+    MUIAdd(10,3*%!5+12,0,0, 'MyLabel4','TLabel','TopPanel','Если Вы не уверены в выборе кодировки, выйдите из данного диалога,');
+    MUIAdd(10,4*%!5+12,0,0, 'MyLabel5','TLabel','TopPanel','нажав кнопку CANCEL, и создайте резервную копию документа.');
+
+MUIAdd(0,0,0,40, 'Bottom_Panel','TPanel');
+    MUISet('Bottom_Panel','aligned', 'alBottom');
+    MUISet('Bottom_Panel','inner bevel', '0');
+    MUISet('Bottom_Panel','outer bevel', '0');
+    MUIAdd(0,0,164,0, 'Modal_Panel','TPanel','Bottom_Panel');
+      MUISet('Modal_Panel','aligned', 'alRight');
+      MUIAdd(3,8,0,0, 'OK','TButton','Modal_Panel','&OK');
+        MUISet('OK','default', '1');
+        MUISet('OK','on click', !'MUIHide(1);');
+      MUIGet('OK','width',7);
+      MUIAdd(%!7+8,8,0,0, 'Cancel','TButton','Modal_Panel','Cancel');
+        MUISet('Cancel','cancel', '1'); // ESCAPE
+        MUISet('Cancel','on click', !'MUIHide(2);');
+      LetRegNum(6,16+2*%!7);
+      MUISet('Modal_Panel','width','%!6');
+      MUIGet('OK','height',7);
+      LetRegNum(6,16+%!7);
+      MUISet('Bottom_Panel','height','%!6');
+
+MUIAdd(10,7*%!5+12,160,92, 'RadioButtons','TRadioGroup','',' Кодировка документа ',>
+    'cp866 (DOS, OEM)|cp1251 (WIN, ANSI, ACP)|utf-8 (Unicode)|без кодировки (ASCII)');
+    MUISet('RadioButtons','index','%$(`CodePage`)');
+
+MUIAdd(180,7*%!5+12,'%$(`tmp`);-195',72, 'RadioButtons2','TRadioGroup','',' Перенос строк ',>
+    'Hard (по метке конца строки)|Soft (по ширине поля строки)|Установка по умолчанию WinEdt');
+    MUISet('RadioButtons2','index','%$(`WrapMode`)');
+MUIShow; // Show Modal Dialog
+IfOK("Relax;","JMP('FINAL')");
+
+MUIGet('RadioButtons2','index','1');
+Assign(`MUIRadioButton2`, ``);
+IfNum(%!1, 0, "=", "Assign(`MUIRadioButton2`, `Hard`);", "Relax;");
+IfNum(%!1, 1, "=", "Assign(`MUIRadioButton2`, `Soft`);", "Relax;");
+IfNum(%!1, 2, "=", "Assign(`MUIRadioButton2`, ``);", "Relax;");
+
+    IfStr(|%$(`MUIRadioButton2`);|,||,|>|,>
+    |LetReg(9,"%!9:%$(`MUIRadioButton2`);"|,|Relax;|);
+
+MUIGet('RadioButtons','index','1');
+Assign(`MUIRadioButton`, ``);
+IfNum(%!1, 0, "=", "Assign(`MUIRadioButton`, `CP866`);", "Relax;");
+IfNum(%!1, 1, "=", "Assign(`MUIRadioButton`, `CP1251`);", "Relax;");
+IfNum(%!1, 2, "=", "Assign(`MUIRadioButton`, `UTF-8`);", "Relax;");
+
+    IfStr(|%$(`MUIRadioButton`);|,||,|>|,>
+    |InsText(' !Mode:: "%!9:%$(`MUIRadioButton`);"%\')|,>
+    |InsText(' !Mode:: "%!9"%\')|);
+
+    CMD("Select To Beginning Of File");
+    CMD('Insert Comment');
+    Goto(0);
+
+    IfStr("%$(`MUIRadioButton2`)","Soft","=","Exe(`%b\Macros\Custom\Doc-format-soft.edt`);","Relax;");
+
+    LetReg(1,"%f");
+    SaveAll(0,0,0,0,0,"%f");
+    CloseFile( "%f",1 );
+    Open( "%!1" );
+
+    IfStr("%$(`MUIRadioButton2`)","Hard","=","Exe(`%b\Macros\Custom\Doc-format-hard.edt`);","Relax;");
+
+:FINAL::
+
+Release('CodePage');
+Release('WrapMode');
+Release('tmp');
+Release('MUIRadioButton');
+Release('MUIRadioButton2');
+Goto(0);
+EndGroup;
+RestoreFind;
+PopTagsandRegisters;
+End;

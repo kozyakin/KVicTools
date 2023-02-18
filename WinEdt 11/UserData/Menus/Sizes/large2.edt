@@ -1,0 +1,8 @@
+// -*- ASCII:EDT -*-
+
+BeginGroup;
+IfSel(|0|,|=|,>
+    |Ins('{\LARGE }');CharLeft|,>
+    |InsLabel('','{\LARGE ','}')|);
+EndGroup;
+End;
