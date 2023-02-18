@@ -1,8 +1,0 @@
-// -*- ASCII:EDT -*-
-
-BeginGroup;
-IfSel(|0|,|=|,>
-    |Ins('{\footnotesize }');CharLeft|,>
-    |InsLabel('','{\footnotesize ','}')|);
-EndGroup;
-End;
