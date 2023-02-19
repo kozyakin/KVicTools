@@ -33770,7 +33770,7 @@ listofschemes
 listoftodos
 listofpdfcomments
 
-315495612672
+2533359872
 LaTeX Classes
 
 kwcLaTeXClassEx
@@ -65648,8 +65648,8 @@ kwcLaTeXClass
 RGB_F
 4814081
 kwcLaTeXClassEx
-clDarkCyanLimeGreen
-4814081
+RGB_6
+38656
 kwcLaTeXEnv
 clDarkBlue
 9109504
@@ -69493,7 +69493,7 @@ clBlack
 16777216
 
 16777216
-53
+52
 fscNumeric
 SysNone
 fscTextDelimiters
@@ -69522,8 +69522,6 @@ xclBackslash
 clDarkBlue
 kwcLaTeXEnv
 clDarkBlue
-kwcLaTeXClassEx
-clDarkCyanLimeGreen
 kwcLaTeXLabels
 clDarkBlue
 kwcLaTeXKeywordsEx
