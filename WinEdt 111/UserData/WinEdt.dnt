@@ -10286,7 +10286,7 @@ WinEdt
 0
 
 
-Assign('THEME','');Exe('%b\Config\ChangeTheme.edt');
+LoadConfig('ConfigEx\Switches.ini');Assign('THEME','');Exe('%b\Config\ChangeTheme.edt');
 0
 
 3
@@ -10403,15 +10403,15 @@ Assign('THEME','Midnight Green');Exe('%b\Config\ChangeTheme.edt');
 
 3
 0
-Theme_Highlited
-&Highlited
+Theme_Handy_Math
+&Handy Math
 Templates
 
 0
 0
 
 
-LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Highlited');Exe('%b\Config\ChangeTheme.edt');
+LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Handy Math');Exe('%b\Config\ChangeTheme.edt');
 0
 
 2
@@ -17600,7 +17600,7 @@ Binary
 0
 0
 0
-315495612672
+8388864
 @
 
 fscAt
@@ -18300,7 +18300,7 @@ TeX;BibTeX;MetaPost;MetaFont;BST;IST;macrocode|DTX
 \verb:?:
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18350,7 +18350,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb!?!
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18400,7 +18400,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb=?=
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18450,7 +18450,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb+?+
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18500,7 +18500,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb-?-
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18550,7 +18550,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb"?"
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18600,7 +18600,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb|?|
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18650,7 +18650,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb/?/
 
 xclVerbatim
-kbgLightLilac
+knmVerbEnvBk
 
 \verb
 
@@ -18988,7 +18988,7 @@ end{comment}
 \begin{equation*} .. \end{equation*}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19036,7 +19036,7 @@ end{equation*}
 \begin{equation} .. \end{equation}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19084,7 +19084,7 @@ end{equation}
 \begin{gather*} .. \end{gather*}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19132,7 +19132,7 @@ end{gather*}
 \begin{gather} .. \end{gather}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19180,7 +19180,7 @@ end{gather}
 \begin{multline*} .. \end{multline*}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19228,7 +19228,7 @@ end{multline*}
 \begin{multline} .. \end{multline}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19276,7 +19276,7 @@ end{multline}
 \begin{align*} .. \end{align*}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19324,7 +19324,7 @@ end{align*}
 \begin{align} .. \end{align}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19372,7 +19372,7 @@ end{align}
 \begin{alignat*} .. \end{alignat*}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19420,7 +19420,7 @@ end{alignat*}
 \begin{alignat} .. \end{alignat}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19468,7 +19468,7 @@ end{alignat}
 \begin{flalign*} .. \end{flalign*}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19516,7 +19516,7 @@ end{flalign*}
 \begin{flalign} .. \end{flalign}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19564,7 +19564,7 @@ end{flalign}
 \begin{eqnarray*} .. \end{eqnarray*}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19612,7 +19612,7 @@ end{eqnarray*}
 \begin{eqnarray} .. \end{eqnarray}
 
 xclMath
-kbgLightBlue
+knmEquationEnvBk
 
 
 
@@ -19660,7 +19660,7 @@ end{eqnarray}
 \begin{array} .. \end{array}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -19708,7 +19708,7 @@ end{array}
 \begin{aligned} .. \end{aligned}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -19756,7 +19756,7 @@ end{aligned}
 \begin{matrix} .. \end{matrix}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -19804,7 +19804,7 @@ end{matrix}
 \begin{pmatrix*} .. \end{pmatrix*}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -19852,7 +19852,7 @@ end{pmatrix*}
 \begin{pmatrix} .. \end{pmatrix}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -19900,7 +19900,7 @@ end{pmatrix}
 \begin{bmatrix} .. \end{bmatrix}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -19948,7 +19948,7 @@ end{bmatrix}
 \begin{vmatrix} .. \end{vmatrix}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -19996,7 +19996,7 @@ end{vmatrix}
 \begin{Vmatrix} .. \end{Vmatrix}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -20044,7 +20044,7 @@ end{Vmatrix}
 \begin{cases} .. \end{cases}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -20092,7 +20092,7 @@ end{cases}
 \begin{split} .. \end{split}
 
 swclLaTeXArrayEnv
-kbgLightViolet
+knmArrayEnvBk
 
 
 
@@ -22396,7 +22396,7 @@ TeX
 \[?\]
 
 xclMath
-kbgLightLightRed
+knmMathEnvBk
 
 
 
@@ -22444,7 +22444,7 @@ TeX;BibTeX|DTX;INS;STY;AUX
 \(?\)
 
 xclMath
-kbgLightLightRed
+knmMathEnvBk
 
 
 
@@ -23947,7 +23947,7 @@ TikZ
 $$?$$
 
 xclMath
-kbgLightLightRed
+knmMathEnvBk
 
 
 
@@ -23995,7 +23995,7 @@ $
 $?$
 
 xclMath
-kbgLightLightRed
+knmMathEnvBk
 
 
 
@@ -25804,7 +25804,7 @@ TeX;BibTeX;MetaPost
 \footnote{?}
 
 SysNone
-kbgLightGreen
+knmFootnoteEnvBk
 
 \footnote
 
@@ -25853,7 +25853,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-kbgLightOrange
+knmTodoEnvBk
 
 \todo
 
@@ -25902,7 +25902,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-kbgLightOrange
+knmTodoEnvBk
 
 \todo
 
@@ -25950,7 +25950,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-kbgLightOrange
+knmTodoEnvBk
 
 \todo
 
@@ -65489,8 +65489,8 @@ fscAngleBrackets
 RGB_3
 8388736
 fscAt
-clDarkCyanLimeGreen
-4814081
+RGB_4
+128
 fscBackslash
 clDarkBlue
 9109504
@@ -65572,24 +65572,24 @@ clBtnText
 gclTeXGUIBk
 clBtnFace
 15790320
-kbgLightBlue
-#D0EBFF
-16772048
-kbgLightGreen
-#D3F9D8
-14219731
-kbgLightLightRed
-#FFE3E3
-14935039
-kbgLightLilac
-#F3D9FA
-16439795
-kbgLightOrange
-#FFE8CC
-13428991
-kbgLightViolet
+knmArrayEnvBk
 #E5DBFF
 16767973
+knmEquationEnvBk
+#D0EBFF
+16772048
+knmFootnoteEnvBk
+#D3F9D8
+14219731
+knmMathEnvBk
+#FFE3E3
+14935039
+knmTodoEnvBk
+#FFE8CC
+13428991
+knmVerbEnvBk
+#F3D9FA
+16439795
 kwcBibTeX
 RGB_9
 16733525
@@ -66385,7 +66385,7 @@ System and Common RGB Colors
 16777216
 
 16777216
-240
+246
 SysNone
 $1000000
 SysBtnFace
@@ -66866,6 +66866,18 @@ clMoneyGreen
 #C0DCC0
 clVividBlue
 #0111FF
+knmEquationEnvBk
+#D0EBFF
+knmMathEnvBk
+#FFE3E3
+knmFootnoteEnvBk
+#D3F9D8
+knmTodoEnvBk
+#FFE8CC
+knmArrayEnvBk
+#E5DBFF
+knmVerbEnvBk
+#F3D9FA
 
 Light Mode
 High Contrast Light
@@ -69483,7 +69495,7 @@ slcDefault
 slcProjectAlt
 #A0A0A0
 
-Highlited
+Handy Math
 
 clWhite
 16777215
@@ -69493,7 +69505,7 @@ clBlack
 16777216
 
 16777216
-52
+45
 fscNumeric
 SysNone
 fscTextDelimiters
@@ -69506,8 +69518,6 @@ fscBrackets
 clDarkBlue
 fscBraces
 clDarkBlue
-fscAt
-clDarkCyanLimeGreen
 fscEqual
 fscMathSymbols
 fscDollar
@@ -69586,18 +69596,6 @@ swcFootnote
 clDarkGreen
 swcSubsection
 clDarkGreen
-kbgLightBlue
-#D0EBFF
-kbgLightLightRed
-#FFE3E3
-kbgLightGreen
-#D3F9D8
-kbgLightOrange
-#FFE8CC
-kbgLightViolet
-#E5DBFF
-kbgLightLilac
-#F3D9FA
 
 
 *
