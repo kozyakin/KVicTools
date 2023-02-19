@@ -23606,7 +23606,7 @@ TeX;BibTeX;MetaPost|LaTeX3;TikZ
 0
 0
 0
-599332487424
+0
 0
 Option [?]
 
@@ -66023,8 +66023,8 @@ swcBibStyleArg
 SysNone
 16777216
 swcBrackets
-RGB_7
-9145088
+SysNone
+16777216
 swcChapter
 SysNone
 16777216
@@ -69493,7 +69493,7 @@ clBlack
 16777216
 
 16777216
-52
+53
 fscNumeric
 SysNone
 fscTextDelimiters
@@ -69548,6 +69548,8 @@ swclLaTeXEnvName
 SysNone
 swcLaTeXBreakSkip
 clVividBlue
+swcBrackets
+SysNone
 swcDocClassArg
 SysNone
 swcUsePackageArg
