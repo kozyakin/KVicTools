@@ -18300,7 +18300,7 @@ TeX;BibTeX;MetaPost;MetaFont;BST;IST;macrocode|DTX
 \verb:?:
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18350,7 +18350,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb!?!
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18400,7 +18400,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb=?=
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18450,7 +18450,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb+?+
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18500,7 +18500,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb-?-
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18550,7 +18550,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb"?"
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18600,7 +18600,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb|?|
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18650,7 +18650,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb/?/
 
 xclVerbatim
-knmVerbEnvBk
+oclVerbEnvBk
 
 \verb
 
@@ -18988,7 +18988,7 @@ end{comment}
 \begin{equation*} .. \end{equation*}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19036,7 +19036,7 @@ end{equation*}
 \begin{equation} .. \end{equation}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19084,7 +19084,7 @@ end{equation}
 \begin{gather*} .. \end{gather*}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19132,7 +19132,7 @@ end{gather*}
 \begin{gather} .. \end{gather}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19180,7 +19180,7 @@ end{gather}
 \begin{multline*} .. \end{multline*}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19228,7 +19228,7 @@ end{multline*}
 \begin{multline} .. \end{multline}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19276,7 +19276,7 @@ end{multline}
 \begin{align*} .. \end{align*}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19324,7 +19324,7 @@ end{align*}
 \begin{align} .. \end{align}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19372,7 +19372,7 @@ end{align}
 \begin{alignat*} .. \end{alignat*}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19420,7 +19420,7 @@ end{alignat*}
 \begin{alignat} .. \end{alignat}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19468,7 +19468,7 @@ end{alignat}
 \begin{flalign*} .. \end{flalign*}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19516,7 +19516,7 @@ end{flalign*}
 \begin{flalign} .. \end{flalign}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19564,7 +19564,7 @@ end{flalign}
 \begin{eqnarray*} .. \end{eqnarray*}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19612,7 +19612,7 @@ end{eqnarray*}
 \begin{eqnarray} .. \end{eqnarray}
 
 xclMath
-knmEquationEnvBk
+oclEquationEnvBk
 
 
 
@@ -19660,7 +19660,7 @@ end{eqnarray}
 \begin{array} .. \end{array}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -19708,7 +19708,7 @@ end{array}
 \begin{aligned} .. \end{aligned}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -19756,7 +19756,7 @@ end{aligned}
 \begin{matrix} .. \end{matrix}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -19804,7 +19804,7 @@ end{matrix}
 \begin{pmatrix*} .. \end{pmatrix*}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -19852,7 +19852,7 @@ end{pmatrix*}
 \begin{pmatrix} .. \end{pmatrix}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -19900,7 +19900,7 @@ end{pmatrix}
 \begin{bmatrix} .. \end{bmatrix}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -19948,7 +19948,7 @@ end{bmatrix}
 \begin{vmatrix} .. \end{vmatrix}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -19996,7 +19996,7 @@ end{vmatrix}
 \begin{Vmatrix} .. \end{Vmatrix}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -20044,7 +20044,7 @@ end{Vmatrix}
 \begin{cases} .. \end{cases}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -20092,7 +20092,7 @@ end{cases}
 \begin{split} .. \end{split}
 
 swclLaTeXArrayEnv
-knmArrayEnvBk
+oclArrayEnvBk
 
 
 
@@ -22396,7 +22396,7 @@ TeX
 \[?\]
 
 xclMath
-knmMathEnvBk
+oclMathEnvBk
 
 
 
@@ -22444,7 +22444,7 @@ TeX;BibTeX|DTX;INS;STY;AUX
 \(?\)
 
 xclMath
-knmMathEnvBk
+oclMathEnvBk
 
 
 
@@ -23947,7 +23947,7 @@ TikZ
 $$?$$
 
 xclMath
-knmMathEnvBk
+oclMathEnvBk
 
 
 
@@ -23995,7 +23995,7 @@ $
 $?$
 
 xclMath
-knmMathEnvBk
+oclMathEnvBk
 
 
 
@@ -25804,7 +25804,7 @@ TeX;BibTeX;MetaPost
 \footnote{?}
 
 SysNone
-knmFootnoteEnvBk
+oclFootnoteEnvBk
 
 \footnote
 
@@ -25853,7 +25853,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-knmTodoEnvBk
+oclTodoEnvBk
 
 \todo
 
@@ -25902,7 +25902,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-knmTodoEnvBk
+oclTodoEnvBk
 
 \todo
 
@@ -25950,7 +25950,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-knmTodoEnvBk
+oclTodoEnvBk
 
 \todo
 
@@ -65572,24 +65572,6 @@ clBtnText
 gclTeXGUIBk
 clBtnFace
 15790320
-knmArrayEnvBk
-#E5DBFF
-16767973
-knmEquationEnvBk
-#D0EBFF
-16772048
-knmFootnoteEnvBk
-#D3F9D8
-14219731
-knmMathEnvBk
-#FFE3E3
-14935039
-knmTodoEnvBk
-#FFE8CC
-13428991
-knmVerbEnvBk
-#F3D9FA
-16439795
 kwcBibTeX
 RGB_9
 16733525
@@ -65770,6 +65752,24 @@ RGB_0
 kwcXWEElements
 RGB_2
 14822282
+oclArrayEnvBk
+#E5DBFF
+16767973
+oclEquationEnvBk
+#D0EBFF
+16772048
+oclFootnoteEnvBk
+#D3F9D8
+14219731
+oclMathEnvBk
+#FFE3E3
+14935039
+oclTodoEnvBk
+#FFE8CC
+13428991
+oclVerbEnvBk
+#F3D9FA
+16439795
 RGB_0
 clDarkBlue
 9109504
@@ -66866,17 +66866,17 @@ clMoneyGreen
 #C0DCC0
 clVividBlue
 #0111FF
-knmEquationEnvBk
+oclEquationEnvBk
 #D0EBFF
-knmMathEnvBk
+oclMathEnvBk
 #FFE3E3
-knmFootnoteEnvBk
+oclFootnoteEnvBk
 #D3F9D8
-knmTodoEnvBk
+oclTodoEnvBk
 #FFE8CC
-knmArrayEnvBk
+oclArrayEnvBk
 #E5DBFF
-knmVerbEnvBk
+oclVerbEnvBk
 #F3D9FA
 
 Light Mode
