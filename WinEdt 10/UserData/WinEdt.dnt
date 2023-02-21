@@ -1,5 +1,5 @@
 33
-1089357896773117209
+1089357896772335157
 WinEdt 10
 WinEdt #
 1
@@ -11065,15 +11065,15 @@ Assign('THEME','Easy Gray');Exe('%b\Config\ChangeTheme.edt');
 
 3
 0
-Theme_Highlited
-&Highlited
+Theme_Highlighted
+&Highlighted
 Templates
 
 0
 0
 
 
-LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Highlited');Exe('%b\Config\ChangeTheme.edt');
+LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Highlighted');Exe('%b\Config\ChangeTheme.edt');
 0
 
 2
@@ -45497,6 +45497,7 @@ TeX
   "\~{a}" -> "ã"
   "\~{n}" -> "ñ"
   "\~{o}" -> "õ"
+  "\={\i}" -> "ī"
   "{\""A}" -> "Ä"
   "{\""E}" -> "Ë"
   "{\""I}" -> "Ï"
@@ -45552,6 +45553,7 @@ TeX
   "{\~a}" -> "ã"
   "{\~n}" -> "ñ"
   "{\~o}" -> "õ"
+  "{\=\i}" -> "ī"
   "\v{C}" -> "Č"
   "\v{S}" -> "Š"
   "\v{Z}" -> "Ž"
@@ -62324,7 +62326,7 @@ System and Common RGB Colors
 16777216
 
 16777216
-159
+165
 SysNone
 $1000000
 SysBtnFace
@@ -62643,6 +62645,18 @@ clWindow
 SysWindow
 clWindowText
 SysWindowText
+kbgLightBlue
+#CFEFFF
+kbgLightLightRed
+#FFD8D8
+kbgLightGreen
+#D0FFD0
+kbgLightOrange
+#FFE0B0
+kbgLightViolet
+#DADAFF
+kbgLightLilac
+#F2CDFF
 
 Default Windows and Text Colors
 clWhite
@@ -64733,7 +64747,7 @@ slcDefault
 slcProjectAlt
 SysGrayText
 
-Highlited
+Highlighted
 clWhite
 16777215
 clBlack
@@ -64742,7 +64756,7 @@ clBlack
 16777216
 
 16777216
-211
+205
 RGB_0
 clDarkBlue
 RGB_1
@@ -65153,18 +65167,6 @@ swcNumberNot
 RGB_F
 swclLaTeXCommentEx
 RGB_B
-kbgLightBlue
-#CFEFFF
-kbgLightLightRed
-#FFD8D8
-kbgLightGreen
-#D0FFD0
-kbgLightOrange
-#FFE0B0
-kbgLightViolet
-#DADAFF
-kbgLightLilac
-#F2CDFF
 
 
 *
