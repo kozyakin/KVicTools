@@ -1,5 +1,5 @@
 41
-1089357896772331214
+1089357896772332633
 WinEdt 11
 WinEdt #
 1
@@ -8886,7 +8886,7 @@ TeXLuaTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Executable|);");Exe('%b\Exec\TeX\PDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 24661
 
 0
@@ -8898,7 +8898,7 @@ TeXLuaTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","lualatex.exe");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Executable|);");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 0
 
 3
@@ -8911,7 +8911,7 @@ TeXXeTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe('%b\Exec\TeX\PDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Executable|);");Exe('%b\Exec\TeX\PDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 24645
 
 0
@@ -8923,7 +8923,7 @@ TeXXeTeXify
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","xelatex.exe");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Executable|);");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 0
 
 3

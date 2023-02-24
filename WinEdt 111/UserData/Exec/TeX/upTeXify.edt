@@ -1,18 +1,17 @@
 // -*- ASCII:EDT -*-
-// TeX: TeXify ...
+// TeX: upTeXify ...
 
-  Requires(20120413); // Requires this build of WinEdt to work properly
+  Requires(20211103); // Requires this build of WinEdt to work properly
 
-  IfConsoleRunning("Relax;","JMP('not_Running');");
-  ShowConsole(1);
-  Prompt("Another Application is already running in WinEdt's Console.>
- Terminate the application or wait for the execution to finish!");
-  FocusConsole(1);
-  Exit;
-
-:not_Running:: ======================================================
   PushTagsandRegisters;
   SetExitHandler('Exit_Handler');
+
+  LockEnvVar(!'LATEX');
+  LockEnvVar(!'BIBTEX');
+  LockEnvVar(!'MAKEINDEX');
+  LockVar(!'Max-TeXify-Iterations');
+  LockVar(!'Quick-TeXify');
+
   JMP('Start');
 
 :Exit_Handler:: =====================================================
@@ -34,13 +33,63 @@ Return;
   LetReg(7,'dvi');      // Output Format
   LetReg(6,'%O');       // Startup Folder
 
+  Exe('%b\Exec\TeX\BibTeXAuto.edt');
+
+  IfStr("%$(!'TeX-PragmaCmd');",!"1",!"<>",!"JMP(!'Pragma_Done');");
+
+  GetPreamble("\begin{document}",0,99);
+  FindInString("%!0",!'<%@{ }!Max@{ }iterations@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'LetReg(1,"%#0");',!'LetReg(1)');
+  FindInString("%!1",!'\#~{?}{0|1|2|3|4|5}~{?}',-1,-1,1);
+  IfOK(!"Assign(!'Max-TeXify-Iterations','%!1');");
+  FindInString("%!0",!'<%@{ }!Quick@{ }TeXify@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'LetReg(1,"%#0");',!'LetReg(1)');
+  FindInString("%!1",!'\#~{?}{0|1}~{?}',-1,-1,1);
+  IfOK(!"Assign(!'Quick-TeXify','%!1');");
+  FindInString("%!0",!'<%@{ }!TeXify@{ }engine@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'LetReg(1,"%#0");',!'LetReg(1)');
+  IfIStr("%!1",!"latex",!"=",!"SetEnvVar(!'LATEX','%$(!|LaTeX-Executable|);')");
+  IfIStr("%!1",!"tex",!"=",!"SetEnvVar(!'LATEX','%$(!|TeX-Executable|);')");
+  IfIStr("%!1",!"amstex",!"=",!"SetEnvVar(!'LATEX','%$(!|AMSTeX-Executable|);')");
+  FindInString("%!0",!'<%@{ }!BIB @{ }program@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'LetReg(1,"%#0");',!'LetReg(1);');
+  FindInString("%!1",!'\#~{?}{bibtex8|bibtex|biber}~{?}',-1,-1,1);
+  IfOK(!'FormatString("%!1",1,!"lowercase");',!'LetReg(1);');
+  IfStr("%!1",!"",!"<>",!'Assign(!"BibTeX-Executable","%!1.exe");');
+  FindInString("%!0",!'<%@{ }!BIB @{ }exe@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"BibTeX-Executable","%#0");');
+  FindInString("%!0",!'<%@{ }!BIB @{ }opt@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"BibTeX-Switches","%#0");');
+  FindInString("%!0",!'<%@{ }!BIB @{ }par@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"BibTeX-Parameters","%#0");');
+  FindInString("%!0",!'<%@{ }!IND @{ }exe@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"MakeIndex-Executable","%#0");');
+  FindInString("%!0",!'<%@{ }!IND @{ }opt@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"MakeIndex-Switches","%#0");');
+  FindInString("%!0",!'<%@{ }!IND @{ }par@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"MakeIndex-Parameters","%#0");');
+  FindInString("%!0",!'<%@{ }!GLS @{ }exe@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"MakeGlossary-Executable","%#0");');
+  FindInString("%!0",!'<%@{ }!GLS @{ }opt@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"MakeGlossary-Switches","%#0");');
+  FindInString("%!0",!'<%@{ }!GLS @{ }par@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"MakeGlossary-Parameters","%#0");');
+  FindInString("%!0",!'<%@{ }!TeXify @{ }exe@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"TeXify-Executable","%#0");');
+  FindInString("%!0",!'<%@{ }!TeXify @{ }opt@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"TeXify-Switches","%#0");');
+  FindInString("%!0",!'<%@{ }!TeXify @{ }par@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign(!"TeXify-Parameters","%#0");');
+
+:Pragma_Done:: ======================================================
+
   // MiKTeX's texify.exe?
   IfIStr("%$('%!9-Executable');",!"texify.exe",!"=",!"Assign(!'TeX-Opt',!'--tex-option=');",!"Assign(!'TeX-Opt');");
 
   // Display a Dialog for Extra Switches:
   IfStr("%$('%!9-GUI');","1","=",>
     !|GetString("Switches: ","%!9 Switches","%$('%!9--Switches');");>
-      IfOK(!`Assign('%!9--Switches','%!?');`,!`PopTagsandRegisters;Exit;`);|,>
+      IfOK(!`Assign('%!9--Switches','%!?');`,!`Exit;`);|,>
     !|Release('%!9--Switches');|);
   LetReg(5,@@"%$('%!9-Switches');");
   IfIStr(@@"%$('%!9-Executable');","dvilualatex.exe","=",>
@@ -57,6 +106,12 @@ Return;
     !|LetReg(4,'%$("TeX-Opt");--interaction=errorstopmode');|);
   // C Style Errors?
   IfStr("%$('%!9-C-style-errors');","1",!"=",!|LetReg(4,'%!4 %$("TeX-Opt");--file-line-error');|);
+  // Aux Directory?
+  IfStr("%$('TeXOut-AutoIncDir');","1","<>",!"JMP('no_IncDir');");
+  IfStr('%P','',!'=',!"JMP('no_IncDir');");
+  IfStr('%O','%P',!'=',!"JMP('no_IncDir');");
+  LetReg(4,'%!4 --include-directory="%%P"');
+:no_IncDir:: ========================================================
   // TeX Sync?
   Assign('Sync');
   IfStr('%0',!'--src',!'<>',!'JMP("no_Sync");');
@@ -64,6 +119,14 @@ Return;
   IfStr('%$("PDF-Sync");',!'',!'=',!'JMP("no_Sync");');
   Assign('Sync','%$("TeX-Opt");%$("PDF-Sync");');
 :no_Sync:: ==========================================================
+  IfStr("%$(!'TeX-PragmaCmd');",!"1",!"<>",!"JMP(!'no_Pragma');");
+  FindInString("%!0",!'<%@{ }!TeXify @{ }ext@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'Assign("%!9--Switches","%$(`%!9--Switches`); %#0");');
+  // Command Line overwrites the executable, switches, and parameters!
+  FindInString("%!0",!'<%@{ }!TeXify @{ }cmd@{ }=@{ }\(*\)@{ }>',-1,-1,1);
+  IfOK(!'LetReg(5,"%#0");JMP(!"Execute");');
+:no_Pragma:==========================================================
+
   // Build the Command Line ...
   LetReg(5, "%!3 %!4 %$('Sync'); %$('%!9--Switches'); %$('%!9-Parameters');");
 
@@ -72,12 +135,16 @@ Return;
   IfFileExists("%O\%N.blg",!"DeleteFile('%O\%N.blg');");
   IfFileExists("%O\%N.ilg",!"DeleteFile('%O\%N.ilg');");
   IfFileExists("%O\%N.glg",!"DeleteFile('%O\%N.glg');");
+  IfFileExists("%O\%N.nlg",!"DeleteFile('%O\%N.nlg');");
   IfStr("%$('%!9-Clean_Build');","1","=",>
     !|IfFileExists("%O\%N.bbl",!"DeleteFile('%O\%N.bbl');");>
+      IfFileExists("%O\%N.bcf",!"DeleteFile('%O\%N.bcf');");>
       IfFileExists("%O\%N.ind",!"DeleteFile('%O\%N.ind');");>
       IfFileExists("%O\%N.idx",!"DeleteFile('%O\%N.idx');");>
       IfFileExists("%O\%N.gls",!"DeleteFile('%O\%N.gls');");>
       IfFileExists("%O\%N.glo",!"DeleteFile('%O\%N.glo');");>
+      IfFileExists("%O\%N.nls",!"DeleteFile('%O\%N.nls');");>
+      IfFileExists("%O\%N.nlo",!"DeleteFile('%O\%N.nlo');");>
       IfFileExists("%O\%N.toc",!"DeleteFile('%O\%N.toc');");>
       IfFileExists("%O\%N.lof",!"DeleteFile('%O\%N.lof');");>
       IfFileExists("%O\%N.lot",!"DeleteFile('%O\%N.lot');");>
@@ -109,8 +176,12 @@ Return;
 :TeXify_Iterate:: ===================================================
   LetReg(3,"%$('TeXify-Iterations');");
   IfStr("%$('Pre-Process');","","=",!"Assign('Pre-Process','TeXify');");
-  IfNum("%$(!'Max-TeXify-Iterations');",!"0",!">",>
-    !|Exe('%b\Exec\TeX\upBibTeXify.edt');|);
+  //Assign("Pre-Process","PDFTeXify");
+  IfStr("%$(!'Quick-TeXify');",!"1",!"=",>
+    !`IfNum("%$(!'Max-TeXify-Iterations');","%!3",!">",>
+      !|Exe('%b\Exec\TeX\upBibTeXify.edt');|);`,>
+    !`IfNum("%$(!'Max-TeXify-Iterations');",!"0",!">",>
+      !|Exe('%b\Exec\TeX\upBibTeXify.edt');|);`);
   Assign("Pre-Process");
   // Use Execution Modes to determine the flow of execution...
   Assign(!"Compile-Flag",!"3");
@@ -127,12 +198,5 @@ Return;
     !"IfStr(`%$('External-Call');`,`1`,`<>`,>
         !`IfStr(|%$('Compile Status');|,|Run Error|,|<>|,>
             !|IfStr(*%$('%!9-Report');*,*1*,*=*,!*Exe('%b\Exec\ShowReport.edt');*);|);`);");
-  IfStr("%$('Force-Focus');","1","<>",>
-    !|IfStr("%$('External-Call');","1","<>",!"FocusConsole(-1);");|);
-  SetExitHandler;
-  PopTagsandRegisters;
-  // Restore the execution modes ...
-  IfStr("%$('External-Call');","1","<>",!"Exe('%b\Exec\%$(|Exec-Dir|);\ExeMode.edt');");
-  Assign('Compile-Flag','');
 
 End;

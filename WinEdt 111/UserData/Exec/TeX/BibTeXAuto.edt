@@ -1,4 +1,5 @@
 // Auto-detect BibTeX executable (bibtex, bibtex8, or biber)
+
   IfStr("%$(!'Bib-AutoDetect');",!"1",!"<>",!"Exit;");
   IfFileExists('%O\%N.aux',!'Relax;',!"Exit;");
   PushTagsandRegisters;
