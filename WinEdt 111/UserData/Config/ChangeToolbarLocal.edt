@@ -17,7 +17,7 @@
   IfStr("%!0","%!1",!"=",!"JMP(!'doCopy');");
   ReadFile("%b\ConfigEx\Toolbars\Toolbar2l.ini",1);
   IfStr("%!0","%!1",!"=",!"JMP(!'doCopy');");
-  ReadFile("%B\ConfigEx\Toolbars\Toolbar2s.ini",1);
+  ReadFile("%b\ConfigEx\Toolbars\Toolbar2s.ini",1);
   IfStr("%!0","%!1",!"=",!"JMP(!'doCopy');");
   ReadFile("%B\ConfigEx\Toolbars\Toolbar5x.ini",1);
   IfStr("%!0","%!1",!"=",!"JMP(!'doCopy');");
