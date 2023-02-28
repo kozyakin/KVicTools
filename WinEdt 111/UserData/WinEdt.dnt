@@ -18295,7 +18295,7 @@ TeX;BibTeX;MetaPost;MetaFont;BST;IST;macrocode|DTX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb:?:
 
@@ -18345,7 +18345,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb!?!
 
@@ -18395,7 +18395,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb=?=
 
@@ -18445,7 +18445,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb+?+
 
@@ -18495,7 +18495,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb-?-
 
@@ -18545,7 +18545,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb"?"
 
@@ -18595,7 +18595,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb|?|
 
@@ -18645,7 +18645,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--374941702813973760
+-374940603302345984
 0
 \verb/?/
 
@@ -19655,7 +19655,7 @@ end{eqnarray}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{array} .. \end{array}
 
@@ -19703,7 +19703,7 @@ end{array}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{aligned} .. \end{aligned}
 
@@ -19751,7 +19751,7 @@ end{aligned}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{matrix} .. \end{matrix}
 
@@ -19799,7 +19799,7 @@ end{matrix}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{pmatrix*} .. \end{pmatrix*}
 
@@ -19847,7 +19847,7 @@ end{pmatrix*}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{pmatrix} .. \end{pmatrix}
 
@@ -19895,7 +19895,7 @@ end{pmatrix}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{bmatrix} .. \end{bmatrix}
 
@@ -19943,7 +19943,7 @@ end{bmatrix}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{vmatrix} .. \end{vmatrix}
 
@@ -19991,7 +19991,7 @@ end{vmatrix}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{Vmatrix} .. \end{Vmatrix}
 
@@ -20039,7 +20039,7 @@ end{Vmatrix}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{cases} .. \end{cases}
 
@@ -20087,7 +20087,7 @@ end{cases}
 0
 0
 0
--20869834216504576
+-14114434775448832
 0
 \begin{split} .. \end{split}
 
@@ -65753,8 +65753,8 @@ kwcXWEElements
 RGB_2
 14822282
 oclArrayEnvBk
-#DAB5FF
-16758234
+#DACDFF
+16764378
 oclEquationEnvBk
 #BAE1FF
 16769466
@@ -65768,8 +65768,8 @@ oclTodoEnvBk
 #FFE0BA
 12247295
 oclVerbEnvBk
-#F0CBFA
-16436208
+#F1CBFA
+16436209
 RGB_0
 clDarkBlue
 9109504
@@ -66875,9 +66875,9 @@ oclFootnoteEnvBk
 oclTodoEnvBk
 #FFE0BA
 oclArrayEnvBk
-#DAB5FF
+#DACDFF
 oclVerbEnvBk
-#F0CBFA
+#F1CBFA
 
 Light Mode
 High Contrast Light
