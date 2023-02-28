@@ -18295,7 +18295,7 @@ TeX;BibTeX;MetaPost;MetaFont;BST;IST;macrocode|DTX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb:?:
 
@@ -18345,7 +18345,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb!?!
 
@@ -18395,7 +18395,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb=?=
 
@@ -18445,7 +18445,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb+?+
 
@@ -18495,7 +18495,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb-?-
 
@@ -18545,7 +18545,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb"?"
 
@@ -18595,7 +18595,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb|?|
 
@@ -18645,7 +18645,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--370997754605141248
+-374941702813973760
 0
 \verb/?/
 
@@ -18983,7 +18983,7 @@ end{comment}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{equation*} .. \end{equation*}
 
@@ -19031,7 +19031,7 @@ end{equation*}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{equation} .. \end{equation}
 
@@ -19079,7 +19079,7 @@ end{equation}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{gather*} .. \end{gather*}
 
@@ -19127,7 +19127,7 @@ end{gather*}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{gather} .. \end{gather}
 
@@ -19175,7 +19175,7 @@ end{gather}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{multline*} .. \end{multline*}
 
@@ -19223,7 +19223,7 @@ end{multline*}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{multline} .. \end{multline}
 
@@ -19271,7 +19271,7 @@ end{multline}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{align*} .. \end{align*}
 
@@ -19319,7 +19319,7 @@ end{align*}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{align} .. \end{align}
 
@@ -19367,7 +19367,7 @@ end{align}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{alignat*} .. \end{alignat*}
 
@@ -19415,7 +19415,7 @@ end{alignat*}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{alignat} .. \end{alignat}
 
@@ -19463,7 +19463,7 @@ end{alignat}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{flalign*} .. \end{flalign*}
 
@@ -19511,7 +19511,7 @@ end{flalign*}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{flalign} .. \end{flalign}
 
@@ -19559,7 +19559,7 @@ end{flalign}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{eqnarray*} .. \end{eqnarray*}
 
@@ -19607,7 +19607,7 @@ end{eqnarray*}
 0
 0
 0
--5681726336531712
+-8520665359449344
 0
 \begin{eqnarray} .. \end{eqnarray}
 
@@ -19655,7 +19655,7 @@ end{eqnarray}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{array} .. \end{array}
 
@@ -19703,7 +19703,7 @@ end{array}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{aligned} .. \end{aligned}
 
@@ -19751,7 +19751,7 @@ end{aligned}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{matrix} .. \end{matrix}
 
@@ -19799,7 +19799,7 @@ end{matrix}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{pmatrix*} .. \end{pmatrix*}
 
@@ -19847,7 +19847,7 @@ end{pmatrix*}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{pmatrix} .. \end{pmatrix}
 
@@ -19895,7 +19895,7 @@ end{pmatrix}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{bmatrix} .. \end{bmatrix}
 
@@ -19943,7 +19943,7 @@ end{bmatrix}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{vmatrix} .. \end{vmatrix}
 
@@ -19991,7 +19991,7 @@ end{vmatrix}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{Vmatrix} .. \end{Vmatrix}
 
@@ -20039,7 +20039,7 @@ end{Vmatrix}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{cases} .. \end{cases}
 
@@ -20087,7 +20087,7 @@ end{cases}
 0
 0
 0
--10161690473594112
+-20869834216504576
 0
 \begin{split} .. \end{split}
 
@@ -22391,7 +22391,7 @@ TeX
 0
 0
 0
--2025494482165693696
+-2965902379355995392
 0
 \[?\]
 
@@ -22439,7 +22439,7 @@ TeX;BibTeX|DTX;INS;STY;AUX
 0
 0
 0
--2025494482165693696
+-2965902379355995392
 0
 \(?\)
 
@@ -23942,7 +23942,7 @@ TikZ
 0
 0
 0
--2025494482165693696
+-2965902379355995392
 0
 $$?$$
 
@@ -23990,7 +23990,7 @@ $
 0
 0
 0
--2025494482165693696
+-2965902379355995392
 0
 $?$
 
@@ -25799,7 +25799,7 @@ TeX;BibTeX;MetaPost
 0
 0
 0
--2811984495362702848
+-3893992997536136704
 0
 \footnote{?}
 
@@ -25848,7 +25848,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 0
--3681412319910297088
+-4980700812406685184
 0
 \todo{?}
 
@@ -25897,7 +25897,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 1
--3681412319910297088
+-4980700812406685184
 0
 \todo{?}
 
@@ -25945,7 +25945,7 @@ TeX;BibTeX|INS;STY;AUX
 0
 0
 2
--3681412319910297088
+-4980700812406685184
 0
 \todo{?}
 
@@ -65753,23 +65753,23 @@ kwcXWEElements
 RGB_2
 14822282
 oclArrayEnvBk
-#E5DBFF
-16767973
+#DAB5FF
+16758234
 oclEquationEnvBk
-#D0EBFF
-16772048
+#BAE1FF
+16769466
 oclFootnoteEnvBk
-#D3F9D8
-14219731
+#C2F5C9
+13235650
 oclMathEnvBk
-#FFE3E3
-14935039
+#FFD6D6
+14079743
 oclTodoEnvBk
-#FFE8CC
-13428991
+#FFE0BA
+12247295
 oclVerbEnvBk
-#F3D9FA
-16439795
+#F0CBFA
+16436208
 RGB_0
 clDarkBlue
 9109504
@@ -66867,17 +66867,17 @@ clMoneyGreen
 clVividBlue
 #0111FF
 oclEquationEnvBk
-#D0EBFF
+#BAE1FF
 oclMathEnvBk
-#FFE3E3
+#FFD6D6
 oclFootnoteEnvBk
-#D3F9D8
+#C2F5C9
 oclTodoEnvBk
-#FFE8CC
+#FFE0BA
 oclArrayEnvBk
-#E5DBFF
+#DAB5FF
 oclVerbEnvBk
-#F3D9FA
+#F0CBFA
 
 Light Mode
 High Contrast Light
