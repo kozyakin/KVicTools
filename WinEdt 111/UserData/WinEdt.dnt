@@ -1,5 +1,5 @@
 41
-1089357896772332633
+1089357896772327743
 WinEdt 11
 WinEdt #
 1
@@ -10391,7 +10391,7 @@ Assign('THEME','Midnight Blue');Exe('%b\Config\ChangeTheme.edt');
 
 0
 Theme_Midnight_Green
-Midnight G&reen
+Midnight Gree&n
 Templates
 
 0
@@ -10399,6 +10399,19 @@ Templates
 
 
 Assign('THEME','Midnight Green');Exe('%b\Config\ChangeTheme.edt');
+0
+
+3
+0
+Reload_Colors
+&Восстановить цвета
+Colors
+
+0
+0
+
+
+LoadConfig('ConfigEx\Colors.ini');
 0
 
 3
@@ -32488,6 +32501,8 @@ INI
 1
 1
 0
+%%%INCLUDE
+%%%include
 %%INCLUDE
 %%include
 %INCLUDE
