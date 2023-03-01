@@ -10403,19 +10403,6 @@ Assign('THEME','Midnight Green');Exe('%b\Config\ChangeTheme.edt');
 
 3
 0
-Reload_Colors
-&Восстановить цвета
-Colors
-
-0
-0
-
-
-LoadConfig('ConfigEx\Colors.ini');
-0
-
-3
-0
 Theme_Handy_Math
 &Handy Math
 Templates
@@ -10425,6 +10412,19 @@ Templates
 
 
 LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Handy Math');Exe('%b\Config\ChangeTheme.edt');
+0
+
+3
+0
+Reload_Colors
+&Перезагрузить цвета
+Colors
+
+0
+0
+
+
+LoadConfig('ConfigEx\Colors.ini');
 0
 
 2
