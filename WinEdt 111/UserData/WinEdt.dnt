@@ -8854,7 +8854,7 @@ TeXPDFTeXify
 
 0
 PDFTeXify
-PDF&TeXify
+PDF&TeXify + BibTeX Classic
 TeXPDFTeXify
 
 4
@@ -8865,21 +8865,21 @@ Exe('%b\Exec\TeX\PDFTeXify.edt');
 24656
 
 0
-PDFTeXify+upBibTeX
-PDFTeXify+upBibTeX
+PDFTeXify+uBibTeX
+PDFTeXify + BibTeX Unicode
 TeXPDFTeXify
 
 4
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Exe('%b\Exec\TeX\upPDFTeXify.edt');
+Exe('%b\Exec\TeX\uPDFTeXify.edt ');
 0
 
 3
 0
 LuaTeXify
-L&uaTeXify
+L&uaTeXify + BibTeX Classic
 TeXLuaTeXify
 
 4
@@ -8890,21 +8890,21 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Exe
 24661
 
 0
-LuaTeXify+upBibTeX
-LuaTeXify+upBibTeX
+LuaTeXify+uBibTeX
+LuaTeXify + BibTeX Unicode
 TeXLuaTeXify
 
 4
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Executable|);");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Executable|);");Exe('%b\Exec\TeX\uPDFTeXify.edt ');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 0
 
 3
 0
 XeTeXify
-X&eTeXify
+X&eTeXify + BibTeX Classic
 TeXXeTeXify
 
 4
@@ -8915,15 +8915,15 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Execut
 24645
 
 0
-XeTeXify+upBibTeX
-XeTeXify+upBibTeX
+XeTeXify+uBibTeX
+XeTeXify + BibTeX Unicode
 TeXXeTeXify
 
 4
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Executable|);");Exe('%b\Exec\TeX\upPDFTeXify.edt');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
+Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Executable|);");Exe('%b\Exec\TeX\uPDFTeXify.edt ');SetEnvVar("PDFLATEX","%$('OLD-PDFLATEX');");Release("OLD-PDFLATEX");
 0
 
 3
@@ -8951,7 +8951,7 @@ TeXTeXify
 
 0
 TeXify
-&TeXify
+&TeXify + BibTeX Classic
 TeXTeXify
 
 4
@@ -8962,15 +8962,15 @@ Exe('%b\Exec\TeX\TeXify.edt');
 24664
 
 0
-TeXify+upBibTeX
-TeXify+upBibTeX
+TeXify+uBibTeX
+TeXify + BibTeX Unicode
 TeXTeXify
 
 4
 0
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Exe('%b\Exec\TeX\upTeXify.edt');
+Exe('%b\Exec\TeX\uTeXify.edt');
 0
 
 2
@@ -9207,7 +9207,7 @@ Exe('%b\Exec\TeX\dvi2ps.edt');
 3
 0
 BibTeX
-&BibTeX / Biber
+&BibTeX  Classic / Biber
 Biber
 
 0
@@ -9218,15 +9218,15 @@ Exe('%b\Exec\TeX\BibTeX.edt');
 24642
 
 0
-upBibTeX
-&upBibTeX
+uBibTeX
+BibTeX &Unicode
 Bold
 
 0
 0
 %O\%N.aux*"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
-Exe('%b\Exec\TeX\upBibTeX.edt');
+Exe('%b\Exec\TeX\uBibTeX.edt');
 0
 
 3
@@ -16041,12 +16041,12 @@ TeX Compile
 
 24
 PDFTeXify
-PDFTeXify+upBibTeX
+PDFTeXify+uBibTeX
 PDFLaTeX
 PDFTeX
 -
 TeXify
-TeXify+upBibTeX
+TeXify+uBibTeX
 LaTeX
 TeX
 AMSTeX
@@ -16054,12 +16054,12 @@ AMSTeX
 ConTeXt
 -
 LuaTeXify
-LuaTeXify+upBibTeX
+LuaTeXify+uBibTeX
 LuaLaTeX
 LuaTeX
 -
 XeTeXify
-XeTeXify+upBibTeX
+XeTeXify+uBibTeX
 XeLaTeX
 XeTeX
 -
@@ -16082,7 +16082,7 @@ BibTeX
 
 
 0
-upBibTeX
+uBibTeX
 
 0
 0

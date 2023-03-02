@@ -43,7 +43,7 @@ IfFileExists('%O\%N.aux',!'Relax;',!'JMP("MakeIndex");');
     Assign("upBibTeX-Background_Window","%$('%$(`Pre-Process`);-Background_Window');");
     IfStr("%$('upBibTeX-WinEdt_Console');","1","<>",!|Assign("upBibTeX-Hidden_Window","1");|);
 
-    Exe('%b\Exec\TeX\upBibTeX.edt');
+    Exe('%b\Exec\TeX\uBibTeX.edt');
 
 :MakeIndex:: ========================================================
 

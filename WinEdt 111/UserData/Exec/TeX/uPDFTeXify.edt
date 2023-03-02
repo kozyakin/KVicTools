@@ -286,9 +286,9 @@ Exit;
   Assign("Pre-Process","PDFTeXify");
   IfStr("%$(!'Quick-TeXify');",!"1",!"=",>
     !`IfNum("%$(!'Max-TeXify-Iterations');","%!3",!">",>
-      !|Exe('%b\Exec\TeX\upBibTeXify.edt');|);`,>
+      !|Exe('%b\Exec\TeX\uBibTeXify.edt');|);`,>
     !`IfNum("%$(!'Max-TeXify-Iterations');",!"0",!">",>
-      !|Exe('%b\Exec\TeX\upBibTeXify.edt');|);`);
+      !|Exe('%b\Exec\TeX\uBibTeXify.edt');|);`);
   Assign("Pre-Process");
   // Use Execution Modes to determine the flow of execution...
   Assign(!"Compile-Flag",!"3");
