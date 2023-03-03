@@ -22,6 +22,8 @@
 :auto_Bib:: =====================================================================
   Assign(!'BibTeX-Executable',"%!0");
   Release("BibTeX-Switches");
+  Assign(!'upBibTeX-Executable',"%!0");
+  Release("upBibTeX-Switches");
   JMP(!'no_bibAutoExe');
 :no_xml:: =======================================================================
   // If .bcf is newer than .aux it must be biber!
@@ -29,6 +31,8 @@
   IfFileOlder('%O\%N.bcf','%O\%N.aux',!"JMP(!'no_biber');","",99);
   Assign(!'BibTeX-Executable',!"biber.exe");
   Release("BibTeX-Switches");
+  Assign(!'upBibTeX-Executable',!"biber.exe");
+  Release("upBibTeX-Switches");
   JMP(!'no_bibAutoExe');
 :no_biber:: =====================================================================
   // if .bcf does not exist or it is older than .aux it cannot be biber!

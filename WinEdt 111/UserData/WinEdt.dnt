@@ -9219,7 +9219,7 @@ Exe('%b\Exec\TeX\BibTeX.edt');
 
 0
 uBibTeX
-BibTeX &Unicode
+BibTeX &Unicode / Biber
 Bold
 
 0
