@@ -2,4 +2,4 @@
 chcp 65001 >nul
 echo.
 @echo on
-tlmgr update --self --all --pause
+tlmgr update --all --self --pause
