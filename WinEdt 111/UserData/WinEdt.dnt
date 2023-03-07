@@ -8854,7 +8854,7 @@ TeXPDFTeXify
 
 0
 PDFTeXify
-PDF&TeXify + BibTeX Classic
+PDF&TeXify (8-bit BibTeX)
 TeXPDFTeXify
 
 4
@@ -8866,7 +8866,7 @@ Exe('%b\Exec\TeX\PDFTeXify.edt');
 
 0
 PDFTeXify+uBibTeX
-PDFTeXify + BibTeX Unicode
+PDFTeXify (UTF-8 BibTeX)
 TeXPDFTeXify
 
 4
@@ -8879,7 +8879,7 @@ Exe('%b\Exec\TeX\uPDFTeXify.edt ');
 3
 0
 LuaTeXify
-L&uaTeXify + BibTeX Classic
+L&uaTeXify (8-bit BibTeX)
 TeXLuaTeXify
 
 4
@@ -8891,7 +8891,7 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Exe
 
 0
 LuaTeXify+uBibTeX
-LuaTeXify + BibTeX Unicode
+LuaTeXify (UTF-8 BibTeX)
 TeXLuaTeXify
 
 4
@@ -8904,7 +8904,7 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Exe
 3
 0
 XeTeXify
-X&eTeXify + BibTeX Classic
+X&eTeXify (8-bit BibTeX)
 TeXXeTeXify
 
 4
@@ -8916,7 +8916,7 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Execut
 
 0
 XeTeXify+uBibTeX
-XeTeXify + BibTeX Unicode
+XeTeXify (UTF-8 BibTeX)
 TeXXeTeXify
 
 4
@@ -8951,7 +8951,7 @@ TeXTeXify
 
 0
 TeXify
-&TeXify + BibTeX Classic
+&TeXify (8-bit BibTeX)
 TeXTeXify
 
 4
@@ -8963,7 +8963,7 @@ Exe('%b\Exec\TeX\TeXify.edt');
 
 0
 TeXify+uBibTeX
-TeXify + BibTeX Unicode
+TeXify (UTF-8 BibTeX)
 TeXTeXify
 
 4
@@ -9207,7 +9207,7 @@ Exe('%b\Exec\TeX\dvi2ps.edt');
 3
 0
 BibTeX
-&BibTeX  Classic / Biber
+8-bit &BibTeX / Biber
 Biber
 
 0
@@ -9219,7 +9219,7 @@ Exe('%b\Exec\TeX\BibTeX.edt');
 
 0
 uBibTeX
-BibTeX &Unicode / Biber
+&UTF-8 BibTeX / Biber
 Bold
 
 0
