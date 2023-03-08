@@ -1,6 +1,6 @@
-# **WinEdt 11.0 KVicTools**
+# **WinEdt 11.1 KVicTools**
 
-Эта программа является надстройкой над программой WinEdt 11.0, добавляющей к ней русский интерфейс и ряд сервисных функций, направленных на облегчение работы с документами в формате TeX.
+Эта программа является надстройкой над программой WinEdt 11.1, добавляющей к ней русский интерфейс и ряд сервисных функций, направленных на облегчение работы с документами в формате TeX.
 
 В частности,
 
@@ -17,17 +17,17 @@
 
 - и т.д., и т.п.
 
-Для просмотра PDF файлов по умолчанию в WinEdt 11.0 используется программа WinEdtPDF, обладающая возможностью прямого и обратного поиска между TEX документами и их PDF образами.
+Для просмотра PDF файлов по умолчанию в WinEdt 11.1 используется программа WinEdtPDF, обладающая возможностью прямого и обратного поиска между TEX документами и их PDF образами.
 
 Дополнительная информация и последние новости относительно проекта WinEdt содержатся на сайте <http://www.winedt.com>
 
 Вопросы, касающиеся оригинальной версии WinEdt, следует направлять по адресу <support@winedt.com>
 
-На вопросы, касающиеся **WinEdt 11.0 KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:kozyakin@iitp.ru)
+На вопросы, касающиеся **WinEdt 11.1 KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:kozyakin@iitp.ru)
 
 ---
 
-This program is an add-on for the WinEdt 11.0 program, supplementing it with a Russian interface and a set of service functions designed to facilitate work with TeX documents.
+This program is an add-on for the WinEdt 11.1 program, supplementing it with a Russian interface and a set of service functions designed to facilitate work with TeX documents.
 
 In particular,
 
@@ -43,10 +43,10 @@ In particular,
 
 - etc.
 
-For viewing PDF files WinEdt 11.0 uses WinEdtPDF, which offers the ability to search forward and backward between TEX documents and their PDF images.
+For viewing PDF files WinEdt 11.1 uses WinEdtPDF, which offers the ability to search forward and backward between TEX documents and their PDF images.
 
 For more information and latest news about the WinEdt project, please visit  <http://www.winedt.com>.
 
 Questions about the original version of WinEdt should be directed to <support@winedt.com>.
 
-Questions about WinEdt KVicTools will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru).
+Questions about **WinEdt 11.1 KVicTools** will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru).
