@@ -8854,7 +8854,7 @@ TeXPDFTeXify
 
 0
 PDFTeXify
-PDF&TeXify (8-bit BibTeX)
+PDF&TeXify
 TeXPDFTeXify
 
 4
@@ -8866,7 +8866,7 @@ Exe('%b\Exec\TeX\PDFTeXify.edt');
 
 0
 PDFTeXify+uBibTeX
-PDFTeXify (UTF-8 BibTeX)
+PDFTeXify + upBibTeX
 TeXPDFTeXify
 
 4
@@ -8879,7 +8879,7 @@ Exe('%b\Exec\TeX\uPDFTeXify.edt ');
 3
 0
 LuaTeXify
-L&uaTeXify (8-bit BibTeX)
+L&uaTeXify
 TeXLuaTeXify
 
 4
@@ -8891,7 +8891,7 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Exe
 
 0
 LuaTeXify+uBibTeX
-LuaTeXify (UTF-8 BibTeX)
+LuaTeXify + upBibTeX
 TeXLuaTeXify
 
 4
@@ -8904,7 +8904,7 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|LuaLaTeX-Exe
 3
 0
 XeTeXify
-X&eTeXify (8-bit BibTeX)
+X&eTeXify
 TeXXeTeXify
 
 4
@@ -8916,7 +8916,7 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Execut
 
 0
 XeTeXify+uBibTeX
-XeTeXify (UTF-8 BibTeX)
+XeTeXify + upBibTeX
 TeXXeTeXify
 
 4
@@ -8951,7 +8951,7 @@ TeXTeXify
 
 0
 TeXify
-&TeXify (8-bit BibTeX)
+&TeXify
 TeXTeXify
 
 4
@@ -8963,7 +8963,7 @@ Exe('%b\Exec\TeX\TeXify.edt');
 
 0
 TeXify+uBibTeX
-TeXify (UTF-8 BibTeX)
+TeXify + upBibTeX
 TeXTeXify
 
 4
@@ -9207,7 +9207,7 @@ Exe('%b\Exec\TeX\dvi2ps.edt');
 3
 0
 BibTeX
-8-bit &BibTeX / Biber
+&BibTeX / Biber
 Biber
 
 0
@@ -9219,7 +9219,7 @@ Exe('%b\Exec\TeX\BibTeX.edt');
 
 0
 uBibTeX
-&UTF-8 BibTeX / Biber
+upBibTeX / Biber
 Bold
 
 0
@@ -15814,7 +15814,7 @@ Notepad
 MS_Paint
 
 Toolbar_TeX2
-45
+44
 0
 0
 0
@@ -16074,23 +16074,16 @@ TeXify2PDF
 
 0
 BibTeX
-
+BibTeX
+8
 0
 0
-0
 
 
 
-0
+2
+BibTeX
 uBibTeX
-
-0
-0
-0
-
-
-
-0
 Make_Index
 
 0
