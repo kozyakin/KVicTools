@@ -18,7 +18,7 @@ It is recommended that you close all files (or project) to make it faster.%\%\>
     IfFileExists('%b\ConfigEx\Theme.ini',>
                 !"ReadFile('%b\ConfigEx\Theme.ini',9);");
     DeleteFile('%b\ConfigEx\Theme.ini');
-    LoadConfig('ConfigEx\Switches.ini');Assign('THEME','');Exe('%b\Config\ChangeTheme.edt');
+    LoadConfig('%B\ConfigEx\Switches.ini');
     LoadConfig("%B\ConfigEx\Colors.ini");
     IfStr("%!9","",">",!"WriteFile('%b\ConfigEx\Theme.ini','%!9');");
 
