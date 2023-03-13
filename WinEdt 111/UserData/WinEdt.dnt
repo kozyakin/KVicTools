@@ -9208,7 +9208,7 @@ Exe('%b\Exec\TeX\dvi2ps.edt');
 0
 uBibTeX
 BibTeX&u / Biber
-BibTeX
+Biber
 
 0
 0
@@ -9220,7 +9220,7 @@ Exe('%b\Exec\TeX\uBibTeX.edt');
 0
 BibTeX
 &BibTeX / Biber
-Biber
+BibTeX
 
 0
 0
@@ -16073,7 +16073,7 @@ TeXify2PDF
 
 
 0
-BibTeX
+uBibTeX
 BibTeX
 8
 0
@@ -16082,8 +16082,8 @@ BibTeX
 
 
 2
-BibTeX
 uBibTeX
+BibTeX
 Make_Index
 
 0
