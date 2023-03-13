@@ -57,7 +57,6 @@ BeveledLabel={#PublisherName}
 
 [Files]
 Source: "fwdrefs\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
-Source: "utfcyrbib\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "gost705bib\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "ruenhyph\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "rudicthunspell\texmf-config\*.*"; DestDir: "{code:TEXMFCONFIG}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default rudicthunspell

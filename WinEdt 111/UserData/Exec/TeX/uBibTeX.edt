@@ -7,7 +7,7 @@
   SetExitHandler('Exit_Handler');
 
   Assign('ExitCode-OK','0'); // OK Exit Code
-  LetReg(9,'upBibTeX');   // Execution Modes Compiler
+  LetReg(9,'BibTeXu');   // Execution Modes Compiler
   LetReg(8,'blg');      // Log File (or empty)
   LetReg(7,'bbl');      // Output Format
   LetReg(6,'%O');       // Startup Folder
@@ -63,7 +63,7 @@ Return;
   IfStr('%O','%P',!'=',!"JMP('no_IncDir');");
   IfStr("%$('%!9-Executable');","biber.exe",!'=',!|LetReg(4,'--input-directory="%%P"');|);
   IfStr("%$('TeX System');","MiKTeX","<>",!"JMP('no_IncDir');");
-  IfStr("%$('%!9-Executable');","upbibtex.exe",!'=',!|LetReg(4,'--include-directory="%%P"');|);
+  IfStr("%$('%!9-Executable');","bibtexu.exe",!'=',!|LetReg(4,'--include-directory="%%P"');|);
 
 :no_IncDir:: =====================================================================
 

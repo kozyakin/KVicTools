@@ -36,7 +36,7 @@ A very long filename.pdf
 1
 -
 
-WinEdt.exe "[Open(|%f|);SelPar(%l,8);]"
+"C:\Program Files\WinEdt Team\WinEdt 11\WinEdt.exe" -C="WinEdt 11.1" "[Open(|%f|);SelPar(%l,8);]"
 
 1
 100000000
@@ -119,8 +119,8 @@ Ctrl+Alt+O
 256
 0
 0
-640
-981
+1047
+1201
 0
 0
 
@@ -134,4 +134,19 @@ Ctrl+Alt+O
 1
 1
 99
+1
+
+C:\Users\Vitya\Dropbox\Mathematics\2022-ExtremeBarNorms\ExtremeBarNorms-ru.pdf
+1
+106808824
 0
+0
+1
+0
+1
+1
+1
+6
+85354688
+0
+2

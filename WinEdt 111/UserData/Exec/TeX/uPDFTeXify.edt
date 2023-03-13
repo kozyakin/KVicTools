@@ -1,5 +1,5 @@
 // -*- ASCII:EDT -*-
-// TeX: upPDFTeXify ...
+// TeX: uPDFTeXify ...
 
   Requires(20211103); // Requires this build of WinEdt to work properly
 
@@ -243,7 +243,7 @@ Exit;
   LetReg(3, "%$('%!9-Executable'); %$('%!9-Switches');");
   IfIStr("%$('%!9-Executable');",!"texify.exe",!"<>",!"JMP('no_Batch');");
   IfStr("%$('%!9-No_Interaction');","1",!"=",!|LetReg(3,'%!3 --batch');|);
-  SetEnvVar("BIBTEX","%$('upBibTeX-Executable');");
+  SetEnvVar("BIBTEX","%$('BibTeXu-Executable');");
   SetEnvVar("MAKEINDEX","%$('MakeIndex-Executable');");
 :no_Batch:: =========================================================
   // Non-Stop Mode?

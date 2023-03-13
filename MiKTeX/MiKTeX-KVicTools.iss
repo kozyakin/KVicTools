@@ -59,7 +59,6 @@ Name: {app}\miktex\config\*.*; Type: files
 [Files]
 Source: default\texmflocal\*.*; DestDir: {userappdata}\MiKTeX; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: gost705bib\texmflocal\*.*; DestDir: {userappdata}\MiKTeX;Flags: recursesubdirs overwritereadonly ignoreversion; Components: default gost705bib
-Source: utfcyrbib\texmflocal\*.*; DestDir: {userappdata}\MiKTeX; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "User_home_dir\latexmkrc"; DestDir: "{%USERPROFILE}"; DestName: ".latexmkrc"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
