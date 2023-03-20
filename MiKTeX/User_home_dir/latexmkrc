@@ -1,3 +1,3 @@
-$bibtex='bibtexu -H %B';
+$bibtex='bibtexu -H -l ru -o ru %B';
 $makeindex = 'upmendex %O -o %D %S';
 
