@@ -354,7 +354,7 @@ Assign(!"KillConsoleApp",!"1");
 
 // BibTeXu
     Assign(!"BibTeXu-Executable", !|bibtexu.exe|);
-    Assign(!"BibTeXu-Switches", !|-H|);
+    Assign(!"BibTeXu-Switches", !|-H -l ru -o ru|);
     Assign(!"BibTeXu-Parameters", !|"%N"|);
     Release(!"BibTeXu-Paper_Size");
     Release(!"BibTeXu-Paper_Custom_Size");
