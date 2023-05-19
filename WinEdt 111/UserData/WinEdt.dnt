@@ -10270,7 +10270,7 @@ Exe('%b\Config\Upgrade\Upgrade Local.edt');
 2
 3
 1
-Theme>
+Themes>
 &Темы оформления
 Templates
 
@@ -10279,145 +10279,58 @@ Templates
 
 0
 Theme_Default
-Default &Colors
+Default &Theme
 WinEdt
 
 0
 0
 
 
-LoadConfig('ConfigEx\Switches.ini');Assign('THEME','');Exe('%b\Config\ChangeTheme.edt');
+LoadConfig('ConfigEx\Switches.ini');Assign('THEME');Exe('%b\Config\ChangeTheme.edt');
 0
 
 3
 0
-Theme_Easy_Gray
-&Easy Gray
+Theme_Dark
+&Dark App Mode
 Templates
 
 0
 0
 
 
-Assign('THEME','Easy Gray');Exe('%b\Config\ChangeTheme.edt');
+Assign('THEME','App Dark Mode');Exe('%b\Config\ChangeTheme.edt');
+0
+
+0
+Theme_Light
+&Light App Mode
+Templates
+
+0
+0
+
+
+Assign('THEME','App Light Mode');Exe('%b\Config\ChangeTheme.edt');
 0
 
 3
 0
-Theme_Solarized_White
-Solarized &White
-Templates
+Edit_Theme
+&Edit Current Theme
+Open
 
 0
 0
+%b\ConfigEx\Theme.ini
 
-
-Assign('THEME','Solarized White');Exe('%b\Config\ChangeTheme.edt');
-0
-
-0
-Theme_Solarized_Gray
-Solarized &Gray
-Templates
-
-0
-0
-
-
-Assign('THEME','Solarized Gray');Exe('%b\Config\ChangeTheme.edt');
-0
-
-0
-Theme_Solarized_Light
-Solarized &Light
-Templates
-
-0
-0
-
-
-Assign('THEME','Solarized Light');Exe('%b\Config\ChangeTheme.edt');
-0
-
-3
-0
-Theme_Solarized_Dark
-Solarized &Dark
-Templates
-
-0
-0
-
-
-Assign('THEME','Solarized Dark');Exe('%b\Config\ChangeTheme.edt');
-0
-
-0
-Theme_Solarized_Black
-Solarized &Black
-Templates
-
-0
-0
-
-
-Assign('THEME','Solarized Black');Exe('%b\Config\ChangeTheme.edt');
-0
-
-3
-0
-Theme_Midnight_Black
-&Midnight Black
-Templates
-
-0
-0
-
-
-Assign('THEME','Midnight Black');Exe('%b\Config\ChangeTheme.edt');
-0
-
-0
-Theme_Midnight_Blue
-Midnight Bl&ue
-Templates
-
-0
-0
-
-
-Assign('THEME','Midnight Blue');Exe('%b\Config\ChangeTheme.edt');
-0
-
-0
-Theme_Midnight_Green
-Midnight Gree&n
-Templates
-
-0
-0
-
-
-Assign('THEME','Midnight Green');Exe('%b\Config\ChangeTheme.edt');
-0
-
-3
-0
-Theme_Handy_Math
-&Handy Math
-Templates
-
-0
-0
-
-
-LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Handy Math');Exe('%b\Config\ChangeTheme.edt');
+Exe('%b\Config\EditTheme.edt');
 0
 
 3
 0
 Reload_Colors
-&Перезагрузить цвета
+&Reload Colors
 Colors
 
 0
@@ -10427,9 +10340,34 @@ Colors
 LoadConfig('ConfigEx\Colors.ini');
 0
 
+3
+0
+Available_Themes...
+&Available Themes...
+MacroLoad
+
+0
+0
+
+
+LoadConfig('ConfigEx\Switches.ini');Assign('THEME');Exe('%b\Config\LoadTheme.edt');
+0
+
+0
+Theme_Handy_Math
+&Handy Math Theme (custom switches)
+Templates
+
+0
+0
+
+
+LoadConfig('ConfigEx\SwitchesH.ini');Assign('THEME','Handy Math');Exe('%b\Config\ChangeTheme.edt');
+0
+
 2
 1
-Toolbar>
+Toolbars>
 &Панель инструментов
 Toolbar
 
@@ -44241,14 +44179,14 @@ TeX
 10
 12
 1
-9
-19
+8
+18
 1
 0
 0
 0
 Consolas
-12
+11
 0
 0
 0
@@ -48076,15 +48014,15 @@ END_LIST
 Binary Files
 Binary
 1
-9
-19
+8
+18
 1
 0
 64
 1
 0
 Consolas
-12
+11
 0
 0
 0
@@ -48107,15 +48045,15 @@ Consolas
 Macros and Configurations
 INI;EDT|XWE
 1
-9
-19
+8
+18
 1
 1
 80
 1
 0
 Consolas
-12
+11
 0
 0
 0
@@ -48139,14 +48077,14 @@ HTML Documents
 HTML|HHC;XWE
 1
 5
-19
+18
 0
 0
 88
 0
 0
 Tahoma
-12
+11
 0
 0
 0
@@ -48169,15 +48107,15 @@ Tahoma
 XWE Documents
 XWE
 1
-9
-19
+8
+18
 1
 0
 80
 1
 0
 Consolas
-12
+11
 0
 0
 0
@@ -48200,15 +48138,15 @@ Consolas
 ASCII Documents
 ASCII
 1
-9
-19
+8
+18
 1
 0
 68
 0
 0
 Consolas
-12
+11
 0
 0
 0
@@ -48231,15 +48169,15 @@ Consolas
 TeX Source
 DTX;INS;STY
 1
-9
-19
+8
+18
 1
 0
 80
 0
 0
 Consolas
-12
+11
 0
 0
 0
@@ -61986,15 +61924,15 @@ mathfrak
 Math3.bmp
 2
 1
-24
+28
 24
 0
 4
 2
 IfSel(2,'>','SetSel(0);');IfSel(0,'=',|Ins('^{}');CharLeft;|,|InsLabel('','^{','}');|);
-x^{k}
+x^{n}
 IfSel(2,'>','SetSel(0);');IfSel(0,'=',|Ins('_{}');CharLeft;|,|InsLabel('','_{','}');|);
-x_{k}
+x_{n}
 MathAcc.bmp
 2
 5
@@ -62078,7 +62016,7 @@ underbrace
 MathCon5.bmp
 2
 1
-40
+36
 24
 0
 4
