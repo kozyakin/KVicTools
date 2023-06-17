@@ -12,7 +12,7 @@ SetFindStr("");
 Mark(0);
 Goto(0,0);
 SetTracking(0);
-SetFindStr("\\label{\{\(*\)\}}\X{\""|CharRight;SelToBeginningOfFile;GetSel(1,1);GetTag(0,2);FindInString(""%%!1"",""ref{%%!2}"");|}");
+SetFindStr("\\label{\{\(*\)\}}\X{CharRight;SelToBeginningOfFile;GetSel(1,1);GetTag(0,2);FindInString('%%!1','ref\{%%!2\}');}");
 SetSearchCaseSensitive(0);
 SetSearchRelaxed(1);
 SetSearchWholeWords(0);

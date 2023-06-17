@@ -13,7 +13,7 @@ Mark(0);
 Goto(0,0);
 SetTracking(0);
 SelectAll;GetSel(1,1);
-SetFindStr("\\label{\{\(*\)\}}\x{\""|GetTag(0,2);FindInString(""%%!1"",""ref{%%!2}"",3,4);|}");
+SetFindStr("\\label{\{\(*\)\}}\x{GetTag(0,2);FindInString('%%!1','ref\{%%!2\}',3,4);}");
 SetSearchCaseSensitive(0);
 SetSearchRelaxed(1);
 SetSearchWholeWords(0);
