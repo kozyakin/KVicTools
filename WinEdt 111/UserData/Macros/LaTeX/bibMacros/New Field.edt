@@ -132,7 +132,7 @@ JMP("exit");
 :get_fields::
 Loop(!`>
   SetOK(1);>
-  FindInString("%$('bib_%$(|BM_type|);%$(|bib_bibStyle|);');,%$('BM_other_fields');","\(9+$Alpha$\)\(3@{-}\)\(6@{\<*\>}\),",1,2,1011,%!2+1);>
+  FindInString("%$('bib_%$(|BM_type|);%$(|bib_bibStyle|);');,%$('BM_other_fields');","\(9+{$Alpha$|_}\)\(3@{-}\)\(6@{\<*\>}\),",1,2,1011,%!2+1);>
   IfOK(!">
      IfStr('%#6','','=',!'LetReg(6,||);',!'GetLength(4,|%#6|);ExtractByIndex(6,|%#6|,1,%!4-2);');>
      IfStr('%#3','-','=','',!'>
