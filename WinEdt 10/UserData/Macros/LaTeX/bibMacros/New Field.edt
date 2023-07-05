@@ -130,6 +130,8 @@ MUIShow;
 
 JMP("exit");
 :get_fields::
+// In FindInString below pattern +$Alpha$ replaced by +{$Alpha$|_} to allow fields 
+// contain underline symbol (2023/07/05 by V. Kozyakin)
 Loop(!`>
   SetOK(1);>
   FindInString("%$('bib_%$(|BM_type|);%$(|bib_bibStyle|);');,%$('BM_other_fields');","\(9+{$Alpha$|_}\)\(3@{-}\)\(6@{\<*\>}\),",1,2,1011,%!2+1);>
