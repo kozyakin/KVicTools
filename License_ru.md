@@ -1,8 +1,10 @@
-© 2010 Victor Kozyakin, IITP RAS<br>
-© 2010 Виктор Козякин, ИППИ РАН<br>
-Email: [Victor Kozyakin](mailto:kozyakin@iitp.ru)<br>
-URL: <http://www.iitp.ru/ru/users/46.htm><br>
-<http://www.iitp.ru/personal/kozyakin><br>
+# Лицензия
+
+© 2010 Victor Kozyakin, IITP RAS
+© 2010 Виктор Козякин, ИППИ РАН
+Email: [Victor Kozyakin](mailto:kozyakin@iitp.ru)
+URL: <http://www.iitp.ru/ru/users/46.htm>
+<http://www.iitp.ru/personal/kozyakin>
 
 Настоящая программа является бесплатным программным обеспечением, предназначенным для некоммерческого использования в научных и образовательных целях. Это означает следующее:
 

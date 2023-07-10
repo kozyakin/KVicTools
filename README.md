@@ -1,9 +1,10 @@
 # KVicTools
+
 Здесь собраны некоторые программы и скрипты, предназначенные для настройки поддержки русского языка в системах *MikTeX* и *TeX Live*, а также редакторе *WinEdt*.
 
 ### MikTeX и TeX Live
 
-Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилевые файлы для русской библиографии в стиле ГОСТ и др. 
+Добавлены единые паттерны русско-английских переносов, стилевой файл для проверки "ссылок вперед" в теховских файлах, модифицированные стилевые файлы для русской библиографии в стиле ГОСТ и др.
 
 Исходные файлы для построения инсталляторов: [MiKTeX](https://github.com/kozyakin/KVicTools/tree/main/MiKTeX) и [TeX Live](https://github.com/kozyakin/KVicTools/tree/main/TeXLive)
 
@@ -40,11 +41,7 @@
 - tlmgr\_update\_self\_only.cmd
 - tlmgr-restore\_path.cmd
 
-
-
 ---
-
-
 
 Here are collected some programs and scripts designed to configure support for the Russian language in *MikTeX*, *TeX Live* systems and the *WinEdt* editor.
 
