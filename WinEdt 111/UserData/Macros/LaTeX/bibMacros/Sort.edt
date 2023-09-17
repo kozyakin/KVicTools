@@ -1,4 +1,4 @@
-// !Mode:: "ASCII:EDT"
+// !Mode:: "EDT:UTF-8"
 // Sort.edt
 // sort a bibliography file
 // part of the bibMacros package
@@ -346,7 +346,21 @@ Repeat(%!5,!`>
   // munch special characters:
   // thanks to J\"urgen Dix <dix@cs.man.ac.uk>
   Do(">
-     SubstituteInString('%%!%$(|BM_i|);','\\{\(2l|i|j|o\)}{ |{\(3\\|\{|\}\)}}','\{\2\}\3',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','\\{\(2l|i|j|o\)}{ |\\|\{|\}}','\2',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','{\\aa{ |\{|\}}}|[àáâãå]','a',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','[èéêë]','e',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','[ìíîï]','i',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','[òóôõ]','o',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','[ùúû]','u',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','[ýÿ]','y',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','{\\""{a|\{a\}}}|{\\ae{ |\{|\}}}|[äæ]','ae',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','{\\""{o|\{o\}}}|{\\oe{ |\{|\}}}|[öøœ]','oe',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','{\\""{u|\{u\}}}|ü','ue',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','{\\""{s|\{s\}}}|{\\ss{ |\{|\}}}|ß','ss',1,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','ç','c',0,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','ñ','n',0,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','š','s',0,'%$(|BM_i|);');>
+     SubstituteInString('%%!%$(|BM_i|);','ž','z',0,'%$(|BM_i|);');>
      // Remove all other characters, commands, spaces and braces>
      SubstituteInString('%%!%$(|BM_i|);','\ ',' ',0,'%$(|BM_i|);');>
      SubstituteInString('%%!%$(|BM_i|);','{\\*^$Alpha$}|\{|\}|$[#0..#31]$','',1,'%$(|BM_i|);');>
@@ -504,7 +518,7 @@ Loop(!`>
              FormatString(""%!3"",3,""trimboth"");>
              Assign(|BM_key|,|%!3|);>
              IfStr(|%$(""bib_sortCrossrefs"");|,|yes|,|=|,!|>
-                // put cross-referenced entries to the end (suggested by J�rgen Dix)
+                // put cross-referenced entries to the end (suggested by Jürgen Dix)
                 SetOK(1);>
                 FindInString(||%$(""BM_entry"");||,||<@{ }crossref@{ }=@{ }{{\{\(3+^\}\)\}}||||{""\(3+^""\)""}}||,3,4,1);>
                 IfOK(!||GetTag(3,3);FormatString(""%!3"",3,""trimboth"");>

@@ -20,10 +20,13 @@
 #define PublisherName 'KVicTools';
 
 [Setup]
+PrivilegesRequired=lowest
 AppName={#WinEdtName} {#PublisherName}
-AppVerName={#WinEdtName} {#PublisherName}
 AppPublisher=Victor Kozyakin
 AppPublisherURL=http://www.iitp.ru/ru/users/46.htm
+AppVersion={#BuildInfo}
+AppCopyright=Copyright © {#Year} by Victor Kozyakin
+VersionInfoVersion={#BuildInfo}
 DefaultDirName={userappdata}\{#WinEdtTeam}\{#WinEdtName}
 DefaultGroupName={#WinEdtName}
 LicenseFile=License_ru.rtf
@@ -34,15 +37,9 @@ Uninstallable=false
 OutputDir=.
 OutputBaseFilename=setup-WinEdt-{#AppVersion}.{#MinAppVersion}-{#PublisherName}
 SolidCompression=true
-AppVersion={#BuildInfo}
-AppCopyright=Copyright © {#Year} by Victor Kozyakin
-VersionInfoCopyright=Copyright © {#Year} by Victor Kozyakin
 ShowLanguageDialog=yes
 DisableDirPage=true
 DisableReadyPage=true
-VersionInfoVersion={#BuildInfo}
-VersionInfoTextVersion={#BuildInfo}
-PrivilegesRequired=none
 WizardStyle=modern
 Compression=lzma2/ultra
 InternalCompressLevel=ultra

@@ -17,9 +17,11 @@
 [Setup]
 PrivilegesRequired=admin
 AppName=TeX Live {#PublisherName}
-AppVerName=TeX Live {#PublisherName}
 AppPublisher=Victor Kozyakin
 AppPublisherURL=http://www.iitp.ru/ru/users/46.htm
+AppVersion={#BuildInfo}
+AppCopyright=Copyright © {#Year} by Victor Kozyakin
+VersionInfoVersion={#BuildInfo}
 DefaultDirName={code:TEXMFLOCAL}
 DefaultGroupName=TeX Live
 LicenseFile=License_ru.rtf
@@ -32,11 +34,6 @@ OutputDir=.
 DisableDirPage=true
 OutputBaseFilename=setup-TeXLive-{#PublisherName}
 SolidCompression=true
-AppVersion={#BuildInfo}
-AppCopyright=Copyright © {#Year} by Victor Kozyakin
-VersionInfoCopyright=Copyright © {#Year} by Victor Kozyakin
-VersionInfoVersion={#BuildInfo}
-VersionInfoTextVersion={#BuildInfo}
 ShowLanguageDialog=yes
 UsePreviousAppDir=false
 UninstallLogMode=overwrite
