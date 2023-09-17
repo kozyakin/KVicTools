@@ -685,6 +685,27 @@ IfNum("%$('BM_lastLine');",999999999,"=",!`>
    Goto(1);`>
 );
 
+// Remove trailing blank lines
+GoToEndOfFile;
+Mark(0);
+SetFindStr("$~[#0..#32]$");
+SetSearchCaseSensitive(0);
+SetSearchRelaxed(1);
+SetSearchWholeWords(0);
+SetSearchInline(0);
+SetRegEx(1);
+SetSearchCurrentDoc;
+SetSearchCyclic(0);
+SetSearchForward(0);
+SetSearchEntire(0);
+SearchReset;
+Find;
+CharRight;
+CharRight;
+SelectFromMark(0);
+Delete;
+Sel(0);
+//
 StopWorking;
 RestoreFind;
 SetTracking(1);
