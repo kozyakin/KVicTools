@@ -705,6 +705,7 @@ CharRight;
 SelectFromMark(0);
 Delete;
 Sel(0);
+TrimSpaces;
 //
 StopWorking;
 RestoreFind;

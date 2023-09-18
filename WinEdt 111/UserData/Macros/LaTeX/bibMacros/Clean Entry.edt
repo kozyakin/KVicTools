@@ -352,6 +352,7 @@ CharRight;
 SelectFromMark(0);
 Delete;
 Sel(0);
+TrimSpaces;
 //
 RestoreFind;
 SetTracking(1);
