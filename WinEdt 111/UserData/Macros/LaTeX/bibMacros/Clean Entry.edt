@@ -333,6 +333,7 @@ Call("clean_entry");
 
 :exit::
 // Remove trailing blank lines
+Mark(9);
 GoToEndOfFile;
 Mark(0);
 SetFindStr("$~[#0..#32]$");
@@ -353,6 +354,7 @@ SelectFromMark(0);
 Delete;
 Sel(0);
 TrimSpaces;
+Goto(9);
 //
 RestoreFind;
 SetTracking(1);
