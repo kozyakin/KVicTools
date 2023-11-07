@@ -38174,7 +38174,7 @@ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 0
 
-32
+33
 User (Addon)
 %b\Dict\User.dic
 1
@@ -38495,7 +38495,18 @@ English (maximise)
 0
 
 Russian
-%b\Dict\Ru\ru_gen4.dic
+%b\Dict\Languages\Russian\ru.dic
+0
+*;RU
+0
+1
+0
+1
+1
+0
+
+Russian (common)
+%b\Dict\Russian\ru_common.dic 
 1
 
 1
@@ -38505,8 +38516,8 @@ Russian
 1
 0
 
-Russian (names)
-%b\Dict\Ru\ru_names4.dic
+Russian (yo)
+%b\Dict\Russian\ru_yo.dic
 1
 
 1
@@ -38516,8 +38527,8 @@ Russian (names)
 1
 0
 
-Russian (physics)
-%b\Dict\Ru\ru_phys4.dic
+Russian (ye)
+%b\Dict\Russian\ru_ye.dic
 1
 
 1
@@ -40907,7 +40918,7 @@ INI
 0
 0
 1
-0
+1
 999
 9
 1

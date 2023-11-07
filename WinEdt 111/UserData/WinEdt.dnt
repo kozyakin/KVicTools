@@ -40712,7 +40712,7 @@ abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 0
 
-57
+58
 User (Addon)
 %b\Dict\User.dic
 
@@ -41278,8 +41278,44 @@ https://www.winedt.org/dict/Romanian.zip
 0
 
 Russian
-%b\Dict\Ru\ru_gen4.dic
+%b\Dict\Languages\Russian\ru.dic
 https://www.winedt.org/dict/Russian.zip
+0
+*;RU
+0
+1
+0
+1
+1
+0
+
+Russian (common)
+%b\Dict\Russian\ru_common.dic 
+
+1
+
+1
+1
+0
+1
+1
+0
+
+Russian (yo)
+%b\Dict\Russian\ru_yo.dic
+
+1
+
+1
+1
+0
+1
+1
+0
+
+Russian (ye)
+%b\Dict\Russian\ru_ye.dic
+
 1
 
 1
@@ -41367,30 +41403,6 @@ https://www.winedt.org/dict/Ukrainian.zip
 0
 *;UA
 0
-1
-0
-1
-1
-0
-
-Russian (names)
-%b\Dict\Ru\ru_names4.dic
-
-1
-
-1
-1
-0
-1
-1
-0
-
-Russian (physics)
-%b\Dict\Ru\ru_phys4.dic
-
-1
-
-1
 1
 0
 1
