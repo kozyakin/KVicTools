@@ -1,6 +1,6 @@
 // -*- ASCII:EDT -*-
 //
-// Execute upBibTeX and MakeIndex for TeXify
+// Execute BibTeXu and MakeIndex for TeXify
 //
 // ==================================================================
 
@@ -16,21 +16,21 @@
 IfFileExists('%O\%N.aux',!'Relax;',!'JMP("MakeIndex");');
 
     Assign(!"Compile-Flag",!|2|); // Do not Complain ...
-    Assign("upBibTeX-GUI");
-    Assign("upBibTeX-Report");
-    Assign("upBibTeX-Errors");
-    Assign("upBibTeX-Warnings");
-    Assign("upBibTeX-ExitCode");
-    Assign("upBibTeX-Pause");
-    Assign("upBibTeX-Wait","1");
-    Assign("upBibTeX-High_Priority","%$('%$(`Pre-Process`);-High_Priority');");
-    Assign("upBibTeX-STD_IO","%$('%$(`Pre-Process`);-STD_IO');");
-    Assign("upBibTeX-WinEdt_Console","%$('%$(`Pre-Process`);-WinEdt_Console');");
-    Assign("upBibTeX-Hidden_Window","%$('%$(`Pre-Process`);-Hidden_Window');");
-    Assign("upBibTeX-Background_Window","%$('%$(`Pre-Process`);-Background_Window');");
-    IfStr("%$('upBibTeX-WinEdt_Console');","1","<>",!|Assign("upBibTeX-Hidden_Window","1");|);
+    Assign("BibTeXu-GUI");
+    Assign("BibTeXu-Report");
+    Assign("BibTeXu-Errors");
+    Assign("BibTeXu-Warnings");
+    Assign("BibTeXu-ExitCode");
+    Assign("BibTeXu-Pause");
+    Assign("BibTeXu-Wait","1");
+    Assign("BibTeXu-High_Priority","%$('%$(`Pre-Process`);-High_Priority');");
+    Assign("BibTeXu-STD_IO","%$('%$(`Pre-Process`);-STD_IO');");
+    Assign("BibTeXu-WinEdt_Console","%$('%$(`Pre-Process`);-WinEdt_Console');");
+    Assign("BibTeXu-Hidden_Window","%$('%$(`Pre-Process`);-Hidden_Window');");
+    Assign("BibTeXu-Background_Window","%$('%$(`Pre-Process`);-Background_Window');");
+    IfStr("%$('BibTeXu-WinEdt_Console');","1","<>",!|Assign("BibTeXu-Hidden_Window","1");|);
 
-    Exe('%b\Exec\TeX\upBibTeX.edt');
+    Exe('%b\Exec\TeX\uBibTeX.edt');
 
 :MakeIndex:: ========================================================
 

@@ -5,7 +5,7 @@
 
   PushTagsandRegisters;
   Assign('ExitCode-OK','0'); // OK Exit Code
-  LetReg(9,'upBibTeX');   // Execution Modes Compiler
+  LetReg(9,'BibTeXu');   // Execution Modes Compiler
   LetReg(8,'blg');      // Log File (or empty)
   LetReg(7,'bbl');      // Output Format
   LetReg(6,'%O');       // Startup Folder

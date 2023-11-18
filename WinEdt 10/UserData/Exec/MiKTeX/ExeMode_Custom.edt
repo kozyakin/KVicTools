@@ -350,30 +350,30 @@
     Release(!"BibTeX-Background_Window");
     Assign(!"BibTeX-Pause", !|1|);
 
-// upBibTeX
-    Assign(!"upBibTeX-Executable", !|upbibtex.exe|);
-    Release(!"upBibTeX-Switches");
-    Assign(!"upBibTeX-Parameters", !|"%N"|);
-    Release(!"upBibTeX-Paper_Size");
-    Release(!"upBibTeX-Paper_Custom_Size");
-    Release(!"upBibTeX-Landscape");
-    Release(!"upBibTeX-GUI");
-    Release(!"upBibTeX-High_Priority");
-    Assign(!"upBibTeX-Wait", !|1|);
-    Release(!"upBibTeX-Report");
-    Release(!"upBibTeX-Errors");
-    Release(!"upBibTeX-Warnings");
-    Assign(!"upBibTeX-ExitCode", !|1|);
-    Release(!"upBibTeX-Viewer");
-    Release(!"upBibTeX-View_Search");
-    Release(!"upBibTeX-STD_IO");
-    Release(!"upBibTeX-No_Interaction");
-    Release(!"upBibTeX-C-style-errors");
-    Release(!"upBibTeX-Clean_Build");
-    Assign(!"upBibTeX-WinEdt_Console", !|1|);
-    Release(!"upBibTeX-Hidden_Window");
-    Release(!"upBibTeX-Background_Window");
-    Assign(!"upBibTeX-Pause", !|1|);
+// BibTeXu
+    Assign(!"BibTeXu-Executable", !|bibtexu.exe|);
+    Assign(!"BibTeXu-Switches", !|-H -l ru -o ru|);
+    Assign(!"BibTeXu-Parameters", !|"%N"|);
+    Release(!"BibTeXu-Paper_Size");
+    Release(!"BibTeXu-Paper_Custom_Size");
+    Release(!"BibTeXu-Landscape");
+    Release(!"BibTeXu-GUI");
+    Release(!"BibTeXu-High_Priority");
+    Assign(!"BibTeXu-Wait", !|1|);
+    Release(!"BibTeXu-Report");
+    Release(!"BibTeXu-Errors");
+    Release(!"BibTeXu-Warnings");
+    Assign(!"BibTeXu-ExitCode", !|1|);
+    Release(!"BibTeXu-Viewer");
+    Release(!"BibTeXu-View_Search");
+    Release(!"BibTeXu-STD_IO");
+    Release(!"BibTeXu-No_Interaction");
+    Release(!"BibTeXu-C-style-errors");
+    Release(!"BibTeXu-Clean_Build");
+    Assign(!"BibTeXu-WinEdt_Console", !|1|);
+    Release(!"BibTeXu-Hidden_Window");
+    Release(!"BibTeXu-Background_Window");
+    Assign(!"BibTeXu-Pause", !|1|);
 
 // MakeIndex
     Assign(!"MakeIndex-Executable", !|miktex-upmendex.exe|);

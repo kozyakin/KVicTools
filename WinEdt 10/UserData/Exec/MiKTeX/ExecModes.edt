@@ -162,8 +162,8 @@
                  $$0001001111111,// Enable Flags (13)<>
                  $$1111);        // Enable Pause..WinEdt Console Flags (4)
 
-  AddApplication(!'upBibTeX',    // Name<>
-                 !'upbibtex.exe',// Executable<>
+  AddApplication(!'BibTeXu',     // Name<>
+                 !'bibtexu.exe', // Executable<>
                  !'',            // Switches<>
                  !'"%N"',        // Parameters<>
                  !'',            // Environmental Variable <-- Executable<>
