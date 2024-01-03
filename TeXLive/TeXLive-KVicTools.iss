@@ -58,6 +58,7 @@ Source: "gost705bib\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recur
 Source: "ruenhyph\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "rudicthunspell\texmf-config\*.*"; DestDir: "{code:TEXMFCONFIG}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default rudicthunspell
 Source: "User_home_dir\latexmkrc"; DestDir: "{%USERPROFILE}"; DestName: ".latexmkrc"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
+Source: "utils\bin\windows\*.*"; DestDir: "{code:TEXMFROOT}\bin\windows"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
 
@@ -79,12 +80,17 @@ Filename: "fmtutil-sys.exe"; Parameters: "--all"; Flags: skipifdoesntexist runas
 [Code]
 var
   TmpFileName: string;
-  DESTMAIN, DESTLOCAL, DESTCONFIG, TLYEAR: AnsiString;
+  DESTROOT, DESTDIST, DESTLOCAL, DESTCONFIG, TLYEAR: AnsiString;
   ResultCode: integer;
 
-function TEXMFMAIN(Param: String): String;
+function TEXMFROOT(Param: String): String;
 begin
-  Result := DESTMAIN;
+  Result := DESTROOT;
+end;
+
+function TEXMFDIST(Param: String): String;
+begin
+  Result := DESTDIST;
 end;
 
 function TEXMFLOCAL(Param: String): String;
@@ -107,9 +113,15 @@ function InitializeSetup(): Boolean;
 begin
 
     TmpFileName := ExpandConstant('{tmp}') + '\tl16kv.txt';
-    Exec('cmd.exe', '/C kpsewhich -var-value=TEXMFMAIN > "' + TmpFileName + '"', '', SW_HIDE,
+    Exec('cmd.exe', '/C kpsewhich -var-value=TEXMFROOT > "' + TmpFileName + '"', '', SW_HIDE,
       ewWaitUntilTerminated, ResultCode);
-    if LoadStringFromFile(TmpFileName, DESTMAIN) then DESTMAIN := Trim(DESTMAIN);
+    if LoadStringFromFile(TmpFileName, DESTROOT) then DESTROOT := Trim(DESTROOT);
+    DeleteFile(TmpFileName);
+
+    TmpFileName := ExpandConstant('{tmp}') + '\tl16kv.txt';
+    Exec('cmd.exe', '/C kpsewhich -var-value=TEXMFDIST > "' + TmpFileName + '"', '', SW_HIDE,
+      ewWaitUntilTerminated, ResultCode);
+    if LoadStringFromFile(TmpFileName, DESTDIST) then DESTDIST := Trim(DESTDIST);
     DeleteFile(TmpFileName);
 
     TmpFileName := ExpandConstant('{tmp}') + '\tl16kv.txt';
@@ -124,20 +136,21 @@ begin
     if LoadStringFromFile(TmpFileName, DESTCONFIG) then DESTCONFIG := Trim(DESTCONFIG);
     DeleteFile(TmpFileName);
 
-    TLYEAR := ExtractFileName(RemoveBackslashUnlessRoot(ExtractFilePath(DESTMAIN)));
+    TLYEAR := ExtractFileName(RemoveBackslashUnlessRoot(ExtractFilePath(DESTDIST)));
 
 //    MsgBox(
 //   'VERSION = '+TLYEAR+#13#13+
-//   'DESTMAIN = '+DESTMAIN+#13#13+
+//   'DESTROOT = '+DESTROOT+#13#13+
+//   'DESTDIST = '+DESTDIST+#13#13+
 //   'DESTLOCAL = '+DESTLOCAL+#13#13+
 //   'DESTCONFIG = '+DESTCONFIG+#13#13,mbInformation, MB_OK);
 
     Result := True;
-    if (DESTMAIN='') or (DESTLOCAL='') or (DESTCONFIG='') = True then
+    if (DESTROOT='') or (DESTDIST='') or (DESTLOCAL='') or (DESTCONFIG='') = True then
     begin
     MsgBox(
    'Установка TeX Live {#PublisherName} невозможна!'#13#13
-   'Одна из переменых TEXMFMAIN, TEXMFLOCAL или TEXMFCONFIG системы TeX Live не определена или испорчена!'#13#13
+   'Одна из переменых TEXMFROOT, TEXMFDIST, TEXMFLOCAL или TEXMFCONFIG системы TeX Live не определена или испорчена!'#13#13
    'Переустановите TeX Live после чего возобновите'#13
    'установку TeX Live {#PublisherName}', mbCriticalError, MB_OK);
    Result := False;
