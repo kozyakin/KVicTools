@@ -58,7 +58,6 @@ Source: "gost705bib\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recur
 Source: "ruenhyph\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "rudicthunspell\texmf-config\*.*"; DestDir: "{code:TEXMFCONFIG}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default rudicthunspell
 Source: "User_home_dir\latexmkrc"; DestDir: "{%USERPROFILE}"; DestName: ".latexmkrc"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
-Source: "utils\bin\windows\*.*"; DestDir: "{code:TEXMFROOT}\bin\windows"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 
 [Registry]
 
@@ -80,13 +79,8 @@ Filename: "fmtutil-sys.exe"; Parameters: "--all"; Flags: skipifdoesntexist runas
 [Code]
 var
   TmpFileName: string;
-  DESTROOT, DESTDIST, DESTLOCAL, DESTCONFIG, TLYEAR: AnsiString;
+  DESTDIST, DESTLOCAL, DESTCONFIG, TLYEAR: AnsiString;
   ResultCode: integer;
-
-function TEXMFROOT(Param: String): String;
-begin
-  Result := DESTROOT;
-end;
 
 function TEXMFDIST(Param: String): String;
 begin
@@ -113,12 +107,6 @@ function InitializeSetup(): Boolean;
 begin
 
     TmpFileName := ExpandConstant('{tmp}') + '\tl16kv.txt';
-    Exec('cmd.exe', '/C kpsewhich -var-value=TEXMFROOT > "' + TmpFileName + '"', '', SW_HIDE,
-      ewWaitUntilTerminated, ResultCode);
-    if LoadStringFromFile(TmpFileName, DESTROOT) then DESTROOT := Trim(DESTROOT);
-    DeleteFile(TmpFileName);
-
-    TmpFileName := ExpandConstant('{tmp}') + '\tl16kv.txt';
     Exec('cmd.exe', '/C kpsewhich -var-value=TEXMFDIST > "' + TmpFileName + '"', '', SW_HIDE,
       ewWaitUntilTerminated, ResultCode);
     if LoadStringFromFile(TmpFileName, DESTDIST) then DESTDIST := Trim(DESTDIST);
@@ -140,13 +128,12 @@ begin
 
 //    MsgBox(
 //   'VERSION = '+TLYEAR+#13#13+
-//   'DESTROOT = '+DESTROOT+#13#13+
 //   'DESTDIST = '+DESTDIST+#13#13+
 //   'DESTLOCAL = '+DESTLOCAL+#13#13+
 //   'DESTCONFIG = '+DESTCONFIG+#13#13,mbInformation, MB_OK);
 
     Result := True;
-    if (DESTROOT='') or (DESTDIST='') or (DESTLOCAL='') or (DESTCONFIG='') = True then
+    if (DESTDIST='') or (DESTLOCAL='') or (DESTCONFIG='') = True then
     begin
     MsgBox(
    'Установка TeX Live {#PublisherName} невозможна!'#13#13
