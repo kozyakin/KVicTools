@@ -4576,7 +4576,7 @@ Superscript
 
 
 IfSel(2,'>',!'SetSel(0);');InsLabel('^','{','}');
-0
+41014
 
 0
 Sub
@@ -4588,7 +4588,7 @@ Subscript
 
 
 IfSel(2,'>',!'SetSel(0);');InsLabel('_','{','}');
-0
+41149
 
 3
 0
