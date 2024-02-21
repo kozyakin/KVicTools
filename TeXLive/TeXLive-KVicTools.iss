@@ -137,7 +137,7 @@ begin
     begin
     MsgBox(
    'Установка TeX Live {#PublisherName} невозможна!'#13#13
-   'Одна из переменых TEXMFROOT, TEXMFDIST, TEXMFLOCAL или TEXMFCONFIG системы TeX Live не определена или испорчена!'#13#13
+   'Одна из переменых TEXMFDIST, TEXMFLOCAL или TEXMFCONFIG системы TeX Live не определена или испорчена!'#13#13
    'Переустановите TeX Live после чего возобновите'#13
    'установку TeX Live {#PublisherName}', mbCriticalError, MB_OK);
    Result := False;
