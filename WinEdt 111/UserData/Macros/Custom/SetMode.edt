@@ -133,7 +133,7 @@ MUIAdd(10,7*%!5+12,160,92, 'RadioButtons','TRadioGroup','',' Кодировка 
     'cp866 (DOS, OEM)|cp1251 (WIN, ANSI, ACP)|utf-8 (Unicode)|без кодировки (ASCII)');
     MUISet('RadioButtons','index','%$(`CodePage`)');
 
-MUIAdd(180,7*%!5+12,'%$(`tmp`);-195',72, 'RadioButtons2','TRadioGroup','',' Перенос строк ',>
+MUIAdd(180,7*%!5+12,'%$(`tmp`);-205',72, 'RadioButtons2','TRadioGroup','',' Перенос строк ',>
     'Hard (по метке конца строки)|Soft (по ширине поля строки)|Установка по умолчанию WinEdt');
     MUISet('RadioButtons2','index','%$(`WrapMode`)');
 MUIShow; // Show Modal Dialog
