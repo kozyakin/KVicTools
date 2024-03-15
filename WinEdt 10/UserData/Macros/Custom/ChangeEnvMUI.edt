@@ -131,6 +131,9 @@ MUIAdd(%!4,2+4*%!4+5*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'InEQ','TGroupBox','','В 
   LetRegNum(5,7+%!5+%!7);
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton84','TButton','InEQ','split');
   MUISet('MyButton84','on click', !'LetReg(8,|\begin{split}|);LetReg(9,|\end{split}|);MUIHide(1);');
+  LetRegNum(5,7+%!5+%!7);
+  MUIAdd(%!5,%!4+%!6,3*%!3+2,0, 'MyButton85','TButton','InEQ','multlined : требуется пакет mathtools');
+  MUISet('MyButton85','on click', !'LetReg(8,|\begin{multlined}[b][0.9\displaywidth]|);LetReg(9,|\end{multlined}|);MUIHide(1);');
 
 MUIAdd(%!4,3+7*%!4+8*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyTH','TGroupBox','','Теоремы');
   LetRegNum(5,3);
