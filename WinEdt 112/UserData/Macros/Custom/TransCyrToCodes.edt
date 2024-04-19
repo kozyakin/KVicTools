@@ -1,0 +1,49 @@
+// !Mode:: "EDT:UTF-8"
+// -*- EDT:UTF-8 -*-
+// TransCyrToCodes.edt
+// (kozyakin 20220809)
+// Translate cyrillic letters to \cyr-codes
+//===================================================================
+
+  PushTagsandRegisters;
+  SetExitHandler('Exit_Handler');
+
+  IfStr( "%S", "", "=", "JMP(`No_selection`);", "JMP(`Selection`);"  );
+
+:Exit_Handler:: =====================================================
+// Restore the Execution Modes even if execution
+// is canceled or goes badly wrong for some reason ...
+  PopTagsandRegisters;
+  Return;
+
+:Selection:: ========================================================
+
+  FindInString("%S","[A-z]",1,2,1,1);
+  IfOK("JMP('Latin')");
+
+  BeginGroup;
+  Translate(0,"TeX","%S",0,"To_cyr-codes");
+  SetTracking(0);
+  Delete;
+  Mark(0);
+  Ins("%!0");
+  SelectFromMark;
+  SetTracking(1);
+  Refresh(1,0);
+  EndGroup;
+  JMP("End");
+
+:Latin::
+
+  Prompt("Выделеный текст должен содержать ТОЛЬКО кириллические символы!",3,1);
+  JMP("End");
+
+
+:No_selection:: ==============================================================
+
+  Prompt("Нет выделения! Выделите преобразуемый текст и повторите команду!",2,1);
+  JMP("End");
+
+:End::
+
+  End;

@@ -1,4 +1,4 @@
-; WinEdt KVicTools for WinEdt 10.3 Inno (Installer) Setup Script
+п»ї; WinEdt KVicTools for WinEdt 10.3 Inno (Installer) Setup Script
 ; Prepared by Victor Kozyakin
 ; =====================================================================
 ;
@@ -25,7 +25,7 @@ AppName={#WinEdtName} {#PublisherName}
 AppPublisher=Victor Kozyakin
 AppPublisherURL=http://www.iitp.ru/ru/users/46.htm
 AppVersion={#BuildInfo}
-AppCopyright=Copyright © {#Year} by Victor Kozyakin
+AppCopyright=Copyright В© {#Year} by Victor Kozyakin
 VersionInfoVersion={#BuildInfo}
 DefaultDirName={userappdata}\{#WinEdtTeam}\{#WinEdtName}
 DefaultGroupName={#WinEdtName}
@@ -55,7 +55,7 @@ Source: UserData\*.*; DestDir: {userappdata}\{#WinEdtTeam}\{#WinEdtName}; Flags:
 
 
 [Run]
-Filename: "{code:WinEdtExe}"; Parameters: "-V -E=%b\WinEdt.dnt [Exe('%b\WinShell\Install.edt');]"; Flags: postinstall skipifsilent; Description: "Запуск WinEdt"
+Filename: "{code:WinEdtExe}"; Parameters: "-V -E=%b\WinEdt.dnt [Exe('%b\WinShell\Install.edt');]"; Flags: postinstall skipifsilent; Description: "Р—Р°РїСѓСЃРє WinEdt"
 
 [Code]
 var
@@ -105,23 +105,23 @@ InstRootFound:
 
 BadWinEdt:
    MsgBox(
-   'Установка WinEdt {#AppVersion} {#PublisherName} невозможна!'#13#13
-   'Информация об оригинальной (английской) версии WinEdt'#13
-   'в регистре отсутствует или испорчена!'#13#13
-   'Переустановите WinEdt {#AppVersion} после чего возобновите'#13
-   'установку WinEdt {#AppVersion} {#PublisherName}', mbCriticalError, MB_OK);
+   'РЈСЃС‚Р°РЅРѕРІРєР° WinEdt {#AppVersion} {#PublisherName} РЅРµРІРѕР·РјРѕР¶РЅР°!'#13#13
+   'РРЅС„РѕСЂРјР°С†РёСЏ РѕР± РѕСЂРёРіРёРЅР°Р»СЊРЅРѕР№ (Р°РЅРіР»РёР№СЃРєРѕР№) РІРµСЂСЃРёРё WinEdt'#13
+   'РІ СЂРµРіРёСЃС‚СЂРµ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РёР»Рё РёСЃРїРѕСЂС‡РµРЅР°!'#13#13
+   'РџРµСЂРµСѓСЃС‚Р°РЅРѕРІРёС‚Рµ WinEdt {#AppVersion} РїРѕСЃР»Рµ С‡РµРіРѕ РІРѕР·РѕР±РЅРѕРІРёС‚Рµ'#13
+   'СѓСЃС‚Р°РЅРѕРІРєСѓ WinEdt {#AppVersion} {#PublisherName}', mbCriticalError, MB_OK);
    Result := False;
    goto TotalExit;
 
 BadVersion:
    MsgBox(
-   'Установка WinEdt {#AppVersion} {#PublisherName} невозможна!'#13#13
-   'Для установки WinEdt {#AppVersion} {#PublisherName} требуется'#13
-   'наличие предустановленного оригинального WinEdt'#13
-   'версии {#WinEdtFileVersion}, в то время как предустановленный'#13
-   'WinEdt имеет версию '+Version+'.'#13#13
-   'Установите оригинальный (английский) WinEdt версии'#13
-   '{#WinEdtFileVersion}, после чего возобновите установку'#13
+   'РЈСЃС‚Р°РЅРѕРІРєР° WinEdt {#AppVersion} {#PublisherName} РЅРµРІРѕР·РјРѕР¶РЅР°!'#13#13
+   'Р”Р»СЏ СѓСЃС‚Р°РЅРѕРІРєРё WinEdt {#AppVersion} {#PublisherName} С‚СЂРµР±СѓРµС‚СЃСЏ'#13
+   'РЅР°Р»РёС‡РёРµ РїСЂРµРґСѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРіРѕ РѕСЂРёРіРёРЅР°Р»СЊРЅРѕРіРѕ WinEdt'#13
+   'РІРµСЂСЃРёРё {#WinEdtFileVersion}, РІ С‚Рѕ РІСЂРµРјСЏ РєР°Рє РїСЂРµРґСѓСЃС‚Р°РЅРѕРІР»РµРЅРЅС‹Р№'#13
+   'WinEdt РёРјРµРµС‚ РІРµСЂСЃРёСЋ '+Version+'.'#13#13
+   'РЈСЃС‚Р°РЅРѕРІРёС‚Рµ РѕСЂРёРіРёРЅР°Р»СЊРЅС‹Р№ (Р°РЅРіР»РёР№СЃРєРёР№) WinEdt РІРµСЂСЃРёРё'#13
+   '{#WinEdtFileVersion}, РїРѕСЃР»Рµ С‡РµРіРѕ РІРѕР·РѕР±РЅРѕРІРёС‚Рµ СѓСЃС‚Р°РЅРѕРІРєСѓ'#13
    'WinEdt {#AppVersion} {#PublisherName}', mbCriticalError, MB_OK);
    Result := False;
 

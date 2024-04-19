@@ -1,0 +1,112 @@
+// -*- ASCII:EDT -*-
+// bibGetFile.edt
+// part of the bibMacros package
+// (schlicht 20020314)
+// $Revision: 1.10 $
+/////////////////////////
+
+
+Release("BM_getFile");
+Assign("BM_gotFile",!">
+   UnixToDos('%!2',2);>
+   GetFilePath('%!2',4);>
+   Assign('BM_%$(|BM_file|);_%!6','%!4');>
+   ReadFile('%!2',4);>
+");
+
+// First try: current path (or we already know the path)
+IfStr("%$('BM_%$(|BM_file|);_%!6');","","=",>
+  !"Assign('BM_%$(|BM_file|);_%!6','%P');");
+IfFileExists("%$('BM_%$(|BM_file|);_%!6');\%!6.bib",>
+  !"LetReg(2,'%$(|BM_%$(*BM_file*);_%!6|);\%!6.bib');>
+    Do('%$(|BM_gotFile|);');>
+    End;">
+);
+
+// Second try: full (or relative) path specified
+UnixToDos("%!6.bib",5);
+GetFilePath("%!5",5);
+IfStr("%!5","","<>",!`>
+   IfFileExists("%!6.bib",>
+      !"LetReg(2,'%!6.bib');>
+        Do('%$(|BM_gotFile|);');>
+        End;');">
+   );`>
+);
+
+// Third try: WinEdt's Tree
+LetReg(8,"");
+PushTagsandRegisters;
+BuildTree;
+PopTagsandRegisters;
+GetTree(8);
+IfStr("%!8","","=",>
+  "Assign('BM_getFile','noTree');",>
+ !"DosToUnix('%!8',8);>
+   SetOK(1);>
+   FindInString('%!8','{""|/}%!6@{\.bib}"">',4,2,1);>
+   IfOK(!`>
+      FindInString('%!8','""*""',4,2,1101,%!2+1);>
+      ExtractByIndex(2,'%!8',%!4+1,%!2-1);>
+      IfFileExists('%!2',>
+        !'Do(""%$(|BM_gotFile|);"");>
+          End;',>
+         'Assign(''BM_getFile'',''notInTree'');');>
+     `,`>
+      Assign('BM_getFile','notInTree');`>
+   );">
+);
+
+
+// Fourth try: TEXMF trees
+IfFileExists("%$('TeX-Root');\","",">
+   Assign('BM_getFile','%$(|BM_getFile|);noTeXRoot');");
+IfFileExists("%$('TeX-Local');\","",">
+   Assign('BM_getFile','%$(|BM_getFile|);noTeXLocal');");
+ListFolderFiles(4,"%$('TeX-Local');\bibtex\",".bib",1,0);
+ListFolderFiles(8,"%$('TeX-Root');\bibtex\",".bib",1,0);
+LetReg(8,"%!4%\%!8");
+FindInString("%!8","\\%!6\.bib>",4,2,1);
+IfOK(!">
+   FindInString('%!8','<*>',4,2,1101,%!2);>
+   ExtractByIndex(2,'%!8',%!4,%!2-2);>
+   Do('%$(|BM_gotFile|);');>
+   Release('BM_getFile');>
+   End;>
+  ",">
+   Assign('BM_getFile','%$(|BM_getFile|);notInTeXMF');">
+);
+
+
+// Last try: the user
+FindInString("%$('BM_getFile');","not",4,8,0);
+IfOK(!`>
+   LetReg(2,"** It is not in WinEdt's tree.%\");>
+   FindInString("%$('BM_getFile');","noTree",4,8,10);>
+   IfOK(!"LetReg(2,'%!2   --> You have to build the tree.%\');",>
+     !"LetReg(2,'%!2   --> Did you update the tree?%\');");>
+   LetReg(2,'%!2** It is not in the TeXMF trees.%\');>
+   FindInString("%$('BM_getFile');","noTeX",4,8,10);>
+   IfOK(!">
+      FindInString('%$(|BM_getFile|);','Root',4,8,10);>
+      IfOK('LetReg(2,|%!2   --> I don''t know where TeX''s Root folder is.%\|);');>
+      SetOK(1);>
+      FindInString('%$(|BM_getFile|);','Local',4,8,10);>
+      IfOK('LetReg(2,|%!2   --> I don''t know where TeX''s Local Root is.%\|);');>
+      LetReg(2,'%!2        You may specify TeX''s Local Root in %\>
+        ""Options | Execution Modes... | TeX Output"".%\');">
+   );>
+   Prompt("I didn't find the file  ""%!6.bib"" !%\%\>
+** It is not in the current directory.%\%!2%\>
+Can you tell me where the bibliography file is?",2,4,>
+      !"Browse(2,'Looking for ""%!6.bib""|*.bib','%P');>
+        Do('%$(|BM_gotFile|);');>
+        Release('BM_getFile');",>
+       "LetReg(4,'');Assign('BM_getFile','no');",>
+       "LetReg(4,'');Assign('BM_getFile','cancel');">
+   );`>
+);
+
+End;
+
+$Id: bibGetFile.edt,v 1.10 2007-06-07 00:14:00+02 schlicht Exp schlicht $

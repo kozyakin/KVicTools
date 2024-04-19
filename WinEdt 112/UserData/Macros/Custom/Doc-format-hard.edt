@@ -1,0 +1,51 @@
+// !Mode:: "ASCII:EDT"
+// -*- ASCII:EDT -*-
+// Doc-format-hard.edt
+// (kozyakin 20190717)
+// Format document in hard mode
+//=========================================================================
+
+PushTagsandRegisters;
+SaveFind;
+BeginGroup;
+GoToBeginningOfFile;
+StartWorking( "Formatting...", 0 );
+SetTracking(0);
+SetWrap(-1,0 );
+Loop(!'>
+SelectParagraph;>
+GetSel(0,1);>
+FindInString("%!1", "%", 2, 3, 0);>
+IfOK( "Relax;", "WrapSelectedText(-1,0);" );>
+CharRight;>
+IfNum("%!l", "%!L", ">=", "Stop;");');
+RestoreWrap;
+
+SetSearchCaseSensitive(1);
+SetSearchRelaxed(1);
+SetSearchWholeWords(0);
+SetSearchInline(1);
+SetRegEx(1);
+SetSearchCurrentDoc;
+SetSearchCyclic(0);
+SetSearchForward(1);
+SetSearchEntire(1);
+SetReplaceRespectCaps(1);
+SetReplacePrompt(0);
+SetNotFoundNotify(0);
+SetReplaceNotify(0);
+SetFindStr("\#{<@ }\(\\bibitem|\\item\)");
+SetReplaceStr(" \0");
+SearchReset;
+ReplaceAll;
+SetFindStr("\#{<}{+ }\(\\bibitem|\\item\)");
+SetReplaceStr("\0");
+SearchReset;
+ReplaceAll;
+
+SetTracking(1);
+StopWorking;
+EndGroup;
+Refresh;
+RestoreFind;
+PopTagsandRegisters;
