@@ -108,8 +108,9 @@ BadWinEdt:
    'Установка WinEdt {#AppVersion} {#PublisherName} невозможна!'#13#13
    'Информация об оригинальной (английской) версии WinEdt'#13
    'в регистре отсутствует или испорчена!'#13#13
-   'Переустановите WinEdt {#AppVersion} после чего возобновите'#13
-   'установку WinEdt {#AppVersion} {#PublisherName}', mbCriticalError, MB_OK);
+   'Переустановите WinEdt {#AppVersion} в режиме Admin installation'#13
+   'после чего возобновите установку WinEdt {#AppVersion} {#PublisherName}', 
+   mbCriticalError, MB_OK);
    Result := False;
    goto TotalExit;
 
@@ -121,8 +122,9 @@ BadVersion:
    'версии {#WinEdtFileVersion}, в то время как предустановленный'#13
    'WinEdt имеет версию '+Version+'.'#13#13
    'Установите оригинальный (английский) WinEdt версии'#13
-   '{#WinEdtFileVersion}, после чего возобновите установку'#13
-   'WinEdt {#AppVersion} {#PublisherName}', mbCriticalError, MB_OK);
+   '{#WinEdtFileVersion} в режиме Admin installation,'#13
+   'после чего возобновите установку WinEdt {#AppVersion} {#PublisherName}', 
+   mbCriticalError, MB_OK);
    Result := False;
 
 TotalExit:
