@@ -106,9 +106,9 @@ InstRootFound:
 BadWinEdt:
    MsgBox(
    'Установка WinEdt {#AppVersion} {#PublisherName} невозможна!'#13#13
-   'Информация об оригинальной (английской) версии WinEdt'#13
+   'Информация об оригинальной (английской) версии WinEdt ' +
    'в регистре отсутствует или испорчена!'#13#13
-   'Переустановите WinEdt {#AppVersion} в режиме Admin installation'#13
+   'Переустановите WinEdt {#AppVersion} в режиме ''Admin installation'''#13
    'после чего возобновите установку WinEdt {#AppVersion} {#PublisherName}', 
    mbCriticalError, MB_OK);
    Result := False;
@@ -122,7 +122,7 @@ BadVersion:
    'версии {#WinEdtFileVersion}, в то время как предустановленный'#13
    'WinEdt имеет версию '+Version+'.'#13#13
    'Установите оригинальный (английский) WinEdt версии'#13
-   '{#WinEdtFileVersion} в режиме Admin installation,'#13
+   '{#WinEdtFileVersion} в режиме ''Admin installation'','#13
    'после чего возобновите установку WinEdt {#AppVersion} {#PublisherName}', 
    mbCriticalError, MB_OK);
    Result := False;
