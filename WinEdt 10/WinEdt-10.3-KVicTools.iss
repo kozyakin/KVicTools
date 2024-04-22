@@ -9,12 +9,12 @@
 
 #define AppVersion '10';
 #define MinAppVersion '3';
-#define AppFullVersion AppVersion+'.'+MinAppVersion
 #define Build ReadIni(AddBackslash(SourcePath) +'build', 'Inno Setup', 'Build', '0');
 #define Build Str(Int(Build)+1);
 #expr WriteIni(AddBackslash(SourcePath) +'build', 'Inno Setup', 'Build', Build);
 #define Year GetDateTimeString('yyyy', '', '');
-#define BuildInfo AppFullVersion+'.'+Year+'.'+Build;
+#define BuildInfo AppVersion+'.'+MinAppVersion+'.'+Year+'.'+Build;
+#define WinEdtFileVersion '10.3.2018.507';
 #define WinEdtName 'WinEdt '+AppVersion;
 #define WinEdtTeam 'WinEdt Team';
 #define PublisherName 'KVicTools';
@@ -22,6 +22,7 @@
 [Setup]
 PrivilegesRequired=lowest
 AppName={#WinEdtName} {#PublisherName}
+AppVerName={#WinEdtName} {#PublisherName}
 AppPublisher=Victor Kozyakin
 AppPublisherURL=http://www.iitp.ru/ru/users/46.htm
 AppVersion={#BuildInfo}
@@ -77,18 +78,26 @@ label TotalExit, BadWinEdt, BadVersion, InstRootFound;
 
 begin
 
-  if RegQueryStringValue(HKLM64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{#WinEdtName}', 'InstallLocation', InstRoot)
+  if RegQueryStringValue(HKCU, 'Software\{#WinEdtName}', 'Install Root', InstRoot)
 		then goto InstRootFound;
+
+  if IsWin64 and RegQueryStringValue(HKCU64, 'Software\{#WinEdtName}', 'Install Root', InstRoot)
+		then goto InstRootFound;
+
+  InstRoot:=ExpandConstant('{commonpf}')+'\{#WinEdtTeam}\{#WinEdtName}';
+  if FileExists(InstRoot+'\WinEdt.exe') then goto InstRootFound;
+   
+  InstRoot:=ExpandConstant('{commonpf32}')+'\{#WinEdtTeam}\{#WinEdtName}';
+  if FileExists(InstRoot+'\WinEdt.exe') then goto InstRootFound;
 
   InstRoot:='';
   goto BadWinEdt;
 
 InstRootFound:
 	WinEdtExePath:=InstRoot+'\WinEdt.exe';
-	If RegQueryStringValue(HKLM64, 'Software\Microsoft\Windows\CurrentVersion\Uninstall\{#WinEdtName}', 'DisplayVersion', Version)
-    then
+	If GetVersionNumbersString(WinEdtExePath, Version) then
 		begin
-			if Version = '{#AppFullVersion}' then
+			if Version = '{#WinEdtFileVersion}' then
 			begin
 			Result := True;
 			end else goto BadVersion;
@@ -97,25 +106,24 @@ InstRootFound:
 
 BadWinEdt:
    MsgBox(
-   'Установка WinEdt {#AppFullVersion} {#PublisherName} невозможна!'#13#13
-   'Информация об оригинальной (английской) версии WinEdt ' +
+   'Установка WinEdt {#AppVersion} {#PublisherName} невозможна!'#13#13
+   'Информация об оригинальной (английской) версии WinEdt'#13
    'в регистре отсутствует или испорчена!'#13#13
-   'Переустановите WinEdt {#AppVersion} в режиме ''Admin installation'''#13
-   'после чего возобновите установку WinEdt {#AppVersion} {#PublisherName}', 
-   mbCriticalError, MB_OK);
+   'Переустановите WinEdt {#AppVersion} после чего возобновите'#13
+   'установку WinEdt {#AppVersion} {#PublisherName}', mbCriticalError, MB_OK);
    Result := False;
    goto TotalExit;
 
 BadVersion:
    MsgBox(
-   'Установка WinEdt {#AppFullVersion} {#PublisherName} невозможна!'#13#13
-   'Для установки WinEdt {#AppFullVersion} {#PublisherName} требуется наличие'#13
-   'предустановленного оригинального WinEdt версии {#AppFullVersion},'#13
-   'в то время как предустановленный WinEdt имеет версию '+Version+'.'#13#13
+   'Установка WinEdt {#AppVersion} {#PublisherName} невозможна!'#13#13
+   'Для установки WinEdt {#AppVersion} {#PublisherName} требуется'#13
+   'наличие предустановленного оригинального WinEdt'#13
+   'версии {#WinEdtFileVersion}, в то время как предустановленный'#13
+   'WinEdt имеет версию '+Version+'.'#13#13
    'Установите оригинальный (английский) WinEdt версии'#13
-   '{#AppFullVersion} в режиме ''Admin installation'', после чего возобновите'#13
-   'установку WinEdt {#AppFullVersion} {#PublisherName}', 
-   mbCriticalError, MB_OK);
+   '{#WinEdtFileVersion}, после чего возобновите установку'#13
+   'WinEdt {#AppVersion} {#PublisherName}', mbCriticalError, MB_OK);
    Result := False;
 
 TotalExit:

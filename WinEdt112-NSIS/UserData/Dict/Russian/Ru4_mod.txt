@@ -1,0 +1,55 @@
+----------------------------------------------------------------------
+English: Version 2023/11/07
+
+This  is a modification of  the ru.dic dictionary by Igor  Kotelnikov,
+available  at https://www.winedt.org/dict/Russian.zip,  in which words
+with double variants of the letters "ye" and "yo" are “separated”. The
+purpose of this separation is to  give authors more flexibility in the
+use of words with double  variants of the  letters "ye"  and  "yo". In
+particular,  the dictionary ru_comonn.dic  was  formed from  ru.dic by
+removing all words with  double variants of the letters "ye" and "yo".
+The ru_yo.dic  dictionary contains only words  with double variants of
+the letters "ye" and "yo", in which the letter "yo"  is preferred. The
+ru_ye.dic dictionary contains  only words with  double variants of the
+letters "ye" and "yo", in which the letter "ye" is preferred. Thus, if
+the author  wants to strictly comply  with  the recommendations of the
+Ministry of Education and Science of the Russian Federation, then  the
+dictionaries   ru_comonn.dic   and   ru_yo.dic   (Russian (common)   +
+Russian (yo) in WinEdt) should be  activated. If "free" use of  a word
+with double variants  of  the letters "ye" and "yo" is preferred, then
+all three dictionaries can be activated.
+
+The dictionary assumes  Unicode (utf8) encoding adopted in WinEdt  7+.
+Translation to other encodings seems to be obvious (you can find a lot
+of translation tables on the net).
+
+                                  "Victor Kozyakin" <kozyakin@iitp.ru>
+----------------------------------------------------------------------
+
+----------------------------------------------------------------------
+Russian (UTF8): Версия 2023/11/07
+
+Это модификация словаря ru.dic Игоря Котельникова доступного по адресу
+https://www.winedt.org/dict/Russian.zip, в котором "разделяются" слова
+с  двойными  вариантами  использования букв  "е"  и  "ё".  Цель такого
+разделения в предоставлении авторам  большей  гибкости в использовании
+слов с двойными вариантами использования букв "е"  и "ё". В частности,
+словарь  ru_comonn.dic образован  из  ru.dic  удалением  всех  слов  с
+двойными вариантами использования букв "е"  и  "ё".  Словарь ru_yo.dic
+содержит только  слова с  двойными вариантами использования букв "е" и
+"ё", в которых предпочтение  отдается  букве  "ё".  Словарь  ru_ye.dic
+содержит  только слова с двойными вариантами использования букв "е"  и
+"ё", в которых предпочтение отдается  букве "е".  Таким  образом, если
+автор  хочет   строго   соответствовать   рекомендациям   Министерства
+образования и науки РФ, то следует активировать словари  ru_comonn.dic
+и   ru_yo.dic   (Russian (common)  +  Russian (yo)  в  WinEdt).   Если
+предпочтение отдается  "свободному"  использованию  слова  с  двойными
+вариантами использования букв "е" и "ё", то можно активировать все три
+словаря.
+
+Словарь записан в кодировке  UTF8  и предназначен для редактора WinEdt
+версии 7 и выше. Если хотите, переводите в любую другую кодировку -- в
+сети есть таблицы перевода.
+
+                                  "Victor Kozyakin" <kozyakin@iitp.ru>
+----------------------------------------------------------------------
