@@ -37,13 +37,12 @@ DirExistsWarning=no
 Uninstallable=false
 OutputDir=.
 OutputBaseFilename=setup-WinEdt-{#AppVersion}.{#MinAppVersion}-{#PublisherName}
-SolidCompression=true
 ShowLanguageDialog=yes
 DisableDirPage=true
 DisableReadyPage=true
 WizardStyle=modern
-Compression=lzma2/ultra
-InternalCompressLevel=ultra
+Compression=lzma2
+SolidCompression=yes
 
 [Languages]
 Name: ru; MessagesFile: compiler:Languages\Russian.isl; LicenseFile: License_ru.rtf; InfoBeforeFile: WinEdt_KVicTools_Readme_ru.rtf
