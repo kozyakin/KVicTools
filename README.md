@@ -12,7 +12,7 @@
 
 Добавлен перевод всех элементов интерфейса *WinEdt 10.3 и 11.2* на русский язык, а также существенно дополнен набор сервисных макросов для выполнения повседневных нужд - поиск и чистка мусора, перекодировка документов, поиск неиспользуемых или многократно используемых ссылок и меток и др.
 
-Исходные файлы для построения инсталляторов: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) и [WinEdt 11.2](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%20111)
+Исходные файлы для построения инсталляторов: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) и [WinEdt 11.2](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2011)
 
 ## Другое
 
@@ -55,7 +55,7 @@ Sources to build installers: [MiKTeX](https://github.com/kozyakin/KVicTools/tree
 
 The translation of all elements of the *WinEdt 10.3 and 11.2* interface into Russian has been added, as well as the set of service macros for fulfilling everyday needs has been significantly expanded - searching and cleaning garbage, recoding documents, finding unused or reused links, labels and tags, etc.
 
-Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) and [WinEdt 11.2](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%20111)
+Sources to build installers: [WinEdt 10.3](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2010) and [WinEdt 11.2](https://github.com/kozyakin/KVicTools/tree/main/WinEdt%2011)
 
 ## Other
 
