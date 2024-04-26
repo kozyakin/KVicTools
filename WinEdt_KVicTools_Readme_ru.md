@@ -1,6 +1,6 @@
 # WinEdt KVicTools
 
-Предлагаемые программы являются надстройками над программами WinEdt 10.3 и WinEdt 11.1, добавляющими к ним русский интерфейс и ряд сервисных функций, направленных на облегчение работы с документами в формате TeX.
+Предлагаемые программы являются надстройками над программами WinEdt 10.3 и WinEdt 11.2, добавляющими к ним русский интерфейс и ряд сервисных функций, направленных на облегчение работы с документами в формате TeX.
 
 В частности,
 
@@ -18,7 +18,7 @@
 
 - и т.д., и т.п.
 
-Для просмотра PDF файлов по умолчанию в WinEdt 10.3 используется программа SumatraPDF, а в WinEdt 11.1 программа WinEdtPDF, обладающие возможностями прямого и обратного поиска между TEX документами и их PDF образами.
+Для просмотра PDF файлов по умолчанию в WinEdt 10.3 используется программа SumatraPDF, а в WinEdt 11.2 программа WinEdtPDF, обладающие возможностями прямого и обратного поиска между TEX документами и их PDF образами.
 
 Дополнительная информация и последние новости относительно проекта WinEdt содержатся на сайте <http://www.winedt.com>
 
@@ -46,7 +46,7 @@ In particular,
 
 - etc.
 
-For viewing PDF files WinEdt 10.3 uses SumatraPDF by default and WinEdt 11.1 uses WinEdtPDF, which offers the ability to search forward and backward between TEX documents and their PDF images.
+For viewing PDF files WinEdt 10.3 uses SumatraPDF by default and WinEdt 11.2 uses WinEdtPDF, which offers the ability to search forward and backward between TEX documents and their PDF images.
 
 For more information and latest news about the WinEdt project, please visit  <http://www.winedt.com>.
 
