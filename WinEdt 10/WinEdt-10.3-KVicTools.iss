@@ -30,8 +30,8 @@ AppCopyright=Copyright © {#Year} by Victor Kozyakin
 VersionInfoVersion={#BuildInfo}
 DefaultDirName={userappdata}\{#WinEdtTeam}\{#WinEdtName}
 DefaultGroupName={#WinEdtName}
-LicenseFile=License_ru.rtf
-InfoBeforeFile=WinEdt_KVicTools_Readme_ru.rtf
+LicenseFile=License_ru.txt
+InfoBeforeFile=WinEdt_KVicTools_Readme_ru.txt
 AllowNoIcons=true
 DirExistsWarning=no
 Uninstallable=false
@@ -45,7 +45,7 @@ Compression=lzma2
 SolidCompression=yes
 
 [Languages]
-Name: ru; MessagesFile: compiler:Languages\Russian.isl; LicenseFile: License_ru.rtf; InfoBeforeFile: WinEdt_KVicTools_Readme_ru.rtf
+Name: ru; MessagesFile: compiler:Languages\Russian.isl; LicenseFile: License_ru.txt; InfoBeforeFile: WinEdt_KVicTools_Readme_ru.txt
 
 [Messages]
 BeveledLabel={#PublisherName}

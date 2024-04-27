@@ -12,7 +12,7 @@
 
 - добавлены возможности поиска UNICODE-символов, не присутствующих в стандартных английской и русской клавиатурах, а также замены команд для акцентированных символов их UNIUCODE эквивалентами,
 
-- в WinEdt 10.3 перенесены возможности из WinEdt 11.0 для автоматического выбора программы обработки библиографии BibTex или Biber,
+- в WinEdt 10.3 перенесены возможности из WinEdt 11 для автоматического выбора программы обработки библиографии BibTex или Biber,
 
 - добавлены возможности обработки библиографии с помощью программ *upBibTeX* и *BibTeXu*, а индексов – *mendex*, способных работать с документами в кодировке utf8,
 
@@ -40,7 +40,7 @@ In particular,
 
 - added the ability to search for UNICODE characters not present on the standard English and Russian keyboards, and to replace commands for accented characters with their UNIUCODE equivalents,
 
-- WinEdt 10.3 ported functions from WinEdt 11.0 to automatically select BibTex or Biber bibliography processing program,
+- WinEdt 10.3 ported functions from WinEdt 11 to automatically select BibTex or Biber bibliography processing program,
 
 - added the ability to process bibliographies with the program *upBibtex*, and indexes - *mendex*, which can work with documents in utf8 encoding,
 
