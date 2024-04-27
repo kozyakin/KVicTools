@@ -24,8 +24,8 @@ AppCopyright=Copyright © {#Year} by Victor Kozyakin
 VersionInfoVersion={#BuildInfo}
 DefaultDirName={code:TEXMFLOCAL}
 DefaultGroupName=TeX Live
-LicenseFile=License_ru.txt
-InfoBeforeFile=TeXLive_KVicTools_Readme_ru.txt
+LicenseFile=License.txt
+InfoBeforeFile=Readme.txt
 AllowNoIcons=true
 DirExistsWarning=no
 UninstallDisplayName=TeX Live {#PublisherName}
@@ -43,7 +43,7 @@ Compression=lzma2/ultra
 InternalCompressLevel=ultra
 
 [Languages]
-Name: ru; MessagesFile: compiler:Languages\Russian.isl; LicenseFile: License_ru.txt; InfoBeforeFile: TeXLive_KVicTools_Readme_ru.txt
+Name: ru; MessagesFile: compiler:Languages\Russian.isl; LicenseFile: License.txt; InfoBeforeFile: Readme.txt
 
 [Messages]
 BeveledLabel={#PublisherName}
