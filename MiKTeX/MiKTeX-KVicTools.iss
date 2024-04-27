@@ -25,8 +25,8 @@ AppCopyright=Copyright © {#Year} by Victor Kozyakin
 VersionInfoVersion={#BuildInfo}
 DefaultDirName={commonappdata}\MiKTeX
 DefaultGroupName=MiKTeX
-LicenseFile=License_ru.rtf
-InfoBeforeFile=MiKTex_KVicTools_Readme_ru.rtf
+LicenseFile=License_ru.txt
+InfoBeforeFile=MiKTex_KVicTools_Readme_ru.txt
 AllowNoIcons=true
 DirExistsWarning=no
 UninstallDisplayName=MiKTeX {#PublisherName}
@@ -44,7 +44,7 @@ Compression=lzma2/ultra
 InternalCompressLevel=ultra
 
 [Languages]
-Name: ru; MessagesFile: compiler:Languages\Russian.isl; LicenseFile: License_ru.rtf; InfoBeforeFile: MiKTex_KVicTools_Readme_ru.rtf
+Name: ru; MessagesFile: compiler:Languages\Russian.isl; LicenseFile: License_ru.txt; InfoBeforeFile: MiKTex_KVicTools_Readme_ru.txt
 
 [Messages]
 BeveledLabel={#PublisherName}
