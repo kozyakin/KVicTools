@@ -67,11 +67,11 @@ MUIReset('Изменение окружения');
     MUISet('','font bold','0');
     MUIGet('','text width',7,'.proposition.');
     LetRegNum(4,3);
-    LetRegNum(6,8*%!4+7*6+7*%!7+10);
-    MUISet('','width','%!6');
+    LetRegNum(6,8*%!4+7*6+7*%!7-5);
+    MUISet('','client width','%!6');
     MUIGet('','text height',6,'|'); //button half-height
     LetRegNum(3,%!7+6);
-    MUISet('','height','362');
+    MUISet('','client height','278');
     LetRegNum(5,3);
 
 MUIAdd(%!4,%!4,6*%!4+6*6+7*%!7,3*%!4+5*%!6, 'MyEQ','TGroupBox','','Уравнения');
@@ -118,24 +118,7 @@ MUIAdd(%!4,%!4,6*%!4+6*6+7*%!7,3*%!4+5*%!6, 'MyEQ','TGroupBox','','Уравне�
   MUIAdd(%!5,1+%!4+3*%!6,%!3,0, 'MyButton27','TButton','MyEQ','multline*');
   MUISet('MyButton27','on click', !'LetReg(8,|\begin{multline*}|);LetReg(9,|\end{multline*}|);MUIHide(1);');
 
-MUIAdd(%!4,2+4*%!4+5*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'InEQ','TGroupBox','','В уравнениях');
-  LetRegNum(5,3);
-  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton81','TButton','InEQ','aligned');
-  MUISet('MyButton81','on click', !'LetReg(8,|\begin{aligned}|);LetReg(9,|\end{aligned}|);MUIHide(1);');
-  LetRegNum(5,7+%!5+%!7);
-  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton82','TButton','InEQ','alignedat');
-  MUISet('MyButton82','on click', !'LetReg(8,|\begin{alignedat}|);LetReg(9,|\end{alignedat}|);MUIHide(1);');
-  LetRegNum(5,7+%!5+%!7);
-  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton83','TButton','InEQ','gathered');
-  MUISet('MyButton83','on click', !'LetReg(8,|\begin{gathered}|);LetReg(9,|\end{gathered}|);MUIHide(1);');
-  LetRegNum(5,7+%!5+%!7);
-  MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton84','TButton','InEQ','split');
-  MUISet('MyButton84','on click', !'LetReg(8,|\begin{split}|);LetReg(9,|\end{split}|);MUIHide(1);');
-  LetRegNum(5,7+%!5+%!7);
-  MUIAdd(%!5,%!4+%!6,3*%!3+2,0, 'MyButton85','TButton','InEQ','multlined : требуется пакет mathtools');
-  MUISet('MyButton85','on click', !'LetReg(8,|\begin{multlined}[b][0.9\displaywidth]|);LetReg(9,|\end{multlined}|);MUIHide(1);');
-
-MUIAdd(%!4,3+7*%!4+8*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyTH','TGroupBox','','Теоремы');
+MUIAdd(%!4,2+4*%!4+5*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyTH','TGroupBox','','Теоремы');
   LetRegNum(5,3);
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton31','TButton','MyTH','corollary');
   MUISet('MyButton31','on click', !'LetReg(8,|\begin{corollary}|);LetReg(9,|\end{corollary}|);MUIHide(1);');
@@ -158,7 +141,7 @@ MUIAdd(%!4,3+7*%!4+8*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyTH','TGroupBox','','Т�
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton37','TButton','MyTH','theorem');
   MUISet('MyButton37','on click', !'LetReg(8,|\begin{theorem}|);LetReg(9,|\end{theorem}|);MUIHide(1);');
 
-MUIAdd(%!4,4+10*%!4+11*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyCenter','TGroupBox','','Форматирование');
+MUIAdd(%!4,3+7*%!4+8*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyCenter','TGroupBox','','Форматирование');
   LetRegNum(5,3);
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton41','TButton','MyCenter','center');
   MUISet('MyButton41','on click', !'LetReg(8,|\begin{center}|);LetReg(9,|\end{center}|);MUIHide(1);');
@@ -181,7 +164,7 @@ MUIAdd(%!4,4+10*%!4+11*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyCenter','TGroupBox','
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton47','TButton','MyCenter','verse');
   MUISet('MyButton47','on click', !'LetReg(8,|\begin{verse}|);LetReg(9,|\end{verse}|);MUIHide(1);');
 
-MUIAdd(%!4,5+13*%!4+14*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyArray','TGroupBox','','Массивы, таблицы, рисунки');
+MUIAdd(%!4,4+10*%!4+11*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyArray','TGroupBox','','Массивы, таблицы, рисунки');
   LetRegNum(5,3);
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton51','TButton','MyArray','array');
   MUISet('MyButton51','on click', !'LetReg(8,|\begin{array}|);LetReg(9,|\end{array}|);MUIHide(1);');
@@ -204,7 +187,7 @@ MUIAdd(%!4,5+13*%!4+14*%!6,6*%!4+6*6+7*%!7,2*%!4+3*%!6, 'MyArray','TGroupBox',''
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton57','TButton','MyArray','picture');
   MUISet('MyButton57','on click', !'LetReg(8,|\begin{picture}|);LetReg(9,|\end{picture}|);MUIHide(1);');
 
-MUIAdd(%!4,6+16*%!4+17*%!6,3*%!4+3*6+3*%!7,2*%!4+3*%!6, 'MyItem','TGroupBox','','Списки');
+MUIAdd(%!4,5+13*%!4+14*%!6,3*%!4+3*6+3*%!7,2*%!4+3*%!6, 'MyItem','TGroupBox','','Списки');
   LetRegNum(5,3);
   MUIAdd(%!5,%!4+%!6,%!3,0, 'MyButton61','TButton','MyItem','description');
   MUISet('MyButton61','on click', !'LetReg(8,|\begin{description}|);LetReg(9,|\end{description}|);MUIHide(1);');
@@ -217,7 +200,7 @@ MUIAdd(%!4,6+16*%!4+17*%!6,3*%!4+3*6+3*%!7,2*%!4+3*%!6, 'MyItem','TGroupBox','',
 
   MUIGet('','text width',2,'Задать окружение вручную');
 
-MUIAdd(3*%!4+5*6+6*%!7-%!2-5,6+16*%!4+17*%!6,2*%!4+2*6+%!7+%!2+5,2*%!4+3*%!6, 'MyEnd','TGroupBox','',' ');
+MUIAdd(3*%!4+5*6+6*%!7-%!2-5,5+13*%!4+14*%!6,2*%!4+2*6+%!7+%!2+5,2*%!4+3*%!6, 'MyEnd','TGroupBox','',' ');
   LetRegNum(5,3);
   MUIAdd(%!5,%!4+%!6,%!2+10,0, 'MyButton71','TButton','MyEnd','Задать окружение вручную');
   MUISet('MyButton71','default', '1');

@@ -79,13 +79,13 @@ MUIReset('Перекодировка документа');
     MUISet('','position','1'); // Main Form Center
     MUISet('','font bold','1');
     MUIGet('','text width',7,'ВНИМАНИЕ!____Перед_перекодировкой_текста_убедитесь,_');
-    LetRegNum(6,20+%!7);
-    MUISet('','width','%!6');
+    LetRegNum(6,7+%!7);
+    MUISet('','client width','%!6');
     MUIGet('','text width',7,'ВНИМАНИЕ!___');
     MUIGet('','text height',5,'ВНИМАНИЕ!');
     MUISet('','font bold','0');
-    LetRegNum(4,8*%!5+126);
-    MUISet('','height','%!4');
+    LetRegNum(4,8*%!5+87);
+    MUISet('','client height','%!4');
 
 MUIAdd(0,0,0,6*%!5+12, 'TopPanel','TPanel');
     MUISet('TopPanel','aligned','alTop');

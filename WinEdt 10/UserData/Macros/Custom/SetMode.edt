@@ -87,14 +87,14 @@ MUIReset('Задание кодировки и моды документа');
     MUISet('','position','1'); // Main Form Center
     MUISet('','font bold','1');
     MUIGet('','text width',7,'ВНИМАНИЕ!____Документ_может_быть_НЕОБРАТИМО_ИСПОРЧЕН_');
-    LetRegNum(6,20+%!7);
-    Assign('tmp','20+%!7');
-    MUISet('','width','%!6');
+    LetRegNum(6,7+%!7);
+    Assign('tmp','23+%!7');
+    MUISet('','client width','%!6');
     MUIGet('','text width',7,'ВНИМАНИЕ!__');
     MUIGet('','text height',5,'ВНИМАНИЕ!');
     MUISet('','font bold','0');
-    LetRegNum(4,8*%!5+150);
-    MUISet('','height','%!4');
+    LetRegNum(4,8*%!5+110);
+    MUISet('','client height','%!4');
 
 MUIAdd(0,0,0,6*%!5+12, 'TopPanel','TPanel');
     MUISet('TopPanel','aligned','alTop');
