@@ -1,5 +1,5 @@
-44
-1089357896767993136
+45
+1089357896767798686
 WinEdt 11
 WinEdt #
 1
@@ -7905,7 +7905,7 @@ Zoom_In
 ZoomIn
 
 0
-1
+0
 
 
 Exe('%b\Menus\View\ZoomIn.edt');
@@ -7917,7 +7917,7 @@ Zoom_Out
 ZoomOut
 
 0
-1
+0
 
 
 Exe('%b\Menus\View\ZoomOut.edt');
@@ -7930,7 +7930,7 @@ Reset_Zoom
 ZoomReset
 
 0
-1
+0
 
 
 Exe('%b\Menus\View\ZoomReset.edt');
@@ -7948,8 +7948,8 @@ Erase_Output_Files
 Recycle
 
 0
-1
-
+0
+<%F>%P\%N%T
 
 Exe('%b\Exec\Erase Working Files.edt');
 16497
@@ -7960,8 +7960,8 @@ Quick_Cleanup
 Recycle
 
 0
-1
-
+0
+<%F>%P\%N%T
 
 Exe('%b\Exec\Erase Working Files - Quick.edt');
 24689
@@ -8747,28 +8747,6 @@ Assign("OLD-PDFLATEX","%@('PDFLATEX');");SetEnvVar("PDFLATEX","%$(!|XeTeX-Execut
 
 3
 0
-TeXify2PDF
-TeXify&2PDF
-TeXTeXify2PDF
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Assign("Old-PDFTeXify-Method","%$('PDFTeXify-Method');");Assign("PDFTeXify-Method","2");Exe('%b\Exec\TeX\PDFTeXify.edt');Assign("PDFTeXify-Method","%$('Old-PDFTeXify-Method');");Release("Old-PDFTeXify-Method");
-24657
-
-2
-3
-1
-TeXify>
-&TeXify
-TeXTeXify
-
-0
-1
-
-0
 TeXify+uBibTeX
 TeXify + BibTeXu
 TeXTeXify
@@ -8790,18 +8768,10 @@ TeXTeXify
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
 Exe('%b\Exec\TeX\TeXify.edt');
-24664
+32888
 
 2
 3
-1
-PDF>
-&PDF
-AcroRead
-
-0
-1
-
 0
 PDF_Preview
 Просмотр PD&F
@@ -8837,6 +8807,77 @@ TeXPDFLaTeX
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
 Exe('%b\Exec\TeX\PDFLaTeX.edt');
+24656
+
+0
+LuaLaTeX
+&LuaLaTeX
+TeXLuaLaTeX
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\LuaLaTeX.edt');
+24652
+
+0
+XeLaTeX
+&XeLaTeX
+TeXXeLaTeX
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\XeLaTeX.edt');
+24664
+
+3
+1
+TeXExtra>
+&TeX && Friends
+TeXConTeXt
+
+0
+0
+
+0
+LaTeX
+LaT&eX
+TeXLaTeX
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\LaTeX.edt');
+16460
+
+3
+0
+TeX
+&TeX
+TeXTeX
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\TeX.edt');
+24660
+
+3
+0
+AMSTeX
+&AMSTeX
+TeXAMSTeX
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\AMSTeX.edt');
 0
 
 0
@@ -8851,19 +8892,6 @@ TeXPDFTeX
 Exe('%b\Exec\TeX\PDFTeX.edt');
 0
 
-3
-0
-LuaLaTeX
-LuaLaTeX
-TeXLuaLaTeX
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Exe('%b\Exec\TeX\LuaLaTeX.edt');
-0
-
 0
 LuaTeX
 &LuaTeX
@@ -8874,19 +8902,6 @@ TeXLuaTeX
 "%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
 
 Exe('%b\Exec\TeX\LuaTeX.edt');
-0
-
-3
-0
-XeLaTeX
-XeLaTeX
-TeXXeLaTeX
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Exe('%b\Exec\TeX\XeLaTeX.edt');
 0
 
 0
@@ -8901,6 +8916,44 @@ TeXXeTeX
 Exe('%b\Exec\TeX\XeTeX.edt');
 0
 
+3
+0
+ConTeXt
+&ConTeXt
+TeXConTeXt
+
+4
+0
+"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
+
+Exe('%b\Exec\TeX\ConTeXt.edt');
+0
+
+3
+0
+MetaFont
+Meta&Font
+MetaFont
+
+4
+0
+"%!M=MetaFont"
+
+Exe('%b\Exec\TeX\MetaFont.edt');
+0
+
+0
+MetaPost
+&MetaPost
+MetaPost
+
+4
+0
+"%!M=MetaPost"|"%!M=MetaPost:AUX"
+
+Exe('%b\Exec\TeX\MetaPost.edt');
+0
+
 2
 3
 1
@@ -8909,58 +8962,8 @@ DVI>
 DviView
 
 0
-1
-
 0
-TeXify
-Te&Xify
-TeXTeXify
 
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Exe('%b\Exec\TeX\TeXify.edt');
-32888
-
-3
-0
-LaTeX
-&LaTeX
-TeXLaTeX
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Exe('%b\Exec\TeX\LaTeX.edt');
-16460
-
-0
-TeX
-&TeX
-TeXTeX
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Exe('%b\Exec\TeX\TeX.edt');
-24660
-
-0
-AMSTeX
-&AMSTeX
-TeXAMSTeX
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Exe('%b\Exec\TeX\AMSTeX.edt');
-24641
-
-3
 0
 DVI_Preview
 Просмотр D&VI
@@ -9050,6 +9053,14 @@ Exe('%b\Exec\TeX\ps2pdf.edt');
 
 2
 3
+1
+BibIndex>
+&BibTeX && Index
+Biber
+
+0
+0
+
 0
 uBibTeX
 BibTeX&u / Biber
@@ -9065,7 +9076,7 @@ Exe('%b\Exec\TeX\uBibTeX.edt');
 0
 BibTeX
 &BibTeX / Biber
-BibTeX
+Biber
 
 0
 0
@@ -9099,6 +9110,7 @@ Glossary
 Exe('%b\Exec\TeX\MakeGlossary.edt');
 24647
 
+3
 0
 Make_Nomenclature
 Создать &Nomenclature
@@ -9110,52 +9122,6 @@ Nomenclature
 
 Exe('%b\Exec\TeX\MakeNomenclature.edt');
 49230
-
-3
-1
-TeXExtra>
-&Extra
-TeXConTeXt
-
-0
-1
-
-0
-ConTeXt
-&ConTeXt
-TeXConTeXt
-
-4
-0
-"%!M=TeX"|"%!M=TeX:STY"|"%!M=TeX:AUX"
-
-Exe('%b\Exec\TeX\ConTeXt.edt');
-0
-
-3
-0
-MetaFont
-Meta&Font
-MetaFont
-
-4
-0
-"%!M=MetaFont"
-
-Exe('%b\Exec\TeX\MetaFont.edt');
-0
-
-0
-MetaPost
-Meta&Post
-MetaPost
-
-4
-0
-"%!M=MetaPost"|"%!M=MetaPost:AUX"
-
-Exe('%b\Exec\TeX\MetaPost.edt');
-24653
 
 2
 3
@@ -10308,6 +10274,19 @@ Assign('IMAGES','Huge');Exe('%b\Config\ChangeImages.edt');
 0
 
 2
+3
+0
+Reload_Images
+&Перезагрузить изображения
+Images
+
+0
+0
+
+
+LoadConfig('ConfigEx\ImagesReload.ini',1,1);
+0
+
 3
 0
 Save_Settings
@@ -18114,7 +18093,7 @@ TeX;BibTeX;MetaPost;MetaFont;BST;IST;macrocode|DTX
 \verb:?:
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18164,7 +18143,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb!?!
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18214,7 +18193,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb=?=
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18264,7 +18243,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb+?+
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18314,7 +18293,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb-?-
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18364,7 +18343,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb"?"
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18414,7 +18393,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb|?|
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18464,7 +18443,7 @@ TeX;BibTeX|INS;STY;AUX
 \verb/?/
 
 xclVerbatim
-oclVerbEnvBk
+#F1CBFA
 
 \verb
 
@@ -18802,7 +18781,7 @@ end{comment}
 \begin{equation*} .. \end{equation*}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -18850,7 +18829,7 @@ end{equation*}
 \begin{equation} .. \end{equation}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -18898,7 +18877,7 @@ end{equation}
 \begin{gather*} .. \end{gather*}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -18946,7 +18925,7 @@ end{gather*}
 \begin{gather} .. \end{gather}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -18994,7 +18973,7 @@ end{gather}
 \begin{multline*} .. \end{multline*}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19042,7 +19021,7 @@ end{multline*}
 \begin{multline} .. \end{multline}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19090,7 +19069,7 @@ end{multline}
 \begin{align*} .. \end{align*}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19138,7 +19117,7 @@ end{align*}
 \begin{align} .. \end{align}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19186,7 +19165,7 @@ end{align}
 \begin{alignat*} .. \end{alignat*}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19234,7 +19213,7 @@ end{alignat*}
 \begin{alignat} .. \end{alignat}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19282,7 +19261,7 @@ end{alignat}
 \begin{flalign*} .. \end{flalign*}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19330,7 +19309,7 @@ end{flalign*}
 \begin{flalign} .. \end{flalign}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19378,7 +19357,7 @@ end{flalign}
 \begin{eqnarray*} .. \end{eqnarray*}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19426,7 +19405,7 @@ end{eqnarray*}
 \begin{eqnarray} .. \end{eqnarray}
 
 xclMath
-oclEquationEnvBk
+#BAE1FF
 
 
 
@@ -19474,7 +19453,7 @@ end{eqnarray}
 \begin{array} .. \end{array}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19522,7 +19501,7 @@ end{array}
 \begin{aligned} .. \end{aligned}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19570,7 +19549,7 @@ end{aligned}
 \begin{matrix} .. \end{matrix}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19618,7 +19597,7 @@ end{matrix}
 \begin{pmatrix*} .. \end{pmatrix*}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19666,7 +19645,7 @@ end{pmatrix*}
 \begin{pmatrix} .. \end{pmatrix}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19714,7 +19693,7 @@ end{pmatrix}
 \begin{bmatrix} .. \end{bmatrix}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19762,7 +19741,7 @@ end{bmatrix}
 \begin{vmatrix} .. \end{vmatrix}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19810,7 +19789,7 @@ end{vmatrix}
 \begin{Vmatrix} .. \end{Vmatrix}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19858,7 +19837,7 @@ end{Vmatrix}
 \begin{cases} .. \end{cases}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -19906,7 +19885,7 @@ end{cases}
 \begin{split} .. \end{split}
 
 swclLaTeXArrayEnv
-oclArrayEnvBk
+#DACDFF
 
 
 
@@ -22210,7 +22189,7 @@ TeX
 \[?\]
 
 xclMath
-oclMathEnvBk
+#FFD6D6
 
 
 
@@ -22258,7 +22237,7 @@ TeX;BibTeX|DTX;INS;STY;AUX
 \(?\)
 
 xclMath
-oclMathEnvBk
+#FFD6D6
 
 
 
@@ -23761,7 +23740,7 @@ TikZ
 $$?$$
 
 xclMath
-oclMathEnvBk
+#FFD6D6
 
 
 
@@ -23809,7 +23788,7 @@ $
 $?$
 
 xclMath
-oclMathEnvBk
+#FFD6D6
 
 
 
@@ -25618,7 +25597,7 @@ TeX;BibTeX;MetaPost
 \footnote{?}
 
 SysNone
-oclFootnoteEnvBk
+#C2F5C9
 
 \footnote
 
@@ -25667,7 +25646,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-oclTodoEnvBk
+#FFE0BA
 
 \todo
 
@@ -25716,7 +25695,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-oclTodoEnvBk
+#FFE0BA
 
 \todo
 
@@ -25764,7 +25743,7 @@ TeX;BibTeX|INS;STY;AUX
 \todo{?}
 
 SysNone
-oclTodoEnvBk
+#FFE0BA
 
 \todo
 
@@ -41418,9 +41397,9 @@ slcInfoMenu
 slcInfoDefault
 128
 slcDefault
-0
+2236962
 slcDefaultAlt
-7171437
+8947848
 slcBkColor
 15790320
 16
@@ -41434,7 +41413,7 @@ HTMLHelp('%B\Doc\Help\WinEdt.chm',1,0,'WinEdt/Status Line.html#page_top');
 slcHelp
 25600
 
-7171437
+8947848
 Document View
 1
 1
@@ -41467,7 +41446,7 @@ ShowLineNumbers;
 slcLines
 8405056
 
-7171437
+8947848
 Document Status
 2
 1
@@ -41566,7 +41545,7 @@ Exe('%b\Menus\View\ZoomClick.edt');
 slcViewA
 16711680
 
-7171437
+8947848
 Source Specials
 1
 1
@@ -41577,7 +41556,7 @@ Source Specials
 slcSrc
 5263440
 
-7171437
+8947848
 Main File
 1
 1
@@ -64390,6 +64369,7 @@ Default:TeX Live
 0
 0
 0
+0
 1
 1
 1
@@ -64410,7 +64390,7 @@ Default:TeX Live
 243
 0
 0
-0
+1
 0
 0
 1
@@ -64698,7 +64678,7 @@ Recorded Macro.edt
 7171437
 13395456
 
-512
+506
 bscBookmarkArrow
 #1177FF
 16742161
@@ -64739,11 +64719,11 @@ bscRightMarginText
 SysNone
 16777216
 cclPanelBk
-clBtnFace
+#F0F0F0
 15790320
 cclSplitterBk
-clBtnFace
-15790320
+#E8E8E8
+15263976
 clAccent
 #C6D3EF
 15717318
@@ -65252,20 +65232,20 @@ clYellowGreen
 #9ACD32
 3329434
 dclActiveCloseX
-#980000
-152
+#FFDDDD
+14540287
 dclActiveFormCaption
-#C6D3EF
-15717318
+#6B7891
+9533547
 dclActiveFormCaptionText
-#000080
-8388608
+#F0F0F0
+15790320
 dclActiveFormCaptionTextBold
 SysNone
 16777216
 dclActiveFormFrame
-#002040
-4202496
+#808080
+8421504
 dclInactiveCloseX
 #888080
 8421512
@@ -65402,17 +65382,17 @@ fscTextDelimiters
 clDarkBlue
 9109504
 gclActiveHotTabBk
-#B4CEE2
-14864052
+#A8C7DD
+14534568
 gclActiveHotTabText
-#080808
-526344
-gclActiveTabBk
-#CDE4EF
-15721677
-gclActiveTabText
 #202020
 2105376
+gclActiveTabBk
+#C7E0ED
+15589575
+gclActiveTabText
+#040404
+263172
 gclBtnHot
 #D1DCF1
 15850705
@@ -65420,20 +65400,20 @@ gclBtnPressed
 #C4D2EE
 15651524
 gclHotTabBk
-#DFEBF7
-16247775
+#D2E3F2
+15918034
 gclHotTabText
 #282828
 2631720
 gclTabBk
-clBtnFace
+#F0F0F0
 15790320
 gclTabText
-clBtnText
-0
+#111111
+1118481
 gclTeXGUIBk
-clBtnFace
-15790320
+#F4F4F4
+16053492
 kwcBibTeX
 RGB_9
 16733525
@@ -65614,24 +65594,6 @@ RGB_0
 kwcXWEElements
 RGB_2
 14822282
-oclArrayEnvBk
-#DACDFF
-16764378
-oclEquationEnvBk
-#BAE1FF
-16769466
-oclFootnoteEnvBk
-#C2F5C9
-13235650
-oclMathEnvBk
-#FFD6D6
-14079743
-oclTodoEnvBk
-#FFE0BA
-12247295
-oclVerbEnvBk
-#F1CBFA
-16436209
 RGB_0
 clDarkBlue
 9109504
@@ -65777,14 +65739,14 @@ sclWindowText
 clWindowText
 0
 slcBkColor
-clBtnFace
+#F0F0F0
 15790320
 slcDefault
-clBtnText
-0
+#222222
+2236962
 slcDefaultAlt
-clGrayText
-7171437
+#888888
+8947848
 slcEncodingOther
 #E04040
 4210912
@@ -66164,11 +66126,11 @@ tclAccentBk
 clAccent
 15717318
 tclMainToolbarBk
-clWindow
+#FFFFFF
 16777215
 tclToolbarBk
-clBtnFace
-15790320
+#F8F8F8
+16316664
 tvcClosedGlyph
 #8F8F8F
 9408399
@@ -66247,7 +66209,7 @@ System and Common RGB Colors
 16777216
 
 16777216
-246
+240
 SysNone
 $1000000
 SysBtnFace
@@ -66728,18 +66690,6 @@ clMoneyGreen
 #C0DCC0
 clVividBlue
 #0111FF
-oclEquationEnvBk
-#BAE1FF
-oclMathEnvBk
-#FFD6D6
-oclFootnoteEnvBk
-#C2F5C9
-oclTodoEnvBk
-#FFE0BA
-oclArrayEnvBk
-#DACDFF
-oclVerbEnvBk
-#F1CBFA
 
 Light Mode
 High Contrast Light
@@ -68597,39 +68547,39 @@ clBlack
 0
 88
 cclPanelBk
-clBtnFace
+#F0F0F0
 cclSplitterBk
-clBtnFace
+#E8E8E8
 fclFormBk
 clWindow
 fclFormText
 clWindowText
 tclMainToolbarBk
-clWindow
+#FFFFFF
 tclToolbarBk
-clBtnFace
+#F8F8F8
 tclAccentBk
 clAccent
 gclTeXGUIBk
-clBtnFace
+#F4F4F4
 gclBtnHot
 #D1DCF1
 gclBtnPressed
 #C4D2EE
 gclTabBk
-clBtnFace
+#F0F0F0
 gclTabText
-clBtnText
+#111111
 gclActiveTabBk
-#CDE4EF
+#C7E0ED
 gclActiveTabText
-#202020
+#040404
 gclActiveHotTabBk
-#B4CEE2
+#A8C7DD
 gclActiveHotTabText
-#080808
+#202020
 gclHotTabBk
-#DFEBF7
+#D2E3F2
 gclHotTabText
 #282828
 dtcActBk
@@ -68669,9 +68619,9 @@ dtcModBk
 dtcModText
 #800000
 dclActiveFormCaption
-#C6D3EF
+#6B7891
 dclActiveFormCaptionText
-#000080
+#F0F0F0
 dclActiveFormCaptionTextBold
 SysNone
 dclInactiveFormCaption
@@ -68681,11 +68631,11 @@ clGrayText
 dclInactiveFormCaptionTextBold
 SysNone
 dclActiveFormFrame
-#002040
+#808080
 dclInactiveFormFrame
 #888888
 dclActiveCloseX
-#980000
+#FFDDDD
 dclInactiveCloseX
 #888080
 tvcCustomColor
@@ -68713,11 +68663,11 @@ tvcHotBk
 tvcLines
 #0000FF
 slcBkColor
-clBtnFace
+#F0F0F0
 slcDefault
-clBtnText
+#222222
 slcDefaultAlt
-clGrayText
+#888888
 slcInfoDefault
 clMaroon
 slcInfoWorking
@@ -68975,27 +68925,27 @@ Custom Light Controls
 clAppWorkspace
 #A0A0A0
 cclPanelBk
-#E4E4E4
+#F0F0F0
 cclSplitterBk
-#E0E0E0
+#E8E8E8
 fclFormBk
 clWindow
 fclFormText
 clWindowText
 tclMainToolbarBk
-#F8F8F8
+#FFFFFF
 tclToolbarBk
-#F0F0F0
+#F8F8F8
 tclAccentBk
 clAccent
 gclTeXGUIBk
-#F0F0F0
+#F4F4F4
 gclBtnHot
 #D1DCF1
 gclBtnPressed
 #C4D2EE
 gclTabBk
-#E8E8E8
+#F0F0F0
 gclTabText
 #111111
 gclActiveTabBk
@@ -69051,25 +69001,25 @@ dtcModBk
 dtcModText
 #800000
 dclActiveFormCaption
-#C0D8E8
+#6B7891
 dclActiveFormCaptionText
-#000080
+#F0F0F0
 dclActiveFormCaptionTextBold
 SysNone
 dclInactiveFormCaption
-#E0E0E0
+#F0F0F0
 dclInactiveFormCaptionText
-#606060
+#5F5F5F
 dclInactiveFormCaptionTextBold
 SysNone
 dclActiveFormFrame
-#377197
+#808080
 dclInactiveFormFrame
-#7D7D7D
+#888888
 dclActiveCloseX
-#940000
+#FFDDDD
 dclInactiveCloseX
-#8A8A8A
+#888080
 tvcCustomColor
 clWindow
 tvcCustomBk

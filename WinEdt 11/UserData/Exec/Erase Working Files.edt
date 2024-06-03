@@ -47,7 +47,7 @@
     AddFileItem(1,"TOC Files","*.toc","TeX");
     AddFileItem(1,"OUT Files","*.out","TeX");
     AddFileItem(1,"RUN Files","%N.run.xml","TeX");
-    AddFileItem(1,"BLX Files","%N-blx.bib","TeX");
+    AddFileItem(1,"BLX Files","*-blx.bib","TeX");
     AddFileItem(1,"LISTING Files","*.listing","TeX");
     AddFileItem(1,"TCBTEMP Files","*.tcbtemp","TeX");
     AddFileItem(1,"_TEMP Files","_temp.*","TeX");
