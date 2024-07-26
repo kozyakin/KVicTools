@@ -234,8 +234,11 @@ Loop(!`>
    IfFound(>
      !"Mark(1);>
        GetSel(0,1);>
-       MatchDelimiter(0,0,1,1);>
-       IfOK('','Stop;');>
+       MatchDelimiter(0,0,1,0);>
+       IfOK('','Prompt(|Предыдущее предупреждение обычно появляется |+>
+       |из-за нарушения синтаксиса команд LaTeX.%\%\|+>
+       |Проверьте парность всех скобок в окружении!|,0,1,|LetReg(1,||Error||);|);>
+       Goto(0);RestoreFind; Exit;');>
        IfNum(%!3,%l,'=','Mark(1);MatchDelimiter(0,0,1,1);IfOK('''',''Stop;'');');>
        LetRegNum(3,%l);>
        IfNum(%l*1000+%c+1,%!0,'>=',>
