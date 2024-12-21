@@ -9766,8 +9766,8 @@ Exe('%b\Exec\TeX\GSView.edt');
 0
 
 0
-DVIPS
-&DVIPS
+dvi2ps
+&dvi2ps
 DviPs
 
 0
@@ -16721,7 +16721,7 @@ dvi2pdf
 
 
 0
-DVIPS
+dvi2ps
 
 0
 0
