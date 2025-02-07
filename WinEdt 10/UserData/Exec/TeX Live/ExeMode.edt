@@ -752,7 +752,8 @@
 
 // latexindent
     Assign(!"latexindent-Executable", !|latexindent.exe|);
-    Assign(!"latexindent-Switches", !|-w -l -rv|);
+    Assign(!"latexindent-Switches", !|-w -m -l -rv|);
+
     Assign(!"latexindent-Parameters", !|"%n%t"|);
     Release(!"latexindent-Paper_Size");
     Release(!"latexindent-Paper_Custom_Size");
