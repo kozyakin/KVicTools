@@ -2316,7 +2316,18 @@ IfFileExists('%p\localSettings.yaml',!'CloseFile("%p\localSettings.yaml",1);Dele
 0
 
 2
-3
+0
+tex-fmt
+tex-&fmt
+StepOver
+
+4
+0
+"%!m=TeX"|"%!m=TeX:INS"|"%!m=TeX:DTX"|"%!m=TeX:STY"|"%!m=TeX:AUX"
+
+Exe('%b\Menus\Edit\tex-fmt.edt');
+49226
+
 1
 Format>
 &Формат
@@ -15125,7 +15136,7 @@ Exe('%b\Menus\Popups\BookmarkHelp.edt');
 1
 3
 Toolbar_TeX1
-39
+41
 0
 0
 0
@@ -15271,6 +15282,29 @@ Paste
 
 
 0
+Find
+
+6
+0
+0
+
+
+
+5
+Find
+Find_in_Files
+Replace
+-
+Incremental_Search
+|
+
+1
+0
+0
+
+
+
+0
 latexindent
 
 0
@@ -15289,20 +15323,15 @@ Default;MiKTeX;TeX Live
 
 
 0
-Find
+tex-fmt
 
-6
 0
 0
+0
+Default;MiKTeX;TeX Live
 
 
-
-5
-Find
-Find_in_Files
-Replace
--
-Incremental_Search
+0
 |
 
 1
@@ -64372,7 +64401,7 @@ Default:TeX Live
 0
 0
 1
-1
+0
 1
 1
 0
