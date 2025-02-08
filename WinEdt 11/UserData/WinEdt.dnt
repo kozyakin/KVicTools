@@ -15136,7 +15136,7 @@ Exe('%b\Menus\Popups\BookmarkHelp.edt');
 1
 3
 Toolbar_TeX1
-41
+37
 0
 0
 0
@@ -15296,42 +15296,6 @@ Find_in_Files
 Replace
 -
 Incremental_Search
-|
-
-1
-0
-0
-
-
-
-0
-latexindent
-
-0
-0
-0
-Default;MiKTeX;TeX Live
-
-
-0
-|
-
-1
-0
-0
-
-
-
-0
-tex-fmt
-
-0
-0
-0
-Default;MiKTeX;TeX Live
-
-
-0
 |
 
 1
@@ -15630,7 +15594,7 @@ Notepad
 MS_Paint
 
 Toolbar_TeX2
-44
+47
 0
 0
 0
@@ -15779,12 +15743,21 @@ MiKTeX;TeX Live|Default
 
 
 0
-arara
+latexindent
 
 0
 0
 0
+Default;MiKTeX;TeX Live
 
+
+0
+tex-fmt
+
+0
+0
+0
+Default;MiKTeX;TeX Live
 
 
 0
@@ -15838,6 +15811,24 @@ $Erase_LOT_File
 $Erase_TOC_File
 -
 $Erase_MPX_File
+|
+
+1
+0
+0
+
+
+
+0
+arara
+
+0
+0
+0
+
+
+
+0
 |
 
 1

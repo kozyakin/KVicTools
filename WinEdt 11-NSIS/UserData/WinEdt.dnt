@@ -2316,7 +2316,18 @@ IfFileExists('%p\localSettings.yaml',!'CloseFile("%p\localSettings.yaml",1);Dele
 0
 
 2
-3
+0
+tex-fmt
+tex-&fmt
+StepOver
+
+4
+0
+"%!m=TeX"|"%!m=TeX:INS"|"%!m=TeX:DTX"|"%!m=TeX:STY"|"%!m=TeX:AUX"
+
+Exe('%b\Menus\Edit\tex-fmt.edt');
+49226
+
 1
 Format>
 &Формат
@@ -15125,7 +15136,7 @@ Exe('%b\Menus\Popups\BookmarkHelp.edt');
 1
 3
 Toolbar_TeX1
-39
+37
 0
 0
 0
@@ -15259,24 +15270,6 @@ Paste
 0
 0
 
-
-
-0
-|
-
-1
-0
-0
-
-
-
-0
-latexindent
-
-0
-0
-0
-Default;MiKTeX;TeX Live
 
 
 0
@@ -15601,7 +15594,7 @@ Notepad
 MS_Paint
 
 Toolbar_TeX2
-44
+47
 0
 0
 0
@@ -15750,12 +15743,21 @@ MiKTeX;TeX Live|Default
 
 
 0
-arara
+latexindent
 
 0
 0
 0
+Default;MiKTeX;TeX Live
 
+
+0
+tex-fmt
+
+0
+0
+0
+Default;MiKTeX;TeX Live
 
 
 0
@@ -15809,6 +15811,24 @@ $Erase_LOT_File
 $Erase_TOC_File
 -
 $Erase_MPX_File
+|
+
+1
+0
+0
+
+
+
+0
+arara
+
+0
+0
+0
+
+
+
+0
 |
 
 1
@@ -64372,7 +64392,7 @@ Default:TeX Live
 0
 0
 1
-1
+0
 1
 1
 0

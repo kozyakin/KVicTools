@@ -780,7 +780,6 @@ Assign(!"KillConsoleApp",!"1");
 // latexindent
     Assign(!"latexindent-Executable", !|latexindent.exe|);
     Assign(!"latexindent-Switches", !|-w -m -l -rv|);
-
     Assign(!"latexindent-Parameters", !|"%n%t"|);
     Release(!"latexindent-Paper_Size");
     Release(!"latexindent-Paper_Custom_Size");
@@ -802,5 +801,30 @@ Assign(!"KillConsoleApp",!"1");
     Release(!"latexindent-Hidden_Window");
     Release(!"latexindent-Background_Window");
     Assign(!"latexindent-Pause", !|1|);
+
+// tex-fmt
+    Assign(!"tex-fmt-Executable", !|tex-fmt.exe|);
+    Release(!"tex-fmt-Switches");
+    Assign(!"tex-fmt-Parameters", !|"%n%t"|);
+    Release(!"tex-fmt-Paper_Size");
+    Release(!"tex-fmt-Paper_Custom_Size");
+    Release(!"tex-fmt-Landscape");
+    Release(!"tex-fmt-GUI");
+    Release(!"tex-fmt-High_Priority");
+    Assign(!"tex-fmt-Wait", !|1|);
+    Release(!"tex-fmt-Report");
+    Release(!"tex-fmt-Errors");
+    Release(!"tex-fmt-Warnings");
+    Assign(!"tex-fmt-ExitCode", !|1|);
+    Release(!"tex-fmt-Viewer");
+    Release(!"tex-fmt-View_Search");
+    Release(!"tex-fmt-STD_IO");
+    Release(!"tex-fmt-No_Interaction");
+    Release(!"tex-fmt-C-style-errors");
+    Release(!"tex-fmt-Clean_Build");
+    Assign(!"tex-fmt-WinEdt_Console", !|1|);
+    Release(!"tex-fmt-Hidden_Window");
+    Release(!"tex-fmt-Background_Window");
+    Assign(!"tex-fmt-Pause", !|1|);
 
 End;
