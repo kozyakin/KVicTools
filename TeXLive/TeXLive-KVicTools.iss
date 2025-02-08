@@ -53,6 +53,7 @@ BeveledLabel={#PublisherName}
 [InstallDelete]
 
 [Files]
+Source: "tex-fmt\bin\windows\*.*"; DestDir: "{code:TEXMFDIST}\..\bin\windows"; Flags: overwritereadonly ignoreversion; Components: default
 Source: "fwdrefs\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "gost705bib\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
 Source: "ruenhyph\texmf-local\*.*"; DestDir: "{code:TEXMFLOCAL}"; Flags: recursesubdirs overwritereadonly ignoreversion; Components: default
