@@ -1,43 +1,50 @@
-% !Mode:: "TeX:CP866"
+% !Mode:: "TeX:UTF-8"
+% -----------------------------------------------------------------
+% Начало преамбулы
+%
 \documentclass[12pt]{article}
 \usepackage[T1,T2A]{fontenc}
-\usepackage[cp866]{inputenc}
+\usepackage[utf8]{inputenc}
+% Следующий пакет предназначен стандартной русификации
+% элементов оформления
 \usepackage[english,russian]{babel}
 
 \usepackage{amsfonts,eucal,bm}
 \usepackage[numbers,sort&compress]{natbib}
 
 
+% Следующий пакет предназначен для корректного поиска
+% в PDF-файлах
+\usepackage{mmap}
+
+% Следующий пакет предназначен для задания отступа
+% в первых абзацах секций
+\usepackage{indentfirst}
+
 \setlength{\textwidth}{17cm} \setlength{\textheight}{24.6cm}
 \setlength{\oddsidemargin}{0.5cm} \setlength{\evensidemargin}{0.5cm}
 \setlength{\topmargin}{-1cm}
 
+% Следующие определения \newtheorem... предназначены для
+% ПОСЛЕДОВАТЕЛЬНОЙ нумерации теорем, лемм и т.п. в пределах одной главы
 
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{property}[theorem]{Утверждение}
+\newtheorem{corollary}[theorem]{Следствие}
+\newtheorem{example}[theorem]{Пример}
+\newtheorem{remark}[theorem]{Замечание}
 
-% ������騥 ��।������ \newtheorem... �।�����祭� ���
-% ���������������� �㬥�樨 ⥮६, ���� � �.�. � �।���� ����� �����
-
-
-
-\newtheorem{theorem}{���६�}[section]
-\newtheorem{lemma}[theorem]{�����}
-\newtheorem{definition}[theorem]{��।������}
-\newtheorem{property}[theorem]{�⢥ত����}
-\newtheorem{corollary}[theorem]{�����⢨�}
-\newtheorem{example}[theorem]{�ਬ��}
-\newtheorem{remark}[theorem]{����砭��}
-
-\newcommand{\proof}{\noindent\textsc{������⥫��⢮.\ }}
+\newcommand{\proof}{\noindent\textsc{Доказательство.\ }}
 \newcommand{\qed}{\ \hfill\hspace*{\fill}
 $\vbox{\hrule\hbox{\vrule height1.3ex\hskip1.3ex\vrule}\hrule}$
 \hss\vskip\topsep\relax}
 
 %---------------------------------------------
-% ����� �������� �� ᫥���騥 ���������������� �������
-
-
+% Обратите внимание на следующие ПЕРЕОПРЕДЕЛЕННЫЕ команды
 %
-% ������騥 ��ப� ��������� �㬥��� �ࠢ����� � ������ ᥪ樨 (Section)
+% Следующие строки обновляют нумерацию уравнений в каждой секции (Section)
 %
 %\catcode`@=11
 %\@addtoreset{equation}{section}
@@ -45,6 +52,8 @@ $\vbox{\hrule\hbox{\vrule height1.3ex\hskip1.3ex\vrule}\hrule}$
 
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 
+%---------------------------------------------
+% Начало документа
 \begin{document}
 
 \title{}

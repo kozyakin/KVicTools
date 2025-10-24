@@ -1,21 +1,34 @@
 % !Mode:: "TeX:UTF-8"
 % -----------------------------------------------------------------
+% The WinEdt Pragma Comments below cause lualatex + bibtexu commands
+% to be executed when PDFTeXify is invoked.
+%-------------------------------------------------------------------
+% !PDFTeXify engine = lualatex
+% !BIB Exe = bibtexu
+% !BIB Opt = -H -l ru -o ru
+%-------------------------------------------------------------------
+% The TexStudio Pragma Comments to execute lualatex command when
+% Build&View (F5) or Compile (F6) commands are invoked.
+%--
+% !BIB program = bibtexu
+% !TeX TXS-program:quick = txs:///latexmk -pdf- -lualatex | txs:///view
+% !TeX TXS-program:compile = txs:///lualatex
+%-------------------------------------------------------------------
 % Начало преамбулы
 %
 \documentclass[12pt]{article}
-\usepackage[T1,T2A]{fontenc}
-\usepackage[utf8]{inputenc}
+\usepackage[default,varnothing,newcmbb]{fontsetup}%
+\setmathfont{NewCMMath-Book}[StylisticSet=1,CharacterVariant=1]%
+\setmathfont[version=bold]{NewCMMath-Bold}%
+\usepackage{lualatex-math}
+\usepackage{mathtools}
+\usepackage{mathrsfs}% Must be after fontsetup
+\usepackage{upref}
 % Следующий пакет предназначен стандартной русификации
 % элементов оформления
 \usepackage[english,russian]{babel}
 
-\usepackage{amsfonts,eucal,bm}
 \usepackage[numbers,sort&compress]{natbib}
-
-
-% Следующий пакет предназначен для корректного поиска
-% в PDF-файлах
-\usepackage{mmap}
 
 % Следующий пакет предназначен для задания отступа
 % в первых абзацах секций

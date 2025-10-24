@@ -304,7 +304,7 @@ Assign(!"KillConsoleApp",!"1");
 
 // ChkTeX
     Assign(!"ChkTeX-Executable", !|chktex.exe|);
-    Assign(!"ChkTeX-Switches", !|-o "%N.clg"|);
+    Assign(!"ChkTeX-Switches", !|-wall -e16 -n19 -n21 -n22 -n3 -n30 -n46 -o "%N.clg"|);
     Assign(!"ChkTeX-Parameters", !|"%N%T"|);
     Release(!"ChkTeX-Paper_Size");
     Release(!"ChkTeX-Paper_Custom_Size");

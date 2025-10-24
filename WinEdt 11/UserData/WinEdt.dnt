@@ -44232,18 +44232,11 @@ TeX
 Templates\Doc\Letters.tex
 
 [NextBullet;ScreenCenterLine;]
-LaTeX: Russian (CP866)
+LaTeX: Russian (LuaTex)
 
-TeX:CP866
+TeX:UTF-8
 .tex
-%b\Templates\Doc\Latex-r866.tex
-
-[NextBullet;ScreenCenterLine;]
-LaTeX: Russian (CP1251)
-
-TeX:CP1251
-.tex
-%b\Templates\Doc\Latex-r1251.tex
+%b\Templates\Doc\Latex-luatex.tex
 
 [NextBullet;ScreenCenterLine;]
 LaTeX: Russian (UTF-8)
@@ -44251,6 +44244,13 @@ LaTeX: Russian (UTF-8)
 TeX:UTF-8
 .tex
 %b\Templates\Doc\Latex-rutf8.tex
+
+[NextBullet;ScreenCenterLine;]
+LaTeX: Russian (CP1251)
+
+TeX:CP1251
+.tex
+%b\Templates\Doc\Latex-r1251.tex
 
 [NextBullet;ScreenCenterLine;]
 
