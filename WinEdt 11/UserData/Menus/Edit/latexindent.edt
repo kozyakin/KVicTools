@@ -12,16 +12,16 @@
 
   // Create localSettings.yaml if it doesn't exists already
   IfFileExists(`%p\localSettings.yaml`,!`Relax`,>
-    !`OpenOutput('%p\localSettings.yaml');>
-      WrL('defaultIndent: "  "');>
-      WrL('onlyOneBackUp: 1%\');>
-      WrL('modifyLineBreaks:');>
-      WrL('  condenseMultipleBlankLinesInto: 1');>
-      WrL('  textWrapOptions:');>
-      WrL('    columns: 72');>
-      WrL('    comments:');>
-      WrL('      wrap: 1');>
-      WrL('    huge: overflow%\');>  
+    !`OpenOutput("%p\localSettings.yaml");>
+      WrL("defaultIndent: '  '");>
+      WrL("modifyLineBreaks:");>
+      WrL("  textWrapOptions:");>
+      WrL("    columns: 72");>
+      WrL("    comments:");>
+      WrL("      inheritLeadingSpace: 1");>
+      WrL("      wrap: 1");>
+      WrL("    huge: overflow");>  
+      WrL("onlyOneBackUp: 1%\");>
       CloseOutput;`);
 
   // Display a Dialog for Extra Switches:
