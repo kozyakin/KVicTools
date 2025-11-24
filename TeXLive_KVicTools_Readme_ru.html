@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>TeXLive_KVicTools_Readme_ru</title>
+</head>
+<body><h1 id='tex-live-kvictools'><strong>TeX Live KVicTools</strong></h1>
+<p>Эта программа является надстройкой над пакетом <em>TeX Live</em>, упрощающей и автоматизирующей установку поддержки русско-английских переносов.</p>
+<p>По умолчанию, устанавливается поддержка русско-английских переносов в <em>TeX Live</em>, после чего <em>TeX Live</em> полностью готов к работе с русскими документами, включая поддержку функций библиографической базы данных средствами BiBTeX.</p>
+<p><strong>ВНИМАНИЕ! С 2018г. TeX Live KVicTools более не устанавливает поддержку устаревших шрифтовых пакетов <em>PSCyr</em> и <em>TXCyr</em>.</strong></p>
+<p>В случае, если в преамбуле Ваших файлов встретится строка</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{pscyr}
+</code></pre>
+<p>ее рекомендуется заменить строкой</p>
+<pre><code class='language-latex' lang='latex'>\usepackage{erewhon}
+</code></pre>
+<p>В случае, если в преамбуле Ваших файлов встретится строка</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{txcyr}
+</code></pre>
+<p>ее следует заменить строками</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[proportional,space]{erewhon}
+\usepackage[erewhon,vvarbb]{newtxmath}
+</code></pre>
+<p>При этом вместо</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb]{newtxmath}
+</code></pre>
+<p>может использоваться команда</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb,slantedGreek]{newtxmath}
+</code></pre>
+<p>определяющая отрисовку по умолчанию греческих символов в режиме «италик».</p>
+<p>В слайдах при использовании пакета beamer рекомендуется применять шрифт <em>noto</em>, оптимизированный для web-презентаций</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font
+\usepackage[vvarbb,upint]{notomath}
+</code></pre>
+<p>Пакеты <em>pxcyr</em> и <em>txcyr</em> можно заменить также пакетами <em>temporа</em>, <em>paratype</em> и другими.</p>
+<p>На вопросы, касающиеся <strong>TeX Live KVicTools</strong>, Вам по возможности ответит <a href='mailto:koziakin.vs@mipt.ru'>Victor Kozyakin</a></p>
+<hr />
+<p>This program is an add-on over the <em>TeX Live</em> package that simplifies and automates the installation of support for Russian-English hyphenation.</p>
+<p>By default, support for Russian-English hyphenation is installed in <em>TeX Live</em>, after which <em>TeX Live</em> is completely ready to work with Russian documents, including support for bibliographic database functions using BiBTeX.</p>
+<p><strong>ATTENTION! Since 2018 TeX Live KVicTools no longer installs support for the legacy <em>PSCyr</em> and <em>TXCyr</em> font packages.</strong></p>
+<p>In case the preamble of your files contains the line</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{pscyr}
+</code></pre>
+<p>it is recommended to replace it with the string</p>
+<pre><code class='language-latex' lang='latex'>\usepackage{erewhon}
+</code></pre>
+<p>In case the preamble of your files contains the line</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{txcyr}
+</code></pre>
+<p>it should be replaced with strings</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[proportional,space]{erewhon}
+\usepackage[erewhon,vvarbb]{newtxmath}
+</code></pre>
+<p>Moreover, instead of</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb]{newtxmath}
+</code></pre>
+<p>The command can be used</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb,slantedGreek]{newtxmath}
+</code></pre>
+<p>defining the default rendering of Greek characters in &quot;Italian&quot; mode.</p>
+<p>It is recommended to use <em>noto</em>  font optimized for web presentations in slides when using beamer package</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font
+\usepackage[vvarbb,upint]{notomath}
+</code></pre>
+<p>The <em>pxcyr</em> and <em>txcyr</em> packages can also be replaced with the <em>tempora</em>, <em>paratype</em>, and others.</p>
+<p>Questions regarding <strong>TeX Live KVicTools</strong> will be answered by <a href='mailto:koziakin.vs@mipt.ruu'>Victor Kozyakin</a></p>
+</body>
+</html>

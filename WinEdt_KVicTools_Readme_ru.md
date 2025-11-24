@@ -24,7 +24,7 @@
 
 Вопросы, касающиеся оригинальной версии WinEdt, следует направлять по адресу <support@winedt.com>
 
-На вопросы, касающиеся WinEdt KVicTools, Вам по возможности ответит [Victor Kozyakin](mailto:kozyakin@iitp.ru)
+На вопросы, касающиеся WinEdt KVicTools, Вам по возможности ответит [Victor Kozyakin](mailto:koziakin.vs@mipt.ru)
 
 ---
 
@@ -52,4 +52,4 @@ For more information and latest news about the WinEdt project, please visit  <ht
 
 Questions about the original version of WinEdt should be directed to <support@winedt.com>.
 
-Questions about WinEdt KVicTools will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru).
+Questions about WinEdt KVicTools will be answered by [Victor Kozyakin](mailto:koziakin.vs@mipt.ru).

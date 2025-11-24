@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>MiKTex_KVicTools_Readme_ru</title>
+</head>
+<body><h1 id='miktex-kvictools'><strong>MiKTeX KVicTools</strong></h1>
+<p>Эта программа является надстройкой над пакетом <strong>MiKTeX</strong>, упрощающей и автоматизирующей установку поддержки русского языка.</p>
+<p>По умолчанию, устанавливается поддержка русско-английских переносов в MiKTeX, после чего MiKTeX полностью готов к работе с русскими документами, включая поддержку функций библиографической базы данных средствами BiBTeX.</p>
+<p>Необходимые для работы пакеты и шрифты будут устанавливаться «на лету» --- по мере возникновения в них потребности. Для этого <strong>Вы должны иметь в доступности полный дистрибутив MiKTeX</strong> --- либо на локальном диске или на CD/DVD, либо, имея быстрый и надежный доступ к Интернет.</p>
+<p>В процессе установки пакета <strong>MiKTeX KVicTools</strong> Вам может быть предложено указать расположение файлов (repository) полного дистрибутива MiKTeX.</p>
+<p>Если Вы имеете достаточно быстрое и надежное подключение к Интернету, то рекомендуется в качестве репозитария выбрать из предложенного Вам списка один из интернет-репозитариев MiKTeX.</p>
+<p>Если подключение к Интернету невозможно, то Вам необходимо указать расположение файлов полного дистрибутива MiKTeX на локальном диске или CD/DVD.</p>
+<p>После этого будет произведено обновление Вашей системы MiKTeX, и лишь затем будет запущен собственно инсталлятор пакета MiKTeX KVicTools.</p>
+<p><strong>Пожалуйста, относитесь внимательно к окнам, в которых Вам предлагается выбрать репозитарий MiKTeX, так как в противном случае пакет MiKTeX KVicTools может быть установлен не полностью или с ошибками!</strong></p>
+<p><strong>ВНИМАНИЕ! С 2018г. MiKTeX KVicTools более не устанавливает поддержку устаревших шрифтовых пакетов PSCyr и TXCyr.</strong></p>
+<p>В случае, если в преамбуле Ваших файлов встретится строка</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{pscyr}
+</code></pre>
+<p>ее рекомендуется заменить строкой</p>
+<pre><code class='language-latex' lang='latex'>\usepackage{erewhon}
+</code></pre>
+<p>В случае, если в преамбуле Ваших файлов встретится строка</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{txcyr}
+</code></pre>
+<p>ее следует заменить строками</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[proportional,space]{erewhon}
+\usepackage[erewhon,vvarbb]{newtxmath}
+</code></pre>
+<p>При этом вместо</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb]{newtxmath}
+</code></pre>
+<p>может использоваться команда</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb,slantedGreek]{newtxmath}
+</code></pre>
+<p>определяющая отрисовку по умолчанию греческих символов в режиме «италик».</p>
+<p>В слайдах при использовании пакета beamer рекомендуется применять шрифт <em>noto</em> оптимизированный для web-презентаций</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font
+\usepackage[vvarbb,upint]{notomath}
+</code></pre>
+<p>Пакеты <em>pxcyr</em> и <em>txcyr</em> можно заменить также пакетами <em>temporа</em>, <em>paratype</em> и другими.</p>
+<p>На вопросы, касающиеся <strong>MiKTeX KVicTools</strong>, Вам по возможности ответит <a href='mailto:koziakin.vs@mipt.ru'>Victor Kozyakin</a></p>
+<hr />
+<p>This program is an add-on over the <strong>MiKTeX</strong> package, which simplifies and automates the installation of Russian language support.</p>
+<p>By default, support for Russian-English hyphenation is installed in MiKTeX, after which MiKTeX is completely ready to work with Russian documents, including support for bibliographic database functions by means of BiBTeX.</p>
+<p>The packages and fonts required for work will be installed on the fly --- as the need arises. To do this <strong>you must have the complete MiKTeX distribution available</strong> --- either on a local disk or on a CD / DVD, or having fast and reliable Internet access.</p>
+<p>During the installation of the MiKTeX KVicTools package, you may be asked to specify the location of the files (repository) of the complete MiKTeX distribution kit.</p>
+<p>If you have a sufficiently fast and reliable connection to the Internet, then it is recommended to choose one of the MiKTeX Internet repositories from the list offered to you as a repository.</p>
+<p>If the Internet connection is not possible, then you need to specify the location of the files of the complete MiKTeX distribution kit on a local disk or CD / DVD.</p>
+<p>After that, your MiKTeX system will be updated, and only then the actual installer of the MiKTeX KVicTools package will be launched.</p>
+<p><strong>Please, pay attention to the windows in which you are asked to select the MiKTeX repository, as otherwise the MiKTeX KVicTools package may not be fully installed or with errors!</strong></p>
+<p><strong>ATTENTION! Since 2018. MiKTeX KVicTools no longer installs support for the legacy PSCyr and TXCyr font packages.</strong></p>
+<p>In case the preamble of your files contains the line</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{pscyr}
+</code></pre>
+<p>it is recommended to replace it with the string</p>
+<pre><code class='language-latex' lang='latex'>\usepackage{erewhon}
+</code></pre>
+<p>In case the preamble of your files contains the line</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[...]{txcyr}
+</code></pre>
+<p>it should be replaced with strings</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[proportional,space]{erewhon}
+\usepackage[erewhon,vvarbb]{newtxmath}
+</code></pre>
+<p>Moreover, instead of</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb]{newtxmath}
+</code></pre>
+<p>The command can be used</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[vvarbb,slantedGreek]{newtxmath}
+</code></pre>
+<p>defining the default rendering of Greek characters in &quot;Italian&quot; mode.</p>
+<p>It is recommended to use noto font optimized for web presentations in slides when using the beamer package</p>
+<pre><code class='language-latex' lang='latex'>\usepackage[scaled=1.12]{nimbusmononarrow}% typewriter font
+\usepackage[vvarbb,upint]{notomath}
+</code></pre>
+<p>The <em>pxcyr</em> and <em>txcyr</em> packages can also be replaced with the tempora, paratype, and others.</p>
+<p>Questions regarding <strong>MiKTeX KVicTools</strong>, if possible, will be answered by <a href='mailto:koziakin.vs@mipt.ru'>Victor Kozyakin</a></p>
+</body>
+</html>
