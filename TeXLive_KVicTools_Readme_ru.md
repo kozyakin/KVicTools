@@ -54,7 +54,7 @@
 
 Пакеты *pxcyr* и *txcyr* можно заменить также пакетами *temporа*, *paratype* и другими.
 
-На вопросы, касающиеся **TeX Live KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:koziakin.vs@mipt.ru)
+На вопросы, касающиеся **TeX Live KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:victor.kozyakin@yandex.ru)
 
 ---
 
@@ -112,4 +112,4 @@ It is recommended to use *noto*  font optimized for web presentations in slides 
 
 The *pxcyr* and *txcyr* packages can also be replaced with the *tempora*, *paratype*, and others.
 
-Questions regarding **TeX Live KVicTools** will be answered by [Victor Kozyakin](mailto:koziakin.vs@mipt.ruu)
+Questions regarding **TeX Live KVicTools** will be answered by [Victor Kozyakin](mailto:victor.kozyakin@yandex.ru)

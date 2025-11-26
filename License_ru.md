@@ -2,7 +2,7 @@
 
 © 2010-2025 Victor Kozyakin
 © 2010-2025 Виктор Козякин
-Email: [Victor Kozyakin](mailto:koziakin.vs@mipt.ru)
+Email: [Victor Kozyakin](mailto:victor.kozyakin@yandex.ru)
 URL: <https://kozyakin.github.io/>
 
 Настоящая программа является бесплатным программным обеспечением, предназначенным для некоммерческого использования в научных и образовательных целях. Это означает следующее:
