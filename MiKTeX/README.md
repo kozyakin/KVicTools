@@ -66,7 +66,7 @@
 
 Пакеты *pxcyr* и *txcyr* можно заменить также пакетами *temporа*, *paratype* и другими.
 
-На вопросы, касающиеся **MiKTeX KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:kozyakin@iitp.ru)
+На вопросы, касающиеся **MiKTeX KVicTools**, Вам по возможности ответит [Victor Kozyakin](mailto:victor.kozyakin@yandex.ru)
 
 ---
 
@@ -136,4 +136,4 @@ It is recommended to use noto font optimized for web presentations in slides whe
 
 The *pxcyr* and *txcyr* packages can also be replaced with the *tempora*, *paratype*, and others.
 
-Questions regarding **MiKTeX KVicTools**, if possible, will be answered by [Victor Kozyakin](mailto:kozyakin@iitp.ru)
+Questions regarding **MiKTeX KVicTools**, if possible, will be answered by [Victor Kozyakin](mailto:victor.kozyakin@yandex.ru)
