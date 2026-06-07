@@ -154,7 +154,7 @@ Assign(!"KillConsoleApp",!"1");
 
 // XeLaTeX
     Assign(!"XeLaTeX-Executable", !|xelatex.exe|);
-    Release(!"XeLaTeX-Switches");
+    Assign(!"XeLaTeX-Switches", !|--shell-escape|);
     Assign(!"XeLaTeX-Parameters", !|"%N%T"|);
     Release(!"XeLaTeX-Paper_Size");
     Release(!"XeLaTeX-Paper_Custom_Size");
@@ -179,7 +179,7 @@ Assign(!"KillConsoleApp",!"1");
 
 // XeTeX
     Assign(!"XeTeX-Executable", !|xetex.exe|);
-    Release(!"XeTeX-Switches");
+    Assign(!"XeTeX-Switches", !|--shell-escape|);
     Assign(!"XeTeX-Parameters", !|"%N%T"|);
     Release(!"XeTeX-Paper_Size");
     Release(!"XeTeX-Paper_Custom_Size");
@@ -204,7 +204,7 @@ Assign(!"KillConsoleApp",!"1");
 
 // LuaLaTeX
     Assign(!"LuaLaTeX-Executable", !|lualatex.exe|);
-    Release(!"LuaLaTeX-Switches");
+    Assign(!"LuaLaTeX-Switches", !|--shell-escape|);
     Assign(!"LuaLaTeX-Parameters", !|"%N%T"|);
     Release(!"LuaLaTeX-Paper_Size");
     Release(!"LuaLaTeX-Paper_Custom_Size");
@@ -229,7 +229,7 @@ Assign(!"KillConsoleApp",!"1");
 
 // LuaTeX
     Assign(!"LuaTeX-Executable", !|luatex.exe|);
-    Release(!"LuaTeX-Switches");
+    Assign(!"LuaTeX-Switches", !|--shell-escape|);
     Assign(!"LuaTeX-Parameters", !|"%N%T"|);
     Release(!"LuaTeX-Paper_Size");
     Release(!"LuaTeX-Paper_Custom_Size");
