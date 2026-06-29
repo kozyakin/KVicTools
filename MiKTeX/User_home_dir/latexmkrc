@@ -1,3 +1,4 @@
 $bibtex='bibtexu -H -l ru -o ru %B';
 $makeindex = 'upmendex %O -o %D %S';
+$max_repeat = 7;
 
